@@ -53,5 +53,14 @@ namespace AutoTests.Demo.Steps
             Assert.AreEqual(true, model.Enabled);
             Assert.AreEqual(123, model.SubModel.Value);
         }
+
+        [When(@"save next values:")]
+        public void SaveNextValues(Dictionary<Calculated, Calculated> dictionary)
+        {
+            foreach (var pair in dictionary)
+            {
+                application.Stores.ObjectStore[pair.Key.Get<string>()] = pair.Value.Get();
+            }
+        }
     }
 }

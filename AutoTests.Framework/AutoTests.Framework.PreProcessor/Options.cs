@@ -21,13 +21,8 @@ namespace AutoTests.Framework.PreProcessor
             this.dependencies = dependencies;
             Assets = dependencies.GetAssets().ToList();
             Imports = new List<string>();
-            References = new List<string>();
-            Parsers = GetDefaultParsers();
-        }
 
-        private List<Parser> GetDefaultParsers()
-        {
-            return new List<Parser>
+            Parsers = new List<Parser>
             {
                 ParseTrivia,
                 ParseDouble,
@@ -36,6 +31,11 @@ namespace AutoTests.Framework.PreProcessor
                 ParseString,
                 ParseString2,
                 ParseOperators
+            };
+
+            References = new List<string>
+            {
+                "Microsoft.CSharp"
             };
         }
 

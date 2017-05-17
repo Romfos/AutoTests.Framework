@@ -31,3 +31,11 @@ Scenario: test vertical table
 	Then test vertical table:
 	| Title    | Enabled | Value |
 	| @[Title] | true    | 123   |
+
+Scenario: test store expressions
+	When save next values:
+	| Name         | Value                             |
+	| first value  | @1                                |
+	| second value | @[first value] + 5                |
+	| last value   | @[second value]  -  [first value] |
+	Then store 'last value' should contain '@5'

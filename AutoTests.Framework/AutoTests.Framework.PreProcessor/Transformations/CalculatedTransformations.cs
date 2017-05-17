@@ -1,4 +1,6 @@
-﻿using AutoTests.Framework.Core.Transformations;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoTests.Framework.Core.Transformations;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.PreProcessor.Transformations
@@ -16,6 +18,12 @@ namespace AutoTests.Framework.PreProcessor.Transformations
         public Calculated Transform(string source)
         {
             return new Calculated(dependencies.Compiler, source);
+        }
+
+        [StepArgumentTransformation]
+        public Dictionary<Calculated, Calculated> Transform(Table table)
+        {
+            return table.Rows.ToDictionary(x => Transform(x["Name"]), x => Transform(x["Value"]));
         }
     }
 }
