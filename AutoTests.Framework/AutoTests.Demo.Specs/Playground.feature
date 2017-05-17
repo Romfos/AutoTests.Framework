@@ -39,3 +39,10 @@ Scenario: test store expressions
 	| second value | @[first value] + 5                |
 	| last value   | @[second value]  -  [first value] |
 	Then store 'last value' should contain '@5'
+
+Scenario: Model transformation with attributes test
+	Then test model attributes:
+	| Name    | Value | Attribute |
+	| Title   | ABC   | @Disabled |
+	| Enabled | true  |           |
+	| Value   | 123   |           |

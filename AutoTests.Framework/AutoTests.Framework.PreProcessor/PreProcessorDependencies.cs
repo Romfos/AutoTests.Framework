@@ -19,13 +19,15 @@ namespace AutoTests.Framework.PreProcessor
 
         public Options Options => ObjectContainer.Resolve<Options>();
 
+        internal Assembly[] Assemblies => ObjectContainer.Resolve<Assembly[]>();
+
         public override void Setup()
         {
         }
 
         public IEnumerable<Asset> GetAssets()
         {
-            return ObjectContainer.Resolve<Assembly[]>()
+            return Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => x.IsSubclassOf(typeof(Asset)))
                 .Select(x => (Asset) ObjectContainer.Resolve(x));

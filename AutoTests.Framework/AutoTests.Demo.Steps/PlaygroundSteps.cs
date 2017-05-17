@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
+using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
@@ -61,6 +62,18 @@ namespace AutoTests.Demo.Steps
             {
                 application.Stores.ObjectStore[pair.Key.Get<string>()] = pair.Value.Get();
             }
+        }
+
+        [Then(@"test model attributes:")]
+        public void TestModelAttributes(ParentModel model)
+        {
+            Assert.AreEqual("ABC", model.Name);
+            Assert.AreEqual(true, model.Enabled);
+            Assert.AreEqual(123, model.SubModel.Value);
+
+            Assert.AreEqual(false, PropertyLink.Get(() => model.Name).Enabled);
+            Assert.AreEqual(false, PropertyLink.Get(() => model.Enabled).Enabled);
+            Assert.AreEqual(true, PropertyLink.Get(() => model.SubModel.Value).Enabled);
         }
     }
 }

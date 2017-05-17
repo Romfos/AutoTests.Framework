@@ -21,12 +21,13 @@ namespace AutoTests.Framework.PreProcessor
 
             scriptOptions = ScriptOptions.Default
                 .AddReferences(options.References)
+                .AddReferences(dependencies.Assemblies)
                 .AddImports(options.Imports);
         }
 
         public T Compile<T>(string soruce)
         {
-            return (T)Convert.ChangeType(Compile(soruce), typeof(T));
+            return (T) Compile(soruce);
         }
 
         public object Compile(string soruce)

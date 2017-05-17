@@ -46,6 +46,7 @@
     <Compile Include="Application.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Models\SubModel.cs" />
+    <Compile Include="PreProcessor\Assets\AttributesAsset.cs" />
     <Compile Include="PreProcessor\DemoOptions.cs" />
     <Compile Include="PreProcessor\Tokens\StoreToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

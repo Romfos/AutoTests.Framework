@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoTests.Framework.Models.PropertyAttributes;
 
 namespace AutoTests.Framework.Models.Transformations
 {
@@ -50,6 +51,7 @@ namespace AutoTests.Framework.Models.Transformations
         private void SetupPropertyLink(PropertyLink propertyLink, Prototype prototype)
         {
             TransformValue(propertyLink, prototype.Value);
+            TransformAttributes(propertyLink, prototype.Attributes);
         }
 
         private void TransformValue(PropertyLink propertyLink, string source)
@@ -57,6 +59,16 @@ namespace AutoTests.Framework.Models.Transformations
             propertyLink.Value = Convert.ChangeType(
                 dependencies.Compiler.Compile(source),
                 propertyLink.PropertyInfo.PropertyType);
+        }
+
+        private void TransformAttributes(PropertyLink propertyLink, string source)
+        {
+            if (string.IsNullOrEmpty(source))
+            {
+                return;
+            }
+
+            propertyLink.Attributes.Add(dependencies.Compiler.Compile<PropertyAttribute>(source));
         }
     }
 }

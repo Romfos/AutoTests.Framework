@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models.Exceptions;
@@ -42,6 +43,18 @@ namespace AutoTests.Framework.Models.Transformations
 
         private Prototype[] TransformHorizonalTable(Table table)
         {
+            CheckHorizonalTableConstraints(table);
+
+            bool containAttributes = table.ContainsColumn("Attribute");
+
+            var prototypes = table.Rows.Select(x =>
+                new Prototype(x["Name"], x["Value"], containAttributes ? x["Attribute"] : string.Empty));
+
+            return prototypes.ToArray();
+        }
+
+        private void CheckHorizonalTableConstraints(Table table)
+        {
             if (!table.ContainsColumn("Name"))
             {
                 throw new TransformationException("Table should contain 'Name' column");
@@ -50,16 +63,23 @@ namespace AutoTests.Framework.Models.Transformations
             {
                 throw new TransformationException("Table should contain 'Value' column");
             }
-            if (table.Header.Any(x => x != "Name" || x != "Value"))
+
+            string[] columns =
+            {
+                "Name",
+                "Value",
+                "Attribute"
+            };
+
+            if (!table.Header.All(columns.Contains))
             {
                 throw new TransformationException("Table contian unavailable columns");
             }
-            return table.Rows.Select(x => new Prototype(x["Name"], x["Value"])).ToArray();
         }
 
         private IEnumerable<Prototype[]> TransformVerticalTable(Table table)
         {
-            return table.Rows.Select(x => x.Select(y => new Prototype(y.Key, y.Value)).ToArray());
+            return table.Rows.Select(x => x.Select(y => new Prototype(y.Key, y.Value, String.Empty)).ToArray());
         }
     }
 }
