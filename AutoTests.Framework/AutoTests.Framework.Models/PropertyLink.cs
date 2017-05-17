@@ -20,14 +20,6 @@ namespace AutoTests.Framework.Models
             Attributes = GetPropertyAttributes();
         }
 
-        public static PropertyLink Get<T>(Expression<Func<T>> expression)
-        {
-            var body = expression.Body as MemberExpression;
-            var getModel = Expression.Lambda<Func<Model>>(body.Expression).Compile();
-            var propertyInfo = body.Member as PropertyInfo;
-            return getModel().GetModelInfo().GetPropertyLinks().Single(x => x.PropertyInfo == propertyInfo);
-        }
-
         public string Name => CheckAttribute<NameAttribute>()
             ? GetAttribute<NameAttribute>().Value
             : PropertyInfo.Name;
@@ -46,6 +38,20 @@ namespace AutoTests.Framework.Models
                     Attributes.Add(new DisabledAttribute());
                 }
             }
+        }
+
+        public object Value
+        {
+            get => PropertyInfo.GetValue(Model);
+            set => PropertyInfo.SetValue(Model, value);
+        }
+
+        public static PropertyLink Get<T>(Expression<Func<T>> expression)
+        {
+            var body = expression.Body as MemberExpression;
+            var getModel = Expression.Lambda<Func<Model>>(body.Expression).Compile();
+            var propertyInfo = body.Member as PropertyInfo;
+            return getModel().GetModelInfo().GetPropertyLinks().Single(x => x.PropertyInfo == propertyInfo);
         }
 
         private List<PropertyAttribute> GetPropertyAttributes()
