@@ -65,6 +65,10 @@
       <Project>{04B3EA91-2351-4B90-B41F-E26A5B35285C}</Project>
       <Name>AutoTests.Framework.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj">
+      <Project>{1fb0d9f1-c585-48ff-a22b-74719ccead38}</Project>
+      <Name>AutoTests.Framework.PreProcessor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

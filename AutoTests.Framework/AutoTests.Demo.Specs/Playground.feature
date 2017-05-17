@@ -17,3 +17,11 @@ Scenario: Store test
 Scenario: Store link test
 	When save '@1 + 2' as 'key name'
 	Then store 'key name' should contain '@[key name]'
+
+Scenario: compiler in transformations
+	When save 'ABC' as 'Title'
+	Then test model transformation:
+	| Name    | Value    |
+	| Title   | @[Title] |
+	| Enabled | true     |
+	| Value   | 123      |

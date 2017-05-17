@@ -4,6 +4,13 @@ namespace AutoTests.Framework.Models.Transformations
 {
     public class ModelTransformations
     {
+        private readonly ModelsDependencies dependencies;
+
+        public ModelTransformations(ModelsDependencies dependencies)
+        {
+            this.dependencies = dependencies;
+        }
+
         public T Transform<T>(Prototype[] prototypes)
             where T : Model, new()
         {
@@ -47,7 +54,9 @@ namespace AutoTests.Framework.Models.Transformations
 
         private void TransformValue(PropertyLink propertyLink, string source)
         {
-            propertyLink.Value = Convert.ChangeType(source, propertyLink.PropertyInfo.PropertyType);
+            propertyLink.Value = Convert.ChangeType(
+                dependencies.Compiler.Compile(source),
+                propertyLink.PropertyInfo.PropertyType);
         }
     }
 }

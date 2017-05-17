@@ -5,6 +5,7 @@ using System.Reflection;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models.Transformations;
+using AutoTests.Framework.PreProcessor;
 using BoDi;
 
 namespace AutoTests.Framework.Models
@@ -14,6 +15,8 @@ namespace AutoTests.Framework.Models
         public ModelsDependencies(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
+
+        internal Compiler Compiler => ObjectContainer.Resolve<Compiler>();
 
         public ModelTransformations ModelTransformations => ObjectContainer.Resolve<ModelTransformations>();
 
