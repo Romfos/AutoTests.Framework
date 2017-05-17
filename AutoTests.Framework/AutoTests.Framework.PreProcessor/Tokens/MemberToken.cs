@@ -19,7 +19,7 @@ namespace AutoTests.Framework.PreProcessor.Tokens
                 if (asset.GetType().GetMembers().Any(x => x.Name == Value))
                 {
                     State = asset;
-                    return $"@.{Value}";
+                    return $"&.{Value}";
                 }
             }
             throw new NotImplementedException();

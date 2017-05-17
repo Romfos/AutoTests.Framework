@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Core;
+﻿using AutoTests.Demo.Common.PreProcessor;
+using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
@@ -31,7 +32,10 @@ namespace AutoTests.Demo.Common
                 typeof(Application).Assembly,
                 typeof(PreProcessorDependencies).Assembly,
             });
-            
+
+            ObjectContainer.RegisterTypeAs<Options>(typeof(DemoOptions));
+
+
             Models.Setup();
             PreProcessor.Setup();
             Stores.Setup();

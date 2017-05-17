@@ -4,11 +4,11 @@ namespace AutoTests.Framework.PreProcessor
 {
     public class Runtime
     {
-        public Token[] Token { get; }
+        public Token[] Tokens { get; }
 
-        public Runtime(Token[] token)
+        public Runtime(Token[] tokens)
         {
-            Token = token;
+            Tokens = tokens;
         }
     }
 }

@@ -67,7 +67,7 @@ namespace AutoTests.Framework.PreProcessor
 
         private string Process(Token token, int index)
         {
-            return token.Process().Replace("@", $"Tokens[{index}].State");
+            return token.Process().Replace("&", $"Tokens[{index}].State");
         }
     }
 }
