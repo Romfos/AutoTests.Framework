@@ -1,5 +1,6 @@
 ﻿using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
+using AutoTests.Framework.PreProcessor.Transformations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
@@ -21,6 +22,12 @@ namespace AutoTests.Demo.Steps
             Assert.AreEqual("ABC", model.Name);
             Assert.AreEqual(true, model.Enabled);
             Assert.AreEqual(123, model.SubModel.Value);
+        }
+
+        [Then(@"test compiler '(.*)' equal '(.*)'")]
+        public void TestCompilerEqual(Calculated expected, Calculated actual)
+        {
+            Assert.AreEqual(expected.Get(), actual.Get());
         }
     }
 }

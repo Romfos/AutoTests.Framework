@@ -1,6 +1,7 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
+using AutoTests.Framework.PreProcessor;
 using BoDi;
 
 namespace AutoTests.Demo.Common
@@ -13,6 +14,8 @@ namespace AutoTests.Demo.Common
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
 
+        public PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
+
         public StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
@@ -23,8 +26,12 @@ namespace AutoTests.Demo.Common
                 typeof(Dependencies).Assembly,
                 typeof(ModelsDependencies).Assembly,
                 typeof(Application).Assembly,
+                typeof(PreProcessorDependencies).Assembly,
             });
+            
             Models.Setup();
+            PreProcessor.Setup();
+            StepArgumentTransformations.Setup();
         }
     }
 }
