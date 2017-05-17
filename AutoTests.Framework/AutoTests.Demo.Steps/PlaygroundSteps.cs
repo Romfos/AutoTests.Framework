@@ -1,4 +1,6 @@
-﻿using AutoTests.Demo.Common;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -40,6 +42,16 @@ namespace AutoTests.Demo.Steps
         public void StoreShouldContain(string key, Calculated value)
         {
             Assert.AreEqual(value.Get(), application.Stores.ObjectStore[key]);
+        }
+
+        [Then(@"test vertical table:")]
+        public void TestVerticalTable(IEnumerable<ParentModel> models)
+        {
+            var model = models.Single();
+
+            Assert.AreEqual("ABC", model.Name);
+            Assert.AreEqual(true, model.Enabled);
+            Assert.AreEqual(123, model.SubModel.Value);
         }
     }
 }

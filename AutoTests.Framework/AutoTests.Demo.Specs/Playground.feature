@@ -25,3 +25,9 @@ Scenario: compiler in transformations
 	| Title   | @[Title] |
 	| Enabled | true     |
 	| Value   | 123      |
+
+Scenario: test vertical table
+	When save 'ABC' as 'Title'
+	Then test vertical table:
+	| Title    | Enabled | Value |
+	| @[Title] | true    | 123   |
