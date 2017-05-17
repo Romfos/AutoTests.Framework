@@ -29,5 +29,17 @@ namespace AutoTests.Demo.Steps
         {
             Assert.AreEqual(expected.Get(), actual.Get());
         }
+
+        [When(@"save '(.*)' as '(.*)'")]
+        public void SaveAs(Calculated value, string key)
+        {
+            application.Stores.ObjectStore[key] = value.Get();
+        }
+
+        [Then(@"store '(.*)' should contain '(.*)'")]
+        public void StoreShouldContain(string key, Calculated value)
+        {
+            Assert.AreEqual(value.Get(), application.Stores.ObjectStore[key]);
+        }
     }
 }

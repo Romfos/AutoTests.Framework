@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Core;
+using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
@@ -11,6 +12,8 @@ namespace AutoTests.Demo.Common
         public Application(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
+
+        public StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
 
@@ -31,6 +34,7 @@ namespace AutoTests.Demo.Common
             
             Models.Setup();
             PreProcessor.Setup();
+            Stores.Setup();
             StepArgumentTransformations.Setup();
         }
     }
