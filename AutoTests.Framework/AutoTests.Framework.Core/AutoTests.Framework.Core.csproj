@@ -43,6 +43,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dependencies.cs" />
+    <Compile Include="Exceptions\ClassConstraintException.cs" />
+    <Compile Include="Exceptions\ConstraintException.cs" />
+    <Compile Include="Exceptions\PropertyConstraintException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">
       <Project>{04b3ea91-2351-4b90-b41f-e26a5b35285c}</Project>
       <Name>AutoTests.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj">
+      <Project>{05ba50f8-ec90-406d-af94-aee1bebf0998}</Project>
+      <Name>AutoTests.Framework.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
