@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.PreProcessor.Exceptions;
@@ -26,7 +27,7 @@ namespace AutoTests.Framework.PreProcessor
 
         public T Compile<T>(string soruce)
         {
-            return (T) Compile(soruce);
+            return (T)Convert.ChangeType(Compile(soruce), typeof(T));
         }
 
         public object Compile(string soruce)

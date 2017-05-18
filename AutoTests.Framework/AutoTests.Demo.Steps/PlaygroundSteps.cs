@@ -92,7 +92,7 @@ namespace AutoTests.Demo.Steps
         public void CheckLoginPage(LoginModel loginModel)
         {
             var page = application.Web.GetPage<LoginPage>();
-            var context = application.Web.GetContex<DemoContext>();
+            var context = application.Web.GetContext<DemoContext>();
 
             page.Login(loginModel);
             

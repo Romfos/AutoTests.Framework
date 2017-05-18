@@ -9,7 +9,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/Romfos/AutoTests.Framework</projectUrl>
     <description>Plugin for specflow</description>
-    <releaseNotes>Small impovements and refactroing</releaseNotes>
     <tags>Specflow AutoTests</tags>
     <dependencies>
       <dependency id="AutoTests.Framework.Core" version="$version$" />

@@ -20,7 +20,7 @@ namespace AutoTests.Framework.Web
             return ObjectContainer.Resolve<T>();
         }
 
-        public T GetContex<T>()
+        public T GetContext<T>()
             where T : Context
         {
             return ObjectContainer.Resolve<T>();

@@ -68,7 +68,7 @@ namespace AutoTests.Framework.Models.Transformations
                 return;
             }
 
-            propertyLink.Attributes.Add(dependencies.Compiler.Compile<PropertyAttribute>(source));
+            propertyLink.Attributes.Add((PropertyAttribute)dependencies.Compiler.Compile(source));
         }
     }
 }
