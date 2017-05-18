@@ -1,6 +1,6 @@
 ﻿namespace AutoTests.Framework.Web
 {
-    public abstract class Control
+    public abstract class Control : PageObject
     {
     }
 }

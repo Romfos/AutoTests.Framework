@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
+using AutoTests.Demo.Common.Web;
 using AutoTests.Demo.Common.Web.Pages.Login;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
@@ -85,6 +86,20 @@ namespace AutoTests.Demo.Steps
             Assert.AreEqual("UsernameInput locator", page.UsernameInput.Locator);
             Assert.AreEqual("PasswordInput locator", page.PasswordInput.Locator);
             Assert.AreEqual("LoginButton locator", page.LoginButton.Locator);
+        }
+
+        [Then(@"check login page")]
+        public void CheckLoginPage(LoginModel loginModel)
+        {
+            var page = application.Web.GetPage<LoginPage>();
+            var context = application.Web.GetContex<DemoContext>();
+
+            page.Login(loginModel);
+            
+            Assert.AreEqual(3, context.Log.Count);
+            Assert.AreEqual("SetValue(UsernameInput locator, User1)", context.Log[0]);
+            Assert.AreEqual("SetValue(PasswordInput locator, Pass1)", context.Log[1]);
+            Assert.AreEqual("Click(LoginButton locator)", context.Log[2]);
         }
     }
 }

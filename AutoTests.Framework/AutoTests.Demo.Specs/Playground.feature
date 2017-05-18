@@ -49,3 +49,9 @@ Scenario: Model transformation with attributes test
 
 Scenario: check page setup
 	Then check login page setup
+
+Scenario: check login page
+	Then check login page
+	| Name     | Value |
+	| Username | User1 |
+	| Password | Pass1 |

@@ -1,4 +1,5 @@
 ﻿using AutoTests.Demo.Common.Web.Controls;
+using AutoTests.Framework.Web.Binding;
 
 namespace AutoTests.Demo.Common.Web.Pages.Login
 {
@@ -10,6 +11,19 @@ namespace AutoTests.Demo.Common.Web.Pages.Login
 
         public LoginPage(Application application) : base(application)
         {
+        }
+
+        private Binder<LoginModel> GetLoginModelBinder(LoginModel loginModel)
+        {
+            return new Binder<LoginModel>(loginModel)
+                .Bind(() => loginModel.Username, UsernameInput)
+                .Bind(() => loginModel.Password, PasswordInput);
+        }
+
+        public void Login(LoginModel loginModel)
+        {
+            GetLoginModelBinder(loginModel).SetValue();
+            LoginButton.Click();
         }
     }
 }

@@ -50,6 +50,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\Bind.cs" />
+    <Compile Include="Binding\Binder.cs" />
+    <Compile Include="Binding\Contracts\IClick.cs" />
+    <Compile Include="Binding\Contracts\IContract.cs" />
+    <Compile Include="Binding\Contracts\IDisplayed.cs" />
+    <Compile Include="Binding\Contracts\IEnabled.cs" />
+    <Compile Include="Binding\Contracts\IGetValue.cs" />
+    <Compile Include="Binding\Contracts\ISelected.cs" />
+    <Compile Include="Binding\Contracts\ISetValue.cs" />
+    <Compile Include="Binding\IBind.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="IWebDriverFactory.cs" />

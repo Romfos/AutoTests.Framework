@@ -55,6 +55,7 @@
     <Compile Include="Web\Controls\Input.cs" />
     <Compile Include="Web\DemoContext.cs" />
     <Compile Include="Web\Pages\DemoPage.cs" />
+    <Compile Include="Web\Pages\Login\LoginModel.cs" />
     <Compile Include="Web\Pages\Login\LoginPage.cs" />
   </ItemGroup>
   <ItemGroup>
