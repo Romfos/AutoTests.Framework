@@ -64,6 +64,10 @@
       <Project>{1fb0d9f1-c585-48ff-a22b-74719ccead38}</Project>
       <Name>AutoTests.Framework.PreProcessor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AutoTests.Framework.Web\AutoTests.Framework.Web.csproj">
+      <Project>{5b9d6f33-1d7f-441e-8a68-47d5c3d4eadd}</Project>
+      <Name>AutoTests.Framework.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Demo.Steps", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PreProcessor", "AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj", "{1FB0D9F1-C585-48FF-A22B-74719CCEAD38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Web", "AutoTests.Framework.Web\AutoTests.Framework.Web.csproj", "{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{1FB0D9F1-C585-48FF-A22B-74719CCEAD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FB0D9F1-C585-48FF-A22B-74719CCEAD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FB0D9F1-C585-48FF-A22B-74719CCEAD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{016AAFE8-8E2F-4CA0-9142-D4E4071D49E3} = {95CB81F5-91BF-47EA-8034-277314D5FADA}
 		{3FBAEF12-4307-420C-911E-A5D3B11EF2A2} = {95CB81F5-91BF-47EA-8034-277314D5FADA}
 		{1FB0D9F1-C585-48FF-A22B-74719CCEAD38} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
+		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
 	EndGlobalSection
 EndGlobal
