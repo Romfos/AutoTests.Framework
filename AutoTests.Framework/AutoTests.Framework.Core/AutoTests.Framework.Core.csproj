@@ -56,6 +56,8 @@
     <Compile Include="Stores\StoresDependencies.cs" />
     <Compile Include="Transformations\StepArgumentTransformations.cs" />
     <Compile Include="Transformations\StepArgumentTransformationsDependencies.cs" />
+    <Compile Include="Utils\ResourceUtils.cs" />
+    <Compile Include="Utils\UtilsDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

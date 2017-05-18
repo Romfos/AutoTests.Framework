@@ -2,6 +2,7 @@
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
+using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
 using BoDi;
@@ -13,6 +14,8 @@ namespace AutoTests.Demo.Common
         public Application(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
+
+        public UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
         public StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
 
@@ -35,7 +38,7 @@ namespace AutoTests.Demo.Common
 
             ObjectContainer.RegisterTypeAs<Options>(typeof(DemoOptions));
 
-
+            Utils.Setup();
             Models.Setup();
             PreProcessor.Setup();
             Stores.Setup();
