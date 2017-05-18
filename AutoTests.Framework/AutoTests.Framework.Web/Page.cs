@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using AutoTests.Framework.Core.Exceptions;
 using Newtonsoft.Json.Linq;
 
 namespace AutoTests.Framework.Web
@@ -9,6 +10,7 @@ namespace AutoTests.Framework.Web
     {
         protected Page(WebDependencies dependencies)
         {
+            CheckConstraints();
             SetupControls(dependencies);
         }
 
@@ -69,6 +71,18 @@ namespace AutoTests.Framework.Web
                 .GetProperties(bindingFlags)
                 .Where(x => x.PropertyType.IsSubclassOf(typeof(Control)))
                 .Where(x => !x.GetIndexParameters().Any());
+        }
+
+        public void CheckConstraints()
+        {
+            foreach (var property in GetPageControlProperties())
+            {
+                if (!property.CanWrite || !property.SetMethod.IsPrivate)
+                {
+                    throw new PropertyConstraintException(property,
+                        "Property '{0}' should contain private setter");
+                }
+            }
         }
     }
 }
