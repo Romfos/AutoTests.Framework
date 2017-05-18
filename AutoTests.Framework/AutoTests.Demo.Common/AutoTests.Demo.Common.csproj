@@ -50,6 +50,12 @@
     <Compile Include="PreProcessor\DemoOptions.cs" />
     <Compile Include="PreProcessor\Tokens\StoreToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Controls\Button.cs" />
+    <Compile Include="Web\Controls\DemoControl.cs" />
+    <Compile Include="Web\Controls\Input.cs" />
+    <Compile Include="Web\DemoContext.cs" />
+    <Compile Include="Web\Pages\DemoPage.cs" />
+    <Compile Include="Web\Pages\Login\LoginPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">
@@ -72,6 +78,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Web\Pages\Login\Locators.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

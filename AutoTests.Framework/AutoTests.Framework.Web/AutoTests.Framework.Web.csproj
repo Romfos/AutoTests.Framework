@@ -50,7 +50,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context.cs" />
+    <Compile Include="Control.cs" />
+    <Compile Include="IWebDriverFactory.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">

@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
+using AutoTests.Demo.Common.Web.Pages.Login;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -74,6 +75,16 @@ namespace AutoTests.Demo.Steps
             Assert.AreEqual(false, PropertyLink.Get(() => model.Name).Enabled);
             Assert.AreEqual(false, PropertyLink.Get(() => model.Enabled).Enabled);
             Assert.AreEqual(true, PropertyLink.Get(() => model.SubModel.Value).Enabled);
+        }
+
+        [Then(@"check login page setup")]
+        public void CheckLoginPageSetup()
+        {
+            var page = application.Web.GetPage<LoginPage>();
+
+            Assert.AreEqual("UsernameInput locator", page.UsernameInput.Locator);
+            Assert.AreEqual("PasswordInput locator", page.PasswordInput.Locator);
+            Assert.AreEqual("LoginButton locator", page.LoginButton.Locator);
         }
     }
 }

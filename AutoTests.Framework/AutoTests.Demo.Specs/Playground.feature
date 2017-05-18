@@ -46,3 +46,6 @@ Scenario: Model transformation with attributes test
 	| Title   | ABC   | @Disabled |
 	| Enabled | true  |           |
 	| Value   | 123   |           |
+
+Scenario: check page setup
+	Then check login page setup
