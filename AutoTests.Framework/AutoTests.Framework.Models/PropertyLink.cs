@@ -13,7 +13,7 @@ namespace AutoTests.Framework.Models
         public PropertyInfo PropertyInfo { get; }
         public List<PropertyAttribute> Attributes { get; }
 
-        public PropertyLink(Model model, PropertyInfo propertyInfo)
+        internal PropertyLink(Model model, PropertyInfo propertyInfo)
         {
             Model = model;
             PropertyInfo = propertyInfo;

@@ -12,7 +12,7 @@ namespace AutoTests.Framework.Models
         private readonly Model model;
         private readonly PropertyLink[] propertyLinks;
 
-        public ModelInfo(Model model)
+        internal ModelInfo(Model model)
         {
             this.model = model;
             CheckConstraints();
