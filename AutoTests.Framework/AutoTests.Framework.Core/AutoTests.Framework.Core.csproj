@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dependencies.cs" />
+    <Compile Include="Exceptions\AssertException.cs" />
     <Compile Include="Exceptions\ClassConstraintException.cs" />
     <Compile Include="Exceptions\ConstraintException.cs" />
     <Compile Include="Exceptions\PropertyConstraintException.cs" />
@@ -54,6 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stores\ObjectStore.cs" />
     <Compile Include="Stores\StoresDependencies.cs" />
+    <Compile Include="Tests\Assert.cs" />
+    <Compile Include="Tests\StepsBase.cs" />
+    <Compile Include="Tests\TestsDependencies.cs" />
     <Compile Include="Transformations\StepArgumentTransformations.cs" />
     <Compile Include="Transformations\StepArgumentTransformationsDependencies.cs" />
     <Compile Include="Utils\ResourceUtils.cs" />

@@ -4,35 +4,35 @@ using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
 using AutoTests.Demo.Common.Web;
 using AutoTests.Demo.Common.Web.Pages.Login;
+using AutoTests.Framework.Core.Tests;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Demo.Steps
 {
     [Binding]
-    public class PlaygroundSteps
+    public class PlaygroundSteps : StepsBase
     {
         private readonly Application application;
 
-        public PlaygroundSteps(Application application)
+        public PlaygroundSteps(Application application) : base(application.Tests)
         {
             this.application = application;
         }
-        
+
         [Then(@"test model transformation:")]
         public void TestModelTransformation(ParentModel model)
         {
-            Assert.AreEqual("ABC", model.Name);
-            Assert.AreEqual(true, model.Enabled);
-            Assert.AreEqual(123, model.SubModel.Value);
+            Assert.AreEqual("ABC", model.Name, "Problem with model transformations");
+            Assert.AreEqual(true, model.Enabled, "Problem with model transformations");
+            Assert.AreEqual(123, model.SubModel.Value, "Problem with model transformations");
         }
 
         [Then(@"test compiler '(.*)' equal '(.*)'")]
         public void TestCompilerEqual(Calculated expected, Calculated actual)
         {
-            Assert.AreEqual(expected.Get(), actual.Get());
+            Assert.AreEqual(expected.Get(), actual.Get(), "Problem with compiler");
         }
 
         [When(@"save '(.*)' as '(.*)'")]
@@ -44,7 +44,7 @@ namespace AutoTests.Demo.Steps
         [Then(@"store '(.*)' should contain '(.*)'")]
         public void StoreShouldContain(string key, Calculated value)
         {
-            Assert.AreEqual(value.Get(), application.Stores.ObjectStore[key]);
+            Assert.AreEqual(value.Get(), application.Stores.ObjectStore[key], "Problem with store");
         }
 
         [Then(@"test vertical table:")]
@@ -52,9 +52,9 @@ namespace AutoTests.Demo.Steps
         {
             var model = models.Single();
 
-            Assert.AreEqual("ABC", model.Name);
-            Assert.AreEqual(true, model.Enabled);
-            Assert.AreEqual(123, model.SubModel.Value);
+            Assert.AreEqual("ABC", model.Name, "Problem with vertical table transformation");
+            Assert.AreEqual(true, model.Enabled, "Problem with vertical table transformation");
+            Assert.AreEqual(123, model.SubModel.Value, "Problem with vertical table transformation");
         }
 
         [When(@"save next values:")]
@@ -69,13 +69,15 @@ namespace AutoTests.Demo.Steps
         [Then(@"test model attributes:")]
         public void TestModelAttributes(ParentModel model)
         {
-            Assert.AreEqual("ABC", model.Name);
-            Assert.AreEqual(true, model.Enabled);
-            Assert.AreEqual(123, model.SubModel.Value);
+            Assert.AreEqual("ABC", model.Name, "Problem with attribute transformation");
+            Assert.AreEqual(true, model.Enabled, "Problem with attribute transformation");
+            Assert.AreEqual(123, model.SubModel.Value, "Problem with attribute transformation");
 
-            Assert.AreEqual(false, PropertyLink.Get(() => model.Name).Enabled);
-            Assert.AreEqual(false, PropertyLink.Get(() => model.Enabled).Enabled);
-            Assert.AreEqual(true, PropertyLink.Get(() => model.SubModel.Value).Enabled);
+            Assert.AreEqual(false, PropertyLink.Get(() => model.Name).Enabled, "Problem with attribute transformation");
+            Assert.AreEqual(false, PropertyLink.Get(() => model.Enabled).Enabled,
+                "Problem with attribute transformation");
+            Assert.AreEqual(true, PropertyLink.Get(() => model.SubModel.Value).Enabled,
+                "Problem with attribute transformation");
         }
 
         [Then(@"check login page setup")]
@@ -83,9 +85,9 @@ namespace AutoTests.Demo.Steps
         {
             var page = application.Web.GetPage<LoginPage>();
 
-            Assert.AreEqual("UsernameInput locator", page.UsernameInput.Locator);
-            Assert.AreEqual("PasswordInput locator", page.PasswordInput.Locator);
-            Assert.AreEqual("LoginButton locator", page.LoginButton.Locator);
+            Assert.AreEqual("UsernameInput locator", page.UsernameInput.Locator, "Problem with login page setup");
+            Assert.AreEqual("PasswordInput locator", page.PasswordInput.Locator, "Problem with login page setup");
+            Assert.AreEqual("LoginButton locator", page.LoginButton.Locator, "Problem with login page setup");
         }
 
         [Then(@"check login page")]
@@ -95,11 +97,13 @@ namespace AutoTests.Demo.Steps
             var context = application.Web.GetContext<DemoContext>();
 
             page.Login(loginModel);
-            
-            Assert.AreEqual(3, context.Log.Count);
-            Assert.AreEqual("SetValue(UsernameInput locator, User1)", context.Log[0]);
-            Assert.AreEqual("SetValue(PasswordInput locator, Pass1)", context.Log[1]);
-            Assert.AreEqual("Click(LoginButton locator)", context.Log[2]);
+
+            Assert.AreEqual(3, context.Log.Count, "Problem with login page binding");
+            Assert.AreEqual("SetValue(UsernameInput locator, User1)", context.Log[0],
+                "Problem with login page binding");
+            Assert.AreEqual("SetValue(PasswordInput locator, Pass1)", context.Log[1],
+                "Problem with login page binding");
+            Assert.AreEqual("Click(LoginButton locator)", context.Log[2], "Problem with login page binding");
         }
     }
 }

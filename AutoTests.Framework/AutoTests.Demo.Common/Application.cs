@@ -1,6 +1,7 @@
 ﻿using AutoTests.Demo.Common.PreProcessor;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
+using AutoTests.Framework.Core.Tests;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
@@ -26,6 +27,8 @@ namespace AutoTests.Demo.Common
 
         public PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
 
+        public TestsDependencies Tests => ObjectContainer.Resolve<TestsDependencies>();
+
         public StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
@@ -41,6 +44,7 @@ namespace AutoTests.Demo.Common
 
             ObjectContainer.RegisterTypeAs<Options>(typeof(DemoOptions));
 
+            Tests.Setup();
             Utils.Setup();
             Models.Setup();
             PreProcessor.Setup();
