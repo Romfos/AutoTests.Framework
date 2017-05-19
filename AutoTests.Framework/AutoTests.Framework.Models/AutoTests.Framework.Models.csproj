@@ -48,6 +48,7 @@
     <Compile Include="Comparator\Results\IncorrectValue.cs" />
     <Compile Include="Comparator\Results\Result.cs" />
     <Compile Include="Exceptions\TransformationException.cs" />
+    <Compile Include="Extensions\AssertExtensions.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="ModelInfo.cs" />
     <Compile Include="ModelsDependencies.cs" />

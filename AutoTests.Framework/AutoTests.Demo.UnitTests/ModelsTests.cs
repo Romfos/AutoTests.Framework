@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using AutoTests.Demo.Common.Models;
+using AutoTests.Framework.Core.Tests;
 using AutoTests.Framework.Models;
-using AutoTests.Framework.Models.Comparator;
+using AutoTests.Framework.Models.Extensions;
 using AutoTests.Framework.Models.PropertyAttributes;
+using BoDi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assert = AutoTests.Framework.Core.Tests.Assert;
 
@@ -11,7 +13,7 @@ namespace AutoTests.Demo.UnitTests
     [TestClass]
     public class ModelsTests
     {
-        private Assert Assert { get; } = new Assert();
+        private Assert Assert { get; } = new Assert(new TestsDependencies(new ObjectContainer()));
 
         [TestMethod]
         public void ModelSetupTest()
@@ -61,8 +63,6 @@ namespace AutoTests.Demo.UnitTests
         [TestMethod]
         public void ModelComparatorTests()
         {
-            var comparator = new ModelComparator();
-
             var expected = new ParentModel
             {
                 Name = "name1",
@@ -77,13 +77,7 @@ namespace AutoTests.Demo.UnitTests
                 SubModel = {Value = 2}
             };
 
-            var results = comparator.Compare(expected, actual).ToArray();
-
-            Assert.AreEqual(2, results.Length, "Incorrect comparator work");
-            Assert.AreEqual("Property 'Title' contain incorrect value. Expected: 'name1'. Actual: 'name2'",
-                results[0].ToString(), "Incorrect comparator work");
-            Assert.AreEqual("Property 'Value' contain incorrect value. Expected: '1'. Actual: '2'",
-                results[1].ToString(), "Incorrect comparator work");
+            Assert.AreModelEqual(expected, actual, "Incorrect comparator work");
         }
     }
 }

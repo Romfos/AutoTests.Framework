@@ -7,6 +7,13 @@ namespace AutoTests.Framework.Core.Tests
 {
     public class Assert
     {
+        public TestsDependencies Dependencies { get; }
+
+        public Assert(TestsDependencies dependencies)
+        {
+            Dependencies = dependencies;
+        }
+
         public void Batch(params Action<Assert>[] actions)
         {
             var exceptions = new List<AssertException>();
@@ -67,7 +74,7 @@ namespace AutoTests.Framework.Core.Tests
                 throw new AssertException(message);
             }
         }
-        
+
         public void IsTrue(bool actual, string message)
         {
             if (!actual)
