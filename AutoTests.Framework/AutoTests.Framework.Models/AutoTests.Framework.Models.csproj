@@ -43,6 +43,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparator\ModelComparator.cs" />
+    <Compile Include="Comparator\Results\ActualNotFound.cs" />
+    <Compile Include="Comparator\Results\IncorrectValue.cs" />
+    <Compile Include="Comparator\Results\Result.cs" />
     <Compile Include="Exceptions\TransformationException.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="ModelInfo.cs" />
