@@ -37,6 +37,8 @@ namespace AutoTests.Framework.Web
             return (Control) Activator.CreateInstance(controlType, arguments);
         }
 
+        public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
+
         public override void Setup()
         {
         }
