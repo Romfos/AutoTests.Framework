@@ -4,7 +4,7 @@ using AutoTests.Demo.Common;
 using AutoTests.Demo.Common.Models;
 using AutoTests.Demo.Common.Web;
 using AutoTests.Demo.Common.Web.Pages.Login;
-using AutoTests.Framework.Core.Tests;
+using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Transformations;
 using TechTalk.SpecFlow;
@@ -16,7 +16,7 @@ namespace AutoTests.Demo.Steps
     {
         private readonly Application application;
 
-        public PlaygroundSteps(Application application) : base(application.Tests)
+        public PlaygroundSteps(Application application) : base(application.Steps)
         {
             this.application = application;
         }

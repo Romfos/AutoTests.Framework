@@ -1,19 +1,19 @@
 ﻿using System.Linq;
 using AutoTests.Demo.Common.Models;
-using AutoTests.Framework.Core.Tests;
+using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.Models.Comparator;
 using AutoTests.Framework.Models.PropertyAttributes;
 using BoDi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Assert = AutoTests.Framework.Core.Tests.Assert;
+using Assert = AutoTests.Framework.Core.Steps.Assert;
 
 namespace AutoTests.Demo.UnitTests
 {
     [TestClass]
     public class ModelsTests
     {
-        private Assert Assert { get; } = new Assert(new TestsDependencies(new ObjectContainer()));
+        private Assert Assert { get; } = new Assert(new StepsDependencies(new ObjectContainer()));
 
         [TestMethod]
         public void ModelSetupTest()

@@ -1,5 +1,5 @@
 ﻿using AutoTests.Demo.Common;
-using AutoTests.Framework.Core.Tests;
+using AutoTests.Framework.Core.Steps;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Demo.Steps
@@ -10,7 +10,7 @@ namespace AutoTests.Demo.Steps
         private readonly Application application;
         private bool activated;
         
-        public StartupSteps(Application application) : base(application.Tests)
+        public StartupSteps(Application application) : base(application.Steps)
         {
             this.application = application;
         }

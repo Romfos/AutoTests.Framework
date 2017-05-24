@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoTests.Framework.Core.Exceptions;
 
-namespace AutoTests.Framework.Core.Tests
+namespace AutoTests.Framework.Core.Steps
 {
     public class Assert
     {
-        public TestsDependencies Dependencies { get; }
+        public StepsDependencies Dependencies { get; }
 
-        public Assert(TestsDependencies dependencies)
+        public Assert(StepsDependencies dependencies)
         {
             Dependencies = dependencies;
         }

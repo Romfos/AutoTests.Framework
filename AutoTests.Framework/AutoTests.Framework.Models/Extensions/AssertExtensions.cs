@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoTests.Framework.Core.Exceptions;
-using AutoTests.Framework.Core.Tests;
+using AutoTests.Framework.Core.Steps;
 
 namespace AutoTests.Framework.Models.Extensions
 {

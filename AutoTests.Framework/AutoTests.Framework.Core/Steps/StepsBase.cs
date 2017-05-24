@@ -1,10 +1,10 @@
-﻿namespace AutoTests.Framework.Core.Tests
+﻿namespace AutoTests.Framework.Core.Steps
 {
     public abstract class StepsBase
     {
         protected Assert Assert { get; }
 
-        protected StepsBase(TestsDependencies dependencies)
+        protected StepsBase(StepsDependencies dependencies)
         {
             Assert = dependencies.Assert;
         }

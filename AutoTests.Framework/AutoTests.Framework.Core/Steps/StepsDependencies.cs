@@ -1,10 +1,10 @@
 ﻿using BoDi;
 
-namespace AutoTests.Framework.Core.Tests
+namespace AutoTests.Framework.Core.Steps
 {
-    public class TestsDependencies : Dependencies
+    public class StepsDependencies : Dependencies
     {
-        public TestsDependencies(ObjectContainer objectContainer) : base(objectContainer)
+        public StepsDependencies(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
 
