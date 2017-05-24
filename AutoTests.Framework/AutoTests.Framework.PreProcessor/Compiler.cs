@@ -25,22 +25,22 @@ namespace AutoTests.Framework.PreProcessor
                 .AddImports(options.Imports);
         }
 
-        public T Compile<T>(string soruce)
+        public T Compile<T>(string source)
         {
-            return (T)Convert.ChangeType(Compile(soruce), typeof(T));
+            return (T)Convert.ChangeType(Compile(source), typeof(T));
         }
 
-        public object Compile(string soruce)
+        public object Compile(string source)
         {
-            if (soruce.Trim().StartsWith("@"))
+            if (source.Trim().StartsWith("@"))
             {
-                soruce = soruce.Trim().Substring(1);
-                var tokens = Parse(soruce).ToArray();
+                source = source.Trim().Substring(1);
+                var tokens = Parse(source).ToArray();
                 var roslynCode = Process(tokens);
                 var runtime = new Runtime(tokens);
                 return CSharpScript.EvaluateAsync(roslynCode, scriptOptions, runtime).Result;
             }
-            return soruce;
+            return source;
         }
 
         private IEnumerable<Token> Parse(string soruce)
