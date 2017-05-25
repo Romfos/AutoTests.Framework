@@ -27,7 +27,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 ParseAssetMember,
                 ParseString,
                 ParseString2,
-                ParseStoreLinkToken,
+                ParseStoreLink,
                 ParseOperators
             };
 
@@ -120,7 +120,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
             return false;
         }
         
-        private Token ParseStoreLinkToken(Stream stream)
+        private Token ParseStoreLink(Stream stream)
         {
             return stream.ReadToken()
                 .Read('[', false)
