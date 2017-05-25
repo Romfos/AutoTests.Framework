@@ -30,6 +30,7 @@ namespace AutoTests.Framework.PreProcessor
                 ParseIdentificator,
                 ParseString,
                 ParseString2,
+                ParseStoreLinkToken,
                 ParseOperators
             };
 
@@ -100,6 +101,16 @@ namespace AutoTests.Framework.PreProcessor
                 .Read(x => char.IsLetter(x) || x == '_')
                 .ReadWhile(x => char.IsLetterOrDigit(x) || x == '_')
                 .Result(() => dependencies.CreateToken<MemberToken>());
+        }
+
+        private Token ParseStoreLinkToken(Stream stream)
+        {
+            return stream.ReadToken()
+                .Read('[', false)
+                .Read(x => x != ']')
+                .ReadWhile(x => x != ']')
+                .Read(']', false)
+                .Result(() => dependencies.CreateToken<StoreLinkToken>());
         }
     }
 }

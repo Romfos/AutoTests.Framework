@@ -131,6 +131,7 @@
     <Compile Include="Runtime.cs" />
     <Compile Include="Tokens\DirectToken.cs" />
     <Compile Include="Tokens\MemberToken.cs" />
+    <Compile Include="Tokens\StoreLinkToken.cs" />
     <Compile Include="Tokens\StringToken.cs" />
     <Compile Include="Tokens\Token.cs" />
     <Compile Include="Transformations\Calculated.cs" />

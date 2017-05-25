@@ -41,9 +41,7 @@ namespace AutoTests.Demo.Common
                 typeof(Application).Assembly,
                 typeof(PreProcessorDependencies).Assembly,
             });
-
-            ObjectContainer.RegisterTypeAs<Options>(typeof(DemoOptions));
-
+            
             Steps.Setup();
             Utils.Setup();
             Models.Setup();
