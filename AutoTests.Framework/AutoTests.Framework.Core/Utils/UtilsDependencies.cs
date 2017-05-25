@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Core.Utils
         {
         }
 
-        public ResourceUtils Utils => ObjectContainer.Resolve<ResourceUtils>();
+        public ResourceUtils Resources => ObjectContainer.Resolve<ResourceUtils>();
 
         public override void Setup()
         {
