@@ -43,7 +43,6 @@ namespace AutoTests
             });
 
             ObjectContainer.RegisterTypeAs<IWebDriverFactory>(typeof(ChromeDriverFactory));
-            ObjectContainer.RegisterTypeAs<Options>(typeof(ExampleOptions));
 
             Steps.Setup();
             Stores.Setup();
