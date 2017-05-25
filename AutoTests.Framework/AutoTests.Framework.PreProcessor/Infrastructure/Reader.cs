@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using AutoTests.Framework.PreProcessor.Tokens;
 
 namespace AutoTests.Framework.PreProcessor.Infrastructure
 {
@@ -87,13 +86,16 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
             return this;
         }
 
-        public T Result<T>(Func<T> factory)
-            where T : Token
+        public Token Result(Func<string, dynamic> getState, Func<string, string> getSource = null)
         {
             if (active)
             {
-                var token = factory();
-                token.Value = stringBuilder.ToString();
+                var value = stringBuilder.ToString();
+                var token = new Token
+                {
+                    State = getState(value),
+                    Source = getSource?.Invoke(value) ?? "&"
+                };
                 return token;
             }
             stream.Position = position;

@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoTests.Framework.Core.Extensions;
-using AutoTests.Framework.PreProcessor.Assets;
-using AutoTests.Framework.PreProcessor.Infrastructure;
-using AutoTests.Framework.PreProcessor.Tokens;
 
-namespace AutoTests.Framework.PreProcessor
+namespace AutoTests.Framework.PreProcessor.Infrastructure
 {
     public class Options
     {
@@ -27,7 +24,7 @@ namespace AutoTests.Framework.PreProcessor
                 ParseTrivia,
                 ParseDouble,
                 ParseInteger,
-                ParseIdentificator,
+                ParseAssetMember,
                 ParseString,
                 ParseString2,
                 ParseStoreLinkToken,
@@ -47,7 +44,7 @@ namespace AutoTests.Framework.PreProcessor
 
         private Token ParseOperator(Stream stream, char @operator)
         {
-            return stream.ReadToken().Read(@operator).Result(() => dependencies.CreateToken<DirectToken>());
+            return stream.ReadToken().Read(@operator).Result(x => null, x => x);
         }
 
         private Token ParseString(Stream stream)
@@ -56,7 +53,7 @@ namespace AutoTests.Framework.PreProcessor
                 .Read('"', false)
                 .ReadWhile(x => x != '"')
                 .Read('"', false)
-                .Result(() => dependencies.CreateToken<StringToken>());
+                .Result(x => $"\"{x}\"");
         }
 
         private Token ParseString2(Stream stream)
@@ -65,7 +62,7 @@ namespace AutoTests.Framework.PreProcessor
                 .Read('\'', false)
                 .ReadWhile(x => x != '\'')
                 .Read('\'', false)
-                .Result(() => dependencies.CreateToken<StringToken>());
+                .Result(x => $"\"{x}\"");
         }
 
         private Token ParseTrivia(Stream stream)
@@ -73,7 +70,7 @@ namespace AutoTests.Framework.PreProcessor
             return stream.ReadToken()
                 .Read(char.IsWhiteSpace)
                 .ReadWhile(char.IsWhiteSpace)
-                .Result(() => dependencies.CreateToken<DirectToken>());
+                .Result(x => null, x => x);
         }
 
         private Token ParseDouble(Stream stream)
@@ -84,7 +81,7 @@ namespace AutoTests.Framework.PreProcessor
                 .Read('.')
                 .Read(char.IsDigit)
                 .ReadWhile(char.IsDigit)
-                .Result(() => dependencies.CreateToken<DirectToken>());
+                .Result(x => double.Parse(x));
         }
 
         private Token ParseInteger(Stream stream)
@@ -92,17 +89,37 @@ namespace AutoTests.Framework.PreProcessor
             return stream.ReadToken()
                 .Read(char.IsDigit)
                 .ReadWhile(char.IsDigit)
-                .Result(() => dependencies.CreateToken<DirectToken>());
+                .Result(x => int.Parse(x));
         }
 
-        private Token ParseIdentificator(Stream stream)
+        private Token ParseAssetMember(Stream stream)
         {
+            Asset targetAsset = null;
+
             return stream.ReadToken()
                 .Read(x => char.IsLetter(x) || x == '_')
                 .ReadWhile(x => char.IsLetterOrDigit(x) || x == '_')
-                .Result(() => dependencies.CreateToken<MemberToken>());
+                .Check(x => FindAsset(x, out targetAsset))
+                .Result(x => targetAsset, x => $"&.{x}");
         }
 
+        private bool FindAsset(string memberName, out Asset targetAsset)
+        {
+            foreach (var asset in Assets)
+            {
+                foreach (var member in asset.GetType().GetMembers())
+                {
+                    if (member.Name == memberName)
+                    {
+                        targetAsset = asset;
+                        return true;
+                    }
+                }
+            }
+            targetAsset = null;
+            return false;
+        }
+        
         private Token ParseStoreLinkToken(Stream stream)
         {
             return stream.ReadToken()
@@ -110,7 +127,7 @@ namespace AutoTests.Framework.PreProcessor
                 .Read(x => x != ']')
                 .ReadWhile(x => x != ']')
                 .Read(']', false)
-                .Result(() => dependencies.CreateToken<StoreLinkToken>());
+                .Result(x => dependencies.Stores.ObjectStore[x]);
         }
     }
 }

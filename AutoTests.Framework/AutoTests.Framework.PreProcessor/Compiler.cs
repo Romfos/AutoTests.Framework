@@ -4,7 +4,6 @@ using System.Linq;
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.PreProcessor.Exceptions;
 using AutoTests.Framework.PreProcessor.Infrastructure;
-using AutoTests.Framework.PreProcessor.Tokens;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 
@@ -36,9 +35,9 @@ namespace AutoTests.Framework.PreProcessor
             {
                 source = source.Trim().Substring(1);
                 var tokens = Parse(source).ToArray();
-                var roslynCode = Process(tokens);
+                var code = GetCode(tokens);
                 var runtime = new Runtime(tokens);
-                return CSharpScript.EvaluateAsync(roslynCode, scriptOptions, runtime).Result;
+                return CSharpScript.EvaluateAsync(code, scriptOptions, runtime).Result;
             }
             return source;
         }
@@ -61,14 +60,14 @@ namespace AutoTests.Framework.PreProcessor
             }
         }
 
-        private string Process(Token[] tokens)
+        private string GetCode(Token[] tokens)
         {
-            return string.Concat(tokens.Select(Process));
+            return string.Concat(tokens.Select(GetTokenCode));
         }
 
-        private string Process(Token token, int index)
+        private string GetTokenCode(Token token, int index)
         {
-            return token.Process().Replace("&", $"Tokens[{index}].State");
+            return token.Source.Replace("&", $"Tokens[{index}].State");
         }
     }
 }

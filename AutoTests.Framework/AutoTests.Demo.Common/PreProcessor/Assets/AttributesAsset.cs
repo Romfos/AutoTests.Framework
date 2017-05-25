@@ -1,5 +1,5 @@
 ﻿using AutoTests.Framework.Models.PropertyAttributes;
-using AutoTests.Framework.PreProcessor.Assets;
+using AutoTests.Framework.PreProcessor.Infrastructure;
 
 namespace AutoTests.Demo.Common.PreProcessor.Assets
 {
