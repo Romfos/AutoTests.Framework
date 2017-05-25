@@ -1,17 +1,11 @@
 ﻿using System;
 using AutoTests.Framework.PreProcessor.Assets;
+using AutoTests.PreProcessor.Entities.DateTimeEntites;
 
 namespace AutoTests.PreProcessor.Assets
 {
     public class DateTimeAsset : Asset
     {
-        private readonly Application application;
-
-        public DateTimeAsset(Application application)
-        {
-            this.application = application;
-        }
-
-        public DateTime CurrentDate => DateTime.Now;
+        public DateEntity CurrentDate => new DateEntity(DateTime.Now);
     }
 }

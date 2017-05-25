@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Core.Steps;
+﻿using System.Collections.Generic;
+using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.PreProcessor.Transformations;
 using AutoTests.Web;
 using AutoTests.Web.Pages.Login;
@@ -33,6 +34,23 @@ namespace AutoTests.Steps
         public void LoginAs(LoginModel model)
         {
             application.Web.GetPage<LoginPage>().Login(model);
+        }
+
+        [Then(@"in store '(.*)' should contain '(.*)'")]
+        public void InStoreShouldContain(string key, Calculated value)
+        {
+            var expected = value.Get();
+            var actual = application.Stores.ObjectStore[key];
+            Assert.AreEqual(expected, actual, "Incorrect value");
+        }
+
+        [Given(@"save next values in store:")]
+        public void SaveNextValuesInStore(Dictionary<Calculated, Calculated> dictionary)
+        {
+            foreach (var pair in dictionary)
+            {
+                application.Stores.ObjectStore[pair.Key.Get<string>()] = pair.Value.Get();
+            }
         }
     }
 }

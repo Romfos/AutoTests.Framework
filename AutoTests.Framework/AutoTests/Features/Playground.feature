@@ -8,3 +8,10 @@ Scenario: Example1
 		| Name     | Value       |
 		| Username | @[Username] |
 		| Password | @[Password] |
+
+Scenario: Example2
+	Given save next values in store:
+	| Name  | Value           |
+	| date  | @CurrentDate    |
+	| date2 | @[date] + 1 day |
+	Then in store 'date2' should contain '@CurrentDate + 10 days - 9 day'

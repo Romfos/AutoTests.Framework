@@ -5,6 +5,7 @@ using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.Web;
+using AutoTests.PreProcessor;
 using AutoTests.Web;
 using BoDi;
 
@@ -42,6 +43,7 @@ namespace AutoTests
             });
 
             ObjectContainer.RegisterTypeAs<IWebDriverFactory>(typeof(ChromeDriverFactory));
+            ObjectContainer.RegisterTypeAs<Options>(typeof(ExampleOptions));
 
             Steps.Setup();
             Stores.Setup();
