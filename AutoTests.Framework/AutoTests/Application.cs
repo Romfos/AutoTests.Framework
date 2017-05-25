@@ -4,6 +4,7 @@ using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
+using AutoTests.Framework.PreProcessor.Infrastructure;
 using AutoTests.Framework.Web;
 using AutoTests.PreProcessor;
 using AutoTests.Web;

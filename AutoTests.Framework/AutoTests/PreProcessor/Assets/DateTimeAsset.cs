@@ -1,5 +1,5 @@
 ﻿using System;
-using AutoTests.Framework.PreProcessor.Assets;
+using AutoTests.Framework.PreProcessor.Infrastructure;
 using AutoTests.PreProcessor.Entities.DateTimeEntites;
 
 namespace AutoTests.PreProcessor.Assets
