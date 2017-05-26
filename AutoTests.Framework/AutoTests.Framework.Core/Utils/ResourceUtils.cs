@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using Newtonsoft.Json.Linq;
 
 namespace AutoTests.Framework.Core.Utils
@@ -11,6 +12,11 @@ namespace AutoTests.Framework.Core.Utils
             var assembly = type.Assembly;
             var resourceName = $"{type.Namespace}.{filename}";
 
+            return GetTextResource(assembly, resourceName);
+        }
+
+        public string GetTextResource(Assembly assembly, string resourceName)
+        {
             using (var stream = assembly.GetManifestResourceStream(resourceName))
             using (var reader = new StreamReader(stream))
             {
@@ -21,6 +27,11 @@ namespace AutoTests.Framework.Core.Utils
         public JObject GetJsonResource(object target, string filename)
         {
             return JObject.Parse(GetTextResource(target, filename));
+        }
+
+        public JObject GetJsonResource(Assembly assembly, string resourceName)
+        {
+            return JObject.Parse(GetTextResource(assembly, resourceName));
         }
     }
 }

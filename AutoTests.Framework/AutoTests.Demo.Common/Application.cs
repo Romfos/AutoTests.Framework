@@ -1,10 +1,13 @@
-﻿using AutoTests.Framework.Core;
+﻿using AutoTests.Demo.Common.PreProcessor;
+using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
+using AutoTests.Framework.PreProcessor.Infrastructure;
+using AutoTests.Framework.Resources;
 using AutoTests.Framework.Web;
 using BoDi;
 
@@ -31,6 +34,8 @@ namespace AutoTests.Demo.Common
         public StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
+        public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
+
         public override void Setup()
         {
             ObjectContainer.RegisterInstanceAs(new[]
@@ -39,7 +44,10 @@ namespace AutoTests.Demo.Common
                 typeof(ModelsDependencies).Assembly,
                 typeof(Application).Assembly,
                 typeof(PreProcessorDependencies).Assembly,
+                typeof(ResourcesDependencies).Assembly
             });
+
+            ObjectContainer.RegisterTypeAs<Options>(typeof(DemoOptions));
             
             Steps.Setup();
             Utils.Setup();
@@ -48,6 +56,7 @@ namespace AutoTests.Demo.Common
             Stores.Setup();
             StepArgumentTransformations.Setup();
             Web.Setup();
+            Resources.Setup();
         }
     }
 }

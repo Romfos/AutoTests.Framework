@@ -52,6 +52,6 @@ Scenario: check page setup
 
 Scenario: check login page
 	Then check login page
-	| Name     | Value |
-	| Username | User1 |
-	| Password | Pass1 |
+	| Name     | Value                 |
+	| Username | @Credentials.Username |
+	| Password | @Credentials.Password |
