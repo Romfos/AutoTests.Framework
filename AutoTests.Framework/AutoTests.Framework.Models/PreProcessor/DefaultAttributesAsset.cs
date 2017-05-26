@@ -1,9 +1,9 @@
 ﻿using AutoTests.Framework.Models.PropertyAttributes;
 using AutoTests.Framework.PreProcessor.Infrastructure;
 
-namespace AutoTests.Demo.Common.PreProcessor.Assets
+namespace AutoTests.Framework.Models.PreProcessor
 {
-    public class AttributesAsset : Asset
+    public class DefaultAttributesAsset : Asset
     {
         public DisabledAttribute Disabled => new DisabledAttribute();
     }

@@ -52,6 +52,7 @@
     <Compile Include="Model.cs" />
     <Compile Include="ModelInfo.cs" />
     <Compile Include="ModelsDependencies.cs" />
+    <Compile Include="PreProcessor\DefaultAttributesAsset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyAttributes\DisabledAttribute.cs" />
     <Compile Include="PropertyAttributes\NameAttribute.cs" />
