@@ -39,8 +39,6 @@ namespace AutoTests.Demo.Common
 
         protected override void RegisterCustomTypes()
         {
-            Core.AddAssembly(Assembly.GetExecutingAssembly());
-
             Steps.Register();
             Utils.Register();
             Models.Register();
