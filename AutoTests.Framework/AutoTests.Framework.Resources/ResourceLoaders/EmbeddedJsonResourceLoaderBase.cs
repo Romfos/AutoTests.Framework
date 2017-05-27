@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AutoTests.Framework.Resources.Infrastructure;
+using AutoTests.Framework.Resources.Entities;
 using Newtonsoft.Json.Linq;
 
 namespace AutoTests.Framework.Resources.ResourceLoaders
 {
-    public abstract class EmbeddedJsonResourceLoader : ResourceLoader
+    public abstract class EmbeddedJsonResourceLoaderBase : ResourceLoader
     {
         private readonly ResourcesDependencies dependencies;
 
         protected Dictionary<string, string> Resources { get; }
 
-        protected EmbeddedJsonResourceLoader(ResourcesDependencies dependencies)
+        protected EmbeddedJsonResourceLoaderBase(ResourcesDependencies dependencies)
         {
             this.dependencies = dependencies;
 
