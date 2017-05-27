@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.PreProcessor.Infrastructure;
@@ -18,23 +17,31 @@ namespace AutoTests.Framework.PreProcessor
         public Compiler Compiler => ObjectContainer.Resolve<Compiler>();
 
         public Options Options => ObjectContainer.Resolve<Options>();
-
-        internal Assembly[] Assemblies => ObjectContainer.Resolve<Assembly[]>();
-
+        
         internal StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
 
-        internal ResourceMananger ResourceMananger => ObjectContainer.Resolve<ResourceMananger>();
+        internal ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
 
-        public override void Setup()
-        {
-        }
+        internal new CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
 
         public IEnumerable<Asset> GetAssets()
         {
-            return Assemblies
+            return Core.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => x.IsSubclassOf(typeof(Asset)))
                 .Select(x => (Asset) ObjectContainer.Resolve(x));
+        }
+
+        protected override void CustomRegister()
+        {
+            Stores.Register();
+            Resources.Register();
+        }
+
+        protected override void CustomConfigure()
+        {
+            Stores.Configure();
+            Resources.Configure();
         }
     }
 }

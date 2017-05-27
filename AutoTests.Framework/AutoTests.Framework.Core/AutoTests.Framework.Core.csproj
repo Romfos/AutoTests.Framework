@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoreDependencies.cs" />
     <Compile Include="Dependencies.cs" />
     <Compile Include="Exceptions\AssertException.cs" />
     <Compile Include="Exceptions\ClassConstraintException.cs" />

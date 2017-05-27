@@ -16,8 +16,14 @@ namespace AutoTests.Framework.Core.Steps
             return ObjectContainer.Resolve<T>();
         }
 
-        public override void Setup()
+        protected override void CustomRegister()
         {
+            
+        }
+
+        protected override void CustomConfigure()
+        {
+            
         }
     }
 }

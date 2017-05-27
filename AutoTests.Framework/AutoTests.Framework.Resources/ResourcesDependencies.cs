@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Resources.ResourceLoaders;
@@ -20,14 +19,20 @@ namespace AutoTests.Framework.Resources
 
         internal IEnumerable<ResourceLoader> GetResourceLoaders()
         {
-            return ObjectContainer.Resolve<Assembly[]>()
+            return Core.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(ResourceLoader)))
                 .Select(x => (ResourceLoader) ObjectContainer.Resolve(x));
         }
 
-        public override void Setup()
+        protected override void CustomRegister()
         {
+            Utils.Register();
+        }
+
+        protected override void CustomConfigure()
+        {
+            Utils.Configure();
         }
     }
 }

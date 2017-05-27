@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Core;
+﻿using System.Reflection;
+using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
@@ -17,6 +18,8 @@ namespace AutoTests.Demo.Common
         {
         }
 
+        internal CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
+
         public UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
         public StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
@@ -34,25 +37,30 @@ namespace AutoTests.Demo.Common
 
         public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
 
-        public override void Setup()
+        protected override void CustomRegister()
         {
-            ObjectContainer.RegisterInstanceAs(new[]
-            {
-                typeof(Dependencies).Assembly,
-                typeof(ModelsDependencies).Assembly,
-                typeof(Application).Assembly,
-                typeof(PreProcessorDependencies).Assembly,
-                typeof(ResourcesDependencies).Assembly
-            });
-            
-            Steps.Setup();
-            Utils.Setup();
-            Models.Setup();
-            PreProcessor.Setup();
-            Stores.Setup();
-            StepArgumentTransformations.Setup();
-            Web.Setup();
-            Resources.Setup();
+            Core.AddAssembly(Assembly.GetExecutingAssembly());
+
+            Steps.Register();
+            Utils.Register();
+            Models.Register();
+            PreProcessor.Register();
+            Stores.Register();
+            StepArgumentTransformations.Register();
+            Web.Register();
+            Resources.Register();
+        }
+
+        protected override void CustomConfigure()
+        {
+            Steps.Configure();
+            Utils.Configure();
+            Models.Configure();
+            PreProcessor.Configure();
+            Stores.Configure();
+            StepArgumentTransformations.Configure();
+            Web.Configure();
+            Resources.Configure();
         }
     }
 }

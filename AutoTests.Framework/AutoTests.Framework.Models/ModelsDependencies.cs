@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models.Comparator;
@@ -17,7 +16,7 @@ namespace AutoTests.Framework.Models
         {
         }
 
-        internal Compiler Compiler => ObjectContainer.Resolve<Compiler>();
+        internal PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
 
         public ModelTransformations ModelTransformations => ObjectContainer.Resolve<ModelTransformations>();
 
@@ -28,7 +27,7 @@ namespace AutoTests.Framework.Models
 
         private IEnumerable<Type> GetModelTypes()
         {
-            return ObjectContainer.Resolve<Assembly[]>()
+            return Core.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => x.IsSubclassOf(typeof(Model)));
         }
@@ -40,8 +39,15 @@ namespace AutoTests.Framework.Models
             StepArgumentTransformations.RegisterTransformations(instance);
         }
 
-        public override void Setup()
+        protected override void CustomRegister()
         {
+            PreProcessor.Register();
+        }
+
+        protected override void CustomConfigure()
+        {
+            PreProcessor.Configure();
+
             foreach (var modelType in GetModelTypes())
             {
                 RegisterSpecflowModelTransformations(modelType);

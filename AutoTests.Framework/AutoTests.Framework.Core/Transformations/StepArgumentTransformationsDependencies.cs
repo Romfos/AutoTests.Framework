@@ -15,18 +15,21 @@ namespace AutoTests.Framework.Core.Transformations
         {
         }
 
-        private Assembly[] Assemblies => ObjectContainer.Resolve<Assembly[]>();
-
         private IBindingFactory BindingFactory => ObjectContainer.Resolve<IBindingFactory>();
 
         private IBindingRegistry BindingRegistry => ObjectContainer.Resolve<IBindingRegistry>();
 
-        public override void Setup()
+        protected override void CustomRegister()
         {
-            var defatulTransformations = GetStepArgumentTransformations().SelectMany(GetTransformationMethods);
-            foreach (var methodInfo in defatulTransformations)
+            
+        }
+
+        protected override void CustomConfigure()
+        {
+            var methods = GetStepArgumentTransformations().SelectMany(GetTransformationMethods);
+            foreach (var method in methods)
             {
-                RegisterTransformations(methodInfo);
+                RegisterTransformations(method);
             }
         }
 
@@ -52,7 +55,7 @@ namespace AutoTests.Framework.Core.Transformations
 
         private IEnumerable<Type> GetStepArgumentTransformations()
         {
-            return Assemblies.SelectMany(x => x.GetTypes())
+            return Core.Assemblies.SelectMany(x => x.GetTypes())
                 .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(StepArgumentTransformations)));
         }
     }

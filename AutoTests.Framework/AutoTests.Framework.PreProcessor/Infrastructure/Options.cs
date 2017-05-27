@@ -144,7 +144,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
 
         private bool GetResource(string name, out object result)
         {
-            result = dependencies.ResourceMananger.GetResource(name);
+            result = dependencies.Resources.Mananger.GetResource(name);
             return result != null;
         }
     }

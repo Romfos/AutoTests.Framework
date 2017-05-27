@@ -20,7 +20,7 @@ namespace AutoTests.Framework.PreProcessor
 
             scriptOptions = ScriptOptions.Default
                 .AddReferences(options.References)
-                .AddReferences(dependencies.Assemblies)
+                .AddReferences(dependencies.Core.Assemblies)
                 .AddImports(options.Imports);
         }
 

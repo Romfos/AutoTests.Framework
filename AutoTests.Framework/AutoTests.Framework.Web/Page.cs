@@ -16,7 +16,7 @@ namespace AutoTests.Framework.Web
 
         private void SetupControls(WebDependencies dependencies)
         {
-            var locators = dependencies.Resources.GetJsonResource(this, "Locators.json");
+            var locators = dependencies.Utils.Resources.GetJsonResource(this, "Locators.json");
 
             foreach (var property in GetPageControlProperties())
             {

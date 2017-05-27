@@ -10,7 +10,12 @@ namespace AutoTests.Framework.Core.Stores
 
         public ObjectStore ObjectStore => ObjectContainer.Resolve<ObjectStore>();
 
-        public override void Setup()
+        protected override void CustomRegister()
+        {
+            
+        }
+
+        protected override void CustomConfigure()
         {
             
         }

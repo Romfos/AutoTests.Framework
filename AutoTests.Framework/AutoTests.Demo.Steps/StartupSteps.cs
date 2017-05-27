@@ -22,7 +22,8 @@ namespace AutoTests.Demo.Steps
             {
                 return;
             }
-            application.Setup();
+            application.Register();
+            application.Configure();
             activated = true;
         }
     }

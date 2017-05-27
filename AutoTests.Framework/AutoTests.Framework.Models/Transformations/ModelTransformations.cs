@@ -47,7 +47,7 @@ namespace AutoTests.Framework.Models.Transformations
             }
             return null;
         }
-        
+
         private void SetupPropertyLink(PropertyLink propertyLink, Prototype prototype)
         {
             TransformValue(propertyLink, prototype.Value);
@@ -57,7 +57,7 @@ namespace AutoTests.Framework.Models.Transformations
         private void TransformValue(PropertyLink propertyLink, string source)
         {
             propertyLink.Value = Convert.ChangeType(
-                dependencies.Compiler.Compile(source),
+                dependencies.PreProcessor.Compiler.Compile(source),
                 propertyLink.PropertyInfo.PropertyType);
         }
 
@@ -68,7 +68,7 @@ namespace AutoTests.Framework.Models.Transformations
                 return;
             }
 
-            propertyLink.Attributes.Add((PropertyAttribute)dependencies.Compiler.Compile(source));
+            propertyLink.Attributes.Add((PropertyAttribute) dependencies.PreProcessor.Compiler.Compile(source));
         }
     }
 }

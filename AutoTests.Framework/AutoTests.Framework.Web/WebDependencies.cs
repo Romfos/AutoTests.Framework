@@ -12,7 +12,9 @@ namespace AutoTests.Framework.Web
         {
         }
 
-        internal ResourceUtils Resources => ObjectContainer.Resolve<ResourceUtils>();
+        internal UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
+
+        public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
 
         public T GetPage<T>()
             where T : Page
@@ -37,10 +39,14 @@ namespace AutoTests.Framework.Web
             return (Control) Activator.CreateInstance(controlType, arguments);
         }
 
-        public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
-
-        public override void Setup()
+        protected override void CustomRegister()
         {
+            Utils.Register();
+        }
+
+        protected override void CustomConfigure()
+        {
+            Utils.Configure();
         }
     }
 }
