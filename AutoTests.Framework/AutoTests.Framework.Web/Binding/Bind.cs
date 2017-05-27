@@ -57,16 +57,16 @@ namespace AutoTests.Framework.Web.Binding
             return Get<IDisplayed>().Displayed;
         }
 
-        private T Get<T>()
-            where T : class, IContract
+        private TContract Get<TContract>()
+            where TContract : class, IContract
         {
-            return pageObject as T;
+            return pageObject as TContract;
         }
 
-        private bool Check<T>()
-            where T : class, IContract
+        private bool Check<TContract>()
+            where TContract : class, IContract
         {
-            return pageObject is T;
+            return pageObject is TContract;
         }
     }
 }
