@@ -15,7 +15,8 @@ namespace AutoTests.Steps
         [BeforeScenario]
         public void Setup()
         {
-            application.Setup();
+            application.Register();
+            application.Configure();
         }
     }
 }

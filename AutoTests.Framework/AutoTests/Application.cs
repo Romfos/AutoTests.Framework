@@ -5,7 +5,7 @@ using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.PreProcessor.Infrastructure;
-using AutoTests.Framework.Resources;
+using AutoTests.Framework.TestData;
 using AutoTests.Framework.Web;
 using AutoTests.PreProcessor;
 using AutoTests.Web;
@@ -34,29 +34,29 @@ namespace AutoTests
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
-        public override void Setup()
+        protected override void RegisterCustomTypes()
         {
-            ObjectContainer.RegisterInstanceAs(new[]
-            {
-                typeof(Application).Assembly,
-
-                typeof(Dependencies).Assembly,
-                typeof(PreProcessorDependencies).Assembly,
-                typeof(WebDependencies).Assembly,
-                typeof(ModelsDependencies).Assembly,
-                typeof(ResourcesDependencies).Assembly
-            });
-
             ObjectContainer.RegisterTypeAs<IWebDriverFactory>(typeof(ChromeDriverFactory));
             ObjectContainer.RegisterTypeAs<Options>(typeof(ExampleOptions));
 
-            Steps.Setup();
-            Stores.Setup();
-            PreProcessor.Setup();
-            Models.Setup();
-            StepArgumentTransformations.Setup();
-            Web.Setup();
-            Resources.Setup();
+            Steps.Register();
+            Stores.Register();
+            PreProcessor.Register();
+            Models.Register();
+            StepArgumentTransformations.Register();
+            Web.Register();
+            Resources.Register();
+        }
+
+        protected override void ConfigureDependencies()
+        {
+            Steps.Configure();
+            Stores.Configure();
+            PreProcessor.Configure();
+            Models.Configure();
+            StepArgumentTransformations.Configure();
+            Web.Configure();
+            Resources.Configure();
         }
     }
 }

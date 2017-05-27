@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
-using AutoTests.Framework.Resources;
-using AutoTests.Framework.Resources.Infrastructure;
-using AutoTests.Framework.Resources.ResourceLoaders;
+using AutoTests.Framework.TestData;
+using AutoTests.Framework.TestData.Entities;
+using AutoTests.Framework.TestData.ResourceLoaders;
 
 namespace AutoTests.Resources
 {
-    public class JsonResoruceLoader : EmbeddedJsonResourceLoader
+    public class JsonResoruceLoader : EmbeddedJsonResourceLoaderBase
     {
         public JsonResoruceLoader(ResourcesDependencies dependencies) : base(dependencies)
         {

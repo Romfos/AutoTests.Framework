@@ -1,9 +1,10 @@
-﻿using AutoTests.Framework.Web;
+﻿using System;
+using AutoTests.Framework.Web;
 using OpenQA.Selenium;
 
 namespace AutoTests.Web
 {
-    public class SemanticContext : Context
+    public class SemanticContext : Context, IDisposable
     {
         private readonly Application application;
         private readonly IWebDriver driver;
@@ -28,6 +29,11 @@ namespace AutoTests.Web
         public void SetValue(string locator, string value)
         {
             driver.FindElement(By.XPath(locator)).SendKeys(value);
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
     }
 }
