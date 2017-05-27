@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using AutoTests.Framework.Core;
+﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.Core.Transformations;
@@ -30,7 +29,7 @@ namespace AutoTests.Demo.Common
 
         public StepsDependencies Steps => ObjectContainer.Resolve<StepsDependencies>();
 
-        public StepArgumentTransformationsDependencies StepArgumentTransformations
+        private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
         public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
