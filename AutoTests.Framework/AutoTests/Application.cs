@@ -5,6 +5,7 @@ using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.PreProcessor.Infrastructure;
+using AutoTests.Framework.Resources;
 using AutoTests.Framework.Web;
 using AutoTests.PreProcessor;
 using AutoTests.Web;
@@ -27,7 +28,9 @@ namespace AutoTests
         public WebDependencies Web => ObjectContainer.Resolve<WebDependencies>();
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
-        
+
+        public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
+
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
@@ -41,6 +44,7 @@ namespace AutoTests
                 typeof(PreProcessorDependencies).Assembly,
                 typeof(WebDependencies).Assembly,
                 typeof(ModelsDependencies).Assembly,
+                typeof(ResourcesDependencies).Assembly
             });
 
             ObjectContainer.RegisterTypeAs<IWebDriverFactory>(typeof(ChromeDriverFactory));
@@ -52,6 +56,7 @@ namespace AutoTests
             Models.Setup();
             StepArgumentTransformations.Setup();
             Web.Setup();
+            Resources.Setup();
         }
     }
 }
