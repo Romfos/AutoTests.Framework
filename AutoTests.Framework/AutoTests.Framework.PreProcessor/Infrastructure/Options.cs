@@ -28,6 +28,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 ParseString,
                 ParseString2,
                 ParseStoreLink,
+                ParseResourceLink,
                 ParseOperators
             };
 
@@ -128,6 +129,23 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 .ReadWhile(x => x != ']')
                 .Read(']', false)
                 .Result(x => dependencies.Stores.ObjectStore[x]);
+        }
+
+        private Token ParseResourceLink(Stream stream)
+        {
+            object resource = null;
+
+            return stream.ReadToken()
+                .Read(char.IsLetter)
+                .ReadWhile(x => char.IsLetterOrDigit(x) || x == '.')
+                .Check(x => GetResource(x, out resource))
+                .Result(x => resource);
+        }
+
+        private bool GetResource(string name, out object result)
+        {
+            result = dependencies.ResourceMananger.GetResource(name);
+            return result != null;
         }
     }
 }

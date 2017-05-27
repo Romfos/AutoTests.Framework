@@ -4,6 +4,7 @@ using System.Reflection;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.PreProcessor.Infrastructure;
+using AutoTests.Framework.Resources;
 using BoDi;
 
 namespace AutoTests.Framework.PreProcessor
@@ -21,6 +22,8 @@ namespace AutoTests.Framework.PreProcessor
         internal Assembly[] Assemblies => ObjectContainer.Resolve<Assembly[]>();
 
         internal StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
+
+        internal ResourceMananger ResourceMananger => ObjectContainer.Resolve<ResourceMananger>();
 
         public override void Setup()
         {
