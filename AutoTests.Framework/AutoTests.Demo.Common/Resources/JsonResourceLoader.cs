@@ -3,7 +3,7 @@ using System.Reflection;
 using AutoTests.Framework.Resources.Infrastructure;
 using AutoTests.Framework.Resources.ResourceLoaders;
 
-namespace AutoTests.Demo.Common.Resoruces
+namespace AutoTests.Demo.Common.Resources
 {
     public class JsonResourceLoader : EmbeddedJsonResourceLoader
     {
