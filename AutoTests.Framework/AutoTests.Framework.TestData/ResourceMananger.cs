@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using AutoTests.Framework.Core.Extensions;
-using AutoTests.Framework.Resources.ResourceLoaders;
+using AutoTests.Framework.TestData.ResourceLoaders;
 
-namespace AutoTests.Framework.Resources
+namespace AutoTests.Framework.TestData
 {
     public class ResourceMananger
     {

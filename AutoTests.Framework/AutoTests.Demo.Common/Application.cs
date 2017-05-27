@@ -5,7 +5,7 @@ using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
-using AutoTests.Framework.Resources;
+using AutoTests.Framework.TestData;
 using AutoTests.Framework.Web;
 using BoDi;
 

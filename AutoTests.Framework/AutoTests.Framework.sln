@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{D5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests", "AutoTests\AutoTests.csproj", "{4496CFE7-2381-44FE-8508-4A65750FE6A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Resources", "AutoTests.Framework.Resources\AutoTests.Framework.Resources.csproj", "{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.TestData", "AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj", "{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

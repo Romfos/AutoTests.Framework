@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AutoTests.Framework.Resources.Entities
+namespace AutoTests.Framework.TestData.Entities
 {
     public class EmbeddedResourceLocation
     {

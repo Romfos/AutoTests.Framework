@@ -3,7 +3,7 @@ using System.Linq;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
 using AutoTests.Framework.PreProcessor.Infrastructure;
-using AutoTests.Framework.Resources;
+using AutoTests.Framework.TestData;
 using BoDi;
 
 namespace AutoTests.Framework.PreProcessor

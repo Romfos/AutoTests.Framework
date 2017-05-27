@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
-using AutoTests.Framework.Resources.Entities;
-using AutoTests.Framework.Resources.ResourceLoaders;
+using AutoTests.Framework.TestData.Entities;
+using AutoTests.Framework.TestData.ResourceLoaders;
 
 namespace AutoTests.Demo.Common.Resources
 {

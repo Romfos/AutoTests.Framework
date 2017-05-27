@@ -13,8 +13,5 @@
     <dependencies>
       <dependency id="AutoTests.Framework.Core" version="$version$" />
     </dependencies>
-    <references>
-      <reference file="AutoTests.Framework.Resources.dll" />
-    </references>
   </metadata>
 </package>

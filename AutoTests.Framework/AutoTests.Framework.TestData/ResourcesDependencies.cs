@@ -2,10 +2,10 @@
 using System.Linq;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
-using AutoTests.Framework.Resources.ResourceLoaders;
+using AutoTests.Framework.TestData.ResourceLoaders;
 using BoDi;
 
-namespace AutoTests.Framework.Resources
+namespace AutoTests.Framework.TestData
 {
     public class ResourcesDependencies : Dependencies
     {

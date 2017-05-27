@@ -7,8 +7,8 @@
     <ProjectGuid>{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoTests.Framework.Resources</RootNamespace>
-    <AssemblyName>AutoTests.Framework.Resources</AssemblyName>
+    <RootNamespace>AutoTests.Framework.TestData</RootNamespace>
+    <AssemblyName>AutoTests.Framework.TestData</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AutoTests.Framework.Resources.Entities;
+using AutoTests.Framework.TestData.Entities;
 using Newtonsoft.Json.Linq;
 
-namespace AutoTests.Framework.Resources.ResourceLoaders
+namespace AutoTests.Framework.TestData.ResourceLoaders
 {
     public abstract class EmbeddedJsonResourceLoaderBase : ResourceLoader
     {

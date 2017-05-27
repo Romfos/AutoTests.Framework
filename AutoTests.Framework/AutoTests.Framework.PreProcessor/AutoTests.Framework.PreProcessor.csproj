@@ -137,9 +137,9 @@
       <Project>{04b3ea91-2351-4b90-b41f-e26a5b35285c}</Project>
       <Name>AutoTests.Framework.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AutoTests.Framework.Resources\AutoTests.Framework.Resources.csproj">
+    <ProjectReference Include="..\AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj">
       <Project>{629e4e76-e3b5-4749-89f1-23fcef71e8bf}</Project>
-      <Name>AutoTests.Framework.Resources</Name>
+      <Name>AutoTests.Framework.TestData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

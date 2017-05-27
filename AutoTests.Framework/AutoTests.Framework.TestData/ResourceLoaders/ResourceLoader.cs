@@ -1,4 +1,4 @@
-﻿namespace AutoTests.Framework.Resources.ResourceLoaders
+﻿namespace AutoTests.Framework.TestData.ResourceLoaders
 {
     public abstract class ResourceLoader
     {
