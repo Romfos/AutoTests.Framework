@@ -17,7 +17,7 @@ namespace AutoTests.Framework.TestData
 
         internal UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
-        internal IEnumerable<TestDataProvider> GetResourceLoaders()
+        internal IEnumerable<TestDataProvider> GetTestDataProviders()
         {
             return Core.Assemblies
                 .SelectMany(x => x.GetTypes())

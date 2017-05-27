@@ -10,7 +10,7 @@ namespace AutoTests.Framework.TestData
 
         public TestDataMananger(TestDataDependencies dependencies)
         {
-            testDataProviders = dependencies.GetResourceLoaders().ToArray();
+            testDataProviders = dependencies.GetTestDataProviders().ToArray();
         }
 
         public object GetResource(string name)
