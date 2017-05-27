@@ -24,8 +24,7 @@ namespace AutoTests.Framework.Core
                 registered = true;
 
                 Core.Register();
-                
-                Core.AddAssembly(Assembly.GetCallingAssembly());
+                Core.AddAssembly(GetType().Assembly);
 
                 CustomRegister();
             }
