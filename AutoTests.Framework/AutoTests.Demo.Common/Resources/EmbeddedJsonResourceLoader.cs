@@ -5,9 +5,9 @@ using AutoTests.Framework.Resources.ResourceLoaders;
 
 namespace AutoTests.Demo.Common.Resources
 {
-    public class JsonResourceLoader : EmbeddedJsonResourceLoaderBase
+    public class EmbeddedJsonResourceLoader : EmbeddedJsonResourceLoaderBase
     {
-        public JsonResourceLoader(Application application)
+        public EmbeddedJsonResourceLoader(Application application)
             : base(application.Resources)
         {
         }
