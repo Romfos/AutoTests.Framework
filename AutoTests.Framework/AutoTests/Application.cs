@@ -29,7 +29,7 @@ namespace AutoTests
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
 
-        public ResourcesDependencies TestData => ObjectContainer.Resolve<ResourcesDependencies>();
+        public TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
 
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
