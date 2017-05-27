@@ -20,7 +20,7 @@ namespace AutoTests.Framework.PreProcessor
         
         internal StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
 
-        internal ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
+        internal TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
 
         internal new CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
 
@@ -35,13 +35,13 @@ namespace AutoTests.Framework.PreProcessor
         protected override void RegisterCustomTypes()
         {
             Stores.Register();
-            Resources.Register();
+            TestData.Register();
         }
 
         protected override void ConfigureDependencies()
         {
             Stores.Configure();
-            Resources.Configure();
+            TestData.Configure();
         }
     }
 }

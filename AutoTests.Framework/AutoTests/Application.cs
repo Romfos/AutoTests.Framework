@@ -29,7 +29,7 @@ namespace AutoTests
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
 
-        public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
+        public ResourcesDependencies TestData => ObjectContainer.Resolve<ResourcesDependencies>();
 
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
@@ -45,7 +45,7 @@ namespace AutoTests
             Models.Register();
             StepArgumentTransformations.Register();
             Web.Register();
-            Resources.Register();
+            TestData.Register();
         }
 
         protected override void ConfigureDependencies()
@@ -56,7 +56,7 @@ namespace AutoTests
             Models.Configure();
             StepArgumentTransformations.Configure();
             Web.Configure();
-            Resources.Configure();
+            TestData.Configure();
         }
     }
 }

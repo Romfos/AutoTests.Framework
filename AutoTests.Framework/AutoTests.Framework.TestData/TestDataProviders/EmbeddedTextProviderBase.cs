@@ -2,17 +2,16 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using AutoTests.Framework.TestData.Entities;
-using Newtonsoft.Json.Linq;
 
-namespace AutoTests.Framework.TestData.ResourceLoaders
+namespace AutoTests.Framework.TestData.TestDataProviders
 {
-    public abstract class EmbeddedJsonResourceLoaderBase : ResourceLoader
+    public abstract class EmbeddedTextProviderBase : TestDataProvider
     {
-        private readonly ResourcesDependencies dependencies;
+        private readonly TestDataDependencies dependencies;
 
         protected Dictionary<string, string> Resources { get; }
 
-        protected EmbeddedJsonResourceLoaderBase(ResourcesDependencies dependencies)
+        protected EmbeddedTextProviderBase(TestDataDependencies dependencies)
         {
             this.dependencies = dependencies;
 
@@ -37,15 +36,8 @@ namespace AutoTests.Framework.TestData.ResourceLoaders
 
             return location.Assembly.GetManifestResourceNames()
                 .Where(x => regex.IsMatch(x))
-                .SelectMany(x => LoadResources(dependencies.Utils.Resources.GetJsonResource(location.Assembly, x),
-                    regex.Match(x).Groups[1].Value));
-        }
-
-        private IEnumerable<KeyValuePair<string, string>> LoadResources(JObject jObject, string resourceName)
-        {
-            return jObject.Descendants()
-                .OfType<JValue>()
-                .Select(x => new KeyValuePair<string, string>($"{resourceName}.{x.Path}", x.ToString()));
+                .Select(x => new KeyValuePair<string, string>(regex.Match(x).Groups[1].Value,
+                    dependencies.Utils.Resources.GetTextResource(location.Assembly, x)));
         }
     }
 }

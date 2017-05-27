@@ -2,13 +2,13 @@
 using System.Reflection;
 using AutoTests.Framework.TestData;
 using AutoTests.Framework.TestData.Entities;
-using AutoTests.Framework.TestData.ResourceLoaders;
+using AutoTests.Framework.TestData.TestDataProviders;
 
-namespace AutoTests.Demo.Common.Resources
+namespace AutoTests.Demo.Common.TestData.Providers
 {
-    public class EmbeddedTextResourceLoader : EmbeddedTextResourceLoaderBase
+    public class EmbeddedTextProvider : EmbeddedTextProviderBase
     {
-        public EmbeddedTextResourceLoader(ResourcesDependencies dependencies) : base(dependencies)
+        public EmbeddedTextProvider(TestDataDependencies dependencies) : base(dependencies)
         {
         }
 
@@ -16,7 +16,7 @@ namespace AutoTests.Demo.Common.Resources
         {
             yield return new EmbeddedResourceLocation(
                 Assembly.GetExecutingAssembly(),
-                "AutoTests.Demo.Common.TestData.(.*).txt");
+                "AutoTests.Demo.Common.TestData.Resources.(.*).txt");
         }
     }
 }

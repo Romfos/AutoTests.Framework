@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="Entities\EmbeddedResourceLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceLoaders\EmbeddedJsonResourceLoaderBase.cs" />
-    <Compile Include="ResourceLoaders\EmbeddedTextResourceLoaderBase.cs" />
-    <Compile Include="ResourceLoaders\ResourceLoader.cs" />
-    <Compile Include="ResourceMananger.cs" />
-    <Compile Include="ResourcesDependencies.cs" />
+    <Compile Include="TestDataProviders\EmbeddedJsonProviderBase.cs" />
+    <Compile Include="TestDataProviders\EmbeddedTextProviderBase.cs" />
+    <Compile Include="TestDataProviders\TestDataProvider.cs" />
+    <Compile Include="TestDataMananger.cs" />
+    <Compile Include="TestDataDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">

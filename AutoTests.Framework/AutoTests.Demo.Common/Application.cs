@@ -32,7 +32,7 @@ namespace AutoTests.Demo.Common
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
-        public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
+        public TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
 
         protected override void RegisterCustomTypes()
         {
@@ -43,7 +43,7 @@ namespace AutoTests.Demo.Common
             Stores.Register();
             StepArgumentTransformations.Register();
             Web.Register();
-            Resources.Register();
+            TestData.Register();
         }
 
         protected override void ConfigureDependencies()
@@ -55,7 +55,7 @@ namespace AutoTests.Demo.Common
             Stores.Configure();
             StepArgumentTransformations.Configure();
             Web.Configure();
-            Resources.Configure();
+            TestData.Configure();
         }
     }
 }

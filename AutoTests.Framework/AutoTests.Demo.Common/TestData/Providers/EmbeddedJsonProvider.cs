@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using AutoTests.Framework.TestData.Entities;
-using AutoTests.Framework.TestData.ResourceLoaders;
+using AutoTests.Framework.TestData.TestDataProviders;
 
-namespace AutoTests.Demo.Common.Resources
+namespace AutoTests.Demo.Common.TestData.Providers
 {
-    public class EmbeddedJsonResourceLoader : EmbeddedJsonResourceLoaderBase
+    public class EmbeddedJsonProvider : EmbeddedJsonProviderBase
     {
-        public EmbeddedJsonResourceLoader(Application application)
-            : base(application.Resources)
+        public EmbeddedJsonProvider(Application application)
+            : base(application.TestData)
         {
         }
 
@@ -16,7 +16,7 @@ namespace AutoTests.Demo.Common.Resources
         {
             yield return new EmbeddedResourceLocation(
                 Assembly.GetExecutingAssembly(),
-                "AutoTests.Demo.Common.TestData.(.*).json");
+                "AutoTests.Demo.Common.TestData.Resources.(.*).json");
         }
     }
 }

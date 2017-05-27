@@ -2,27 +2,27 @@
 using System.Linq;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
-using AutoTests.Framework.TestData.ResourceLoaders;
+using AutoTests.Framework.TestData.TestDataProviders;
 using BoDi;
 
 namespace AutoTests.Framework.TestData
 {
-    public class ResourcesDependencies : Dependencies
+    public class TestDataDependencies : Dependencies
     {
-        public ResourcesDependencies(ObjectContainer objectContainer) : base(objectContainer)
+        public TestDataDependencies(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
 
-        public ResourceMananger Mananger => ObjectContainer.Resolve<ResourceMananger>();
+        public TestDataMananger Mananger => ObjectContainer.Resolve<TestDataMananger>();
 
         internal UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
-        internal IEnumerable<ResourceLoader> GetResourceLoaders()
+        internal IEnumerable<TestDataProvider> GetResourceLoaders()
         {
             return Core.Assemblies
                 .SelectMany(x => x.GetTypes())
-                .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(ResourceLoader)))
-                .Select(x => (ResourceLoader) ObjectContainer.Resolve(x));
+                .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(TestDataProvider)))
+                .Select(x => (TestDataProvider) ObjectContainer.Resolve(x));
         }
 
         protected override void RegisterCustomTypes()
