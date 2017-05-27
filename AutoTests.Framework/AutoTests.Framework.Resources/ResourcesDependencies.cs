@@ -25,12 +25,12 @@ namespace AutoTests.Framework.Resources
                 .Select(x => (ResourceLoader) ObjectContainer.Resolve(x));
         }
 
-        protected override void CustomRegister()
+        protected override void RegisterCustomTypes()
         {
             Utils.Register();
         }
 
-        protected override void CustomConfigure()
+        protected override void ConfigureDependencies()
         {
             Utils.Configure();
         }

@@ -37,7 +37,7 @@ namespace AutoTests.Demo.Common
 
         public ResourcesDependencies Resources => ObjectContainer.Resolve<ResourcesDependencies>();
 
-        protected override void CustomRegister()
+        protected override void RegisterCustomTypes()
         {
             Core.AddAssembly(Assembly.GetExecutingAssembly());
 
@@ -51,7 +51,7 @@ namespace AutoTests.Demo.Common
             Resources.Register();
         }
 
-        protected override void CustomConfigure()
+        protected override void ConfigureDependencies()
         {
             Steps.Configure();
             Utils.Configure();

@@ -39,12 +39,12 @@ namespace AutoTests.Framework.Web
             return (Control) Activator.CreateInstance(controlType, arguments);
         }
 
-        protected override void CustomRegister()
+        protected override void RegisterCustomTypes()
         {
             Utils.Register();
         }
 
-        protected override void CustomConfigure()
+        protected override void ConfigureDependencies()
         {
             Utils.Configure();
         }

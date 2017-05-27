@@ -39,12 +39,12 @@ namespace AutoTests.Framework.Models
             StepArgumentTransformations.RegisterTransformations(instance);
         }
 
-        protected override void CustomRegister()
+        protected override void RegisterCustomTypes()
         {
             PreProcessor.Register();
         }
 
-        protected override void CustomConfigure()
+        protected override void ConfigureDependencies()
         {
             PreProcessor.Configure();
 

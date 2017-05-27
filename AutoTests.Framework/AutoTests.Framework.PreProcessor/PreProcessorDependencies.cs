@@ -32,13 +32,13 @@ namespace AutoTests.Framework.PreProcessor
                 .Select(x => (Asset) ObjectContainer.Resolve(x));
         }
 
-        protected override void CustomRegister()
+        protected override void RegisterCustomTypes()
         {
             Stores.Register();
             Resources.Register();
         }
 
-        protected override void CustomConfigure()
+        protected override void ConfigureDependencies()
         {
             Stores.Configure();
             Resources.Configure();

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using BoDi;
+﻿using BoDi;
 
 namespace AutoTests.Framework.Core
 {
@@ -26,7 +25,7 @@ namespace AutoTests.Framework.Core
                 Core.Register();
                 Core.AddAssembly(GetType().Assembly);
 
-                CustomRegister();
+                RegisterCustomTypes();
             }
         }
 
@@ -36,12 +35,12 @@ namespace AutoTests.Framework.Core
             {
                 configured = true;
                 Core.Configure();
-                CustomConfigure();
+                ConfigureDependencies();
             }
         }
 
-        protected abstract void CustomRegister();
+        protected abstract void RegisterCustomTypes();
 
-        protected abstract void CustomConfigure();
+        protected abstract void ConfigureDependencies();
     }
 }
