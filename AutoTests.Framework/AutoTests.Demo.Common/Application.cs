@@ -17,9 +17,7 @@ namespace AutoTests.Demo.Common
         public Application(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
-
-        internal CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
-
+        
         public UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
         public StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
