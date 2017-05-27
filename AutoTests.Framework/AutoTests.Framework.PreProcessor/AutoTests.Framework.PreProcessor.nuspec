@@ -12,6 +12,7 @@
     <tags>Specflow AutoTests</tags>
     <dependencies>
       <dependency id="AutoTests.Framework.Core" version="$version$" />
+      <dependency id="AutoTests.Framework.Resources" version="$version$" />      
     </dependencies>
   </metadata>
 </package>
