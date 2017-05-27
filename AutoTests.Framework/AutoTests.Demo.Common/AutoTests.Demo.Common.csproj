@@ -51,6 +51,7 @@
     <Compile Include="Models\SubModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\EmbeddedJsonResourceLoader.cs" />
+    <Compile Include="Resources\EmbeddedTextResourceLoader.cs" />
     <Compile Include="Web\Controls\Button.cs" />
     <Compile Include="Web\Controls\DemoControl.cs" />
     <Compile Include="Web\Controls\Input.cs" />
@@ -87,6 +88,8 @@
     <EmbeddedResource Include="Web\Pages\Login\Locators.json" />
     <EmbeddedResource Include="TestData\Credentials.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\Password.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

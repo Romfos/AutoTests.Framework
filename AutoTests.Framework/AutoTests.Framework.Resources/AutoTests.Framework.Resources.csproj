@@ -49,6 +49,7 @@
     <Compile Include="Entities\EmbeddedResourceLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceLoaders\EmbeddedJsonResourceLoaderBase.cs" />
+    <Compile Include="ResourceLoaders\EmbeddedTextResourceLoaderBase.cs" />
     <Compile Include="ResourceLoaders\ResourceLoader.cs" />
     <Compile Include="ResourceMananger.cs" />
     <Compile Include="ResourcesDependencies.cs" />

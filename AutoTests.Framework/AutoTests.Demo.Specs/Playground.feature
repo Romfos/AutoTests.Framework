@@ -54,4 +54,4 @@ Scenario: check login page
 	Then check login page
 	| Name     | Value                 |
 	| Username | @Credentials.Username |
-	| Password | @Credentials.Password |
+	| Password | @Password             |
