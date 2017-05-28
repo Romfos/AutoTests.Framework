@@ -76,7 +76,7 @@ namespace AutoTests.Framework.Web
                 .Where(x => !x.GetIndexParameters().Any());
         }
 
-        public void CheckConstraints()
+        private void CheckConstraints()
         {
             if (!dependencies.Utils.Resources.CheckResource(this, "Locators.json"))
             {
