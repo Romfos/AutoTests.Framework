@@ -43,6 +43,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="Comparator\ModelComparator.cs" />
     <Compile Include="Comparator\Results\ActualNotFound.cs" />
     <Compile Include="Comparator\Results\IncorrectValue.cs" />

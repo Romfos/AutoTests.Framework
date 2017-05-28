@@ -50,6 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="Binding\Bind.cs" />
     <Compile Include="Binding\Binder.cs" />
     <Compile Include="Binding\Contracts\IClick.cs" />

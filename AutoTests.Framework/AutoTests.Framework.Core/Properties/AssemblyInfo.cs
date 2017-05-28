@@ -5,5 +5,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("AutoTests.Framework")]
 [assembly: ComVisible(false)]
 [assembly: Guid("04b3ea91-2351-4b90-b41f-e26a5b35285c")]
-[assembly: AssemblyVersion("0.9.4.0")]
-[assembly: AssemblyFileVersion("0.9.4.0")]
