@@ -17,7 +17,7 @@ namespace AutoTests.Framework.Models
         }
 
         internal PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
-
+        
         public ModelTransformations ModelTransformations => ObjectContainer.Resolve<ModelTransformations>();
 
         public ModelComparator Comparator => ObjectContainer.Resolve<ModelComparator>();
@@ -41,11 +41,13 @@ namespace AutoTests.Framework.Models
 
         protected override void RegisterCustomTypes()
         {
+            StepArgumentTransformations.Register();
             PreProcessor.Register();
         }
 
         protected override void ConfigureDependencies()
         {
+            StepArgumentTransformations.Configure();
             PreProcessor.Configure();
 
             foreach (var modelType in GetModelTypes())

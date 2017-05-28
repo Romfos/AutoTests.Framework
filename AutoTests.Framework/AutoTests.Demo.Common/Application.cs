@@ -1,7 +1,6 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Core.Stores;
-using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
@@ -28,10 +27,7 @@ namespace AutoTests.Demo.Common
         public PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
 
         public StepsDependencies Steps => ObjectContainer.Resolve<StepsDependencies>();
-
-        private StepArgumentTransformationsDependencies StepArgumentTransformations
-            => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
-
+        
         public TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
 
         protected override void RegisterCustomTypes()
@@ -41,7 +37,6 @@ namespace AutoTests.Demo.Common
             Models.Register();
             PreProcessor.Register();
             Stores.Register();
-            StepArgumentTransformations.Register();
             Web.Register();
             TestData.Register();
         }
@@ -53,7 +48,6 @@ namespace AutoTests.Demo.Common
             Models.Configure();
             PreProcessor.Configure();
             Stores.Configure();
-            StepArgumentTransformations.Configure();
             Web.Configure();
             TestData.Configure();
         }
