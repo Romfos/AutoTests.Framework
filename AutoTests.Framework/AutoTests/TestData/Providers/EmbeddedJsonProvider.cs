@@ -5,9 +5,9 @@ using AutoTests.Framework.TestData.TestDataProviders;
 
 namespace AutoTests.TestData.Providers
 {
-    public class JsonResoruceLoader : EmbeddedJsonProviderBase
+    public class EmbeddedJsonProvider : EmbeddedJsonProviderBase
     {
-        public JsonResoruceLoader(Application application)
+        public EmbeddedJsonProvider(Application application)
             : base(application.TestData)
         {
         }

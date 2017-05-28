@@ -6,13 +6,10 @@ namespace AutoTests.Web
 {
     public class SemanticContext : Context, IDisposable
     {
-        private readonly Application application;
         private readonly IWebDriver driver;
 
         public SemanticContext(Application application)
         {
-            this.application = application;
-
             driver = application.Web.WebDriverFactory.CreateWebDriver();
         }
 
