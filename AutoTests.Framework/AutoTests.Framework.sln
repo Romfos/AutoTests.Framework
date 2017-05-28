@@ -29,8 +29,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests", "AutoTests\Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.TestData", "AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj", "{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{951BABCE-2C8A-48C7-9C98-EB86FADADFDE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{4498593C-383F-45B4-B2EB-31E363FE8878}"
 	ProjectSection(SolutionItems) = preProject
+		.build\assembly.bat = .build\assembly.bat
+		.build\nuget.exe = .build\nuget.exe
+		.build\publish.bat = .build\publish.bat
+		.build\rebuild.bat = .build\rebuild.bat
 		Version.cs = Version.cs
 	EndProjectSection
 EndProject
