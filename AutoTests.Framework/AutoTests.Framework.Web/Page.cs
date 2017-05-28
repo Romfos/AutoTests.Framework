@@ -8,13 +8,16 @@ namespace AutoTests.Framework.Web
 {
     public abstract class Page
     {
+        private readonly WebDependencies dependencies;
+
         protected Page(WebDependencies dependencies)
         {
+            this.dependencies = dependencies;
             CheckConstraints();
-            SetupControls(dependencies);
+            SetupControls();
         }
 
-        private void SetupControls(WebDependencies dependencies)
+        private void SetupControls()
         {
             var locators = dependencies.Utils.Resources.GetJsonResource(this, "Locators.json");
 
@@ -75,6 +78,12 @@ namespace AutoTests.Framework.Web
 
         public void CheckConstraints()
         {
+            if (!dependencies.Utils.Resources.CheckResource(this, "Locators.json"))
+            {
+                throw new ClassConstraintException(GetType(),
+                    "Locators.json not found. Page '{0}'");
+            }
+
             foreach (var property in GetPageControlProperties())
             {
                 if (!property.CanWrite || !property.SetMethod.IsPrivate)

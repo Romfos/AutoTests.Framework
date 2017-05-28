@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 
@@ -22,6 +23,15 @@ namespace AutoTests.Framework.Core.Utils
             {
                 return reader.ReadToEnd();
             }
+        }
+
+        public bool CheckResource(object target, string filename)
+        {
+            var type = target.GetType();
+            var assembly = type.Assembly;
+            var resourceName = $"{type.Namespace}.{filename}";
+
+            return assembly.GetManifestResourceNames().Any(x => x == resourceName);
         }
 
         public JObject GetJsonResource(object target, string filename)
