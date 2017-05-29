@@ -37,13 +37,13 @@ namespace AutoTests.Framework.Models.Comparator
             {
                 if (expectedLink.Name == actualLink.Name)
                 {
-                    return Compare(expectedLink, actualLink);
+                    return ComparePropertyLinkValues(expectedLink, actualLink);
                 }
             }
             return new ActualNotFound(expectedLink);
         }
 
-        protected virtual Result Compare(PropertyLink expectedLink, PropertyLink actualLink)
+        protected virtual Result ComparePropertyLinkValues(PropertyLink expectedLink, PropertyLink actualLink)
         {
             if (!CompareValues(expectedLink.Value, actualLink.Value))
             {
