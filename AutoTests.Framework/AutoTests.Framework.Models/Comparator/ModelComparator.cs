@@ -43,7 +43,7 @@ namespace AutoTests.Framework.Models.Comparator
             return new ActualNotFound(expectedLink);
         }
 
-        private Result Compare(PropertyLink expectedLink, PropertyLink actualLink)
+        protected virtual Result Compare(PropertyLink expectedLink, PropertyLink actualLink)
         {
             if (!Compare(expectedLink.Value, actualLink.Value))
             {
