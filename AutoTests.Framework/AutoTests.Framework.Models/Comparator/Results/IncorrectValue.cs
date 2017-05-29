@@ -14,8 +14,13 @@
         public override string ToString()
         {
             return $"Property '{Expected.Name}' contain incorrect value. " +
-                   $"Expected: '{Expected.Value}'. " +
-                   $"Actual: '{Actual.Value}'";
+                   $"Expected: '{GetTextValue(Expected)}'. " +
+                   $"Actual: '{GetTextValue(Actual)}'";
+        }
+
+        private string GetTextValue(PropertyLink propertyLink)
+        {
+            return propertyLink.Value?.ToString() ?? "null";
         }
     }
 }
