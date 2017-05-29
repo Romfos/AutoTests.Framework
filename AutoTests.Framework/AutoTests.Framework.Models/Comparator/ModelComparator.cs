@@ -45,14 +45,14 @@ namespace AutoTests.Framework.Models.Comparator
 
         protected virtual Result Compare(PropertyLink expectedLink, PropertyLink actualLink)
         {
-            if (!Compare(expectedLink.Value, actualLink.Value))
+            if (!CompareValues(expectedLink.Value, actualLink.Value))
             {
                 return new IncorrectValue(expectedLink, actualLink);
             }
             return null;
         }
 
-        private bool Compare(object expected, object actual)
+        protected virtual bool CompareValues(object expected, object actual)
         {
             if (expected == null)
             {
