@@ -38,20 +38,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoTests.Framework.Core, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Core.0.9.5\lib\net46\AutoTests.Framework.Core.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Core.1.0.0\lib\net46\AutoTests.Framework.Core.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.Models, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Models.0.9.5\lib\net46\AutoTests.Framework.Models.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Models.1.0.0\lib\net46\AutoTests.Framework.Models.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.PreProcessor, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.PreProcessor.0.9.5\lib\net46\AutoTests.Framework.PreProcessor.dll</HintPath>
+    <Reference Include="AutoTests.Framework.PreProcessor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.PreProcessor.1.0.0\lib\net46\AutoTests.Framework.PreProcessor.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.TestData, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.TestData.0.9.5\lib\net46\AutoTests.Framework.TestData.dll</HintPath>
+    <Reference Include="AutoTests.Framework.TestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.TestData.1.0.0\lib\net46\AutoTests.Framework.TestData.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.Web, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Web.0.9.5\lib\net46\AutoTests.Framework.Web.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Web.1.0.0\lib\net46\AutoTests.Framework.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.1.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
