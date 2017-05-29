@@ -54,6 +54,10 @@ namespace AutoTests.Framework.Models.Comparator
 
         private bool Compare(object expected, object actual)
         {
+            if (expected == null)
+            {
+                return actual == null;
+            }
             return expected.Equals(actual);
         }
     }
