@@ -11,6 +11,11 @@ namespace AutoTests.Framework.TestData
         public TestDataMananger(TestDataDependencies dependencies)
         {
             testDataProviders = dependencies.GetTestDataProviders().ToArray();
+
+            foreach (var testDataProvider in testDataProviders)
+            {
+                testDataProvider.LoadResoruces();
+            }
         }
 
         public object GetResource(string name)

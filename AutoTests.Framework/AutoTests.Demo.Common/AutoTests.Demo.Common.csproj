@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData\Providers\EmbeddedJsonProvider.cs" />
     <Compile Include="TestData\Providers\EmbeddedTextProvider.cs" />
+    <Compile Include="TestData\Providers\TextFileResoruceProvider.cs" />
     <Compile Include="Web\Controls\Button.cs" />
     <Compile Include="Web\Controls\DemoControl.cs" />
     <Compile Include="Web\Controls\Input.cs" />
@@ -90,6 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\Resources\Password.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TestData\Files\Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

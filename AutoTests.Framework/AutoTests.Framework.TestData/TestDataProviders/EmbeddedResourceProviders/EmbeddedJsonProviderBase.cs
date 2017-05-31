@@ -15,7 +15,7 @@ namespace AutoTests.Framework.TestData.TestDataProviders.EmbeddedResourceProvide
             this.dependencies = dependencies;
         }
 
-        protected override IEnumerable<KeyValuePair<string, string>> LoadResources(EmbeddedResourceLocation location)
+        protected override IEnumerable<KeyValuePair<string, string>> ParseResource(EmbeddedResourceLocation location)
         {
             var regex = new Regex(location.Regex);
 

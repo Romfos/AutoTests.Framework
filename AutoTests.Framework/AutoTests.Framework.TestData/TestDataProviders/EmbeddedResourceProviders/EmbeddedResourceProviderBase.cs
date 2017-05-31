@@ -6,27 +6,22 @@ namespace AutoTests.Framework.TestData.TestDataProviders.EmbeddedResourceProvide
 {
     public abstract class EmbeddedResourceProviderBase : TestDataProvider
     {
-        protected Dictionary<string, string> Resources { get; }
-
-        protected EmbeddedResourceProviderBase()
-        {
-            Resources = LoadResources();
-        }
+        private Dictionary<string, string> resources;
         
-        private Dictionary<string, string> LoadResources()
+        public override void LoadResoruces()
         {
-            return GetResourceLocations()
-                .SelectMany(LoadResources)
-                .ToDictionary(x => x.Key, x=> x.Value);
+            resources = GetResourceLocations()
+                .SelectMany(ParseResource)
+                .ToDictionary(x => x.Key, x => x.Value);
         }
 
         public override object GetResoruce(string name)
         {
-            return Resources.ContainsKey(name) ? Resources[name] : null;
+            return resources.ContainsKey(name) ? resources[name] : null;
         }
 
         protected abstract IEnumerable<EmbeddedResourceLocation> GetResourceLocations();
 
-        protected abstract IEnumerable<KeyValuePair<string, string>> LoadResources(EmbeddedResourceLocation location);
+        protected abstract IEnumerable<KeyValuePair<string, string>> ParseResource(EmbeddedResourceLocation location);
     }
 }

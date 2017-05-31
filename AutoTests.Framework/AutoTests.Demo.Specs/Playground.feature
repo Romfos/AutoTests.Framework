@@ -55,3 +55,7 @@ Scenario: check login page
 	| Name     | Value                 |
 	| Username | @Credentials.Username |
 	| Password | @Password             |
+
+Scenario: text file resource test
+	When save '@Files.Test' as 'key name'
+	Then store 'key name' should contain 'Hello World!'

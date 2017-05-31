@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using AutoTests.Framework.TestData.Entities;
-using AutoTests.Framework.TestData.TestDataProviders;
 using AutoTests.Framework.TestData.TestDataProviders.EmbeddedResourceProviders;
 
 namespace AutoTests.Demo.Common.TestData.Providers
