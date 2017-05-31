@@ -11,7 +11,7 @@ namespace AutoTests.TestData.Providers
             : base(application.TestData)
         {
         }
-
+        
         protected override IEnumerable<EmbeddedResourceLocation> GetResoruceLocations()
         {
             yield return new EmbeddedResourceLocation(
