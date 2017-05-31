@@ -7,13 +7,6 @@ namespace AutoTests.Framework.TestData.TestDataProviders.FileResoruceProviders
 {
     public abstract class JsonFileResoruceProviderBase : FileResoruceProviderBase
     {
-        private readonly TestDataDependencies dependencies;
-
-        protected JsonFileResoruceProviderBase(TestDataDependencies dependencies)
-        {
-            this.dependencies = dependencies;
-        }
-
         protected override IEnumerable<KeyValuePair<string, string>> ParseResource(FileInfo file, string name)
         {
             var json = File.ReadAllText(file.FullName);

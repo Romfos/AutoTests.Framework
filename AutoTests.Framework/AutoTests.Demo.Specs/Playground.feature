@@ -59,3 +59,7 @@ Scenario: check login page
 Scenario: text file resource test
 	When save '@Files.Test' as 'key name'
 	Then store 'key name' should contain 'Hello World!'
+
+Scenario: json file resource test
+	When save '@Test2.Test' as 'key name'
+	Then store 'key name' should contain 'Hello World!'
