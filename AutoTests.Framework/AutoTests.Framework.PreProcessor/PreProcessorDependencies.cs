@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Stores;
+using AutoTests.Framework.Core.Transformations;
 using AutoTests.Framework.PreProcessor.Infrastructure;
 using AutoTests.Framework.TestData;
 using BoDi;
@@ -24,6 +25,9 @@ namespace AutoTests.Framework.PreProcessor
 
         internal new CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
 
+        private StepArgumentTransformationsDependencies StepArgumentTransformations
+            => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
+
         public IEnumerable<Asset> GetAssets()
         {
             return Core.Assemblies
@@ -36,12 +40,14 @@ namespace AutoTests.Framework.PreProcessor
         {
             Stores.Register();
             TestData.Register();
+            StepArgumentTransformations.Register();
         }
 
         protected override void ConfigureDependencies()
         {
             Stores.Configure();
             TestData.Configure();
+            StepArgumentTransformations.Configure();
         }
     }
 }
