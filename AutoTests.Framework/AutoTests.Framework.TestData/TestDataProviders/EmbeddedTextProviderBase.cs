@@ -32,7 +32,7 @@ namespace AutoTests.Framework.TestData.TestDataProviders
 
         private IEnumerable<KeyValuePair<string, string>> LoadResources(EmbeddedResourceLocation location)
         {
-            var regex = new Regex(location.Pattern);
+            var regex = new Regex(location.Regex);
 
             return location.Assembly.GetManifestResourceNames()
                 .Where(x => regex.IsMatch(x))

@@ -5,12 +5,12 @@ namespace AutoTests.Framework.TestData.Entities
     public class EmbeddedResourceLocation
     {
         public Assembly Assembly { get; }
-        public string Pattern { get; }
+        public string Regex { get; }
 
-        public EmbeddedResourceLocation(Assembly assembly, string pattern)
+        public EmbeddedResourceLocation(Assembly assembly, string regex)
         {
             Assembly = assembly;
-            Pattern = pattern;
+            Regex = regex;
         }
     }
 }
