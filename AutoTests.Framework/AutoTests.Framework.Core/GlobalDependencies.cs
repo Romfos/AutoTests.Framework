@@ -4,11 +4,11 @@ using BoDi;
 
 namespace AutoTests.Framework.Core
 {
-    public class CoreDependencies : Dependencies
+    public class GlobalDependencies : Dependencies
     {
         public List<Assembly> Assemblies { get; } = new List<Assembly>();
 
-        public CoreDependencies(ObjectContainer objectContainer) : base(objectContainer)
+        public GlobalDependencies(ObjectContainer objectContainer) : base(objectContainer)
         {
         }
 

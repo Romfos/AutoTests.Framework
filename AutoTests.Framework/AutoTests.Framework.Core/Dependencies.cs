@@ -14,7 +14,7 @@ namespace AutoTests.Framework.Core
             ObjectContainer = objectContainer;
         }
 
-        protected CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
+        protected GlobalDependencies Global => ObjectContainer.Resolve<GlobalDependencies>();
         
         public void Register()
         {
@@ -22,8 +22,8 @@ namespace AutoTests.Framework.Core
             {
                 registered = true;
 
-                Core.Register();
-                Core.AddAssembly(GetType().Assembly);
+                Global.Register();
+                Global.AddAssembly(GetType().Assembly);
 
                 RegisterCustomTypes();
             }
@@ -34,7 +34,7 @@ namespace AutoTests.Framework.Core
             if (!configured)
             {
                 configured = true;
-                Core.Configure();
+                Global.Configure();
                 ConfigureDependencies();
             }
         }

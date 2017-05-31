@@ -27,7 +27,7 @@ namespace AutoTests.Framework.Models
 
         private IEnumerable<Type> GetModelTypes()
         {
-            return Core.Assemblies
+            return Global.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => x.IsSubclassOf(typeof(Model)));
         }

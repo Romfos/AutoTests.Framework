@@ -19,7 +19,7 @@ namespace AutoTests.Framework.TestData
 
         internal IEnumerable<TestDataProvider> GetTestDataProviders()
         {
-            return Core.Assemblies
+            return Global.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(TestDataProvider)))
                 .Select(x => (TestDataProvider) ObjectContainer.Resolve(x));

@@ -55,7 +55,7 @@ namespace AutoTests.Framework.Core.Transformations
 
         private IEnumerable<Type> GetStepArgumentTransformations()
         {
-            return Core.Assemblies.SelectMany(x => x.GetTypes())
+            return Global.Assemblies.SelectMany(x => x.GetTypes())
                 .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(StepArgumentTransformations)));
         }
     }

@@ -23,14 +23,14 @@ namespace AutoTests.Framework.PreProcessor
 
         internal TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
 
-        internal new CoreDependencies Core => ObjectContainer.Resolve<CoreDependencies>();
+        internal new GlobalDependencies Global => ObjectContainer.Resolve<GlobalDependencies>();
 
         private StepArgumentTransformationsDependencies StepArgumentTransformations
             => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
 
         public IEnumerable<Asset> GetAssets()
         {
-            return Core.Assemblies
+            return Global.Assemblies
                 .SelectMany(x => x.GetTypes())
                 .Where(x => x.IsSubclassOf(typeof(Asset)))
                 .Select(x => (Asset) ObjectContainer.Resolve(x));
