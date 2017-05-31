@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using AutoTests.Framework.TestData.Entities;
-using AutoTests.Framework.TestData.TestDataProviders;
+using AutoTests.Framework.TestData.TestDataProviders.EmbeddedResourceProviders;
 
 namespace AutoTests.TestData.Providers
 {
@@ -11,8 +11,8 @@ namespace AutoTests.TestData.Providers
             : base(application.TestData)
         {
         }
-        
-        protected override IEnumerable<EmbeddedResourceLocation> GetResoruceLocations()
+
+        protected override IEnumerable<EmbeddedResourceLocation> GetResourceLocations()
         {
             yield return new EmbeddedResourceLocation(
                 Assembly.GetExecutingAssembly(), "AutoTests.TestData.Resources.(.*).json");
