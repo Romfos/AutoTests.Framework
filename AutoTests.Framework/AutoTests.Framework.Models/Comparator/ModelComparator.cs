@@ -52,12 +52,21 @@ namespace AutoTests.Framework.Models.Comparator
             return null;
         }
 
-        protected virtual bool CompareValues(object expected, object actual)
+        protected bool CompareValues(object expected, object actual)
         {
             if (expected == null)
             {
                 return actual == null;
             }
+            if (actual == null)
+            {
+                return false;
+            }
+            return CompareNotNullValues(expected, actual);
+        }
+
+        protected virtual bool CompareNotNullValues(object expected, object actual)
+        {
             return expected.Equals(actual);
         }
     }
