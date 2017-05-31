@@ -30,10 +30,7 @@ namespace AutoTests
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
 
         public TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
-
-        private StepArgumentTransformationsDependencies StepArgumentTransformations
-            => ObjectContainer.Resolve<StepArgumentTransformationsDependencies>();
-
+        
         protected override void RegisterCustomTypes()
         {
             ObjectContainer.RegisterTypeAs<IWebDriverFactory>(typeof(ChromeDriverFactory));
@@ -43,7 +40,6 @@ namespace AutoTests
             Stores.Register();
             PreProcessor.Register();
             Models.Register();
-            StepArgumentTransformations.Register();
             Web.Register();
             TestData.Register();
         }
@@ -54,7 +50,6 @@ namespace AutoTests
             Stores.Configure();
             PreProcessor.Configure();
             Models.Configure();
-            StepArgumentTransformations.Configure();
             Web.Configure();
             TestData.Configure();
         }
