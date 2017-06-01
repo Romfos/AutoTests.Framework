@@ -1,7 +1,6 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Core.Stores;
-using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.TestData;
@@ -16,8 +15,6 @@ namespace AutoTests.Framework.Tests
         {
         }
         
-        public UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
-
         public StoresDependencies Stores => ObjectContainer.Resolve<StoresDependencies>();
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
@@ -33,7 +30,6 @@ namespace AutoTests.Framework.Tests
         protected override void RegisterCustomTypes()
         {
             Steps.Register();
-            Utils.Register();
             Models.Register();
             PreProcessor.Register();
             Stores.Register();
@@ -44,7 +40,6 @@ namespace AutoTests.Framework.Tests
         protected override void ConfigureDependencies()
         {
             Steps.Configure();
-            Utils.Configure();
             Models.Configure();
             PreProcessor.Configure();
             Stores.Configure();
