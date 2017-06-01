@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{449859
 		Version.cs = Version.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests", "{35F957CC-8A3E-4D18-BD2A-EA3BF81A73E3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{35F957CC-8A3E-4D18-BD2A-EA3BF81A73E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj", "{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728}"
 EndProject
