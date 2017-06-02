@@ -14,7 +14,7 @@ namespace AutoTests.Tools.Refactroings.Services
             this.featureFiles = featureFiles;
         }
 
-        public IEnumerable<(FeatureFile featureFile, Scenario scenario, Step step)> FindSteps(Func<Step, bool> condition)
+        public IEnumerable<(FeatureFile featureFile, Scenario scenario, Step step)> FindStepLocations(Func<Step, bool> condition)
         {
             foreach (var featureFile in featureFiles)
             {
@@ -41,7 +41,7 @@ namespace AutoTests.Tools.Refactroings.Services
                        || step.IsArgumentType<List<T>>();
             }
 
-            foreach (var step in FindSteps(CheckArgumenyType).Select(x => x.step))
+            foreach (var step in FindStepLocations(CheckArgumenyType).Select(x => x.step))
             {
                 foreach (var row in step.Table.Rows)
                 {

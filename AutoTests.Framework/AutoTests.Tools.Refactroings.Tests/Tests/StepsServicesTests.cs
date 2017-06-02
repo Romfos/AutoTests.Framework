@@ -29,9 +29,9 @@ namespace AutoTests.Tools.Tests.Tests
         }
         
         [TestMethod]
-        public void FindStepsTest()
+        public void FindStepLocationsTest()
         {
-            var steps = stepsServices.FindSteps(x => x.Text == "test").ToArray();
+            var steps = stepsServices.FindStepLocations(x => x.Text == "test").ToArray();
 
             Assert.AreEqual(2, steps.Length);
         }
@@ -41,8 +41,8 @@ namespace AutoTests.Tools.Tests.Tests
         {
             stepsServices.ChangePropertyName<RenameModel>("Number", "Id");
 
-            var step1 = stepsServices.FindSteps(x => x.Text == "rename model one").Single().step;
-            var step2 = stepsServices.FindSteps(x => x.Text == "rename model two").Single().step;
+            var step1 = stepsServices.FindStepLocations(x => x.Text == "rename model one").Single().step;
+            var step2 = stepsServices.FindStepLocations(x => x.Text == "rename model two").Single().step;
 
             Assert.AreEqual("Id", step1.Table.Rows[0].Items[0].Name);
             Assert.AreEqual("Id", step2.Table.Rows[0].Items[0].Name);
