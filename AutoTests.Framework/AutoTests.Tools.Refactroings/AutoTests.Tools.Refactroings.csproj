@@ -49,11 +49,27 @@
     <Compile Include="..\Version.cs">
       <Link>Properties\Version.cs</Link>
     </Compile>
+    <Compile Include="Entities\Example.cs" />
+    <Compile Include="Entities\ExampleCase.cs" />
+    <Compile Include="Entities\ExampleCell.cs" />
+    <Compile Include="Entities\Feature.cs" />
+    <Compile Include="Entities\FeatureFile.cs" />
+    <Compile Include="Entities\Scenario.cs" />
+    <Compile Include="Entities\Step.cs" />
+    <Compile Include="Entities\StepAttribute.cs" />
+    <Compile Include="Entities\StepDefinition.cs" />
+    <Compile Include="Entities\StepType.cs" />
+    <Compile Include="Entities\Table.cs" />
+    <Compile Include="Entities\TableItem.cs" />
+    <Compile Include="Entities\TableRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Parsers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
