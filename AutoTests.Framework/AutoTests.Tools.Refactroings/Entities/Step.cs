@@ -6,5 +6,10 @@
         public string Text { get; set; }
         public StepDefinition StepDefinition { get; set; }
         public Table Table { get; } = new Table();
+
+        public override string ToString()
+        {
+            return $"{StepType} {Text}";
+        }
     }
 }

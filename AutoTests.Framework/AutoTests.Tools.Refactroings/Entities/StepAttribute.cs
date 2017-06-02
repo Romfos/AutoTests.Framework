@@ -6,5 +6,10 @@ namespace AutoTests.Tools.Refactroings.Entities
     {
         public StepType StepType { get; set; }
         public Regex Regex { get; set; }
+
+        public override string ToString()
+        {
+            return $"[{StepType}(\"{Regex}\")]";
+        }
     }
 }
