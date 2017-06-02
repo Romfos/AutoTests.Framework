@@ -6,7 +6,7 @@ Feature: Playground
 
 @mytag
 #test
-Scenario Outline: Add two numbers
+Scenario Outline: scenario1
 	Given test
 	| Name | Value |
 	| aaa  | bbb   |
@@ -19,7 +19,7 @@ Scenario Outline: Add two numbers
 	
 @mytag2
 #test3
-Scenario: Add two numbers2222
+Scenario: scenario2
 	Given I have entered 50 into the calculator
 	And I have entered 70 into the calculator
 	When I press add

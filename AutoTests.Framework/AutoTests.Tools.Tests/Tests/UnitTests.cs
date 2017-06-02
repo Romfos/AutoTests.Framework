@@ -16,7 +16,7 @@ namespace AutoTests.Tools.Tests.Tests
             var parser = new StepDefinitionParser();
             var stepDefinitions = parser.Parse(Assembly.GetExecutingAssembly()).ToArray();
 
-            Assert.AreEqual(3, stepDefinitions.Length);
+            Assert.AreEqual(4, stepDefinitions.Length);
         }
 
         [TestMethod]
@@ -29,6 +29,10 @@ namespace AutoTests.Tools.Tests.Tests
             var featureFiles = featureFileParser.Parse(
                 new DirectoryInfo(Environment.CurrentDirectory + @"..\..\..\"))
                 .ToArray();
+
+            Assert.AreEqual(2, featureFiles.Single().Feature.Scenarios.Count);
+            Assert.AreEqual("scenario1", featureFiles.Single().Feature.Scenarios[0].Name);
+            Assert.AreEqual("scenario2", featureFiles.Single().Feature.Scenarios[1].Name);
         }
     }
 }
