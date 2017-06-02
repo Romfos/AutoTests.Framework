@@ -38,12 +38,7 @@ namespace AutoTests.Tools.Refactroings.Entities
         
         public bool IsArgumentType(Type type)
         {
-            var parameters = StepDefinition.MethodInfo.GetParameters();
-            if (parameters.Length == 0)
-            {
-                return false;
-            }
-            return parameters.Last().ParameterType == type;
+            return StepDefinition.CheckArgumentType(x => x == type);
         }
     }
 }

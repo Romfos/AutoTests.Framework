@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\RenameModel.cs" />
+    <Compile Include="Models\StubModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\PlaygroundSteps.cs" />
+    <Compile Include="Tests\FeatureFileWriterTests.cs" />
     <Compile Include="Tests\StepsServicesTests.cs" />
     <Compile Include="Tests\ParserTests.cs" />
   </ItemGroup>

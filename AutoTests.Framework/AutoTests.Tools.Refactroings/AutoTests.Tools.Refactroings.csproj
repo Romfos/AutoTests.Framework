@@ -66,6 +66,7 @@
     <Compile Include="Entities\TableItem.cs" />
     <Compile Include="Entities\TableRow.cs" />
     <Compile Include="Parsers\FeatureFileParser.cs" />
+    <Compile Include="Parsers\FeatureFileWriter.cs" />
     <Compile Include="Parsers\StepDefinitionParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\StepsServices.cs" />
