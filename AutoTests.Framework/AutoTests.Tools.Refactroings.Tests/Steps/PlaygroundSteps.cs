@@ -1,4 +1,5 @@
-﻿using AutoTests.Tools.Tests.Models;
+﻿using System.Collections.Generic;
+using AutoTests.Tools.Tests.Models;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Tools.Tests.Steps
@@ -25,7 +26,7 @@ namespace AutoTests.Tools.Tests.Steps
         }
 
         [Given(@"test")]
-        public void GivenTest(Table table)
+        public void GivenTest(StubModel table)
         {
             ScenarioContext.Current.Pending();
         }
@@ -37,7 +38,7 @@ namespace AutoTests.Tools.Tests.Steps
         }
 
         [Given(@"rename model two")]
-        public void GivenRenameModelTwo(RenameModel model)
+        public void GivenRenameModelTwo(IEnumerable<RenameModel> model)
         {
             ScenarioContext.Current.Pending();
         }

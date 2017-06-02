@@ -6,9 +6,9 @@
 @mytag
 Scenario Outline: scenario1
 	Given test
-	| Name2 | Value3 |
-	| aaa   | bbb    |
-	| 123   | 456    |
+	| Name | Value |
+	| aaa  | bbb   |
+	| 123  | 456   |
 	Given test
 	| Name | Value |
 	| aaa  | bbb   |

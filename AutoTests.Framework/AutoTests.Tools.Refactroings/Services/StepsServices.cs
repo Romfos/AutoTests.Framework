@@ -33,7 +33,15 @@ namespace AutoTests.Tools.Refactroings.Services
 
         public void ChangePropertyName<T>(string oldName, string newName)
         {
-            foreach (var step in FindSteps(x => x.IsArgumentType<T>()).Select(x => x.step))
+            bool CheckArgumenyType(Step step)
+            {
+                return step.IsArgumentType<T>()
+                       || step.IsArgumentType<IEnumerable<T>>()
+                       || step.IsArgumentType<T[]>()
+                       || step.IsArgumentType<List<T>>();
+            }
+
+            foreach (var step in FindSteps(CheckArgumenyType).Select(x => x.step))
             {
                 foreach (var row in step.Table.Rows)
                 {

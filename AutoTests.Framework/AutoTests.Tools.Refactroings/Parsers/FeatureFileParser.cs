@@ -84,7 +84,7 @@ namespace AutoTests.Tools.Refactroings.Parsers
             scenario.Name = source.Name;
             scenario.Description = source.Description;
             scenario.Steps.AddRange(ParseSteps(source.Steps));
-            scenario.Exampless.AddRange(source.Examples.Select(ParseExample));
+            scenario.Examples.AddRange(source.Examples.Select(ParseExample));
             return scenario;
         }
 
@@ -172,20 +172,13 @@ namespace AutoTests.Tools.Refactroings.Parsers
         {
             var columns = source.Rows.First().Cells.Select(x => x.Value).ToArray();
 
-            string[] verticalTableColumns =
+            if (step.StepDefinition.IsEnumerableArgument())
             {
-                "Name",
-                "Value",
-                "Attribute"
-            };
-
-            if (columns.All(verticalTableColumns.Contains))
-            {
-                ParseVerticalTable(step, source, columns);
+                ParseHorizontalTable(step, source, columns);
             }
             else
             {
-                ParseHorizontalTable(step, source, columns);
+                ParseVerticalTable(step, source, columns);
             }
         }
 

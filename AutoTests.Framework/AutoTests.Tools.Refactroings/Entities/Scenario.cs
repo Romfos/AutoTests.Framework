@@ -8,7 +8,7 @@ namespace AutoTests.Tools.Refactroings.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Step> Steps { get; } = new List<Step>();
-        public List<Examples> Exampless { get; } = new List<Examples>();
+        public List<Examples> Examples { get; } = new List<Examples>();
 
         public override string ToString()
         {

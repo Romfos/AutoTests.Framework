@@ -35,7 +35,7 @@ namespace AutoTests.Tools.Refactroings.Entities
         {
             return IsArgumentType(typeof(T));
         }
-
+        
         public bool IsArgumentType(Type type)
         {
             var parameters = StepDefinition.MethodInfo.GetParameters();

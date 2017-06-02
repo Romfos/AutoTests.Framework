@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace AutoTests.Tools.Refactroings.Entities
@@ -11,6 +13,16 @@ namespace AutoTests.Tools.Refactroings.Entities
         public override string ToString()
         {
             return $"{MethodInfo.DeclaringType.Name}.{MethodInfo.Name}";
+        }
+
+        public bool IsEnumerableArgument()
+        {
+            var parameters = MethodInfo.GetParameters();
+            if (parameters.Length == 0)
+            {
+                return false;
+            }
+            return typeof(IEnumerable).IsAssignableFrom(parameters.Last().ParameterType);
         }
     }
 }
