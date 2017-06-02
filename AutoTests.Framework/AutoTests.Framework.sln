@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoTests.Tools", "AutoTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Tools.Refactroings", "AutoTests.Tools.Refactroings\AutoTests.Tools.Refactroings.csproj", "{162745D5-A7C2-43B4-86E0-6B24A595E16D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Tools.Tests", "AutoTests.Tools.Tests\AutoTests.Tools.Tests.csproj", "{B494F419-A288-45E6-9A37-8DF0FB3130DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Tools.Refactroings.Tests", "AutoTests.Tools.Refactroings.Tests\AutoTests.Tools.Refactroings.Tests.csproj", "{B494F419-A288-45E6-9A37-8DF0FB3130DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
