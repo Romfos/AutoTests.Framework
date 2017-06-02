@@ -5,10 +5,10 @@ using System.Reflection;
 using AutoTests.Tools.Refactroings.Entities;
 using AutoTests.Tools.Refactroings.Infrastructure;
 using AutoTests.Tools.Refactroings.Services;
-using AutoTests.Tools.Tests.Models;
+using AutoTests.Tools.Refactroings.Tests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AutoTests.Tools.Tests.Tests
+namespace AutoTests.Tools.Refactroings.Tests.Tests
 {
     [TestClass]
     public class StepsServicesTests

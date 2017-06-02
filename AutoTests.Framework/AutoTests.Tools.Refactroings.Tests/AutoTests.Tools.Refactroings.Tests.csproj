@@ -7,8 +7,8 @@
     <ProjectGuid>{B494F419-A288-45E6-9A37-8DF0FB3130DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoTests.Tools.Tests</RootNamespace>
-    <AssemblyName>AutoTests.Tools.Tests</AssemblyName>
+    <RootNamespace>AutoTests.Tools.Refactroings.Tests</RootNamespace>
+    <AssemblyName>AutoTests.Tools.Refactroings.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
