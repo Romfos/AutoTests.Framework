@@ -37,9 +37,9 @@ namespace AutoTests.Tools.Tests.Tests
         }
 
         [TestMethod]
-        public void RenamePropertyNameTest()
+        public void ChangePropertyNameTest()
         {
-            stepsServices.RenamePropertyName<RenameModel>("Number", "Id");
+            stepsServices.ChangePropertyName<RenameModel>("Number", "Id");
 
             var step1 = stepsServices.FindSteps(x => x.Text == "rename model one").Single().step;
             var step2 = stepsServices.FindSteps(x => x.Text == "rename model two").Single().step;

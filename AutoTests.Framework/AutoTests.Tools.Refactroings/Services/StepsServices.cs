@@ -31,7 +31,7 @@ namespace AutoTests.Tools.Refactroings.Services
             }
         }
 
-        public void RenamePropertyName<T>(string oldName, string newName)
+        public void ChangePropertyName<T>(string oldName, string newName)
         {
             foreach (var step in FindSteps(x => x.IsArgumentType<T>()).Select(x => x.step))
             {
