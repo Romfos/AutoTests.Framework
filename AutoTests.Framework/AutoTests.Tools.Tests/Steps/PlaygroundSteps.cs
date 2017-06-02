@@ -22,5 +22,11 @@ namespace AutoTests.Tools.Tests.Steps
         {
             ScenarioContext.Current.Pending();
         }
+
+        [Given(@"test")]
+        public void GivenTest(Table table)
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }

@@ -2,8 +2,8 @@
 
 namespace AutoTests.Tools.Refactroings.Entities
 {
-    public class Example
+    public class Examples
     {
-        public List<ExampleCase> Rows { get; } = new List<ExampleCase>();
+        public List<ExampleCase> Cases { get; } = new List<ExampleCase>();
     }
 }

@@ -1,10 +1,25 @@
-﻿Feature: Playground
+﻿#test2
+Feature: Playground
 	In order to avoid silly mistakes
 	As a math idiot
 	I want to be told the sum of two numbers
 
 @mytag
-Scenario: Add two numbers
+#test
+Scenario Outline: Add two numbers
+	Given test
+	| Name | Value |
+	| aaa  | bbb   |
+	| 123  | 456   |
+
+	Examples: 
+	| c1 | c2  |
+	| AA | ZZZ |
+	| BB | GGG |
+	
+@mytag2
+#test3
+Scenario: Add two numbers2222
 	Given I have entered 50 into the calculator
 	And I have entered 70 into the calculator
 	When I press add
