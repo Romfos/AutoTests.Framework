@@ -4,3 +4,4 @@ MSBuild ..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj /p:Confi
 MSBuild ..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj /p:Configuration=Release
 MSBuild ..\AutoTests.Framework.Web\AutoTests.Framework.Web.csproj /p:Configuration=Release
 MSBuild ..\AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj /p:Configuration=Release
+MSBuild ..\AutoTests.Tools.Refactroings\AutoTests.Tools.Refactroings.csproj /p:Configuration=Release
