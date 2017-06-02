@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace AutoTests.Tools.Tests.Tests
 {
     [TestClass]
-    public class UnitTests
+    public class ParserTests
     {
         [TestMethod]
         public void StepDefinitionParserTest()
@@ -27,7 +27,7 @@ namespace AutoTests.Tools.Tests.Tests
 
             var featureFileParser = new FeatureFileParser(stepDefinitions);
             var featureFiles = featureFileParser.Parse(
-                new DirectoryInfo(Environment.CurrentDirectory + @"..\..\..\"))
+                    new DirectoryInfo(Environment.CurrentDirectory + @"..\..\..\"))
                 .ToArray();
 
             Assert.AreEqual(2, featureFiles.Single().Feature.Scenarios.Count);

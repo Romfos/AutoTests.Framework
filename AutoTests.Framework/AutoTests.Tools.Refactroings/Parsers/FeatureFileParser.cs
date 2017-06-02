@@ -105,17 +105,23 @@ namespace AutoTests.Tools.Refactroings.Parsers
             step.StepType = ParseStepType(source.Keyword.Trim(), lastStepType);
             step.Text = source.Text.Trim();
             step.StepDefinition = FindStepDefinition(step.StepType, step.Text);
-
-            if (source.Argument is DataTable dataTable)
-            {
-                ParseTable(step, dataTable);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
-
+            ParseStepArgument(step, source);
             return step;
+        }
+
+        private void ParseStepArgument(Step step, Gherkin.Ast.Step source)
+        {
+            if (source.Argument != null)
+            {
+                if (source.Argument is DataTable dataTable)
+                {
+                    ParseTable(step, dataTable);
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
+            }
         }
 
         private StepDefinition FindStepDefinition(StepType stepType, string text)
