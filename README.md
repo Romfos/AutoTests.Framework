@@ -2,12 +2,15 @@
 
 AutoTests.Framework is plugin\extension for specflow.
 
-Features:
+Framework features:
 - Automatic model transformations
 - Model comparator
 - PreProcessor
 - Silenium WebDriver integration framework
 - Test data managment
+
+Tools:
+- Additional tool for writhing refactroings (see AutoTests.Tools.Refactroings)
 
 # Links
 
@@ -16,6 +19,9 @@ Features:
 - https://www.nuget.org/packages/AutoTests.Framework.PreProcessor
 - https://www.nuget.org/packages/AutoTests.Framework.Web
 - https://www.nuget.org/packages/AutoTests.Framework.TestData
+
+Additional packages
+- https://www.nuget.org/packages/AutoTests.Tools.Refactroings/
 
 # How to use
 1) Create and configure basic specflow project
