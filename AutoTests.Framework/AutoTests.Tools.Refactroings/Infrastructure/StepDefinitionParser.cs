@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using AutoTests.Tools.Refactroings.Entities;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Tools.Refactroings.Parsers
+namespace AutoTests.Tools.Refactroings.Infrastructure
 {
     public class StepDefinitionParser
     {

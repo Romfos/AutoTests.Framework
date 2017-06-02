@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using AutoTests.Tools.Refactroings.Parsers;
+using AutoTests.Tools.Refactroings.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AutoTests.Tools.Tests.Tests

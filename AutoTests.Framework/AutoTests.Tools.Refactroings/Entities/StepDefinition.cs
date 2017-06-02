@@ -15,7 +15,7 @@ namespace AutoTests.Tools.Refactroings.Entities
         {
             return $"{MethodInfo.DeclaringType.Name}.{MethodInfo.Name}";
         }
-
+        
         public bool CheckArgumentType(Func<Type, bool> condition)
         {
             var parameters = MethodInfo.GetParameters();

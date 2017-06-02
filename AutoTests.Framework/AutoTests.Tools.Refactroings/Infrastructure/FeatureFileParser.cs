@@ -10,7 +10,7 @@ using Scenario = AutoTests.Tools.Refactroings.Entities.Scenario;
 using Step = AutoTests.Tools.Refactroings.Entities.Step;
 using TableRow = AutoTests.Tools.Refactroings.Entities.TableRow;
 
-namespace AutoTests.Tools.Refactroings.Parsers
+namespace AutoTests.Tools.Refactroings.Infrastructure
 {
     public class FeatureFileParser
     {

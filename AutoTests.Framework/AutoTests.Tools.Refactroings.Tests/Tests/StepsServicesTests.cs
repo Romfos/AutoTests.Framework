@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using AutoTests.Tools.Refactroings.Entities;
-using AutoTests.Tools.Refactroings.Parsers;
+using AutoTests.Tools.Refactroings.Infrastructure;
 using AutoTests.Tools.Refactroings.Services;
 using AutoTests.Tools.Tests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

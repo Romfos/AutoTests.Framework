@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using AutoTests.Tools.Refactroings.Entities;
 
-namespace AutoTests.Tools.Refactroings.Parsers
+namespace AutoTests.Tools.Refactroings.Infrastructure
 {
     public class FeatureFileWriter
     {
