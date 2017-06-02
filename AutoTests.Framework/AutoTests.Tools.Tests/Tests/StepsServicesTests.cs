@@ -5,6 +5,7 @@ using System.Reflection;
 using AutoTests.Tools.Refactroings.Entities;
 using AutoTests.Tools.Refactroings.Parsers;
 using AutoTests.Tools.Refactroings.Services;
+using AutoTests.Tools.Tests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AutoTests.Tools.Tests.Tests
@@ -33,6 +34,19 @@ namespace AutoTests.Tools.Tests.Tests
             var steps = stepsServices.FindSteps(x => x.Text == "test").ToArray();
 
             Assert.AreEqual(2, steps.Length);
+        }
+
+        [TestMethod]
+        public void RenamePropertyNameTest()
+        {
+            stepsServices.RenamePropertyName<RenameModel>("Number", "Id");
+
+            var step1 = stepsServices.FindSteps(x => x.Text == "rename model one").Single().step;
+            var step2 = stepsServices.FindSteps(x => x.Text == "rename model two").Single().step;
+
+            Assert.AreEqual("Id", step1.Table.Rows[0].Items[0].Name);
+            Assert.AreEqual("Id", step2.Table.Rows[0].Items[0].Name);
+            Assert.AreEqual("Id", step2.Table.Rows[1].Items[0].Name);
         }
     }
 }

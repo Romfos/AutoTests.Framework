@@ -28,3 +28,12 @@ Scenario: scenario2
 	And I have entered 70 into the calculator
 	When I press add
 	Then the result should be 120 on the screen
+
+Scenario: rename model test
+	Given rename model one
+	| Name   | Value |
+	| Number | 123   |
+	Given rename model two
+	| Number |
+	| 123    |
+	| 456    |

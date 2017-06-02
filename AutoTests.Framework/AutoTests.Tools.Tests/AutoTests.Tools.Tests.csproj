@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\RenameModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\PlaygroundSteps.cs" />
     <Compile Include="Tests\StepsServicesTests.cs" />

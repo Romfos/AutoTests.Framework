@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoTests.Tools.Refactroings.Entities;
 
 namespace AutoTests.Tools.Refactroings.Services
@@ -26,6 +27,17 @@ namespace AutoTests.Tools.Refactroings.Services
                             yield return (featureFile, scenario, step);
                         }
                     }
+                }
+            }
+        }
+
+        public void RenamePropertyName<T>(string oldName, string newName)
+        {
+            foreach (var step in FindSteps(x => x.IsArgumentType<T>()).Select(x => x.step))
+            {
+                foreach (var row in step.Table.Rows)
+                {
+                    row.GetItemByName(oldName).Name = newName;
                 }
             }
         }
