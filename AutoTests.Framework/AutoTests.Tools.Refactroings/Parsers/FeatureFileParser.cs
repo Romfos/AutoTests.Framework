@@ -8,6 +8,7 @@ using Gherkin.Ast;
 using Examples = AutoTests.Tools.Refactroings.Entities.Examples;
 using Scenario = AutoTests.Tools.Refactroings.Entities.Scenario;
 using Step = AutoTests.Tools.Refactroings.Entities.Step;
+using TableRow = AutoTests.Tools.Refactroings.Entities.TableRow;
 
 namespace AutoTests.Tools.Refactroings.Parsers
 {
@@ -103,7 +104,24 @@ namespace AutoTests.Tools.Refactroings.Parsers
             var step = new Step();
             step.StepType = ParseStepType(source.Keyword.Trim(), lastStepType);
             step.Text = source.Text.Trim();
+            step.StepDefinition = FindStepDefinition(step.StepType, step.Text);
+
+            if (source.Argument is DataTable dataTable)
+            {
+                ParseTable(step, dataTable);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
             return step;
+        }
+
+        private StepDefinition FindStepDefinition(StepType stepType, string text)
+        {
+            return stepDefinitions.Single(
+                x => x.StepAttributes.Any(y => y.StepType == stepType && y.Regex.IsMatch(text)));
         }
 
         private StepType ParseStepType(string keyword, StepType lastStepType)
@@ -133,15 +151,82 @@ namespace AutoTests.Tools.Refactroings.Parsers
             return examples;
         }
 
-        private ExampleCase ParseExampleCase(string[] headers, Gherkin.Ast.TableRow source)
+        private ExampleCase ParseExampleCase(string[] columns, Gherkin.Ast.TableRow source)
         {
             var exampleCase = new ExampleCase();
             exampleCase.Cells.AddRange(source.Cells.Select((x, i) => new ExampleCell
             {
                 Value = x.Value,
-                Column = headers[i]
+                Column = columns[i]
             }));
             return exampleCase;
+        }
+
+        private void ParseTable(Step step, DataTable source)
+        {
+            var columns = source.Rows.First().Cells.Select(x => x.Value).ToArray();
+
+            string[] verticalTableColumns =
+            {
+                "Name",
+                "Value",
+                "Attribute"
+            };
+
+            if (columns.All(verticalTableColumns.Contains))
+            {
+                ParseVerticalTable(step, source, columns);
+            }
+            else
+            {
+                ParseHorizontalTable(step, source, columns);
+            }
+        }
+
+        private void ParseHorizontalTable(Step step, DataTable source, string[] columns)
+        {
+            foreach (var sourceRow in source.Rows.Skip(1))
+            {
+                var row = new TableRow();
+
+                row.Items.AddRange(sourceRow.Cells.Select((x, i) => new TableItem
+                {
+                    Name = columns[i],
+                    Value = x.Value
+                }));
+
+                step.Table.Rows.Add(row);
+            }
+        }
+
+        private void ParseVerticalTable(Step step, DataTable source, string[] columns)
+        {
+            int nameIndex = Array.FindIndex(columns, x => x == "Name");
+            int valueIndex = Array.FindIndex(columns, x => x == "Value");
+            int attributeIndex = Array.FindIndex(columns, x => x == "Attribute");
+
+            var row = new TableRow();
+
+            foreach (var tableCells in source.Rows.Skip(1).Select(x => x.Cells.ToArray()))
+            {
+                var tableItem = new TableItem();
+
+                tableItem.Name = tableCells[nameIndex].Value;
+
+                if (valueIndex >= 0)
+                {
+                    tableItem.Value = tableCells[valueIndex].Value;
+                }
+
+                if (attributeIndex >= 0)
+                {
+                    tableItem.Attribute = tableCells[attributeIndex].Value;
+                }
+
+                row.Items.Add(tableItem);
+            }
+
+            step.Table.Rows.Add(row);
         }
     }
 }
