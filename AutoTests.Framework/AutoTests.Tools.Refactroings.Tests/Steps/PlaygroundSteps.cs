@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using AutoTests.Tools.Tests.Models;
+using AutoTests.Tools.Refactroings.Tests.Models;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Tools.Tests.Steps
+namespace AutoTests.Tools.Refactroings.Tests.Steps
 {
     [Binding]
     public class PlaygroundSteps

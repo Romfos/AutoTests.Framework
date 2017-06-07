@@ -5,7 +5,7 @@ using System.Reflection;
 using AutoTests.Tools.Refactroings.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AutoTests.Tools.Tests.Tests
+namespace AutoTests.Tools.Refactroings.Tests.Tests
 {
     [TestClass]
     public class ParserTests
