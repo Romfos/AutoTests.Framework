@@ -13,16 +13,16 @@ namespace AutoTests.Web.Pages.Login
         {
         }
 
-        private Binder<LoginModel> Bind(LoginModel model)
+        private Binder<LoginModel> BindLoginModel()
         {
-            return new Binder<LoginModel>(model)
-                .Bind(() => model.Username, UsernameInput)
-                .Bind(() => model.Password, PasswordInput);
+            return new Binder<LoginModel>()
+                .Bind(x => x.Username, UsernameInput)
+                .Bind(x => x.Password, PasswordInput);
         }
 
         public void Login(LoginModel model)
         {
-            Bind(model).SetValue();
+            BindLoginModel().SetValue(model);
             LoginButton.Click();
         }
     }
