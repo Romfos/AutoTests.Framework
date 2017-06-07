@@ -23,7 +23,7 @@ namespace AutoTests.Framework.Web.Binding
 
         private IEnumerable<IBind> BindModel(TModel model)
         {
-            return bindings.Select(gettter => gettter(model));
+            return bindings.Select(binding => binding(model));
         }
 
         public void SetValue(TModel model, bool processDisabledProperties = false)
