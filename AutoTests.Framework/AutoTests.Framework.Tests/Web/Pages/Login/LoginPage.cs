@@ -12,17 +12,17 @@ namespace AutoTests.Framework.Tests.Web.Pages.Login
         public LoginPage(Application application) : base(application)
         {
         }
-
-        private Binder<LoginModel> GetLoginModelBinder(LoginModel loginModel)
+        
+        private Binder<LoginModel> BindLoginModel()
         {
-            return new Binder<LoginModel>(loginModel)
-                .Bind(() => loginModel.Username, UsernameInput)
-                .Bind(() => loginModel.Password, PasswordInput);
+            return new Binder<LoginModel>()
+                .Bind(x => x.Username, UsernameInput)
+                .Bind(x => x.Password, PasswordInput);
         }
-
+        
         public void Login(LoginModel loginModel)
         {
-            GetLoginModelBinder(loginModel).SetValue();
+            BindLoginModel().SetValue(loginModel);
             LoginButton.Click();
         }
     }

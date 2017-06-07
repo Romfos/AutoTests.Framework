@@ -9,59 +9,88 @@ namespace AutoTests.Framework.Web.Binding
     public class Binder<TModel>
         where TModel : Model, new()
     {
-        private readonly List<IBind> binds = new List<IBind>();
-        private readonly TModel model;
+        private readonly List<Func<TModel, IBind>> bindings = new List<Func<TModel, IBind>>();
 
-        public Binder(TModel model)
+        public Binder<TModel> Bind<T>(Expression<Func<TModel, T>> expression, PageObject pageObject)
         {
-            this.model = model;
-        }
-
-        public Binder<TModel> Bind<T>(Expression<Func<T>> expression, PageObject pageObject)
-        {
-            var propertyLink = PropertyLink.Get(expression);
-            var bind = new Bind<T>(propertyLink, pageObject);
-            binds.Add(bind);
+            bindings.Add(model =>
+            {
+                var propertyLink = PropertyLink.Get(model, expression);
+                return new Bind<T>(propertyLink, pageObject);
+            });
             return this;
         }
 
-        public void SetValue(bool processDiabledProperties = false)
+        private IEnumerable<IBind> BindModel(TModel model)
         {
-            foreach (var bind in GetBinds(x => x.CanSetValue, processDiabledProperties))
+            return bindings.Select(gettter => gettter(model));
+        }
+
+        public void SetValue(TModel model, bool processDisabledProperties = false)
+        {
+            foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanSetValue))
             {
                 bind.SetValue();
             }
         }
 
-        public void SetValue(TModel expectedModel)
+        public TModel GetValue(bool processDisabledProperties = false)
         {
-            foreach (var bind in GetBinds(x => x.CanSetValue, expectedModel))
-            {
-                bind.SetValue();
-            }
-        }
-
-        public TModel GetValue(bool processDiabledProperties = false)
-        {
-            foreach (var bind in GetBinds(x => x.CanGetValue, processDiabledProperties))
+            var actual = new TModel();
+            foreach (var bind in GetConditionalBinds(actual, processDisabledProperties, x => x.CanGetValue))
             {
                 bind.GetValue();
             }
-            return model;
+            return actual;
         }
 
-        public TModel GetValue(TModel expectedModel)
+        public TModel GetValue(TModel expected)
         {
-            foreach (var bind in GetBinds(x => x.CanGetValue, expectedModel))
+            var actual = new TModel();
+            foreach (var bind in GetExpectedBinds(actual, expected, x => x.CanGetValue))
             {
                 bind.GetValue();
             }
-            return model;
+            return actual;
         }
 
-        public IEnumerable<PropertyLink> GetEnabledProperties(bool expected, bool processDiabledProperties = false)
+        public IEnumerable<PropertyLink> GetEnabledProperties(bool value = true, bool processDisabledProperties = false)
         {
-            foreach (var bind in GetBinds(x => x.CanBeEnabled, processDiabledProperties))
+            foreach (var bind in GetConditionalBinds(new TModel(), processDisabledProperties, x => x.CanBeEnabled))
+            {
+                if (bind.IsEnabled() == value)
+                {
+                    yield return bind.PropertyLink;
+                }
+            }
+        }
+
+        public IEnumerable<PropertyLink> GetSelectedProperties(bool value = true, bool processDisabledProperties = false)
+        {
+            foreach (var bind in GetConditionalBinds(new TModel(), processDisabledProperties, x => x.CanBeSelected))
+            {
+                if (bind.IsSelected() == value)
+                {
+                    yield return bind.PropertyLink;
+                }
+            }
+        }
+
+        public IEnumerable<PropertyLink> GetDisplayedProperties(bool value = true, bool processDisabledProperties = false)
+        {
+            foreach (var bind in GetConditionalBinds(new TModel(), processDisabledProperties, x => x.CanBeDisplayed))
+            {
+                if (bind.IsDisplayed() == value)
+                {
+                    yield return bind.PropertyLink;
+                }
+            }
+        }
+
+
+        public IEnumerable<PropertyLink> GetEnabledProperties(TModel model, bool expected = true, bool processDisabledProperties = false)
+        {
+            foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanBeEnabled))
             {
                 if (bind.IsEnabled() == expected)
                 {
@@ -70,72 +99,38 @@ namespace AutoTests.Framework.Web.Binding
             }
         }
 
-        public IEnumerable<PropertyLink> GetEnabledProperties(bool expected, TModel expectedModel)
+        public IEnumerable<PropertyLink> GetSelectedProperties(TModel model, bool value = true, bool processDisabledProperties = false)
         {
-            foreach (var bind in GetBinds(x => x.CanBeEnabled, expectedModel))
+            foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanBeSelected))
             {
-                if (bind.IsEnabled() == expected)
+                if (bind.IsSelected() == value)
                 {
                     yield return bind.PropertyLink;
                 }
             }
         }
 
-        public IEnumerable<PropertyLink> GetDisplayedProperties(bool expected, bool processDiabledProperties = false)
+        public IEnumerable<PropertyLink> GetDisplayedProperties(TModel model, bool value = true, bool processDisabledProperties = false)
         {
-            foreach (var bind in GetBinds(x => x.CanBeDisplayed, processDiabledProperties))
+            foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanBeDisplayed))
             {
-                if (bind.IsDisplayed() == expected)
+                if (bind.IsDisplayed() == value)
                 {
                     yield return bind.PropertyLink;
                 }
             }
         }
 
-        public IEnumerable<PropertyLink> GetDisplayedProperties(bool expected, TModel expectedModel)
+        private IEnumerable<IBind> GetConditionalBinds(TModel model, bool processDisabledProperties, Func<IBind, bool> condition)
         {
-            foreach (var bind in GetBinds(x => x.CanBeDisplayed, expectedModel))
-            {
-                if (bind.IsDisplayed() == expected)
-                {
-                    yield return bind.PropertyLink;
-                }
-            }
+            return BindModel(model).Where(x => !processDisabledProperties || x.PropertyLink.Enabled).Where(condition);
         }
 
-        public IEnumerable<PropertyLink> GetSelectedProperties(bool expected, bool processDiabledProperties = false)
+        private IEnumerable<IBind> GetExpectedBinds(TModel actual, TModel expected, Func<IBind, bool> condition)
         {
-            foreach (var bind in GetBinds(x => x.CanBeSelected, processDiabledProperties))
-            {
-                if (bind.IsSelected() == expected)
-                {
-                    yield return bind.PropertyLink;
-                }
-            }
-        }
+            var expectedProperties = expected.GetModelInfo().GetPropertyLinks().Where(x => x.Enabled).ToArray();
 
-        public IEnumerable<PropertyLink> GetSelectedProperties(bool expected, TModel expectedModel)
-        {
-            foreach (var bind in GetBinds(x => x.CanBeSelected, expectedModel))
-            {
-                if (bind.IsSelected() == expected)
-                {
-                    yield return bind.PropertyLink;
-                }
-            }
-        }
-
-        private IEnumerable<IBind> GetBinds(Func<IBind, bool> condition, bool processDiabledProperties)
-        {
-            return binds
-                .Where(x => !processDiabledProperties || x.PropertyLink.Enabled)
-                .Where(condition);
-        }
-
-        private IEnumerable<IBind> GetBinds(Func<IBind, bool> condition, TModel expectedModel)
-        {
-            var names = model.GetModelInfo().GetPropertyLinks().Where(x => x.Enabled).Select(x => x.Name).ToArray();
-            return binds.Where(x => names.Contains(x.PropertyLink.Name)).Where(condition);
+            return BindModel(actual).Where(x => expectedProperties.Contains(x.PropertyLink)).Where(condition);
         }
     }
 }

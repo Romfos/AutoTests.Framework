@@ -54,6 +54,14 @@ namespace AutoTests.Framework.Models
             return getModel().GetModelInfo().GetPropertyLinks().Single(x => x.PropertyInfo == propertyInfo);
         }
 
+        public static PropertyLink Get<TModel, TProperty>(Model model, Expression<Func<TModel, TProperty>> expression)
+            where TModel : Model
+        {
+            var body = expression.Body as MemberExpression;
+            var propertyInfo = body.Member as PropertyInfo;
+            return model.GetModelInfo().GetPropertyLinks().Single(x => x.PropertyInfo == propertyInfo);
+        }
+
         private List<PropertyAttribute> GetPropertyAttributes()
         {
             return PropertyInfo.GetCustomAttributes<PropertyAttribute>().ToList();
