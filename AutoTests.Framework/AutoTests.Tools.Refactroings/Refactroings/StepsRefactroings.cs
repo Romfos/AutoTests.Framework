@@ -38,7 +38,7 @@ namespace AutoTests.Tools.Refactroings.Refactroings
             foreach (var step in stepLocations.Select(x => x.step))
             {
                 var attribute = step.StepDefinition.StepAttributes.SingleOrDefault(
-                    t => t.StepType == oldStepAttribute.StepType && t.Regex == oldStepAttribute.Regex);
+                    t => t.StepType == oldStepAttribute.StepType && t.Regex.ToString() == oldStepAttribute.Regex.ToString());
 
                 if (attribute != null)
                 {
