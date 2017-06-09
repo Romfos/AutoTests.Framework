@@ -11,5 +11,12 @@ namespace AutoTests.Tools.Refactroings.Entities
         {
             return $"[{StepType}(\"{Regex}\")]";
         }
+        
+        public override bool Equals(object obj)
+        {
+            return obj is StepAttribute stepAttribute
+                   && StepType == stepAttribute.StepType
+                   && Regex.ToString() == stepAttribute.Regex.ToString();
+        }
     }
 }

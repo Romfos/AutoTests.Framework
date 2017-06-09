@@ -31,22 +31,22 @@ namespace AutoTests.Tools.Refactroings.Refactroings
 
         public void Rename(string converterFormatString, StepAttribute oldStepAttribute, StepAttribute newStepAttribute)
         {
-            var stepLocations = Find(
-                x => x.StepDefinition.StepAttributes.Any(
-                    t => t.StepType == oldStepAttribute.StepType && t.Regex.ToString() == oldStepAttribute.Regex.ToString()));
+            var steps = Find(x => x.StepDefinition.StepAttributes.Contains(oldStepAttribute))
+                .Select(x => x.step)
+                .ToArray();
 
-            foreach (var step in stepLocations.Select(x => x.step))
+            foreach (var step in steps)
             {
-                var attribute = step.StepDefinition.StepAttributes.SingleOrDefault(
-                    t => t.StepType == oldStepAttribute.StepType && t.Regex.ToString() == oldStepAttribute.Regex.ToString());
+                step.Text = string.Format(converterFormatString, step.GetArguments());
+            }
 
-                if (attribute != null)
+            foreach (var step in steps)
+            {
+                if (step.StepDefinition.StepAttributes.Contains(oldStepAttribute))
                 {
-                    step.StepDefinition.StepAttributes.Remove(attribute);
+                    step.StepDefinition.StepAttributes.Remove(oldStepAttribute);
                     step.StepDefinition.StepAttributes.Add(newStepAttribute);
                 }
-
-                step.Text = string.Format(converterFormatString, step.GetArguments());
             }
         }
     }
