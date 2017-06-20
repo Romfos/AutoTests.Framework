@@ -13,9 +13,9 @@ Tools:
 - Additional tool for writhing refactroings (see AutoTests.Tools.Refactroings)
 
 # Requirements
-.NET Framework 4.6
-Visual Studio 2017 (older version not tested, but maybe?)
-Specflow plugin for Visual Studio (for *.feature files highlighting)
+- .NET Framework 4.6
+- Visual Studio 2017 (older version not tested, but maybe?)
+- Specflow plugin for Visual Studio (for *.feature files highlighting)
 
 # Links
 
