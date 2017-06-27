@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Tests.Web.Controls
 {
-    public class Input : DemoControl, ISetValue<string>
+    public class Input : DemoControl, ISetValue<string>, IGetValue<string>
     {
         public string Locator { get; private set; }
 
@@ -13,6 +13,11 @@ namespace AutoTests.Framework.Tests.Web.Controls
         public void SetValue(string value)
         {
             Context.SetValue(Locator, value);
+        }
+
+        public string GetValue()
+        {
+            return Locator;
         }
     }
 }

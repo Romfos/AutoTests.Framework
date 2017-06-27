@@ -128,9 +128,13 @@ namespace AutoTests.Framework.Web.Binding
 
         private IEnumerable<IBind> GetExpectedBinds(TModel actual, TModel expected, Func<IBind, bool> condition)
         {
-            var expectedProperties = expected.GetModelInfo().GetPropertyLinks().Where(x => x.Enabled).ToArray();
+            var expectedPropertyNames = expected.GetModelInfo()
+                .GetPropertyLinks()
+                .Where(x => x.Enabled)
+                .Select(x => x.Name)
+                .ToArray();
 
-            return BindModel(actual).Where(x => expectedProperties.Contains(x.PropertyLink)).Where(condition);
+            return BindModel(actual).Where(x => expectedPropertyNames.Contains(x.PropertyLink.Name)).Where(condition);
         }
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="TestData\Providers\TextFileResoruceProvider.cs" />
     <Compile Include="UnitTests\ModelsTests.cs" />
     <Compile Include="UnitTests\UnitTestBase.cs" />
+    <Compile Include="UnitTests\WebTests.cs" />
     <Compile Include="Web\Controls\Button.cs" />
     <Compile Include="Web\Controls\DemoControl.cs" />
     <Compile Include="Web\Controls\Input.cs" />

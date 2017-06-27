@@ -25,5 +25,10 @@ namespace AutoTests.Framework.Tests.Web.Pages.Login
             BindLoginModel().SetValue(loginModel);
             LoginButton.Click();
         }
+
+        public LoginModel GetLoginModel(LoginModel expected)
+        {
+            return BindLoginModel().GetValue(expected);
+        }
     }
 }
