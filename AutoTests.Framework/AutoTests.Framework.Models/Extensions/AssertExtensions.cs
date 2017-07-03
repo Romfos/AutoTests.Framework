@@ -21,14 +21,14 @@ namespace AutoTests.Framework.Models.Extensions
             }
         }
 
-        public static void AreContainModel<T>(this Assert assert, IEnumerable<T> expectedList, T actual, string message)
+        public static void AreContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
             where T : Model
         {
             var comparator = assert.Dependencies.GetDependencies<ModelsDependencies>().Comparator;
 
-            foreach (var expected in expectedList)
+            foreach (var item in items)
             {
-                if (comparator.Compare(expected, actual).Any())
+                if (!comparator.Compare(item, expected).Any())
                 {
                     return;
                 }
@@ -37,14 +37,14 @@ namespace AutoTests.Framework.Models.Extensions
             throw new AssertException(message);
         }
 
-        public static void AreNotContainModel<T>(this Assert assert, IEnumerable<T> expectedList, T actual, string message)
+        public static void AreNotContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
             where T : Model
         {
             var comparator = assert.Dependencies.GetDependencies<ModelsDependencies>().Comparator;
 
-            foreach (var expected in expectedList)
+            foreach (var item in items)
             {
-                if (comparator.Compare(expected, actual).Any())
+                if (comparator.Compare(item, expected).Any())
                 {
                     throw new AssertException(message);
                 }
