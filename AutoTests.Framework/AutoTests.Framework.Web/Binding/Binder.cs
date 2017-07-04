@@ -123,7 +123,9 @@ namespace AutoTests.Framework.Web.Binding
 
         private IEnumerable<IBind> GetConditionalBinds(TModel model, bool processDisabledProperties, Func<IBind, bool> condition)
         {
-            return BindModel(model).Where(x => !processDisabledProperties || x.PropertyLink.Enabled).Where(condition);
+            return BindModel(model)
+                .Where(x => !processDisabledProperties && x.PropertyLink.Enabled || processDisabledProperties)
+                .Where(condition);
         }
 
         private IEnumerable<IBind> GetExpectedBinds(TModel actual, TModel expected, Func<IBind, bool> condition)
