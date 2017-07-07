@@ -5,14 +5,15 @@ namespace AutoTests.Framework.Web.Common
 {
     public class CommonContext : Context
     {
+        private readonly WebDependencies dependencies;
         protected IWebDriver Driver { get; }
 
-        public JavaScripts JavaScripts { get; }
+        public JavaScripts JavaScripts => dependencies.GetScriptLibrary<JavaScripts>();
 
         public CommonContext(WebDependencies dependencies)
         {
+            this.dependencies = dependencies;
             Driver = dependencies.WebDriverFactory.CreateWebDriver();
-            JavaScripts = dependencies.GetScriptLibrary<JavaScripts>();
         }
 
         public void Navigate(string url)
