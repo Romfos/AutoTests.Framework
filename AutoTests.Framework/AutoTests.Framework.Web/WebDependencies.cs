@@ -28,15 +28,21 @@ namespace AutoTests.Framework.Web
             return ObjectContainer.Resolve<T>();
         }
 
-        internal Element CreateElement(Type controlType)
+        public T GetScriptLibrary<T>()
+            where T : ScriptLibrary
         {
-            var arguments = controlType.GetConstructors()
+            return ObjectContainer.Resolve<T>();
+        }
+
+        internal Element CreateElement(Type elementType)
+        {
+            var arguments = elementType.GetConstructors()
                 .Single()
                 .GetParameters()
                 .Select(x => ObjectContainer.Resolve(x.ParameterType))
                 .ToArray();
 
-            return (Element) Activator.CreateInstance(controlType, arguments);
+            return (Element) Activator.CreateInstance(elementType, arguments);
         }
 
         protected override void RegisterCustomTypes()
