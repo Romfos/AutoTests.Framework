@@ -1,6 +1,7 @@
 ﻿using AutoTests.Framework.Core.Steps;
 using BoDi;
 using TechTalk.SpecFlow.Bindings;
+using TechTalk.SpecFlow.Configuration;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -23,6 +24,7 @@ namespace AutoTests.Framework.Tests.UnitTests
             var container = new ObjectContainer();
             container.RegisterTypeAs<IBindingFactory>(typeof(BindingFactory));
             container.RegisterTypeAs<IBindingRegistry>(typeof(BindingRegistry));
+            container.RegisterInstanceAs(ConfigurationLoader.GetDefault());
             container.RegisterTypeAs<IStepDefinitionRegexCalculator>(typeof(StepDefinitionRegexCalculator));
             return container.Resolve<Application>();
         }
