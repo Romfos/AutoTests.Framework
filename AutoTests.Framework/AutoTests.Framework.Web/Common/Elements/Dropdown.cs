@@ -16,14 +16,14 @@ namespace AutoTests.Framework.Web.Common.Elements
 
         public string GetValue()
         {
-            return Context.ScriptLibrary.GetValue(Locator);
+            return CommonScriptLibrary.GetValue(Locator);
         }
 
         public bool Selected => Context.IsSelected(Locator);
 
         public void SetValue(string value)
         {
-            Context.ScriptLibrary.SetValue(Locator, value);
+            CommonScriptLibrary.SetValue(Locator, value);
         }
     }
 }

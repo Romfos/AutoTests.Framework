@@ -1,19 +1,14 @@
-﻿using AutoTests.Framework.Web.Common.Scripts;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace AutoTests.Framework.Web.Common
 {
     public class CommonContext : Context
     {
-        private readonly WebDependencies dependencies;
-
         protected IWebDriver Driver { get; }
-
-        public CommonScriptLibrary ScriptLibrary => dependencies.GetScriptLibrary<CommonScriptLibrary>();
-
+        
         public CommonContext(WebDependencies dependencies)
         {
-            this.dependencies = dependencies;
+            Driver = dependencies.WebDriverFactory.CreateWebDriver();
         }
 
         public void Navigate(string url)
