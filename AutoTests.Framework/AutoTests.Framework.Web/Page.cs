@@ -24,30 +24,30 @@ namespace AutoTests.Framework.Web
             foreach (var property in GetPageControlProperties())
             {
                 var arguments = locators[property.Name];
-                var control = dependencies.CreateControl(property.PropertyType);
+                var control = dependencies.CreateElement(property.PropertyType);
                 SetControlArguments(control, arguments);
                 property.SetValue(this, control);
             }
         }
 
-        private void SetControlArguments(Control control, JToken arguments)
+        private void SetControlArguments(Element element, JToken arguments)
         {
-            var properties = GetControlArgumentProperties(control);
+            var properties = GetControlArgumentProperties(element);
             if (properties.Length == 1)
             {
                 var property = properties[0];
-                property.SetValue(control, arguments.ToObject(property.PropertyType));
+                property.SetValue(element, arguments.ToObject(property.PropertyType));
             }
             if (properties.Length > 1)
             {
                 foreach (var property in properties)
                 {
-                    property.SetValue(control, arguments[property.Name].ToObject(property.PropertyType));
+                    property.SetValue(element, arguments[property.Name].ToObject(property.PropertyType));
                 }
             }
         }
 
-        private PropertyInfo[] GetControlArgumentProperties(Control control)
+        private PropertyInfo[] GetControlArgumentProperties(Element element)
         {
             var bindingFlags = BindingFlags.Instance
                                | BindingFlags.GetProperty
@@ -55,7 +55,7 @@ namespace AutoTests.Framework.Web
                                | BindingFlags.Public
                                | BindingFlags.NonPublic;
 
-            return control.GetType()
+            return element.GetType()
                 .GetProperties(bindingFlags)
                 .Where(x => !x.GetIndexParameters().Any())
                 .Where(x => x.CanRead && x.CanWrite && x.SetMethod.IsPrivate)
@@ -72,7 +72,7 @@ namespace AutoTests.Framework.Web
 
             return GetType()
                 .GetProperties(bindingFlags)
-                .Where(x => x.PropertyType.IsSubclassOf(typeof(Control)))
+                .Where(x => x.PropertyType.IsSubclassOf(typeof(Element)))
                 .Where(x => !x.GetIndexParameters().Any());
         }
 

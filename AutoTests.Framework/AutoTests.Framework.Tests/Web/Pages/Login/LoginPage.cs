@@ -1,4 +1,4 @@
-﻿using AutoTests.Framework.Tests.Web.Controls;
+﻿using AutoTests.Framework.Tests.Web.Elements;
 using AutoTests.Framework.Web.Binding;
 
 namespace AutoTests.Framework.Tests.Web.Pages.Login

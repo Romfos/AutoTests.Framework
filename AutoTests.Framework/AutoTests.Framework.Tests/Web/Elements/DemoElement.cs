@@ -1,12 +1,12 @@
 ﻿using AutoTests.Framework.Web;
 
-namespace AutoTests.Framework.Tests.Web.Controls
+namespace AutoTests.Framework.Tests.Web.Elements
 {
-    public abstract class DemoControl : Control
+    public abstract class DemoElement : Element
     {
         protected DemoContext Context { get; }
 
-        protected DemoControl(DemoContext context)
+        protected DemoElement(DemoContext context)
         {
             Context = context;
         }

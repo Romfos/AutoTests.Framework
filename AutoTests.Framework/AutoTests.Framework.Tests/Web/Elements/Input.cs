@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Web.Binding.Contracts;
 
-namespace AutoTests.Framework.Tests.Web.Controls
+namespace AutoTests.Framework.Tests.Web.Elements
 {
-    public class Input : DemoControl, ISetValue<string>, IGetValue<string>
+    public class Input : DemoElement, ISetValue<string>, IGetValue<string>
     {
         public string Locator { get; private set; }
 

@@ -28,7 +28,7 @@ namespace AutoTests.Framework.Web
             return ObjectContainer.Resolve<T>();
         }
 
-        public Control CreateControl(Type controlType)
+        internal Element CreateElement(Type controlType)
         {
             var arguments = controlType.GetConstructors()
                 .Single()
@@ -36,7 +36,7 @@ namespace AutoTests.Framework.Web
                 .Select(x => ObjectContainer.Resolve(x.ParameterType))
                 .ToArray();
 
-            return (Control) Activator.CreateInstance(controlType, arguments);
+            return (Element) Activator.CreateInstance(controlType, arguments);
         }
 
         protected override void RegisterCustomTypes()
