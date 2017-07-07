@@ -14,25 +14,25 @@ namespace AutoTests.Framework.Web
         {
             this.dependencies = dependencies;
             CheckConstraints();
-            SetupControls();
+            CreateElements();
         }
 
-        private void SetupControls()
+        private void CreateElements()
         {
             var locators = dependencies.Utils.Resources.GetJsonResource(this, "Locators.json");
 
-            foreach (var property in GetPageControlProperties())
+            foreach (var property in GetPageElementProperties())
             {
                 var arguments = locators[property.Name];
-                var control = dependencies.CreateElement(property.PropertyType);
-                SetControlArguments(control, arguments);
-                property.SetValue(this, control);
+                var element = dependencies.CreateElement(property.PropertyType);
+                SetElementProperties(element, arguments);
+                property.SetValue(this, element);
             }
         }
 
-        private void SetControlArguments(Element element, JToken arguments)
+        private void SetElementProperties(Element element, JToken arguments)
         {
-            var properties = GetControlArgumentProperties(element);
+            var properties = GetElementArgumentProperties(element);
             if (properties.Length == 1)
             {
                 var property = properties[0];
@@ -47,7 +47,7 @@ namespace AutoTests.Framework.Web
             }
         }
 
-        private PropertyInfo[] GetControlArgumentProperties(Element element)
+        private PropertyInfo[] GetElementArgumentProperties(Element element)
         {
             var bindingFlags = BindingFlags.Instance
                                | BindingFlags.GetProperty
@@ -62,7 +62,7 @@ namespace AutoTests.Framework.Web
                 .ToArray();
         }
 
-        private IEnumerable<PropertyInfo> GetPageControlProperties()
+        private IEnumerable<PropertyInfo> GetPageElementProperties()
         {
             var bindingFlags = BindingFlags.Instance
                                | BindingFlags.GetProperty
@@ -84,7 +84,7 @@ namespace AutoTests.Framework.Web
                     "Locators.json not found. Page '{0}'");
             }
 
-            foreach (var property in GetPageControlProperties())
+            foreach (var property in GetPageElementProperties())
             {
                 if (!property.CanWrite || !property.SetMethod.IsPrivate)
                 {
