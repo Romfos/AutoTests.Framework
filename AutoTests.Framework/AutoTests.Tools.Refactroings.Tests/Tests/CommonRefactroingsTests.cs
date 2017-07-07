@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using AutoTests.Tools.Refactroings.Entities;
-using AutoTests.Tools.Refactroings.Infrastructure;
 using AutoTests.Tools.Refactroings.Tests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
