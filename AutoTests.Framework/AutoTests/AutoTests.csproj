@@ -38,20 +38,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoTests.Framework.Core, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Core.1.1.4\lib\net46\AutoTests.Framework.Core.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Core, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Core.1.2.1\lib\net46\AutoTests.Framework.Core.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.Models, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Models.1.1.4\lib\net46\AutoTests.Framework.Models.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Models, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Models.1.2.1\lib\net46\AutoTests.Framework.Models.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.PreProcessor, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.PreProcessor.1.1.4\lib\net46\AutoTests.Framework.PreProcessor.dll</HintPath>
+    <Reference Include="AutoTests.Framework.PreProcessor, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.PreProcessor.1.2.1\lib\net46\AutoTests.Framework.PreProcessor.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.TestData, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.TestData.1.1.4\lib\net46\AutoTests.Framework.TestData.dll</HintPath>
+    <Reference Include="AutoTests.Framework.TestData, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.TestData.1.2.1\lib\net46\AutoTests.Framework.TestData.dll</HintPath>
     </Reference>
-    <Reference Include="AutoTests.Framework.Web, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoTests.Framework.Web.1.1.4\lib\net46\AutoTests.Framework.Web.dll</HintPath>
+    <Reference Include="AutoTests.Framework.Web, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoTests.Framework.Web.1.2.1\lib\net46\AutoTests.Framework.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
@@ -142,8 +142,8 @@
     <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="TechTalk.SpecFlow, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
@@ -160,13 +160,9 @@
     <Compile Include="Steps\PlaygroundSteps.cs" />
     <Compile Include="Steps\Startup.cs" />
     <Compile Include="Web\ChromeDriverFactory.cs" />
-    <Compile Include="Web\Controls\Button.cs" />
-    <Compile Include="Web\Controls\Input.cs" />
-    <Compile Include="Web\Controls\SemanticControl.cs" />
     <Compile Include="Web\Pages\Login\LoginModel.cs" />
     <Compile Include="Web\Pages\Login\LoginPage.cs" />
     <Compile Include="Web\Pages\SemanticPage.cs" />
-    <Compile Include="Web\SemanticContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -194,7 +190,7 @@
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.30.0.1\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.30.0.1\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
-  <Import Project="..\packages\SpecFlow.2.1.0\tools\TechTalk.SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.1.0\tools\TechTalk.SpecFlow.targets')" />
+  <Import Project="..\packages\SpecFlow.2.2.0\tools\TechTalk.SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.2.0\tools\TechTalk.SpecFlow.targets')" />
   <Target Name="AfterUpdateFeatureFilesInProject">
     <ItemGroup>
       <Compile Include="@(SpecFlowGeneratedFiles)" />

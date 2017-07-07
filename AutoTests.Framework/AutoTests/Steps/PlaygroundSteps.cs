@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.PreProcessor.Transformations;
-using AutoTests.Web;
+using AutoTests.Framework.Web.Common;
 using AutoTests.Web.Pages.Login;
 using TechTalk.SpecFlow;
 
@@ -27,7 +27,7 @@ namespace AutoTests.Steps
         [When(@"navigate to '(.*)'")]
         public void NavigateTo(string url)
         {
-            application.Web.GetContext<SemanticContext>().Navigate(url);
+            application.Web.GetContext<CommonContext>().Navigate(url);
         }
 
         [When(@"login as")]

@@ -1,5 +1,5 @@
 ﻿using AutoTests.Framework.Web.Binding;
-using AutoTests.Web.Controls;
+using AutoTests.Framework.Web.Common.Elements;
 
 namespace AutoTests.Web.Pages.Login
 {
