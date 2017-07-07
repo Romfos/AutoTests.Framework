@@ -64,12 +64,20 @@
     <Compile Include="Binding\Contracts\ISetValue.cs" />
     <Compile Include="Binding\IBind.cs" />
     <Compile Include="Common\CommonContext.cs" />
+    <Compile Include="Common\Elements\Button.cs" />
+    <Compile Include="Common\Elements\Checkbox.cs" />
+    <Compile Include="Common\Elements\CommonElement.cs" />
+    <Compile Include="Common\Elements\Dropdown.cs" />
+    <Compile Include="Common\Elements\Input.cs" />
+    <Compile Include="Common\Elements\Label.cs" />
+    <Compile Include="Common\Scripts\JavaScripts.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="IWebDriverFactory.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="PageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScriptLibrary.cs" />
     <Compile Include="WebDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +93,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Scripts\getValue.js" />
+    <EmbeddedResource Include="Common\Scripts\setValue.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

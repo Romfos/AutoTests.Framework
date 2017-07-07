@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AutoTests.Framework.Web.Common.Scripts;
+using OpenQA.Selenium;
 
 namespace AutoTests.Framework.Web.Common
 {
@@ -6,9 +7,12 @@ namespace AutoTests.Framework.Web.Common
     {
         protected IWebDriver Driver { get; }
 
+        public JavaScripts JavaScripts { get; }
+
         public CommonContext(WebDependencies dependencies)
         {
             Driver = dependencies.WebDriverFactory.CreateWebDriver();
+            JavaScripts = dependencies.GetScriptLibrary<JavaScripts>();
         }
 
         public void Navigate(string url)
