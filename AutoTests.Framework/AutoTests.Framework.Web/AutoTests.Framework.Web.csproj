@@ -63,6 +63,7 @@
     <Compile Include="Binding\Contracts\ISelected.cs" />
     <Compile Include="Binding\Contracts\ISetValue.cs" />
     <Compile Include="Binding\IBind.cs" />
+    <Compile Include="Common\CommonContext.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="IWebDriverFactory.cs" />
