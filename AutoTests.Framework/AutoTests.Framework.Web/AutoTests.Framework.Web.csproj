@@ -70,7 +70,7 @@
     <Compile Include="Common\Elements\Dropdown.cs" />
     <Compile Include="Common\Elements\Input.cs" />
     <Compile Include="Common\Elements\Label.cs" />
-    <Compile Include="Common\Scripts\JavaScripts.cs" />
+    <Compile Include="Common\Scripts\CommonScriptLibrary.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="IWebDriverFactory.cs" />

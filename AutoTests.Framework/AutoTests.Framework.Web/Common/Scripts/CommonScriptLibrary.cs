@@ -1,12 +1,12 @@
 ﻿namespace AutoTests.Framework.Web.Common.Scripts
 {
-    public class JavaScripts : ScriptLibrary
+    public class CommonScriptLibrary : ScriptLibrary
     {
         private readonly WebDependencies dependencies;
 
         protected CommonContext Context => dependencies.GetContext<CommonContext>();
 
-        public JavaScripts(WebDependencies dependencies)
+        public CommonScriptLibrary(WebDependencies dependencies)
         {
             this.dependencies = dependencies;
         }

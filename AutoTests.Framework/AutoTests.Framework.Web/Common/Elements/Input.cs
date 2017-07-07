@@ -16,7 +16,7 @@ namespace AutoTests.Framework.Web.Common.Elements
 
         public string GetValue()
         {
-            return Context.JavaScripts.GetValue(Locator);
+            return Context.ScriptLibrary.GetValue(Locator);
         }
 
         public bool Selected => Context.IsSelected(Locator);

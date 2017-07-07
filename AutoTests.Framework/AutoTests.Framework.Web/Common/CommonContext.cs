@@ -9,7 +9,7 @@ namespace AutoTests.Framework.Web.Common
 
         protected IWebDriver Driver { get; }
 
-        public JavaScripts JavaScripts => dependencies.GetScriptLibrary<JavaScripts>();
+        public CommonScriptLibrary ScriptLibrary => dependencies.GetScriptLibrary<CommonScriptLibrary>();
 
         public CommonContext(WebDependencies dependencies)
         {
