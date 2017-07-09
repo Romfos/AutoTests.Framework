@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Core.Stores
 {
-    public class ObjectStore
+    public class KeyValueStore
     {
         private readonly Dictionary<string, object> dictionary = new Dictionary<string, object>();
 

@@ -37,13 +37,13 @@ namespace AutoTests.Framework.Tests.Steps
         [When(@"save '(.*)' as '(.*)'")]
         public void SaveAs(Calculated value, string key)
         {
-            application.Stores.ObjectStore[key] = value.Get();
+            application.Stores.KeyValueStore[key] = value.Get();
         }
 
         [Then(@"store '(.*)' should contain '(.*)'")]
         public void StoreShouldContain(string key, Calculated value)
         {
-            Assert.AreEqual(value.Get(), application.Stores.ObjectStore[key], "Problem with store");
+            Assert.AreEqual(value.Get(), application.Stores.KeyValueStore[key], "Problem with store");
         }
 
         [Then(@"test vertical table:")]
@@ -61,7 +61,7 @@ namespace AutoTests.Framework.Tests.Steps
         {
             foreach (var pair in dictionary)
             {
-                application.Stores.ObjectStore[pair.Key.Get<string>()] = pair.Value.Get();
+                application.Stores.KeyValueStore[pair.Key.Get<string>()] = pair.Value.Get();
             }
         }
 

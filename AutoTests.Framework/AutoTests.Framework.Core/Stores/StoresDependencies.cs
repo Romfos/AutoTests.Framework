@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Core.Stores
         {
         }
 
-        public ObjectStore ObjectStore => ObjectContainer.Resolve<ObjectStore>();
+        public KeyValueStore KeyValueStore => ObjectContainer.Resolve<KeyValueStore>();
 
         protected override void RegisterCustomTypes()
         {

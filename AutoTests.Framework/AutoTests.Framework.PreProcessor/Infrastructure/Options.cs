@@ -128,7 +128,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 .Read(x => x != ']')
                 .ReadWhile(x => x != ']')
                 .Read(']', false)
-                .Result(x => dependencies.Stores.ObjectStore[x]);
+                .Result(x => dependencies.Stores.KeyValueStore[x]);
         }
 
         private Token ParseResourceLink(Stream stream)
