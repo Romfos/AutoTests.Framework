@@ -21,7 +21,7 @@ namespace AutoTests.Steps
         [Given(@"save '(.*)' as '(.*)'")]
         public void SaveAs(Calculated value, string key)
         {
-            application.Stores.ObjectStore[key] = value.Get();
+            application.Stores.KeyValueStore[key] = value.Get();
         }
 
         [When(@"navigate to '(.*)'")]
@@ -40,7 +40,7 @@ namespace AutoTests.Steps
         public void InStoreShouldContain(string key, Calculated value)
         {
             var expected = value.Get();
-            var actual = application.Stores.ObjectStore[key];
+            var actual = application.Stores.KeyValueStore[key];
             Assert.AreEqual(expected, actual, "Incorrect value");
         }
 
@@ -49,7 +49,7 @@ namespace AutoTests.Steps
         {
             foreach (var pair in dictionary)
             {
-                application.Stores.ObjectStore[pair.Key.Get<string>()] = pair.Value.Get();
+                application.Stores.KeyValueStore[pair.Key.Get<string>()] = pair.Value.Get();
             }
         }
     }
