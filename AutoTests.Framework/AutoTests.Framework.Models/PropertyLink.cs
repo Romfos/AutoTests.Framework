@@ -54,6 +54,15 @@ namespace AutoTests.Framework.Models
             return getModel().GetModelInfo().GetPropertyLinks().Single(x => x.PropertyInfo == propertyInfo);
         }
 
+        public static void If<T>(Expression<Func<T>> expression, Action<T> proc)
+        {
+            var propertyLink = Get(expression);
+            if (propertyLink.Enabled)
+            {
+                proc((T)propertyLink.Value);
+            }
+        }
+        
         public static PropertyLink Get<TModel, TProperty>(Model model, Expression<Func<TModel, TProperty>> expression)
             where TModel : Model
         {
