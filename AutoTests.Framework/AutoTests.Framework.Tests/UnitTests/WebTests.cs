@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Models.Extensions;
+using AutoTests.Framework.Tests.Web.Pages.LocatorTest;
 using AutoTests.Framework.Tests.Web.Pages.Login;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,6 +20,14 @@ namespace AutoTests.Framework.Tests.UnitTests
             var actual = page.GetLoginModel(expected);
 
             Assert.AreModelEqual(expected, actual, "GetValue binding not work");
+        }
+
+        [TestMethod]
+        public void LocatorAttributeTest()
+        {
+            var page = Application.Web.GetPage<LocatorTestPage>();
+
+            Assert.AreEqual("Test locator", page.Input.Locator, "LocatorAttribute not work");
         }
     }
 }
