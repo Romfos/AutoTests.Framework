@@ -33,7 +33,9 @@ namespace AutoTests.Steps
         [When(@"login as")]
         public void LoginAs(LoginModel model)
         {
-            application.Web.GetPage<LoginPage>().Login(model);
+            var page = application.Web.GetPage<LoginPage>();
+            page.BindLoginModel().SetValue(model);
+            page.Login.Click();
         }
 
         [Then(@"in store '(.*)' should contain '(.*)'")]

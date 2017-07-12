@@ -1,5 +1,0 @@
-﻿{
-    "UsernameInput": "/html/body/div/div/form/div[1]/div[1]/div/input",
-    "PasswordInput": "/html/body/div/div/form/div[1]/div[2]/div/input",
-    "LoginButton": "/html/body/div/div/form/div[1]/div[3]"
-}
