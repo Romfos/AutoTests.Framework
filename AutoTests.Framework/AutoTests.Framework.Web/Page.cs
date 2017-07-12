@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace AutoTests.Framework.Web
 {
-    public abstract class Page
+    public abstract class Page : PageObject
     {
         private readonly WebDependencies dependencies;
 
