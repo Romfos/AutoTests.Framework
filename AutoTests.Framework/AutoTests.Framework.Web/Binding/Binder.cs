@@ -26,6 +26,14 @@ namespace AutoTests.Framework.Web.Binding
             return bindings.Select(binding => binding(model));
         }
 
+        public void Click(TModel model, bool processDisabledProperties = false)
+        {
+            foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanClick))
+            {
+                bind.Click();
+            }
+        }
+
         public void SetValue(TModel model, bool processDisabledProperties = false)
         {
             foreach (var bind in GetConditionalBinds(model, processDisabledProperties, x => x.CanSetValue))
