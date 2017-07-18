@@ -13,12 +13,12 @@
 
         public object Get()
         {
-            return compiler.Compile(source);
+            return compiler.Parse(source);
         }
 
         public T Get<T>()
         {
-            return compiler.Compile<T>(source);
+            return compiler.Parse<T>(source);
         }
     }
 }

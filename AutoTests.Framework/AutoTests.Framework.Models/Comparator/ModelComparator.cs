@@ -67,7 +67,7 @@ namespace AutoTests.Framework.Models.Comparator
 
         protected virtual bool CompareNotNullValues(object expected, object actual)
         {
-            return expected.Equals(actual);
+            return Equals(expected, actual);
         }
     }
 }

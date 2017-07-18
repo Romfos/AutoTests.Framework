@@ -54,7 +54,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 .Read('"', false)
                 .ReadWhile(x => x != '"')
                 .Read('"', false)
-                .Result(x => $"\"{x}\"");
+                .Result(x => x);
         }
 
         private Token ParseString2(Stream stream)
@@ -63,7 +63,7 @@ namespace AutoTests.Framework.PreProcessor.Infrastructure
                 .Read('\'', false)
                 .ReadWhile(x => x != '\'')
                 .Read('\'', false)
-                .Result(x => $"\"{x}\"");
+                .Result(x => x);
         }
 
         private Token ParseTrivia(Stream stream)

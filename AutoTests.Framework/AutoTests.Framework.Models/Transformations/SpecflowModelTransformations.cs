@@ -45,35 +45,34 @@ namespace AutoTests.Framework.Models.Transformations
         {
             CheckHorizonalTableConstraints(table);
 
-            bool containAttributes = table.ContainsColumn("Attribute");
+            var containValue = table.ContainsColumn("Value");
+            var containAttributes = table.ContainsColumn("Attributes");
 
-            var prototypes = table.Rows.Select(x =>
-                new Prototype(x["Name"], x["Value"], containAttributes ? x["Attribute"] : string.Empty));
+            var prototypes = table.Rows.Select(x => new Prototype(
+                x["Name"],
+                containValue ? x["Value"] : null,
+                containAttributes ? x["Attributes"] : null));
 
             return prototypes.ToArray();
         }
-
+        
         private void CheckHorizonalTableConstraints(Table table)
         {
             if (!table.ContainsColumn("Name"))
             {
                 throw new TransformationException("Table should contain 'Name' column");
             }
-            if (!table.ContainsColumn("Value"))
-            {
-                throw new TransformationException("Table should contain 'Value' column");
-            }
 
             string[] columns =
             {
                 "Name",
                 "Value",
-                "Attribute"
+                "Attributes"
             };
 
             if (!table.Header.All(columns.Contains))
             {
-                throw new TransformationException("Table contian unavailable columns");
+                throw new TransformationException("Table contains unsupported columns");
             }
         }
 

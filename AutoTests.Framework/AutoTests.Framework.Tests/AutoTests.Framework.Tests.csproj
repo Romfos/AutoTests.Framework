@@ -57,6 +57,7 @@
     <Compile Include="Application.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Models\SubModel.cs" />
+    <Compile Include="PreProcessor\TestAsset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\ApplicationSteps.cs" />
     <Compile Include="Steps\PlaygroundSteps.cs" />

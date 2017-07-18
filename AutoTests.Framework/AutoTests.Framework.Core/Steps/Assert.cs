@@ -43,7 +43,7 @@ namespace AutoTests.Framework.Core.Steps
 
         public void AreEqual<T>(T expected, T actual, string message)
         {
-            if (!expected.Equals(actual))
+            if (!Equals(expected, actual))
             {
                 throw new AssertException(message);
             }
@@ -51,7 +51,7 @@ namespace AutoTests.Framework.Core.Steps
 
         public void AreNotEqual<T>(T expected, T actual, string message)
         {
-            if (expected.Equals(actual))
+            if (Equals(expected, actual))
             {
                 throw new AssertException(message);
             }

@@ -42,10 +42,10 @@ Scenario: test store expressions
 
 Scenario: Model transformation with attributes test
 	Then test model attributes:
-	| Name    | Value | Attribute |
-	| Title   | ABC   | @Disabled |
-	| Enabled | true  |           |
-	| Value   | 123   |           |
+	| Name    | Value | Attributes |
+	| Title   | ABC   | @Disabled  |
+	| Enabled | true  |            |
+	| Value   | 123   |            |
 
 Scenario: check page setup
 	Then check login page setup
@@ -63,3 +63,22 @@ Scenario: text file resource test
 Scenario: json file resource test
 	When save '@Test2.Test' as 'key name'
 	Then store 'key name' should contain 'Hello World!'
+
+Scenario: check model transformation with name column
+	Then test model model transformation with name column:
+	| Name    |
+	| Title   |
+	| Enabled |
+	| Value   |
+
+Scenario: check model transformation with name column with attributes
+	Then test model model transformation with name column with attributes:
+	| Name    | Attributes |
+	| Title   | @Disabled  |
+	| Enabled |            |
+	| Value   |            |
+
+Scenario: check model transformations with multiple attributes
+	Then check model transformations with multiple attributes:
+	| Name  | Attributes                   |
+	| Value | @Disabled, Name('Test Name') |
