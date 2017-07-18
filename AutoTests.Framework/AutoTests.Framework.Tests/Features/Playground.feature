@@ -77,3 +77,8 @@ Scenario: check model transformation with name column with attributes
 	| Title   | @Disabled  |
 	| Enabled |            |
 	| Value   |            |
+
+Scenario: check model transformations with multiple attributes
+	Then check model transformations with multiple attributes:
+	| Name  | Attributes                   |
+	| Value | @Disabled, Name('Test Name') |

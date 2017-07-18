@@ -62,7 +62,7 @@ namespace AutoTests.Framework.Models.Transformations
             }
 
             propertyLink.Value = Convert.ChangeType(
-                dependencies.PreProcessor.Compiler.Compile(source),
+                dependencies.PreProcessor.Compiler.Parse(source),
                 propertyLink.PropertyInfo.PropertyType);
         }
 
@@ -73,7 +73,8 @@ namespace AutoTests.Framework.Models.Transformations
                 return;
             }
 
-            propertyLink.Attributes.Add((PropertyAttribute) dependencies.PreProcessor.Compiler.Compile(source));
+            var attributes = dependencies.PreProcessor.Compiler.ParseArray<PropertyAttribute>(source);
+            propertyLink.Attributes.AddRange(attributes);
         }
     }
 }

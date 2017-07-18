@@ -24,25 +24,39 @@ namespace AutoTests.Framework.PreProcessor
                 .AddImports(options.Imports);
         }
 
-        public T Compile<T>(string source)
+        public T Parse<T>(string source)
         {
-            return (T)Convert.ChangeType(Compile(source), typeof(T));
+            return (T)Convert.ChangeType(Parse(source), typeof(T));
         }
 
-        public object Compile(string source)
+        public object Parse(string source)
         {
             if (source.Trim().StartsWith("@"))
             {
                 source = source.Trim().Substring(1);
-                var tokens = Parse(source).ToArray();
+                var tokens = ParseTokens(source).ToArray();
                 var code = GetCode(tokens);
                 var runtime = new Runtime(tokens);
                 return CSharpScript.EvaluateAsync(code, scriptOptions, runtime).Result;
             }
             return source;
         }
+        
+        public T[] ParseArray<T>(string source)
+        {
+            if (source.Trim().StartsWith("@"))
+            {
+                source = source.Trim().Substring(1);
+                var tokens = ParseTokens(source).ToArray();
+                var code = $"new [] {{ { GetCode(tokens)} }}";
+                var runtime = new Runtime(tokens);
+                var result = CSharpScript.EvaluateAsync<IEnumerable<object>>(code, scriptOptions, runtime).Result;
+                return result.Cast<T>().ToArray();
+            }
+            throw new CompilerException("Incorrect experession");
+        }
 
-        private IEnumerable<Token> Parse(string soruce)
+        private IEnumerable<Token> ParseTokens(string soruce)
         {
             var stream = new Stream(soruce);
 
