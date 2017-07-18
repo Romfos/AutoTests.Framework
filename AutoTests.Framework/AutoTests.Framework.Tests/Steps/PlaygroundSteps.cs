@@ -104,5 +104,23 @@ namespace AutoTests.Framework.Tests.Steps
                 "Problem with login page binding");
             Assert.AreEqual("Click(LoginButton locator)", context.Log[2], "Problem with login page binding");
         }
+
+        [Then(@"test model model transformation with name column:")]
+        public void TestModelModelTransformationWithNameColumn(ParentModel model)
+        {
+            Assert.AreEqual(default(string), model.Name, "Problem with transformations");
+            Assert.AreEqual(default(bool), model.Enabled, "Problem with transformations");
+            Assert.AreEqual(default(int), model.SubModel.Value, "Problem with transformations");
+        }
+
+        [Then(@"test model model transformation with name column with attributes:")]
+        public void TestModelModelTransformationWithNameColumnWithAttributes(ParentModel model)
+        {
+            Assert.AreEqual(default(string), model.Name, "Problem with transformations");
+            Assert.AreEqual(false, PropertyLink.Get(() => model.Name).Enabled, "Problem with transformations");
+
+            Assert.AreEqual(default(bool), model.Enabled, "Problem with transformations");
+            Assert.AreEqual(default(int), model.SubModel.Value, "Problem with transformations");
+        }
     }
 }

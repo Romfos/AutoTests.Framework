@@ -56,6 +56,11 @@ namespace AutoTests.Framework.Models.Transformations
 
         private void TransformValue(PropertyLink propertyLink, string source)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                return;
+            }
+
             propertyLink.Value = Convert.ChangeType(
                 dependencies.PreProcessor.Compiler.Compile(source),
                 propertyLink.PropertyInfo.PropertyType);
