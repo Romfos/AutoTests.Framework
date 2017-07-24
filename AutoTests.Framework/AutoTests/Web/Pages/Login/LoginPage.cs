@@ -7,13 +7,13 @@ namespace AutoTests.Web.Pages.Login
     public class LoginPage : SemanticPage
     {
         [Locator("/html/body/div/div/form/div[1]/div[1]/div/input")]
-        public Input Username { get; private set; }
+        public Input Username { get; set; }
 
         [Locator("/html/body/div/div/form/div[1]/div[2]/div/input")]
-        public Input Password { get; private set; }
+        public Input Password { get; set; }
 
         [Locator("/html/body/div/div/form/div[1]/div[3]")]
-        public Button Login { get; private set; }
+        public Button Login { get; set; }
 
         public LoginPage(Application application) : base(application)
         {
