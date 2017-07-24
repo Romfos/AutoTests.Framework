@@ -7,7 +7,7 @@ namespace AutoTests.Framework.Tests.Web.Pages.LocatorTest
     public class LocatorTestPage : Page
     {
         [Locator("Test locator")]
-        public Input Input { get; private set; }
+        public Input Input { get; set; }
 
         public LocatorTestPage(WebDependencies dependencies) : base(dependencies)
         {

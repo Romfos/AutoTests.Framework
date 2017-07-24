@@ -84,9 +84,9 @@ namespace AutoTests.Framework.Tests.Steps
         {
             var page = application.Web.GetPage<LoginPage>();
 
-            Assert.AreEqual("UsernameInput locator", page.UsernameInput.Locator, "Problem with login page setup");
-            Assert.AreEqual("PasswordInput locator", page.PasswordInput.Locator, "Problem with login page setup");
-            Assert.AreEqual("LoginButton locator", page.LoginButton.Locator, "Problem with login page setup");
+            Assert.AreEqual("#Username", page.Username.Locator, "Problem with login page setup");
+            Assert.AreEqual("#Password", page.Password.Locator, "Problem with login page setup");
+            Assert.AreEqual("#Login", page.Login.Locator, "Problem with login page setup");
         }
 
         [Then(@"check login page")]
@@ -95,14 +95,15 @@ namespace AutoTests.Framework.Tests.Steps
             var page = application.Web.GetPage<LoginPage>();
             var context = application.Web.GetContext<DemoContext>();
 
-            page.Login(loginModel);
+            page.BindLoginModel().SetValue(loginModel);
+            page.Login.Click();
 
             Assert.AreEqual(3, context.Log.Count, "Problem with login page binding");
-            Assert.AreEqual("SetValue(UsernameInput locator, User1)", context.Log[0],
+            Assert.AreEqual("SetValue(#Username, User1)", context.Log[0],
                 "Problem with login page binding");
-            Assert.AreEqual("SetValue(PasswordInput locator, Pass1)", context.Log[1],
+            Assert.AreEqual("SetValue(#Password, Pass1)", context.Log[1],
                 "Problem with login page binding");
-            Assert.AreEqual("Click(LoginButton locator)", context.Log[2], "Problem with login page binding");
+            Assert.AreEqual("Click(#Login)", context.Log[2], "Problem with login page binding");
         }
 
         [Then(@"test model model transformation with name column:")]

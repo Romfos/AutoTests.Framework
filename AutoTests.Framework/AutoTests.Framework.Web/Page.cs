@@ -116,9 +116,9 @@ namespace AutoTests.Framework.Web
         {
             foreach (var property in GetPageElementProperties())
             {
-                if (!property.CanWrite || !property.SetMethod.IsPrivate)
+                if (!property.CanWrite || !property.CanRead)
                 {
-                    throw new PropertyConstraintException(property, "Property '{0}' should contain private setter");
+                    throw new PropertyConstraintException(property, "Property '{0}' should contain setter and getter");
                 }
             }
         }

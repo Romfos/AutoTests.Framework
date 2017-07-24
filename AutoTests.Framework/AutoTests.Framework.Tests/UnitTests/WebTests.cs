@@ -14,10 +14,10 @@ namespace AutoTests.Framework.Tests.UnitTests
             var page = Application.Web.GetPage<LoginPage>();
             var expected = new LoginModel
             {
-                Username = "UsernameInput locator",
-                Password = "PasswordInput locator"
+                Username = "#Username",
+                Password = "#Password"
             };
-            var actual = page.GetLoginModel(expected);
+            var actual = page.BindLoginModel().GetValue();
 
             Assert.AreModelEqual(expected, actual, "GetValue binding not work");
         }

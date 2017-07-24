@@ -1,5 +1,5 @@
 ﻿{
-    "UsernameInput": "UsernameInput locator",
-    "PasswordInput": "PasswordInput locator",
-    "LoginButton": "LoginButton locator"
+    "Username": "#Username",
+    "Password": "#Password",
+    "Login": "#Login"
 }

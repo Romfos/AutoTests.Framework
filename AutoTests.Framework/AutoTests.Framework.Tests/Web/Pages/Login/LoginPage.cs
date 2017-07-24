@@ -5,30 +5,19 @@ namespace AutoTests.Framework.Tests.Web.Pages.Login
 {
     public class LoginPage : DemoPage
     {
-        public Input UsernameInput { get; private set; }
-        public Input PasswordInput { get; private set; }
-        public Button LoginButton { get; private set; }
+        public Input Username { get; set; }
+        public Input Password { get; set; }
+        public Button Login { get; set; }
 
         public LoginPage(Application application) : base(application)
         {
         }
         
-        private Binder<LoginModel> BindLoginModel()
+        public Binder<LoginModel> BindLoginModel()
         {
             return new Binder<LoginModel>()
-                .Bind(x => x.Username, UsernameInput)
-                .Bind(x => x.Password, PasswordInput);
-        }
-        
-        public void Login(LoginModel loginModel)
-        {
-            BindLoginModel().SetValue(loginModel);
-            LoginButton.Click();
-        }
-
-        public LoginModel GetLoginModel(LoginModel expected)
-        {
-            return BindLoginModel().GetValue(expected);
+                .Bind(x => x.Username, Username)
+                .Bind(x => x.Password, Password);
         }
     }
 }
