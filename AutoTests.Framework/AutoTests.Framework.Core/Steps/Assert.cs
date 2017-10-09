@@ -90,5 +90,19 @@ namespace AutoTests.Framework.Core.Steps
                 throw new AssertException(message);
             }
         }
+
+        public void Throws<TException>(string message, Action action)
+            where TException : Exception
+        {
+            try
+            {
+                action();
+            }
+            catch (TException)
+            {
+                return;
+            }
+            throw new AssertException(message);
+        }
     }
 }
