@@ -26,25 +26,5 @@ namespace AutoTests.Framework.Tests
         public StepsDependencies Steps => ObjectContainer.Resolve<StepsDependencies>();
         
         public TestDataDependencies TestData => ObjectContainer.Resolve<TestDataDependencies>();
-
-        protected override void RegisterCustomTypes()
-        {
-            Steps.Register();
-            Models.Register();
-            PreProcessor.Register();
-            Stores.Register();
-            Web.Register();
-            TestData.Register();
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            Steps.Configure();
-            Models.Configure();
-            PreProcessor.Configure();
-            Stores.Configure();
-            Web.Configure();
-            TestData.Configure();
-        }
     }
 }

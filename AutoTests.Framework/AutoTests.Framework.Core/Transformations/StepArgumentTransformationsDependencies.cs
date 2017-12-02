@@ -19,12 +19,7 @@ namespace AutoTests.Framework.Core.Transformations
 
         private IBindingRegistry BindingRegistry => ObjectContainer.Resolve<IBindingRegistry>();
 
-        protected override void RegisterCustomTypes()
-        {
-            
-        }
-
-        protected override void ConfigureDependencies()
+        protected override void OnDependenciesConfigured()
         {
             var methods = GetStepArgumentTransformations().SelectMany(GetTransformationMethods);
             foreach (var method in methods)

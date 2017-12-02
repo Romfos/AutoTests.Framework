@@ -15,15 +15,5 @@ namespace AutoTests.Framework.Core.Steps
         {
             return ObjectContainer.Resolve<T>();
         }
-
-        protected override void RegisterCustomTypes()
-        {
-            
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            
-        }
     }
 }

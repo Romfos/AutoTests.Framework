@@ -24,15 +24,5 @@ namespace AutoTests.Framework.TestData
                 .Where(x => !x.IsGenericType && !x.IsAbstract && x.IsSubclassOf(typeof(TestDataProvider)))
                 .Select(x => (TestDataProvider) ObjectContainer.Resolve(x));
         }
-
-        protected override void RegisterCustomTypes()
-        {
-            Utils.Register();
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            Utils.Configure();
-        }
     }
 }

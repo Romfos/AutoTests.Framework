@@ -9,15 +9,5 @@ namespace AutoTests.Framework.Core.Stores
         }
 
         public KeyValueStore KeyValueStore => ObjectContainer.Resolve<KeyValueStore>();
-
-        protected override void RegisterCustomTypes()
-        {
-            
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            
-        }
     }
 }

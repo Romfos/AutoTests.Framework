@@ -19,13 +19,5 @@ namespace AutoTests.Framework.Core
                 Assemblies.Add(assembly);
             }
         }
-
-        protected override void RegisterCustomTypes()
-        {
-        }
-
-        protected override void ConfigureDependencies()
-        {
-        }
     }
 }

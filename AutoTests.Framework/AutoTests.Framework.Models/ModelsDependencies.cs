@@ -39,17 +39,8 @@ namespace AutoTests.Framework.Models
             StepArgumentTransformations.RegisterTransformations(instance);
         }
 
-        protected override void RegisterCustomTypes()
+        protected override void OnDependenciesConfigured()
         {
-            StepArgumentTransformations.Register();
-            PreProcessor.Register();
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            StepArgumentTransformations.Configure();
-            PreProcessor.Configure();
-
             foreach (var modelType in GetModelTypes())
             {
                 RegisterSpecflowModelTransformations(modelType);

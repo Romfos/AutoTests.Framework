@@ -44,15 +44,5 @@ namespace AutoTests.Framework.Web
 
             return (Element) Activator.CreateInstance(elementType, arguments);
         }
-
-        protected override void RegisterCustomTypes()
-        {
-            Utils.Register();
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            Utils.Configure();
-        }
     }
 }

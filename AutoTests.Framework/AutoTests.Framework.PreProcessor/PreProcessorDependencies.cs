@@ -35,19 +35,5 @@ namespace AutoTests.Framework.PreProcessor
                 .Where(x => x.IsSubclassOf(typeof(Asset)))
                 .Select(x => (Asset) ObjectContainer.Resolve(x));
         }
-
-        protected override void RegisterCustomTypes()
-        {
-            Stores.Register();
-            TestData.Register();
-            StepArgumentTransformations.Register();
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            Stores.Configure();
-            TestData.Configure();
-            StepArgumentTransformations.Configure();
-        }
     }
 }

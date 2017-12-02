@@ -9,15 +9,5 @@ namespace AutoTests.Framework.Core.Utils
         }
 
         public ResourceUtils Resources => ObjectContainer.Resolve<ResourceUtils>();
-
-        protected override void RegisterCustomTypes()
-        {
-            
-        }
-
-        protected override void ConfigureDependencies()
-        {
-            
-        }
     }
 }

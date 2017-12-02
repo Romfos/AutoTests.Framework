@@ -1,11 +1,14 @@
-﻿using BoDi;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using BoDi;
 
 namespace AutoTests.Framework.Core
 {
     public abstract class Dependencies
     {
-        private bool registered;
         private bool configured;
+        private bool registered;
 
         protected ObjectContainer ObjectContainer { get; }
 
@@ -15,7 +18,7 @@ namespace AutoTests.Framework.Core
         }
 
         protected GlobalDependencies Global => ObjectContainer.Resolve<GlobalDependencies>();
-        
+
         public void Register()
         {
             if (!registered)
@@ -25,7 +28,7 @@ namespace AutoTests.Framework.Core
                 Global.Register();
                 Global.AddAssembly(GetType().Assembly);
 
-                RegisterCustomTypes();
+                RegisterDependencies();
             }
         }
 
@@ -39,8 +42,34 @@ namespace AutoTests.Framework.Core
             }
         }
 
-        protected abstract void RegisterCustomTypes();
+        private void RegisterDependencies()
+        {
+            foreach (var dependency in GetDependencies())
+            {
+                dependency.Register();
+            }
+        }
 
-        protected abstract void ConfigureDependencies();
+        private void ConfigureDependencies()
+        {
+            foreach (var dependency in GetDependencies())
+            {
+                dependency.Configure();
+            }
+            OnDependenciesConfigured();
+        }
+
+        private IEnumerable<Dependencies> GetDependencies()
+        {
+            return GetType()
+                .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                .Where(x => x.PropertyType.IsSubclassOf(typeof(Dependencies)))
+                .Select(x => (Dependencies) x.GetValue(this));
+        }
+
+        protected virtual void OnDependenciesConfigured()
+        {
+            
+        }
     }
 }
