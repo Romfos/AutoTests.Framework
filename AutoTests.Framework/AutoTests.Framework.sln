@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoTests.Framework", "AutoTests.Framework", "{DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}"
 EndProject
@@ -12,10 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PreProcessor", "AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj", "{1FB0D9F1-C585-48FF-A22B-74719CCEAD38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Web", "AutoTests.Framework.Web\AutoTests.Framework.Web.csproj", "{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{D5651FEE-29A8-4F8C-B6FC-4CFB942FBA8E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests", "AutoTests\AutoTests.csproj", "{4496CFE7-2381-44FE-8508-4A65750FE6A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.TestData", "AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj", "{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}"
 EndProject
@@ -31,12 +27,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{35F957CC-8A3E-4D18-BD2A-EA3BF81A73E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj", "{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoTests.Tools", "AutoTests.Tools", "{9E30076D-B00D-4ED3-9B92-EDD1542D7DE5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Tools.Refactroings", "AutoTests.Tools.Refactroings\AutoTests.Tools.Refactroings.csproj", "{162745D5-A7C2-43B4-86E0-6B24A595E16D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Tools.Refactroings.Tests", "AutoTests.Tools.Refactroings.Tests\AutoTests.Tools.Refactroings.Tests.csproj", "{B494F419-A288-45E6-9A37-8DF0FB3130DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,10 +50,6 @@ Global
 		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4496CFE7-2381-44FE-8508-4A65750FE6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4496CFE7-2381-44FE-8508-4A65750FE6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4496CFE7-2381-44FE-8508-4A65750FE6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4496CFE7-2381-44FE-8508-4A65750FE6A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629E4E76-E3B5-4749-89F1-23FCEF71E8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,14 +58,6 @@ Global
 		{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728}.Release|Any CPU.Build.0 = Release|Any CPU
-		{162745D5-A7C2-43B4-86E0-6B24A595E16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{162745D5-A7C2-43B4-86E0-6B24A595E16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{162745D5-A7C2-43B4-86E0-6B24A595E16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{162745D5-A7C2-43B4-86E0-6B24A595E16D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B494F419-A288-45E6-9A37-8DF0FB3130DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B494F419-A288-45E6-9A37-8DF0FB3130DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B494F419-A288-45E6-9A37-8DF0FB3130DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B494F419-A288-45E6-9A37-8DF0FB3130DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,10 +67,10 @@ Global
 		{05BA50F8-EC90-406D-AF94-AEE1BEBF0998} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
 		{1FB0D9F1-C585-48FF-A22B-74719CCEAD38} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
 		{5B9D6F33-1D7F-441E-8A68-47D5C3D4EADD} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
-		{4496CFE7-2381-44FE-8508-4A65750FE6A5} = {D5651FEE-29A8-4F8C-B6FC-4CFB942FBA8E}
 		{629E4E76-E3B5-4749-89F1-23FCEF71E8BF} = {DDDE404B-BEDB-41C7-B2F6-F5097D3F243D}
 		{1D9A2B19-F8EA-43FD-A5B2-C994A4BEC728} = {35F957CC-8A3E-4D18-BD2A-EA3BF81A73E3}
-		{162745D5-A7C2-43B4-86E0-6B24A595E16D} = {9E30076D-B00D-4ED3-9B92-EDD1542D7DE5}
-		{B494F419-A288-45E6-9A37-8DF0FB3130DC} = {35F957CC-8A3E-4D18-BD2A-EA3BF81A73E3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {718CB5CA-8476-4982-8987-2932676A63FC}
 	EndGlobalSection
 EndGlobal
