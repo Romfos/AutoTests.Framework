@@ -3,4 +3,3 @@ nuget.exe pack ..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj -
 nuget.exe pack ..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj -properties Configuration=Release
 nuget.exe pack ..\AutoTests.Framework.Web\AutoTests.Framework.Web.csproj -properties Configuration=Release
 nuget.exe pack ..\AutoTests.Framework.TestData\AutoTests.Framework.TestData.csproj -properties Configuration=Release
-nuget.exe pack ..\AutoTests.Tools.Refactroings\AutoTests.Tools.Refactroings.csproj -properties Configuration=Release
