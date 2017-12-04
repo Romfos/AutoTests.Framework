@@ -1,8 +1,8 @@
-﻿using AutoTests.Framework.Web.Binding.Contracts;
+﻿using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Tests.Web.Elements
 {
-    public class Input : DemoElement, ISetValue<string>, IGetValue<string>
+    public class Input : DemoElement
     {
         public string Locator { get; private set; }
 
@@ -10,11 +10,13 @@ namespace AutoTests.Framework.Tests.Web.Elements
         {
         }
 
+        [SetValue]
         public void SetValue(string value)
         {
             Context.SetValue(Locator, value);
         }
 
+        [GetValue]
         public string GetValue()
         {
             return Locator;

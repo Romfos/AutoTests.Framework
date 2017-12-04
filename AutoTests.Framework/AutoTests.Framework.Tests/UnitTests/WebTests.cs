@@ -1,6 +1,7 @@
 ﻿using AutoTests.Framework.Models.Extensions;
 using AutoTests.Framework.Tests.Web.Pages.LocatorTest;
 using AutoTests.Framework.Tests.Web.Pages.Login;
+using AutoTests.Framework.Web.Common.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AutoTests.Framework.Tests.UnitTests

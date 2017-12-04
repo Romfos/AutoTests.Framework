@@ -6,6 +6,7 @@ using AutoTests.Framework.PreProcessor.Transformations;
 using AutoTests.Framework.Tests.Models;
 using AutoTests.Framework.Tests.Web;
 using AutoTests.Framework.Tests.Web.Pages.Login;
+using AutoTests.Framework.Web.Common.Extensions;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Tests.Steps

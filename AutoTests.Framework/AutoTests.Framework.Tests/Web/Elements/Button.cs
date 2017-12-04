@@ -1,8 +1,8 @@
-﻿using AutoTests.Framework.Web.Binding.Contracts;
+﻿using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Tests.Web.Elements
 {
-    public class Button : DemoElement, IClick
+    public class Button : DemoElement
     {
         public string Locator { get; private set; }
 
@@ -10,6 +10,7 @@ namespace AutoTests.Framework.Tests.Web.Elements
         {
         }
 
+        [Click]
         public void Click()
         {
             Context.Click(Locator);
