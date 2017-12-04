@@ -1,8 +1,8 @@
-﻿using AutoTests.Framework.Web.Binding.Contracts;
+﻿using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Web.Common.Elements
 {
-    public class Checkbox : CommonElement, ISetValue<bool>, IGetValue<bool>, IDisplayed, ISelected, IEnabled
+    public class Checkbox : CommonElement
     {
         private string Locator { get; set; }
 
@@ -10,20 +10,34 @@ namespace AutoTests.Framework.Web.Common.Elements
         {
         }
 
-        public bool Displayed => Context.IsDisplayed(Locator);
-
-        public bool Enabled => Context.IsEnabled(Locator);
-
-        public bool GetValue()
+        [Displayed]
+        public bool IsDisplayed()
         {
-            return Selected;
+            return Context.IsDisplayed(Locator);
         }
 
-        public bool Selected => Context.IsSelected(Locator);
+        [Enabled]
+        public bool IsEnabled()
+        {
+            return Context.IsEnabled(Locator);
+        }
 
+        [GetValue]
+        public bool GetValue()
+        {
+            return IsSelected();
+        }
+
+        [Selected]
+        public bool IsSelected()
+        {
+            return Context.IsSelected(Locator);
+        }
+
+        [SetValue]
         public void SetValue(bool value)
         {
-            if (Selected != value)
+            if (IsSelected() != value)
             {
                 Context.Click(Locator);
             }

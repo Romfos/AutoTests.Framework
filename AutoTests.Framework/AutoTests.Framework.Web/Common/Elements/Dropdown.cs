@@ -1,8 +1,8 @@
-﻿using AutoTests.Framework.Web.Binding.Contracts;
+﻿using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Web.Common.Elements
 {
-    public class Dropdown : CommonElement, ISetValue<string>, IGetValue<string>, IDisplayed, ISelected, IEnabled
+    public class Dropdown : CommonElement
     {
         private string Locator { get; set; }
 
@@ -10,17 +10,31 @@ namespace AutoTests.Framework.Web.Common.Elements
         {
         }
 
-        public bool Displayed => Context.IsDisplayed(Locator);
+        [Displayed]
+        public bool IsDisplayed()
+        {
+            return Context.IsDisplayed(Locator);
+        }
 
-        public bool Enabled => Context.IsEnabled(Locator);
+        [Enabled]
+        public bool IsEnabled()
+        {
+            return Context.IsEnabled(Locator);
+        }
 
+        [Selected]
+        public bool IsSelected()
+        {
+            return Context.IsSelected(Locator);
+        }
+
+        [GetValue]
         public string GetValue()
         {
             return CommonScriptLibrary.GetValue(Locator);
         }
 
-        public bool Selected => Context.IsSelected(Locator);
-
+        [SetValue]
         public void SetValue(string value)
         {
             CommonScriptLibrary.SetValue(Locator, value);

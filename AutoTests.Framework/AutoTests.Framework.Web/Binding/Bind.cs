@@ -1,72 +1,46 @@
-﻿using AutoTests.Framework.Models;
-using AutoTests.Framework.Web.Binding.Contracts;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using AutoTests.Framework.Models;
 
 namespace AutoTests.Framework.Web.Binding
 {
-    public class Bind<T> : IBind
+    internal class Bind<TModel>
+        where TModel : Model
     {
+        private readonly Func<TModel, PropertyLink> selector;
         private readonly PageObject pageObject;
 
-        public Bind(PropertyLink propertyLink, PageObject pageObject)
+        public Bind(Func<TModel, PropertyLink> selector, PageObject pageObject)
         {
-            PropertyLink = propertyLink;
+            this.selector = selector;
             this.pageObject = pageObject;
         }
 
-        public PropertyLink PropertyLink { get; }
-
-        public bool CanClick => Check<IClick>();
-
-        public bool CanGetValue => Check<IGetValue<T>>();
-
-        public bool CanSetValue => Check<ISetValue<T>>();
-
-        public bool CanBeEnabled => Check<IEnabled>();
-
-        public bool CanBeSelected => Check<ISelected>();
-
-        public bool CanBeDisplayed => Check<IDisplayed>();
-
-        public void Click()
+        public bool Check<THandler>(TModel model)
+            where THandler : Handler
         {
-            Get<IClick>().Click();
+            var method = GetHandlerMethod<THandler>();
+            var propertyLink = selector(model);
+            return propertyLink.Enabled && method != null;
         }
 
-        public void GetValue()
+        public object Trigger<THandler>(TModel model)
+            where THandler : Handler
         {
-            PropertyLink.Value = Get<IGetValue<T>>().GetValue();
+            var method = GetHandlerMethod<THandler>();
+            var handler = method.GetCustomAttributes<THandler>().Single();
+            var propertyLink = selector(model);
+            var handlerArgs = new HandlerArgs(pageObject, method, propertyLink);
+            return handler.Trigger(handlerArgs);
         }
 
-        public void SetValue()
+        private MethodInfo GetHandlerMethod<THandler>()
+            where THandler : Handler
         {
-            Get<ISetValue<T>>().SetValue((T) PropertyLink.Value);
-        }
-
-        public bool IsEnabled()
-        {
-            return Get<IEnabled>().Enabled;
-        }
-
-        public bool IsSelected()
-        {
-            return Get<ISelected>().Selected;
-        }
-
-        public bool IsDisplayed()
-        {
-            return Get<IDisplayed>().Displayed;
-        }
-
-        private TContract Get<TContract>()
-            where TContract : class, IContract
-        {
-            return pageObject as TContract;
-        }
-
-        private bool Check<TContract>()
-            where TContract : class, IContract
-        {
-            return pageObject is TContract;
+            return pageObject.GetType()
+                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                .SingleOrDefault(x => x.GetCustomAttributes<THandler>().SingleOrDefault() != null);
         }
     }
 }

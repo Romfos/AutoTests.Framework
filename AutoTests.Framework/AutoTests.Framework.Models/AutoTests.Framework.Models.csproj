@@ -55,6 +55,7 @@
     <Compile Include="Comparator\Results\Result.cs" />
     <Compile Include="Exceptions\TransformationException.cs" />
     <Compile Include="Extensions\AssertExtensions.cs" />
+    <Compile Include="Extensions\ModelExtensions.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="ModelInfo.cs" />
     <Compile Include="ModelsDependencies.cs" />
