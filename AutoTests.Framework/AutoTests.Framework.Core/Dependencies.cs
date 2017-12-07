@@ -48,6 +48,7 @@ namespace AutoTests.Framework.Core
             {
                 dependency.Register();
             }
+            OnDependenciesRegistered();
         }
 
         private void ConfigureDependencies()
@@ -63,13 +64,18 @@ namespace AutoTests.Framework.Core
         {
             return GetType()
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                .Where(x => x.PropertyType.IsSubclassOf(typeof(Dependencies)))
-                .Select(x => (Dependencies) x.GetValue(this));
+                .Where(x => x.CanRead && x.PropertyType.IsSubclassOf(typeof(Dependencies)))
+                .Select(x => (Dependencies)x.GetValue(this));
+        }
+
+        protected virtual void OnDependenciesRegistered()
+        {
+
         }
 
         protected virtual void OnDependenciesConfigured()
         {
-            
+
         }
     }
 }
