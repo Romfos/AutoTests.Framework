@@ -25,9 +25,6 @@ Tools:
 - https://www.nuget.org/packages/AutoTests.Framework.Web
 - https://www.nuget.org/packages/AutoTests.Framework.TestData
 
-Additional packages
-- https://www.nuget.org/packages/AutoTests.Tools.Refactroings/
-
 # How to use
 1) Create and configure basic specflow project
 2) Add nuget packages
