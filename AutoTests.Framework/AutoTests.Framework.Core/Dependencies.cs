@@ -5,7 +5,7 @@ using BoDi;
 
 namespace AutoTests.Framework.Core
 {
-    public abstract class Dependencies
+    public abstract class Dependencies : IDependenciesProvider
     {
         private bool configured;
         private bool registered;
@@ -15,6 +15,11 @@ namespace AutoTests.Framework.Core
         protected Dependencies(ObjectContainer objectContainer)
         {
             ObjectContainer = objectContainer;
+        }
+
+        T IDependenciesProvider.GetDependencies<T>()
+        {
+            return ObjectContainer.Resolve<T>();
         }
 
         protected GlobalDependencies Global => ObjectContainer.Resolve<GlobalDependencies>();

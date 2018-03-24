@@ -9,11 +9,5 @@ namespace AutoTests.Framework.Core.Steps
         }
 
         public Assert Assert => ObjectContainer.Resolve<Assert>();
-
-        public T GetDependencies<T>()
-            where T : Dependencies
-        {
-            return ObjectContainer.Resolve<T>();
-        }
     }
 }

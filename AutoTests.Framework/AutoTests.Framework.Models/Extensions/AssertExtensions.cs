@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Exceptions;
 using AutoTests.Framework.Core.Steps;
+using AutoTests.Framework.Models.Comparator;
 
 namespace AutoTests.Framework.Models.Extensions
 {
@@ -11,7 +13,7 @@ namespace AutoTests.Framework.Models.Extensions
         public static void AreModelEqual<T>(this Assert assert, T expected, T actual, string message)
             where T : Model
         {
-            var comparator = assert.Dependencies.GetDependencies<ModelsDependencies>().Comparator;
+            var comparator = GetComparator(assert);
             var results = comparator.Compare(expected, actual).ToArray();
 
             if (results.Length > 0)
@@ -24,7 +26,7 @@ namespace AutoTests.Framework.Models.Extensions
         public static void AreContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
             where T : Model
         {
-            var comparator = assert.Dependencies.GetDependencies<ModelsDependencies>().Comparator;
+            var comparator = GetComparator(assert);
 
             foreach (var item in items)
             {
@@ -40,7 +42,7 @@ namespace AutoTests.Framework.Models.Extensions
         public static void AreNotContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
             where T : Model
         {
-            var comparator = assert.Dependencies.GetDependencies<ModelsDependencies>().Comparator;
+            var comparator = GetComparator(assert);
 
             foreach (var item in items)
             {
@@ -49,6 +51,12 @@ namespace AutoTests.Framework.Models.Extensions
                     throw new AssertException(message);
                 }
             }
+        }
+
+        private static ModelComparator GetComparator(Assert assert)
+        {
+            var dependenciesProvider = assert.Dependencies as IDependenciesProvider;
+            return dependenciesProvider.GetDependencies<ModelsDependencies>().Comparator;
         }
     }
 }
