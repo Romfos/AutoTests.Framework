@@ -9,9 +9,6 @@ Framework features:
 - Silenium WebDriver integration framework
 - Test data managment
 
-Tools:
-- Additional tool for writhing refactroings (see AutoTests.Tools.Refactroings)
-
 # Requirements
 - .NET Framework 4.6
 - Visual Studio 2017 (older version not tested, but maybe?)
