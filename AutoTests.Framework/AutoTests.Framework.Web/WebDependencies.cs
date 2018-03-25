@@ -16,6 +16,8 @@ namespace AutoTests.Framework.Web
 
         public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
 
+        internal PageInitializer PageInitializer => ObjectContainer.Resolve<PageInitializer>();
+
         public T GetPage<T>()
             where T : Page
         {

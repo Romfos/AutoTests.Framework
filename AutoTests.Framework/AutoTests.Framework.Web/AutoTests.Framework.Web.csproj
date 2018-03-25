@@ -82,6 +82,7 @@
     <Compile Include="Element.cs" />
     <Compile Include="IWebDriverFactory.cs" />
     <Compile Include="Page.cs" />
+    <Compile Include="PageInitializer.cs" />
     <Compile Include="PageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptLibrary.cs" />
