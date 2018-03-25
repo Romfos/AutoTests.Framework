@@ -128,7 +128,7 @@
   <Import Project="..\packages\SpecFlow.2.3.1\tools\TechTalk.SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.1\tools\TechTalk.SpecFlow.targets')" />
   <Target Name="AfterUpdateFeatureFilesInProject">
     <ItemGroup>
-      <Compile Include="@(SpecFlowGeneratedFiles)" />
+      <Compile Include="**\*.feature.cs" />
     </ItemGroup>
   </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
