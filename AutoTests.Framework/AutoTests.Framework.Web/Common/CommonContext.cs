@@ -41,6 +41,11 @@ namespace AutoTests.Framework.Web.Common
             Driver.FindElement(By.XPath(locator)).SendKeys(value);
         }
 
+        public int GetElementCount(string locator)
+        {
+            return Driver.FindElements(By.XPath(locator)).Count;
+        }
+
         public string GetAttribute(string locator, string attributeName)
         {
             return Driver.FindElement(By.XPath(locator)).GetAttribute(attributeName);
