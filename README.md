@@ -6,7 +6,7 @@ Framework features:
 - Automatic model transformations
 - Model comparator
 - PreProcessor
-- Silenium WebDriver integration framework
+- Selenium WebDriver integration framework
 - Test data managment
 
 # Requirements
@@ -26,6 +26,6 @@ Framework features:
 1) Create and configure basic specflow project
 2) Add nuget packages
 3) Create application class (see example)
-4) Regsiter and configure application class in [Before Scenario] method (see example)  
+4) Regsiter and configure application class in [Before Scenario] method (you can clone and see example)  
 ...  
 Profit
