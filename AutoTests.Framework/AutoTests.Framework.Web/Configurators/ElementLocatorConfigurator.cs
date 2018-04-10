@@ -3,13 +3,13 @@ using System.Reflection;
 using AutoTests.Framework.Core.Exceptions;
 using AutoTests.Framework.Web.Attributes;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
-    public class ElementLocatorService
+    public class ElementLocatorConfigurator
     {
         private readonly ConfiguratorsDependencies dependencies;
 
-        public ElementLocatorService(ConfiguratorsDependencies dependencies)
+        public ElementLocatorConfigurator(ConfiguratorsDependencies dependencies)
         {
             this.dependencies = dependencies;
         }
@@ -30,7 +30,7 @@ namespace AutoTests.Framework.Web.Services
 
         private PropertyInfo FindLocatorProperty(Element element)
         {
-            return dependencies.PageObjectService.GetAllProperties(element)
+            return dependencies.PageObjectPropertiesProvider.GetAllProperties(element)
                 .SingleOrDefault(x => x.GetCustomAttributes<FromLocatorAttribute>().Any());
         }
 

@@ -1,6 +1,6 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
-using AutoTests.Framework.Web.Services;
+using AutoTests.Framework.Web.Configurators;
 using BoDi;
 
 namespace AutoTests.Framework.Web

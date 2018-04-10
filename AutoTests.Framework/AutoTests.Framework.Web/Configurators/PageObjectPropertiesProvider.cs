@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
-    public class PageObjectService
+    public class PageObjectPropertiesProvider
     {
-        public PageObjectService(ConfiguratorsDependencies dependencies)
+        public PageObjectPropertiesProvider(ConfiguratorsDependencies dependencies)
         {
             
         }

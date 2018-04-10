@@ -4,7 +4,7 @@ using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
 using BoDi;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
     public class ConfiguratorsDependencies : Dependencies
     {
@@ -14,21 +14,21 @@ namespace AutoTests.Framework.Web.Services
 
         internal UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
-        public PageObjectService PageObjectService 
-            => ObjectContainer.Resolve<PageObjectService>();
+        public PageObjectPropertiesProvider PageObjectPropertiesProvider 
+            => ObjectContainer.Resolve<PageObjectPropertiesProvider>();
 
-        public PageObjectConfiguratorService PageObjectConfiguratorService => ObjectContainer.Resolve<PageObjectConfiguratorService>();
+        public PageObjectConfigurator PageObjectConfigurator => ObjectContainer.Resolve<PageObjectConfigurator>();
 
         public ElementFactory ElementFactory => ObjectContainer.Resolve<ElementFactory>();
 
-        public LocatorAttributeService LocatorAttributeService
-            => ObjectContainer.Resolve<LocatorAttributeService>();
+        public LocatorAttributeConfigurator LocatorAttributeConfigurator
+            => ObjectContainer.Resolve<LocatorAttributeConfigurator>();
 
-        public LocatorsJsonService LocatorsJsonService
-            => ObjectContainer.Resolve<LocatorsJsonService>();
+        public LocatorsConfigurator LocatorsConfigurator
+            => ObjectContainer.Resolve<LocatorsConfigurator>();
 
-        public ElementLocatorService ElementLocatorService
-            => ObjectContainer.Resolve<ElementLocatorService>();
+        public ElementLocatorConfigurator ElementLocatorConfigurator
+            => ObjectContainer.Resolve<ElementLocatorConfigurator>();
 
         public Element CreateElement(Type elementType)
         {

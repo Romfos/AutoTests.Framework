@@ -3,20 +3,20 @@ using System.Linq;
 using System.Reflection;
 using AutoTests.Framework.Web.Attributes;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
-    public class LocatorAttributeService
+    public class LocatorAttributeConfigurator
     {
         private readonly ConfiguratorsDependencies dependencies;
 
-        public LocatorAttributeService(ConfiguratorsDependencies dependencies)
+        public LocatorAttributeConfigurator(ConfiguratorsDependencies dependencies)
         {
             this.dependencies = dependencies;
         }
 
         public virtual void Configure(PageObject pageObject)
         {
-            var properties = dependencies.PageObjectService.GetPageElementProperties(pageObject);
+            var properties = dependencies.PageObjectPropertiesProvider.GetPageElementProperties(pageObject);
             ConfigureElements(pageObject, properties);
         }
 
@@ -34,7 +34,7 @@ namespace AutoTests.Framework.Web.Services
             if (attribute != null)
             {
                 var element = (Element) property.GetValue(pageObject);
-                dependencies.ElementLocatorService.Configure(element, attribute.Locator);
+                dependencies.ElementLocatorConfigurator.Configure(element, attribute.Locator);
             }
         }
     }

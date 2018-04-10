@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
     public class ElementFactory
     {
@@ -14,7 +14,7 @@ namespace AutoTests.Framework.Web.Services
 
         public void CreateElements(PageObject pageObject)
         {
-            var properties = dependencies.PageObjectService.GetPageElementProperties(pageObject);
+            var properties = dependencies.PageObjectPropertiesProvider.GetPageElementProperties(pageObject);
             CreatePageObjectElements(pageObject, properties);
         }
 

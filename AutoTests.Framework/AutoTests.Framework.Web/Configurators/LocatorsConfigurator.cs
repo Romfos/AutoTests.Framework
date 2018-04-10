@@ -4,13 +4,13 @@ using System.Reflection;
 using AutoTests.Framework.Core.Exceptions;
 using Newtonsoft.Json.Linq;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Web.Configurators
 {
-    public class LocatorsJsonService
+    public class LocatorsConfigurator
     {
         private readonly ConfiguratorsDependencies dependencies;
 
-        public LocatorsJsonService(ConfiguratorsDependencies dependencies)
+        public LocatorsConfigurator(ConfiguratorsDependencies dependencies)
         {
             this.dependencies = dependencies;
         }
@@ -27,7 +27,7 @@ namespace AutoTests.Framework.Web.Services
 
         private void ConfigureLocators(PageObject pageObject)
         {
-            var properties = dependencies.PageObjectService.GetPageElementProperties(pageObject).ToList();
+            var properties = dependencies.PageObjectPropertiesProvider.GetPageElementProperties(pageObject).ToList();
             var locators = dependencies.Utils.Resources.GetJsonResource(pageObject, LocatorsFileName);
             ConfigureLocators(pageObject, properties, locators);
         }
@@ -52,7 +52,7 @@ namespace AutoTests.Framework.Web.Services
         {
             if (locators.Type == JTokenType.String)
             {
-                dependencies.ElementLocatorService.Configure(element, locators.ToObject<string>());
+                dependencies.ElementLocatorConfigurator.Configure(element, locators.ToObject<string>());
             }
             else
             {
@@ -62,7 +62,7 @@ namespace AutoTests.Framework.Web.Services
 
         private void ConfigureMultipleLocators(Element element, JToken locators)
         {
-            var properties = dependencies.PageObjectService.GetAllProperties(element).ToList();
+            var properties = dependencies.PageObjectPropertiesProvider.GetAllProperties(element).ToList();
             foreach (var propertyName in GetNodeNames(locators.ToObject<JObject>()))
             {
                 ConfigureLocators(element, propertyName, locators, properties);

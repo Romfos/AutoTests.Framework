@@ -4,7 +4,7 @@
     {
         protected PageObject(WebDependencies dependencies)
         {
-            dependencies.Configurators.PageObjectConfiguratorService.Configure(this);
+            dependencies.Configurators.PageObjectConfigurator.Configure(this);
         }
     }
 }
