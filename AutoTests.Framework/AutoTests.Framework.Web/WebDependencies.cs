@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
-using AutoTests.Framework.Core;
+﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Utils;
+using AutoTests.Framework.Web.Services;
 using BoDi;
 
 namespace AutoTests.Framework.Web
@@ -16,7 +15,7 @@ namespace AutoTests.Framework.Web
 
         public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
 
-        internal PageInitializer PageInitializer => ObjectContainer.Resolve<PageInitializer>();
+        internal ConfiguratorsDependencies Configurators => ObjectContainer.Resolve<ConfiguratorsDependencies>();
 
         public T GetPage<T>()
             where T : Page
@@ -34,17 +33,6 @@ namespace AutoTests.Framework.Web
             where T : ScriptLibrary
         {
             return ObjectContainer.Resolve<T>();
-        }
-
-        internal Element CreateElement(Type elementType)
-        {
-            var arguments = elementType.GetConstructors()
-                .Single()
-                .GetParameters()
-                .Select(x => ObjectContainer.Resolve(x.ParameterType))
-                .ToArray();
-
-            return (Element) Activator.CreateInstance(elementType, arguments);
         }
     }
 }

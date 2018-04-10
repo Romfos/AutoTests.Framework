@@ -1,12 +1,14 @@
-﻿using AutoTests.Framework.Web.Common.Handlers;
+﻿using AutoTests.Framework.Web.Attributes;
+using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Tests.Web.Elements
 {
     public class Input : DemoElement
     {
+        [FromLocator]
         public string Locator { get; private set; }
 
-        public Input(DemoContext context) : base(context)
+        public Input(Application application) : base(application)
         {
         }
 

@@ -75,10 +75,12 @@
     <Compile Include="Web\Elements\DemoElement.cs" />
     <Compile Include="Web\Elements\Input.cs" />
     <Compile Include="Web\DemoContext.cs" />
+    <Compile Include="Web\Elements\MultipleLocatorElement.cs" />
     <Compile Include="Web\Pages\DemoPage.cs" />
     <Compile Include="Web\Pages\LocatorTest\LocatorTestPage.cs" />
     <Compile Include="Web\Pages\Login\LoginModel.cs" />
     <Compile Include="Web\Pages\Login\LoginPage.cs" />
+    <Compile Include="Web\Pages\MultipleLocatorTest\MultipleLocatorTestPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -93,6 +95,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <EmbeddedResource Include="TestData\Resources\Credentials.json" />
+    <EmbeddedResource Include="Web\Pages\MultipleLocatorTest\Locators.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">

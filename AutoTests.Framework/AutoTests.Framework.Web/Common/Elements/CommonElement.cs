@@ -7,7 +7,7 @@ namespace AutoTests.Framework.Web.Common.Elements
         protected CommonScriptLibrary CommonScriptLibrary { get; }
         protected CommonContext Context { get; }
 
-        protected CommonElement(WebDependencies dependencies)
+        protected CommonElement(WebDependencies dependencies) : base(dependencies)
         {
             CommonScriptLibrary = dependencies.GetScriptLibrary<CommonScriptLibrary>();
             Context = dependencies.GetContext<CommonContext>();

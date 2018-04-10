@@ -59,6 +59,7 @@
       <Link>Properties\Version.cs</Link>
     </Compile>
     <Compile Include="Attributes\LocatorAttribute.cs" />
+    <Compile Include="Attributes\FromLocatorAttribute.cs" />
     <Compile Include="Binding\Bind.cs" />
     <Compile Include="Binding\Binder.cs" />
     <Compile Include="Binding\Handler.cs" />
@@ -78,11 +79,17 @@
     <Compile Include="Common\Handlers\Selected.cs" />
     <Compile Include="Common\Handlers\SetValue.cs" />
     <Compile Include="Common\Scripts\CommonScriptLibrary.cs" />
+    <Compile Include="Services\ConfiguratorsDependencies.cs" />
+    <Compile Include="Services\ElementFactory.cs" />
+    <Compile Include="Services\ElementLocatorService.cs" />
+    <Compile Include="Services\LocatorAttributeService.cs" />
+    <Compile Include="Services\LocatorsJsonService.cs" />
+    <Compile Include="Services\PageObjectConfiguratorService.cs" />
+    <Compile Include="Services\PageObjectService.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="IWebDriverFactory.cs" />
     <Compile Include="Page.cs" />
-    <Compile Include="PageInitializer.cs" />
     <Compile Include="PageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptLibrary.cs" />

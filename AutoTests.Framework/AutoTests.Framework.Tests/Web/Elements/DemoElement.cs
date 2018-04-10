@@ -6,9 +6,9 @@ namespace AutoTests.Framework.Tests.Web.Elements
     {
         protected DemoContext Context { get; }
 
-        protected DemoElement(DemoContext context)
+        protected DemoElement(Application application) : base(application.Web)
         {
-            Context = context;
+            Context = application.Web.GetContext<DemoContext>();
         }
     }
 }

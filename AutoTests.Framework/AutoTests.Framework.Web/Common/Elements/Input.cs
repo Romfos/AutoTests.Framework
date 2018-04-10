@@ -1,9 +1,11 @@
-﻿using AutoTests.Framework.Web.Common.Handlers;
+﻿using AutoTests.Framework.Web.Attributes;
+using AutoTests.Framework.Web.Common.Handlers;
 
 namespace AutoTests.Framework.Web.Common.Elements
 {
     public class Input : CommonElement
     {
+        [FromLocator]
         private string Locator { get; set; }
 
         public Input(WebDependencies dependencies) : base(dependencies)

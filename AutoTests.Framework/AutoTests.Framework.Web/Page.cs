@@ -2,9 +2,8 @@
 {
     public abstract class Page : PageObject
     {
-        protected Page(WebDependencies dependencies)
+        protected Page(WebDependencies dependencies) : base(dependencies)
         {
-            dependencies.PageInitializer.Initialize(this);
         }
     }
 }
