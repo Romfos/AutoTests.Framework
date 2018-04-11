@@ -6,6 +6,8 @@ namespace AutoTests.Framework.Tests.Web.Pages.MultipleLocatorTest
     {
         public MultipleLocatorElement Element { get; set; }
 
+        public string StringProperty { get; set; }
+
         public MultipleLocatorTestPage(Application application) : base(application)
         {
         }

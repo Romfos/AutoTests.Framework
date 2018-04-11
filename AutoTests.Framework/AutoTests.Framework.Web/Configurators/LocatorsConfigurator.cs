@@ -27,7 +27,7 @@ namespace AutoTests.Framework.Web.Configurators
 
         private void ConfigureLocators(PageObject pageObject)
         {
-            var properties = dependencies.PageObjectPropertiesProvider.GetPageElementProperties(pageObject).ToList();
+            var properties = dependencies.PageObjectPropertiesProvider.GetAllProperties(pageObject).ToList();
             var locators = dependencies.Utils.Resources.GetJsonResource(pageObject, LocatorsFileName);
             ConfigureLocators(pageObject, properties, locators);
         }
@@ -44,8 +44,31 @@ namespace AutoTests.Framework.Web.Configurators
         {
             var property = properties.SingleOrDefault(x => x.Name == propertyName);
             CheckProperty(pageObject, propertyName, property);
+            var token = locators.GetValue(propertyName);
+            ConfigureLocators(pageObject, property, token);
+        }
+
+        private void ConfigureLocators(PageObject pageObject, PropertyInfo property, JToken token)
+        {
+            if (property.PropertyType.IsSubclassOf(typeof(Element)))
+            {
+                ConfigureElementLocators(pageObject, property, token);
+            }
+            else
+            {
+                ConfigureObjectProperty(pageObject, property, token);
+            }
+        }
+
+        private void ConfigureElementLocators(PageObject pageObject, PropertyInfo property, JToken token)
+        {
             var element = (Element) property.GetValue(pageObject);
-            ConfigureLocators(element, locators.GetValue(propertyName));
+            ConfigureLocators(element, token);
+        }
+
+        private void ConfigureObjectProperty(PageObject pageObject, PropertyInfo property, JToken token)
+        {
+            property.SetValue(pageObject, token.ToObject(property.PropertyType));
         }
 
         private void ConfigureLocators(Element element, JToken locators)

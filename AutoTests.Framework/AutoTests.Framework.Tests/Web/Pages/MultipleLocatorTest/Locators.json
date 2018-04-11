@@ -1,6 +1,7 @@
 ﻿{
-  "Element": {
-    "Name": "abcd",
-    "Value": "123"
-  }
+    "Element": {
+        "Name": "abcd",
+        "Value": "123"
+    },
+    "StringProperty": "ABCD" 
 }

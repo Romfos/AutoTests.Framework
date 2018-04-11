@@ -40,6 +40,7 @@ namespace AutoTests.Framework.Tests.UnitTests
 
             Assert.AreEqual("abcd", page.Element.Name, "Incorrect locator");
             Assert.AreEqual("123", page.Element.Value, "Incorrect locator");
+            Assert.AreEqual("ABCD", page.StringProperty, "Incorrect value");
         }
 
         [TestMethod]
