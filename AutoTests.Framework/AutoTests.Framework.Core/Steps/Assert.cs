@@ -41,6 +41,14 @@ namespace AutoTests.Framework.Core.Steps
             }
         }
 
+        public void IsContained<T>(T expected, IEnumerable<T> enumerable, string message)
+        {
+            if (!enumerable.Contains(expected))
+            {
+                throw new AssertException(message);
+            }
+        }
+
         public void AreEqual<T>(T expected, T actual, string message)
         {
             if (!Equals(expected, actual))

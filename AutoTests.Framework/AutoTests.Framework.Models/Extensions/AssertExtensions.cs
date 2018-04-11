@@ -23,7 +23,7 @@ namespace AutoTests.Framework.Models.Extensions
             }
         }
 
-        public static void AreContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
+        public static void AreContainModel<T>(this Assert assert, T expected, IEnumerable<T> items, string message)
             where T : Model
         {
             var comparator = GetComparator(assert);
@@ -39,7 +39,7 @@ namespace AutoTests.Framework.Models.Extensions
             throw new AssertException(message);
         }
 
-        public static void AreNotContainModel<T>(this Assert assert, IEnumerable<T> items, T expected, string message)
+        public static void AreNotContainModel<T>(this Assert assert, T expected, IEnumerable<T> items, string message)
             where T : Model
         {
             var comparator = GetComparator(assert);
