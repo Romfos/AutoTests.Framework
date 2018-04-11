@@ -105,7 +105,7 @@ namespace AutoTests.Framework.Web.Configurators
             if (property == null)
             {
                 throw new ClassConstraintException(pageObject.GetType(),
-                    $"PageObject '{{0}}' doesn't contain property with name {propertyName}. Check your locators.json");
+                    $"PageObject '{{0}}' doesn't contain property with name {propertyName}. Check your Locators.json");
             }
         }
 
