@@ -73,6 +73,7 @@
     <Compile Include="UnitTests\WebTests.cs" />
     <Compile Include="Web\Elements\Button.cs" />
     <Compile Include="Web\Elements\DemoElement.cs" />
+    <Compile Include="Web\Elements\ElementWithPrecondition.cs" />
     <Compile Include="Web\Elements\Input.cs" />
     <Compile Include="Web\DemoContext.cs" />
     <Compile Include="Web\Elements\MultipleLocatorElement.cs" />
@@ -81,6 +82,8 @@
     <Compile Include="Web\Pages\Login\LoginModel.cs" />
     <Compile Include="Web\Pages\Login\LoginPage.cs" />
     <Compile Include="Web\Pages\MultipleLocatorTest\MultipleLocatorTestPage.cs" />
+    <Compile Include="Web\Pages\PreconditionTest\PreconditionTestModel.cs" />
+    <Compile Include="Web\Pages\PreconditionTest\PreconditionTestPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -96,6 +99,7 @@
     </None>
     <EmbeddedResource Include="TestData\Resources\Credentials.json" />
     <EmbeddedResource Include="Web\Pages\MultipleLocatorTest\Locators.json" />
+    <EmbeddedResource Include="Web\Pages\PreconditionTest\Locators.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">

@@ -2,6 +2,7 @@
 using AutoTests.Framework.Tests.Web.Pages.LocatorTest;
 using AutoTests.Framework.Tests.Web.Pages.Login;
 using AutoTests.Framework.Tests.Web.Pages.MultipleLocatorTest;
+using AutoTests.Framework.Tests.Web.Pages.PreconditionTest;
 using AutoTests.Framework.Web.Common.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -39,6 +40,19 @@ namespace AutoTests.Framework.Tests.UnitTests
 
             Assert.AreEqual("abcd", page.Element.Name, "Incorrect locator");
             Assert.AreEqual("123", page.Element.Value, "Incorrect locator");
+        }
+
+        [TestMethod]
+        public void PreconditionTest()
+        {
+            var page = Application.Web.GetPage<PreconditionTestPage>();
+            var expected = new PreconditionTestModel
+            {
+                Value = "ABC_1"
+            };
+            var actual = page.BindPreconditionTestModel(1).GetValue();
+
+            Assert.AreModelEqual(expected, actual, "Incorrect values");
         }
     }
 }

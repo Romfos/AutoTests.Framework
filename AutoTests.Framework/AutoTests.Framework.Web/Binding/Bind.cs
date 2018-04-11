@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using AutoTests.Framework.Models;
@@ -10,11 +11,13 @@ namespace AutoTests.Framework.Web.Binding
     {
         private readonly Func<TModel, PropertyLink> selector;
         private readonly PageObject pageObject;
+        private readonly List<Action> preconditions;
 
-        public Bind(Func<TModel, PropertyLink> selector, PageObject pageObject)
+        public Bind(Func<TModel, PropertyLink> selector, PageObject pageObject, List<Action> preconditions)
         {
             this.selector = selector;
             this.pageObject = pageObject;
+            this.preconditions = preconditions;
         }
 
         public bool Check<THandler>(TModel model)
@@ -32,6 +35,7 @@ namespace AutoTests.Framework.Web.Binding
             var handler = method.GetCustomAttributes<THandler>().Single();
             var propertyLink = selector(model);
             var handlerArgs = new HandlerArgs(pageObject, method, propertyLink);
+            preconditions.ForEach(action => action());
             return handler.Trigger(handlerArgs);
         }
 

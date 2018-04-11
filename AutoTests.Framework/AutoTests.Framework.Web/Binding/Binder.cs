@@ -11,9 +11,11 @@ namespace AutoTests.Framework.Web.Binding
     {
         private readonly List<Bind<TModel>> binds = new List<Bind<TModel>>();
 
-        public Binder<TModel> Bind<T>(Expression<Func<TModel, T>> expression, PageObject pageObject)
+        public Binder<TModel> Bind<TProperty, TPageObject>(
+            Expression<Func<TModel, TProperty>> expression, TPageObject pageObject, params Action<TPageObject>[] preconditions)
+            where TPageObject : PageObject
         {
-            binds.Add(new Bind<TModel>(model => PropertyLink.Get(model, expression), pageObject));
+            binds.Add(CreateBind(expression, pageObject, GetPreconditions(pageObject, preconditions)));
             return this;
         }
 
@@ -24,6 +26,18 @@ namespace AutoTests.Framework.Web.Binding
                 .Where(x => x.Check<THandler>(model))
                 .Select(x => x.Trigger<THandler>(model))
                 .ToArray();
+        }
+
+        private Bind<TModel> CreateBind<T>(
+            Expression<Func<TModel, T>> expression, PageObject pageObject, List<Action> preconditions)
+        {
+            return new Bind<TModel>(model => PropertyLink.Get(model, expression), pageObject, preconditions);
+        }
+
+        private List<Action> GetPreconditions<T>(T pageObject, Action<T>[] preconditions)
+            where T: PageObject
+        {
+            return preconditions.Select(action => new Action(() => action(pageObject))).ToList();
         }
     }
 }
