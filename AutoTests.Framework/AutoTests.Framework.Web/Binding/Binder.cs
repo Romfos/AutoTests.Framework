@@ -12,10 +12,15 @@ namespace AutoTests.Framework.Web.Binding
         private readonly List<Bind<TModel>> binds = new List<Bind<TModel>>();
 
         public Binder<TModel> Bind<TProperty, TPageObject>(
-            Expression<Func<TModel, TProperty>> expression, TPageObject pageObject, params Action<TPageObject>[] preconditions)
+            Expression<Func<TModel, TProperty>> expression, 
+            TPageObject pageObject,
+            Action<TPageObject> precondition = null,
+            Action<TPageObject> postcondition = null)
             where TPageObject : PageObject
         {
-            binds.Add(CreateBind(expression, pageObject, GetPreconditions(pageObject, preconditions)));
+            binds.Add(CreateBind(expression, pageObject,
+                GetRawAction(pageObject, precondition),
+                GetRawAction(pageObject, postcondition)));
             return this;
         }
 
@@ -29,15 +34,21 @@ namespace AutoTests.Framework.Web.Binding
         }
 
         private Bind<TModel> CreateBind<T>(
-            Expression<Func<TModel, T>> expression, PageObject pageObject, List<Action> preconditions)
+            Expression<Func<TModel, T>> expression, PageObject pageObject, Action precondition, Action postcondition)
         {
-            return new Bind<TModel>(model => PropertyLink.Get(model, expression), pageObject, preconditions);
+            return new Bind<TModel>(
+                model => PropertyLink.Get(model, expression),
+                pageObject,
+                precondition,
+                postcondition);
         }
 
-        private List<Action> GetPreconditions<T>(T pageObject, Action<T>[] preconditions)
-            where T: PageObject
+        private Action GetRawAction<TPageObject>(TPageObject pageObject, Action<TPageObject> original)
+            where TPageObject : PageObject
         {
-            return preconditions.Select(action => new Action(() => action(pageObject))).ToList();
+            return original == null
+                ? (Action) null
+                : (() => original(pageObject));
         }
     }
 }
