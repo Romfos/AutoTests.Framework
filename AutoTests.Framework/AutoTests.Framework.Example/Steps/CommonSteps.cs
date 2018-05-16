@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Web.Common;
+﻿using AutoTests.Framework.PreProcessor.Transformations;
+using AutoTests.Framework.Web.Common;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Example.Steps
@@ -11,9 +12,9 @@ namespace AutoTests.Framework.Example.Steps
         }
 
         [Given(@"navigate to '(.*)'")]
-        public void NavigateTo(string url)
+        public void NavigateTo(Calculated url)
         {
-            application.Web.GetContext<CommonContext>().Navigate(url);
+            application.Web.GetContext<CommonContext>().Navigate(url.Get<string>());
         }
     }
 }

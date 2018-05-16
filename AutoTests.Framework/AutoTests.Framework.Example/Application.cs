@@ -2,6 +2,7 @@
 using AutoTests.Framework.Core.Steps;
 using AutoTests.Framework.Example.Web;
 using AutoTests.Framework.Models;
+using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.Web;
 using BoDi;
 
@@ -18,6 +19,8 @@ namespace AutoTests.Framework.Example
         public WebDependencies Web => ObjectContainer.Resolve<WebDependencies>();
 
         public ModelsDependencies Models => ObjectContainer.Resolve<ModelsDependencies>();
+
+        public PreProcessorDependencies PreProcessor => ObjectContainer.Resolve<PreProcessorDependencies>();
 
         protected override void OnDependenciesRegistered()
         {
