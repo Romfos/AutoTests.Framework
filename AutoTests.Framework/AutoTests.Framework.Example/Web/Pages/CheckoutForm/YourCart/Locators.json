@@ -1,0 +1,7 @@
+﻿{
+    "ListItemLocator": "//li[contains(@class, 'ustify-content-between lh-condensed')]",
+
+    "Title": "//li[contains(@class, 'ustify-content-between lh-condensed')][{0}]//*[@class='my-0']",
+    "Description": "//li[contains(@class, 'ustify-content-between lh-condensed')][{0}]//small[@class='text-muted']",
+    "Price": "//li[contains(@class, 'ustify-content-between lh-condensed')][{0}]//span[@class='text-muted']"
+}

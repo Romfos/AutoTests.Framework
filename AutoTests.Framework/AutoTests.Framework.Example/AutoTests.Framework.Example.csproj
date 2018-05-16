@@ -71,10 +71,15 @@
     <Compile Include="Steps\SpecflowHooks.cs" />
     <Compile Include="Steps\Steps.cs" />
     <Compile Include="Web\ChromeDriverProvider.cs" />
+    <Compile Include="Web\Elements\BootstrapElement.cs" />
+    <Compile Include="Web\Elements\Grids\GridBase.cs" />
+    <Compile Include="Web\Elements\Grids\GridLabel.cs" />
     <Compile Include="Web\Pages\BootstrapPage.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressModel.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressForm.cs" />
     <Compile Include="Web\Pages\CheckoutForm\CheckoutFormPage.cs" />
+    <Compile Include="Web\Pages\CheckoutForm\YourCart\YourCartList.cs" />
+    <Compile Include="Web\Pages\CheckoutForm\YourCart\YourCartModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj">
@@ -104,6 +109,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Web\Pages\CheckoutForm\BillingAddress\Locators.json" />
     <EmbeddedResource Include="Resources\Assets\Credentials.json" />
+    <EmbeddedResource Include="Web\Pages\CheckoutForm\YourCart\Locators.json" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
