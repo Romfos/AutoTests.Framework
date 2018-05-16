@@ -31,7 +31,7 @@ namespace AutoTests.Framework.Models
             {
                 if (CheckAttribute<DisabledAttribute>() && value)
                 {
-                    RemoveAttributse<DisabledAttribute>();
+                    RemoveAttribute<DisabledAttribute>();
                 }
                 if (!CheckAttribute<DisabledAttribute>() && !value)
                 {
@@ -76,7 +76,7 @@ namespace AutoTests.Framework.Models
             return PropertyInfo.GetCustomAttributes<PropertyAttribute>().ToList();
         }
 
-        public void RemoveAttributse<T>()
+        public void RemoveAttribute<T>()
             where T : PropertyAttribute
         {
             Attributes.RemoveAll(x => x is T);
