@@ -77,9 +77,9 @@ namespace AutoTests.Framework.Tests.UnitTests
             var results = comparator.Compare(expected, actual).ToArray();
 
             Assert.AreEqual(2, results.Length, "Incorrect comparator work");
-            Assert.AreEqual("Property 'Title' contain incorrect value. Expected: 'name1'. Actual: 'name2'",
+            Assert.AreEqual("Property 'Title' contains incorrect value. Expected: 'name1'. Actual: 'name2'",
                 results[0].ToString(), "Incorrect comparator work");
-            Assert.AreEqual("Property 'Value' contain incorrect value. Expected: '1'. Actual: '2'",
+            Assert.AreEqual("Property 'Value' contains incorrect value. Expected: '1'. Actual: '2'",
                 results[1].ToString(), "Incorrect comparator work");
         }
     }
