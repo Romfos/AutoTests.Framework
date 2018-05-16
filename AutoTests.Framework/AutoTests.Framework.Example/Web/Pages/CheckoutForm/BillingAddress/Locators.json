@@ -1,0 +1,4 @@
+﻿{
+    "FirstName": "//*[@id='firstName']",
+    "LastName": "//*[@id='lastName']"
+}
