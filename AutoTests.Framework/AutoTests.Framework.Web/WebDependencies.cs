@@ -13,7 +13,7 @@ namespace AutoTests.Framework.Web
 
         internal UtilsDependencies Utils => ObjectContainer.Resolve<UtilsDependencies>();
 
-        public IWebDriverFactory WebDriverFactory => ObjectContainer.Resolve<IWebDriverFactory>();
+        public IWebDriverProvider WebDriverProvider => ObjectContainer.Resolve<IWebDriverProvider>();
 
         internal ConfiguratorsDependencies Configurators => ObjectContainer.Resolve<ConfiguratorsDependencies>();
 

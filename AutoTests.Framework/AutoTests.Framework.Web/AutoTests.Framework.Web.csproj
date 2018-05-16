@@ -88,7 +88,7 @@
     <Compile Include="Configurators\PageObjectPropertiesProvider.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Element.cs" />
-    <Compile Include="IWebDriverFactory.cs" />
+    <Compile Include="IWebDriverProvider.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="PageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

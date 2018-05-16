@@ -24,7 +24,7 @@ namespace AutoTests.Framework.Example
 
         protected override void OnDependenciesRegistered()
         {
-            ObjectContainer.RegisterTypeAs<ChromeDriverFactory, IWebDriverFactory>();
+            ObjectContainer.RegisterTypeAs<ChromeDriverProvider, IWebDriverProvider>();
         }
     }
 }

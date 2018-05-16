@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Web.Common
         
         public CommonContext(WebDependencies dependencies)
         {
-            Driver = dependencies.WebDriverFactory.CreateWebDriver();
+            Driver = dependencies.WebDriverProvider.GetWebDriver();
         }
 
         public void Navigate(string url)

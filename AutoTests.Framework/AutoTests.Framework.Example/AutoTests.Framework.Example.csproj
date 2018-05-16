@@ -70,7 +70,7 @@
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Steps\SpecflowHooks.cs" />
     <Compile Include="Steps\Steps.cs" />
-    <Compile Include="Web\ChromeDriverFactory.cs" />
+    <Compile Include="Web\ChromeDriverProvider.cs" />
     <Compile Include="Web\Pages\BootstrapPage.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressModel.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressPage.cs" />

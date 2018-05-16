@@ -5,18 +5,18 @@ using OpenQA.Selenium.Chrome;
 
 namespace AutoTests.Framework.Example.Web
 {
-    public class ChromeDriverFactory : IWebDriverFactory, IDisposable
+    public class ChromeDriverProvider : IWebDriverProvider, IDisposable
     {
         private readonly ChromeDriver chromeDriver;
 
-        public ChromeDriverFactory()
+        public ChromeDriverProvider()
         {
             var options = new ChromeOptions();
             options.AddArgument("--window-size=1280,720");
             chromeDriver = new ChromeDriver(options);
         }
 
-        public IWebDriver CreateWebDriver()
+        public IWebDriver GetWebDriver()
         {
             return chromeDriver;
         }
