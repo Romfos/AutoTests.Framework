@@ -75,7 +75,7 @@ namespace AutoTests.Framework.Models
             if (model.GetType().GetConstructors().All(x => x.GetParameters().Length != 0))
             {
                 throw new ClassConstraintException(model.GetType(), 
-                    "Model '{0}' should contain constructor without parameters");
+                    "Model '{0}' should contains constructor without parameters");
             }
 
             foreach (var property in GetSubModelProperties())
@@ -83,13 +83,13 @@ namespace AutoTests.Framework.Models
                 if (!property.CanWrite || !property.SetMethod.IsPrivate)
                 {
                     throw new PropertyConstraintException(property, 
-                        "Property '{0}' should contain private setter");
+                        "Property '{0}' should contains private setter");
                 }
 
                 if (property.GetCustomAttributes<PropertyAttribute>().Any())
                 {
                     throw new PropertyConstraintException(property,
-                        "Property '{0}' cannot contain property attributes");
+                        "Property '{0}' cannot contains property attributes");
                 }
             }
         }

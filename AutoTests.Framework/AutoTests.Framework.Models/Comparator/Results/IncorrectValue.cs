@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return $"Property '{Expected.Name}' contain incorrect value. " +
+            return $"Property '{Expected.Name}' contains incorrect value. " +
                    $"Expected: '{GetTextValue(Expected)}'. " +
                    $"Actual: '{GetTextValue(Actual)}'";
         }

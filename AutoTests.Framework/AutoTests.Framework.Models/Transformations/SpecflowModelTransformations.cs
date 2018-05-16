@@ -60,7 +60,7 @@ namespace AutoTests.Framework.Models.Transformations
         {
             if (!table.ContainsColumn("Name"))
             {
-                throw new TransformationException("Table should contain 'Name' column");
+                throw new TransformationException("Table should contains 'Name' column");
             }
 
             string[] columns =
