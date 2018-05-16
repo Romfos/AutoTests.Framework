@@ -73,7 +73,7 @@
     <Compile Include="Web\ChromeDriverProvider.cs" />
     <Compile Include="Web\Pages\BootstrapPage.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressModel.cs" />
-    <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressPage.cs" />
+    <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressForm.cs" />
     <Compile Include="Web\Pages\CheckoutForm\CheckoutFormPage.cs" />
   </ItemGroup>
   <ItemGroup>

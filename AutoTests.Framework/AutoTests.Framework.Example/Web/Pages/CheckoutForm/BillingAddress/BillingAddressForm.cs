@@ -3,12 +3,12 @@ using AutoTests.Framework.Web.Common.Elements;
 
 namespace AutoTests.Framework.Example.Web.Pages.CheckoutForm.BillingAddress
 {
-    public class BillingAddressPage : BootstrapPage
+    public class BillingAddressForm : BootstrapPage
     {
         private Input FirstName { get; set; }
         private Input LastName { get; set; }
 
-        public BillingAddressPage(Application application) : base(application)
+        public BillingAddressForm(Application application) : base(application)
         {
         }
 
