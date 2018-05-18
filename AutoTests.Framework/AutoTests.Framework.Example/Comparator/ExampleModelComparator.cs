@@ -10,10 +10,10 @@ namespace AutoTests.Framework.Example.Comparator
     {
         protected override Result CompareCustomAttributes(PropertyLink expectedLink, PropertyLink actualLink)
         {
-            return ComparePropertyLinkValidationErrors(expectedLink, actualLink);
+            return CompareValidationErrors(expectedLink, actualLink);
         }
 
-        protected Result ComparePropertyLinkValidationErrors(PropertyLink expectedLink, PropertyLink actualLink)
+        protected Result CompareValidationErrors(PropertyLink expectedLink, PropertyLink actualLink)
         {
             if (expectedLink.CheckAttribute<ValidationMessageAttribute>())
             {
