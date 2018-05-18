@@ -17,18 +17,21 @@ namespace AutoTests.Framework.Example.Comparator
         {
             if (expectedLink.CheckAttribute<ValidationMessageAttribute>())
             {
-                if (!actualLink.CheckAttribute<ValidationMessageAttribute>())
-                {
-                    return new ExpectedAttributeNotFound(actualLink, nameof(ValidationMessageAttribute));
-                }
-                var expectedMessage = expectedLink.GetAttribute<ValidationMessageAttribute>().Message;
-                var actualMesage = actualLink.GetAttribute<ValidationMessageAttribute>().Message;
+                var expectedMessage = GetValidationMessage(expectedLink);
+                var actualMesage = GetValidationMessage(actualLink);
                 if (expectedMessage != actualMesage)
                 {
                     return new IncorrectValidationMessage(expectedLink, expectedMessage, actualMesage);
                 }
             }
             return null;
+        }
+
+        private string GetValidationMessage(PropertyLink propertyLink)
+        {
+            return propertyLink.CheckAttribute<ValidationMessageAttribute>()
+                ? propertyLink.GetAttribute<ValidationMessageAttribute>().Message
+                : null;
         }
     }
 }
