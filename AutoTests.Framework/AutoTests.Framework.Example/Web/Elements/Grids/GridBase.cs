@@ -19,12 +19,12 @@ namespace AutoTests.Framework.Example.Web.Elements.Grids
 
         public IEnumerable<T> GetModels()
         {
-            return Enumerable.Range(0, GetRowCount()).Select(x => Bind(x).GetValue());
+            return Enumerable.Range(0, GetRowCount()).Select(x => Bind(x).GetValues());
         }
 
         public IEnumerable<T> GetModels(T expectedModel)
         {
-            return Enumerable.Range(0, GetRowCount()).Select(x => Bind(x).GetValue(expectedModel));
+            return Enumerable.Range(0, GetRowCount()).Select(x => Bind(x).GetValues(expectedModel));
         }
     }
 }

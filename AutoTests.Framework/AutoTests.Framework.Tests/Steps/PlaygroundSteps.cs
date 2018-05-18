@@ -96,7 +96,7 @@ namespace AutoTests.Framework.Tests.Steps
             var page = application.Web.GetPage<LoginPage>();
             var context = application.Web.GetContext<DemoContext>();
 
-            page.BindLoginModel().SetValue(loginModel);
+            page.BindLoginModel().SetValues(loginModel);
             page.Login.Click();
 
             Assert.AreEqual(3, context.Log.Count, "Problem with login page binding");

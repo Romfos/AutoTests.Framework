@@ -15,13 +15,13 @@ namespace AutoTests.Framework.Web.Common.Extensions
             binder.Trigger<Click>(model);
         }
 
-        public static void SetValue<TModel>(this Binder<TModel> binder, TModel model)
+        public static void SetValues<TModel>(this Binder<TModel> binder, TModel model)
             where TModel : Model
         {
             binder.Trigger<SetValue>(model);
         }
 
-        public static TModel GetValue<TModel>(this Binder<TModel> binder, TModel expectedModel)
+        public static TModel GetValues<TModel>(this Binder<TModel> binder, TModel expectedModel)
             where TModel : Model, new()
         {
             var model = expectedModel.Clone(false);
@@ -29,7 +29,7 @@ namespace AutoTests.Framework.Web.Common.Extensions
             return model;
         }
 
-        public static TModel GetValue<TModel>(this Binder<TModel> binder)
+        public static TModel GetValues<TModel>(this Binder<TModel> binder)
             where TModel : Model, new()
         {
             var model = new TModel();

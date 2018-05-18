@@ -20,7 +20,7 @@ namespace AutoTests.Framework.Tests.UnitTests
                 Username = "#Username",
                 Password = "#Password"
             };
-            var actual = page.BindLoginModel().GetValue();
+            var actual = page.BindLoginModel().GetValues();
 
             Assert.AreModelEqual(expected, actual, "GetValue binding not work");
         }
@@ -51,7 +51,7 @@ namespace AutoTests.Framework.Tests.UnitTests
             {
                 Value = "ABC_1"
             };
-            var actual = page.BindPreconditionTestModel(1).GetValue();
+            var actual = page.BindPreconditionTestModel(1).GetValues();
 
             Assert.AreModelEqual(expected, actual, "Incorrect values");
         }
