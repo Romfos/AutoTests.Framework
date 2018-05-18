@@ -16,7 +16,7 @@ namespace AutoTests.Framework.Example.Comparator.Results
 
         public override string ToString()
         {
-            return $"Attriubte '{AttributeName}' didn't found for property {Actual.Name}";
+            return $"Attriubte '{AttributeName}' wasn't found for property {Actual.Name}";
         }
     }
 }
