@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using AutoTests.Framework.Example.Web;
+using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Example.Steps
 {
@@ -17,6 +18,18 @@ namespace AutoTests.Framework.Example.Steps
         {
             application.Register();
             application.Configure();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            ChromeDriverProvider.Start();
+        }
+
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            ChromeDriverProvider.Stop();
         }
     }
 }
