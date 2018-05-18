@@ -45,7 +45,13 @@ namespace AutoTests.Framework.Models.Comparator
 
         protected virtual Result ComparePropertyLinks(PropertyLink expectedLink, PropertyLink actualLink)
         {
-            return ComparePropertyLinkValues(expectedLink, actualLink);
+            return ComparePropertyLinkValues(expectedLink, actualLink)
+                   ?? CompareCustomAttributes(expectedLink, actualLink);
+        }
+
+        protected virtual Result CompareCustomAttributes(PropertyLink expectedLink, PropertyLink actualLink)
+        {
+            return null;
         }
 
         protected virtual Result ComparePropertyLinkValues(PropertyLink expectedLink, PropertyLink actualLink)

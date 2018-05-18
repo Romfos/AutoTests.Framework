@@ -1,5 +1,5 @@
-﻿using AutoTests.Framework.Web.Binding;
-using AutoTests.Framework.Web.Common.Elements;
+﻿using AutoTests.Framework.Example.Web.Elements.BootstrapInput;
+using AutoTests.Framework.Web.Binding;
 
 namespace AutoTests.Framework.Example.Web.Pages.CheckoutForm.BillingAddress
 {

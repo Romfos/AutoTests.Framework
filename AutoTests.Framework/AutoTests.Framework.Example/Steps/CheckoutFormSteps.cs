@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Example.Web.Pages.CheckoutForm;
+﻿using AutoTests.Framework.Example.Web.Extensions;
+using AutoTests.Framework.Example.Web.Pages.CheckoutForm;
 using AutoTests.Framework.Example.Web.Pages.CheckoutForm.BillingAddress;
 using AutoTests.Framework.Example.Web.Pages.CheckoutForm.YourCart;
 using AutoTests.Framework.Models.Extensions;
@@ -20,6 +21,12 @@ namespace AutoTests.Framework.Example.Steps
             application.Web.GetPage<CheckoutFormPage>().BillingAddress.BindBillingAddressModel().SetValue(model);
         }
 
+        [When(@"click Continue to checkout button on Checkout form page")]
+        public void ClickContinueToCheckoutButtonOnCheckoutFormPage()
+        {
+            application.Web.GetPage<CheckoutFormPage>().ContinueToCheckout.Click();
+        }
+
         [Then(@"following values should be present in Billing address from on Checkout form page:")]
         public void FollowingValuesShouldBePresentInBillingAddressFromOnCheckoutFormPage(BillingAddressModel expectedModel)
         {
@@ -35,6 +42,17 @@ namespace AutoTests.Framework.Example.Steps
             var actualModels = application.Web.GetPage<CheckoutFormPage>().YourCart.GetModels(expectedModel);
 
             Assert.AreContainModel(expectedModel, actualModels, "Expected item not found in Your cart list on Checkout form page");
+        }
+
+        [Then(@"following validation messages should be present in Billing address from on Checkout form page:")]
+        public void FollowingValidationMessagesShouldBePresentInBillingAddressFromOnCheckoutFormPage(
+            BillingAddressModel expectedModel)
+        {
+            var actualModel = application.Web.GetPage<CheckoutFormPage>().BillingAddress
+                .BindBillingAddressModel().GetValidationMessages(expectedModel);
+
+            Assert.AreModelEqual(expectedModel, actualModel, 
+                "Incorrect validation messages in Billing address from on Checkout form page");
         }
     }
 }

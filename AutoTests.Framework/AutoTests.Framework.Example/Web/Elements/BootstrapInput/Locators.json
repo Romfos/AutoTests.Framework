@@ -1,0 +1,3 @@
+﻿{
+    "ValidationMessagePostfixLocator": "/following-sibling::div[@class='invalid-feedback']"
+}

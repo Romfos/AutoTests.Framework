@@ -64,16 +64,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Comparator\ExampleModelComparator.cs" />
+    <Compile Include="Comparator\Results\ExpectedAttributeNotFound.cs" />
+    <Compile Include="Comparator\Results\IncorrectValidationMessage.cs" />
+    <Compile Include="PreProcessor\AttributesAsset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Providers\JsonResourceProvider.cs" />
     <Compile Include="Steps\CheckoutFormSteps.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Steps\SpecflowHooks.cs" />
     <Compile Include="Steps\Steps.cs" />
+    <Compile Include="Web\Attributes\ValidationMessageAttribute.cs" />
     <Compile Include="Web\ChromeDriverProvider.cs" />
     <Compile Include="Web\Elements\BootstrapElement.cs" />
+    <Compile Include="Web\Elements\BootstrapInput\Input.cs" />
     <Compile Include="Web\Elements\Grids\GridBase.cs" />
     <Compile Include="Web\Elements\Grids\GridLabel.cs" />
+    <Compile Include="Web\Extensions\ModelExtensions.cs" />
+    <Compile Include="Web\Handlers\GetValidationMessage.cs" />
     <Compile Include="Web\Pages\BootstrapPage.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressModel.cs" />
     <Compile Include="Web\Pages\CheckoutForm\BillingAddress\BillingAddressForm.cs" />
@@ -110,6 +118,8 @@
     <EmbeddedResource Include="Web\Pages\CheckoutForm\BillingAddress\Locators.json" />
     <EmbeddedResource Include="Resources\Assets\Credentials.json" />
     <EmbeddedResource Include="Web\Pages\CheckoutForm\YourCart\Locators.json" />
+    <EmbeddedResource Include="Web\Pages\CheckoutForm\Locators.json" />
+    <EmbeddedResource Include="Web\Elements\BootstrapInput\Locators.json" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

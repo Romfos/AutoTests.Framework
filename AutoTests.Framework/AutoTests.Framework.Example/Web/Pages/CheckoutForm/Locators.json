@@ -1,0 +1,3 @@
+﻿{
+    "ContinueToCheckout": "//button[contains(text(), 'Continue to checkout')]"
+}

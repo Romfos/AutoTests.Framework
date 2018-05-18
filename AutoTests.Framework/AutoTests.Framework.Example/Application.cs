@@ -1,7 +1,9 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Steps;
+using AutoTests.Framework.Example.Comparator;
 using AutoTests.Framework.Example.Web;
 using AutoTests.Framework.Models;
+using AutoTests.Framework.Models.Comparator;
 using AutoTests.Framework.PreProcessor;
 using AutoTests.Framework.Web;
 using BoDi;
@@ -25,6 +27,7 @@ namespace AutoTests.Framework.Example
         protected override void OnDependenciesRegistered()
         {
             ObjectContainer.RegisterTypeAs<ChromeDriverProvider, IWebDriverProvider>();
+            ObjectContainer.RegisterTypeAs<ExampleModelComparator, ModelComparator>();
         }
     }
 }
