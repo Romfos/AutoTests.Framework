@@ -12,6 +12,12 @@ namespace AutoTests.Framework.Core
             this.objectContainer = objectContainer;
         }
 
+        public AutoTestsFrameworkBuilder RegisterAssemblyForType<T>()
+        {
+            objectContainer.Resolve<AssemblyPool>().Upsert(typeof(T).Assembly);
+            return this;
+        }
+
         public AutoTestsFrameworkBuilder Use(Action<IObjectContainer> action)
         {
             action(objectContainer);
