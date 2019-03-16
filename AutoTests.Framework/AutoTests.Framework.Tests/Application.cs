@@ -11,7 +11,7 @@ namespace AutoTests.Framework.Tests
         {
         }
 
-        public Evaluator Evaluator => ObjectContainer.Resolve<Evaluator>();
+        public PreProcessorServiceProvider PreProcessor => ObjectContainer.Resolve<PreProcessorServiceProvider>();
 
         public PageObjectsServiceProvider PageObjects => ObjectContainer.Resolve<PageObjectsServiceProvider>();
     }

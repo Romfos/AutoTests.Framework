@@ -10,7 +10,7 @@ namespace AutoTests.Framework.Tests.UnitTests
         public async Task TrivialTest()
         {
             var expected = "Hello World!";
-            var actual = await application.Evaluator.Evaluate<string>(expected);
+            var actual = await application.PreProcessor.Evaluator.Evaluate<string>(expected);
             
             Assert.AreEqual(expected, actual);
         }
@@ -19,7 +19,7 @@ namespace AutoTests.Framework.Tests.UnitTests
         public async Task RoslynExpressionTest()
         {
             var expression = "@1+2";
-            var actual = await application.Evaluator.Evaluate<int>(expression);
+            var actual = await application.PreProcessor.Evaluator.Evaluate<int>(expression);
 
             Assert.AreEqual(3, actual);
         }
