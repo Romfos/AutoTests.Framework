@@ -21,6 +21,9 @@ namespace AutoTests.Framework.Tests.UnitTests
                 locatorsLoaderTestPage.LocatorsLoaderTestElement1.Value2);
 
             Assert.AreEqual("LocatorsLoaderTestElement1_Locators_Element2_Value",
+                locatorsLoaderTestPage.LocatorsLoaderTestElement1.Element1.Value);
+
+            Assert.AreEqual("LocatorAttribute_Value",
                 locatorsLoaderTestPage.LocatorsLoaderTestElement1.Element2.Value);
         }
     }

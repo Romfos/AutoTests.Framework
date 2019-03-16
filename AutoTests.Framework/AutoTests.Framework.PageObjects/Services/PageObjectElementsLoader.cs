@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-namespace AutoTests.Framework.PageObjects.Services
+﻿namespace AutoTests.Framework.PageObjects.Services
 {
     public class PageObjectElementsLoader
     {
@@ -15,25 +11,13 @@ namespace AutoTests.Framework.PageObjects.Services
 
         public virtual void LoadPageObjectElements(PageObject pageObject)
         {
-            foreach (var property in GetElementProperties(pageObject))
+            var properties = serviceProvider.PageObjectReflectionService.GetElementProperties(pageObject);
+            foreach (var property in properties)
             {
                 var element = serviceProvider.CreateElement(property.PropertyType);
                 serviceProvider.PageObjectLoader.LoadPageObject(element);
                 property.SetValue(pageObject, element);
             }
-        }
-
-        private IEnumerable<PropertyInfo> GetElementProperties(PageObject pageObject)
-        {
-            return pageObject.GetType()
-                .GetProperties(GetBindingFlags())
-                .Where(x => x.PropertyType.IsSubclassOf(typeof(Element)))
-                .Where(x => x.CanWrite && x.CanRead && !x.GetIndexParameters().Any());
-        }
-        
-        private BindingFlags GetBindingFlags()
-        {
-            return BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
         }
     }
 }

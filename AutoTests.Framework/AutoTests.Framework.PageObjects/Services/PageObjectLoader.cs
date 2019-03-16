@@ -13,6 +13,7 @@
         {
             serviceProvider.PageObjectElementsLoader.LoadPageObjectElements(pageObject);
             serviceProvider.PageObjectLocatorsLoader.LoadPageObjectLocators(pageObject);
+            serviceProvider.PageObjectLocatorAttributeLoader.LoadLocatorAttributes(pageObject);
         }
     }
 }

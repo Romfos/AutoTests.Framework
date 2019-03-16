@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using AutoTests.Framework.PageObjects.Attributes;
+﻿using System.Reflection;
 using Newtonsoft.Json.Linq;
 
 namespace AutoTests.Framework.PageObjects.Services
@@ -35,7 +32,7 @@ namespace AutoTests.Framework.PageObjects.Services
 
         private void LoadPageObjectLocators(PageObject pageObject, JProperty jProperty)
         {
-            var property = FindProperty(pageObject, jProperty.Name);
+            var property = serviceProvider.PageObjectReflectionService.GetProperty(pageObject, jProperty.Name);
             if (property.PropertyType.IsSubclassOf(typeof(Element)))
             {
                 LoadLocatorsForNestedElement(pageObject, property, jProperty);
@@ -57,63 +54,11 @@ namespace AutoTests.Framework.PageObjects.Services
             }
             else
             {
-                var primaryLocatorProperty = FindPrimaryLocatorProperty(element);
+                var primaryLocatorProperty = serviceProvider.PageObjectReflectionService
+                    .GetPrimaryLocatorProperty(element);
                 var value = locatorProperty.Value.ToObject(primaryLocatorProperty.PropertyType);
                 primaryLocatorProperty.SetValue(element, value);
             }
-        }
-
-        private PropertyInfo FindPrimaryLocatorProperty(Element element)
-        {
-            var property = PrimaryLocatorProperty(element);
-            if (property == null)
-            {
-                throw new Exception($"Primary locator property was not found for {element.GetType().Name} type");
-            }
-            if (!IsValidProperty(property))
-            {
-                throw new Exception($"Primary locator property in {element.GetType().Name} type. " +
-                                    "Property must contain getter and setter");
-            }
-            return property;
-        }
-
-        private PropertyInfo FindProperty(PageObject pageObject, string name)
-        {
-            var property = GetPageObjectProperty(pageObject, name);
-            if (property == null)
-            {
-                throw new Exception($"Property '{name}' was not found in {pageObject.GetType().Name} type");
-            }
-            if (!IsValidProperty(property))
-            {
-                throw new Exception($"Invalid property '{name}' in {pageObject.GetType().Name} type. " +
-                                    "Property must contain getter and setter");
-            }
-            return property;
-        }
-
-        private PropertyInfo PrimaryLocatorProperty(Element element)
-        {
-            return element.GetType().GetProperties(GetBindingFlags())
-                .SingleOrDefault(x => x.GetCustomAttributes(true).OfType<PrimaryLocatorAttribute>().Any());
-        }
-
-        private PropertyInfo GetPageObjectProperty(PageObject pageObject, string name)
-        {
-            return pageObject.GetType()
-                .GetProperties(GetBindingFlags())
-                .SingleOrDefault(x => x.Name == name);
-        }
-
-        private bool IsValidProperty(PropertyInfo property)
-        {
-            return property.CanWrite && property.CanRead && !property.GetIndexParameters().Any();
-        }
-
-        private BindingFlags GetBindingFlags()
-        {
-            return BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
         }
     }
 }

@@ -24,6 +24,12 @@ namespace AutoTests.Framework.PageObjects
         internal PageObjectLocatorsLoader PageObjectLocatorsLoader =>
             ObjectContainer.Resolve<PageObjectLocatorsLoader>();
 
+        internal PageObjectLocatorAttributeLoader PageObjectLocatorAttributeLoader =>
+            ObjectContainer.Resolve<PageObjectLocatorAttributeLoader>();
+
+        internal PageObjectReflectionService PageObjectReflectionService =>
+            ObjectContainer.Resolve<PageObjectReflectionService>();
+
         public T GetPage<T>()
             where T : Page
         {

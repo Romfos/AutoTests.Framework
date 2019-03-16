@@ -10,6 +10,9 @@ namespace AutoTests.Framework.Tests.Web.LocatorsLoaderTest.LocatorsLoaderTestEle
         [PrimaryLocator]
         public string Value2 { get; set; }
 
+        public LocatorsLoaderTestElement2.LocatorsLoaderTestElement2 Element1 { get; set; }
+
+        [Locator("LocatorAttribute_Value")]
         public LocatorsLoaderTestElement2.LocatorsLoaderTestElement2 Element2 { get; set; }
 
         public LocatorsLoaderTestElement1(PageObjectsServiceProvider serviceProvider) : base(serviceProvider)
