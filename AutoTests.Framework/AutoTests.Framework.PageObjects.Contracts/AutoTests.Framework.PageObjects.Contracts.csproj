@@ -10,7 +10,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
   </ItemGroup>
 
 </Project>

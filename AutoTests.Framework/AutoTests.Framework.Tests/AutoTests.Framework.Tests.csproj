@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="**\*.feature.cs">
+      <Visible>false</Visible>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Web\LocatorsLoaderTest\Locators.json" />
     <None Remove="Web\LocatorsLoaderTest\LocatorsLoaderTestElement1\Locators.json" />
   </ItemGroup>
@@ -18,14 +24,20 @@
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
     <PackageReference Include="SpecFlow" Version="2.4.1" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.PageObjects.Contracts.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\Contracts.feature" />
   </ItemGroup>
 
 </Project>

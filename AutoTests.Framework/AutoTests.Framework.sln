@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObjects.Provider", "AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj", "{AFA966AC-8C79-4311-996B-031FC718642C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObjects.Contracts", "AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.PageObjects.Contracts.csproj", "{62B7863A-A115-4CA7-952E-01CE06D1B189}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{AFA966AC-8C79-4311-996B-031FC718642C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFA966AC-8C79-4311-996B-031FC718642C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFA966AC-8C79-4311-996B-031FC718642C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{94EA823F-B026-47B0-B532-5DCD1585F0F2} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 		{0260FFA5-2CDE-4A2F-8676-74AD2643BD34} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 		{AFA966AC-8C79-4311-996B-031FC718642C} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
+		{62B7863A-A115-4CA7-952E-01CE06D1B189} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {865075EC-66A7-4720-9049-F986E80CB709}
