@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoTests.Framework", "AutoTests.Framework", "{734DD0EA-79E2-431D-A715-3B03C6B480C9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{734DD0EA-79E2-431D-A715-3B03C6B480C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Core", "AutoTests.Framework.Core\AutoTests.Framework.Core.csproj", "{2952B159-614E-49A8-8FE4-EC3AA4264A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Core", "AutoTests.Framework.Core\AutoTests.Framework.Core.csproj", "{2952B159-614E-49A8-8FE4-EC3AA4264A1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PreProcessor", "AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj", "{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{11B30395-F4AE-4FA5-8C28-9FB3A5F73D90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj", "{61805715-6FFD-4175-8FAB-2282EA7B4260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PreProcessor.Roslyn", "AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj", "{94EA823F-B026-47B0-B532-5DCD1585F0F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,27 @@ Global
 		{2952B159-614E-49A8-8FE4-EC3AA4264A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2952B159-614E-49A8-8FE4-EC3AA4264A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2952B159-614E-49A8-8FE4-EC3AA4264A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61805715-6FFD-4175-8FAB-2282EA7B4260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61805715-6FFD-4175-8FAB-2282EA7B4260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61805715-6FFD-4175-8FAB-2282EA7B4260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61805715-6FFD-4175-8FAB-2282EA7B4260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94EA823F-B026-47B0-B532-5DCD1585F0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EA823F-B026-47B0-B532-5DCD1585F0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EA823F-B026-47B0-B532-5DCD1585F0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EA823F-B026-47B0-B532-5DCD1585F0F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2952B159-614E-49A8-8FE4-EC3AA4264A1F} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
+		{F9E6E85F-D2BB-4254-A69C-0C19ED2AA145} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
+		{61805715-6FFD-4175-8FAB-2282EA7B4260} = {11B30395-F4AE-4FA5-8C28-9FB3A5F73D90}
+		{94EA823F-B026-47B0-B532-5DCD1585F0F2} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {865075EC-66A7-4720-9049-F986E80CB709}
