@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <Authors>Romfos</Authors>
+    <Description>This is external library for specflow for easier automatization web applications but not only.</Description>
+    <PackageTags>Specflow AutoTests</PackageTags>
+    <PackageProjectUrl>https://github.com/Romfos/AutoTests.Framework</PackageProjectUrl>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
