@@ -9,10 +9,15 @@ namespace AutoTests.Framework.PreProcessor.Roslyn
     {
         private ScriptState scriptState;
 
+        public RoslynEvaluator(RoslynPreProcessorServiceProvider serviceProvider)
+            : base(serviceProvider.PreProcessor)
+        {
+        }
+
         public override async Task<T> Evaluate<T>(string code)
         {
             var value = await Evaluate(code);
-            var result = (T)Convert.ChangeType(value, typeof(T));
+            var result = (T) Convert.ChangeType(value, typeof(T));
             return result;
         }
 

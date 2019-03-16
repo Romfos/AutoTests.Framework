@@ -1,17 +1,18 @@
-﻿using AutoTests.Framework.PreProcessor;
+﻿using AutoTests.Framework.Core;
+using AutoTests.Framework.PageObjects;
+using AutoTests.Framework.PreProcessor;
 using BoDi;
 
 namespace AutoTests.Framework.Tests
 {
-    public class Application
+    public class Application : ServiceProvider
     {
-        private readonly IObjectContainer objectContainer;
-
-        public Application(IObjectContainer objectContainer)
+        public Application(IObjectContainer objectContainer) : base(objectContainer)
         {
-            this.objectContainer = objectContainer;
         }
 
-        public Evaluator Evaluator => objectContainer.Resolve<Evaluator>();
+        public Evaluator Evaluator => ObjectContainer.Resolve<Evaluator>();
+
+        public PageObjectsServiceProvider PageObjects => ObjectContainer.Resolve<PageObjectsServiceProvider>();
     }
 }

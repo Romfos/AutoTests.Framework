@@ -19,6 +19,7 @@ namespace AutoTests.Framework.Core
         }
 
         public T Build<T>()
+            where T : ServiceProvider
         {
             return objectContainer.Resolve<T>();
         }
