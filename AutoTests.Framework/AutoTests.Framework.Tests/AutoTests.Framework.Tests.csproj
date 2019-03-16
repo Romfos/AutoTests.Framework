@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Web\LocatorsLoaderTest\Locators.json" />
+    <None Remove="Web\LocatorsLoaderTest\LocatorsLoaderTestElement1\Locators.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Web\LocatorsLoaderTest\Locators.json" />
+    <EmbeddedResource Include="Web\LocatorsLoaderTest\LocatorsLoaderTestElement1\Locators.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
     <PackageReference Include="SpecFlow" Version="2.4.1" />

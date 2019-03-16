@@ -1,4 +1,4 @@
-﻿using AutoTests.Framework.PageObjects;
+﻿using AutoTests.Framework.Tests.Web.LocatorsLoaderTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AutoTests.Framework.Tests.UnitTests
@@ -7,27 +7,21 @@ namespace AutoTests.Framework.Tests.UnitTests
     public class PageObjectsTests : UnitTestsBase
     {
         [TestMethod]
-        public void PageObjectElementsLoaderTest()
+        public void PageObjectLoaderTest()
         {
-            var testPage = application.PageObjects.GetPage<TestPage>();
+            var locatorsLoaderTestPage = application.PageObjects.GetPage<LocatorsLoaderTestPage>();
 
-            Assert.IsNotNull(testPage);
-        }
+            Assert.AreEqual("LocatorsLoaderTestPage_Locators_Value1", 
+                locatorsLoaderTestPage.Value1);
 
-        public class TestPage : Page
-        {
-            public TestElement TestElement { get; set; }
+            Assert.AreEqual("LocatorsLoaderTestElement1_Locators_Value1",
+                locatorsLoaderTestPage.LocatorsLoaderTestElement1.Value1);
 
-            public TestPage(PageObjectsServiceProvider serviceProvider) : base(serviceProvider)
-            {
-            }
-        }
+            Assert.AreEqual("LocatorsLoaderTestPage_Locators_Value2", 
+                locatorsLoaderTestPage.LocatorsLoaderTestElement1.Value2);
 
-        public class TestElement : Element
-        {
-            public TestElement(PageObjectsServiceProvider serviceProvider) : base(serviceProvider)
-            {
-            }
+            Assert.AreEqual("LocatorsLoaderTestElement1_Locators_Element2_Value",
+                locatorsLoaderTestPage.LocatorsLoaderTestElement1.Element2.Value);
         }
     }
 }

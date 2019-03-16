@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using AutoTests.Framework.Core;
+using AutoTests.Framework.Core.Utils;
 using AutoTests.Framework.PageObjects.Services;
 using BoDi;
 
@@ -12,11 +13,16 @@ namespace AutoTests.Framework.PageObjects
         {
         }
 
+        internal UtilsServiceProvider Utils => ObjectContainer.Resolve<UtilsServiceProvider>();
+
         internal PageObjectLoader PageObjectLoader =>
             ObjectContainer.Resolve<PageObjectLoader>();
 
         internal PageObjectElementsLoader PageObjectElementsLoader =>
             ObjectContainer.Resolve<PageObjectElementsLoader>();
+
+        internal PageObjectLocatorsLoader PageObjectLocatorsLoader =>
+            ObjectContainer.Resolve<PageObjectLocatorsLoader>();
 
         public T GetPage<T>()
             where T : Page

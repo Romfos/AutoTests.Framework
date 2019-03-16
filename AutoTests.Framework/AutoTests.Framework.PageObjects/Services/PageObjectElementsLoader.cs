@@ -18,7 +18,7 @@ namespace AutoTests.Framework.PageObjects.Services
             foreach (var property in GetElementProperties(pageObject))
             {
                 var element = serviceProvider.CreateElement(property.PropertyType);
-                LoadPageObjectElements(element);
+                serviceProvider.PageObjectLoader.LoadPageObject(element);
                 property.SetValue(pageObject, element);
             }
         }

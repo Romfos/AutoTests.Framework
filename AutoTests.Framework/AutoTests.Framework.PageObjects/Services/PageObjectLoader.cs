@@ -12,6 +12,7 @@
         public virtual void LoadPageObject(PageObject pageObject)
         {
             serviceProvider.PageObjectElementsLoader.LoadPageObjectElements(pageObject);
+            serviceProvider.PageObjectLocatorsLoader.LoadPageObjectLocators(pageObject);
         }
     }
 }
