@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.PageObjects.Contracts.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj" />

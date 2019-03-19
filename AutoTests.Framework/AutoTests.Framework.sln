@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{11B30395
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj", "{61805715-6FFD-4175-8FAB-2282EA7B4260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PreProcessor.Roslyn", "AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj", "{94EA823F-B026-47B0-B532-5DCD1585F0F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PreProcessor.Roslyn", "AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj", "{94EA823F-B026-47B0-B532-5DCD1585F0F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObjects", "AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj", "{0260FFA5-2CDE-4A2F-8676-74AD2643BD34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PageObjects", "AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj", "{0260FFA5-2CDE-4A2F-8676-74AD2643BD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObjects.Provider", "AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj", "{AFA966AC-8C79-4311-996B-031FC718642C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PageObjects.Provider", "AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj", "{AFA966AC-8C79-4311-996B-031FC718642C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.PageObjects.Contracts", "AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.PageObjects.Contracts.csproj", "{62B7863A-A115-4CA7-952E-01CE06D1B189}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PageObjects.Contracts", "AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.PageObjects.Contracts.csproj", "{62B7863A-A115-4CA7-952E-01CE06D1B189}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Models", "AutoTests.Framework.Models\AutoTests.Framework.Models.csproj", "{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B7863A-A115-4CA7-952E-01CE06D1B189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{0260FFA5-2CDE-4A2F-8676-74AD2643BD34} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 		{AFA966AC-8C79-4311-996B-031FC718642C} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 		{62B7863A-A115-4CA7-952E-01CE06D1B189} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
+		{C0233FE5-9DCF-41CC-92BA-8D9CE568CDE4} = {734DD0EA-79E2-431D-A715-3B03C6B480C9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {865075EC-66A7-4720-9049-F986E80CB709}

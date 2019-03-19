@@ -5,3 +5,4 @@ dotnet pack ..\AutoTests.Framework.PageObjects.Contracts\AutoTests.Framework.Pag
 dotnet pack ..\AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.PageObjects.Provider.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
 dotnet pack ..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
 dotnet pack ..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
+dotnet pack ..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
