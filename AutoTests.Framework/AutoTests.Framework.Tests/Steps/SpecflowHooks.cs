@@ -18,7 +18,7 @@ namespace AutoTests.Framework.Tests.Steps
         public void BeforeScenario()
         {
             autoTestsFrameworkBuilder
-                .RegisterAssemblyForType<Application>()
+                .RegisterApplicationAssembly<Application>()
                 .UseRoslynPreProcessor()
                 .Build<Application>();
         }

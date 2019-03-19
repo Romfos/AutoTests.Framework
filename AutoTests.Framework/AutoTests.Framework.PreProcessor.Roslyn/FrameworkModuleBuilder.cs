@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.PreProcessor.Roslyn
 {
-    public static class RoslynPreProcessorBuilder
+    public static class FrameworkModuleBuilder
     {
         public static AutoTestsFrameworkBuilder UseRoslynPreProcessor(
             this AutoTestsFrameworkBuilder autoTestsFrameworkBuilder)

@@ -11,7 +11,7 @@ namespace AutoTests.Framework.Tests.UnitTests
         protected UnitTestsBase()
         {
             application = new ObjectContainer().Resolve<AutoTestsFrameworkBuilder>()
-                .RegisterAssemblyForType<Application>()
+                .RegisterApplicationAssembly<Application>()
                 .UseRoslynPreProcessor()
                 .Build<Application>();
         }
