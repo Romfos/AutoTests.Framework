@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="**\*.feature.cs">
-      <Visible>false</Visible>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Web\LocatorsLoaderTest\Locators.json" />
     <None Remove="Web\LocatorsLoaderTest\LocatorsLoaderTestElement1\Locators.json" />
   </ItemGroup>
@@ -23,8 +17,9 @@
   <ItemGroup>
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
-    <PackageReference Include="SpecFlow" Version="2.4.1" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="2.4.1" />
+    <PackageReference Include="SpecFlow" Version="3.0.188" />
+    <PackageReference Include="SpecFlow.MsTest" Version="3.0.188" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.188" />
   </ItemGroup>
 
   <ItemGroup>
