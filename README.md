@@ -5,9 +5,10 @@ AutoTest Framework based on specflow
 Framework features:
 - PreProcessor
 - Page Objects for web automatization
+- Model transformations
 
 # Requirements
-- .NET Framework 4.6.1
+- .NET Standart 2.0
 - Visual Studio 2017+
 - Specflow plugin for Visual Studio (for *.feature files highlighting)
 
