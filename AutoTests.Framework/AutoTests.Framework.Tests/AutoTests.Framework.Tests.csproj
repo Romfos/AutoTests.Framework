@@ -34,13 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\Contracts.feature" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
+  
 </Project>

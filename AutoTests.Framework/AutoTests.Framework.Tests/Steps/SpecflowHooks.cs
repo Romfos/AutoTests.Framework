@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Core;
+using AutoTests.Framework.Models;
 using AutoTests.Framework.PreProcessor.Roslyn;
 using TechTalk.SpecFlow;
 
@@ -20,6 +21,7 @@ namespace AutoTests.Framework.Tests.Steps
             autoTestsFrameworkBuilder
                 .RegisterApplicationAssembly<Application>()
                 .UseRoslynPreProcessor()
+                .UseModelStepTransformations()
                 .Build<Application>();
         }
     }
