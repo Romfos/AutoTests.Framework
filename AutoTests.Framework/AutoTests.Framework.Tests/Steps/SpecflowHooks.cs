@@ -1,5 +1,6 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Models;
+using AutoTests.Framework.PageObjects.Contracts;
 using AutoTests.Framework.PreProcessor.Roslyn;
 using TechTalk.SpecFlow;
 
@@ -21,6 +22,7 @@ namespace AutoTests.Framework.Tests.Steps
             autoTestsFrameworkBuilder
                 .RegisterApplicationAssembly<Application>()
                 .UseRoslynPreProcessor()
+                .UsePageObjectContacts()
                 .UseModelStepTransformations()
                 .Build<Application>();
         }

@@ -1,7 +1,0 @@
-﻿{
-  "stepAssemblies": [
-    {
-      "assembly": "AutoTests.Framework.PageObjects.Contracts"
-    }
-  ]
-}

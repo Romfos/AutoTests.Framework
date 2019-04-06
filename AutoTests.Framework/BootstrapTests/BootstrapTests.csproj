@@ -38,12 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="specflow.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Features\CheckoutForm.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CheckoutForm.feature.cs</LastGenOutput>

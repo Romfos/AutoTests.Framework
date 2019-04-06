@@ -12,6 +12,9 @@ namespace AutoTests.Framework.Core.Specflow
         public StepArgumentTransformationsService StepArgumentTransformationService =>
             ObjectContainer.Resolve<StepArgumentTransformationsService>();
 
+        public StepDefinitionBindingService StepDefinitionBindingService =>
+            ObjectContainer.Resolve<StepDefinitionBindingService>();
+
         public IBindingRegistry BindingRegistry => ObjectContainer.Resolve<IBindingRegistry>();
 
         public IBindingFactory BindingFactory => ObjectContainer.Resolve<IBindingFactory>();

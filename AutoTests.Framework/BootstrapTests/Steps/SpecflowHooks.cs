@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Core;
+using AutoTests.Framework.PageObjects.Contracts;
 using BootstrapTests.Web;
 using TechTalk.SpecFlow;
 
@@ -19,6 +20,7 @@ namespace BootstrapTests.Steps
         {
             autoTestsFrameworkBuilder
                 .RegisterApplicationAssembly<Application>()
+                .UsePageObjectContacts()
                 .Build<Application>();
         }
 
