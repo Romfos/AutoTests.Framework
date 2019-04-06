@@ -20,20 +20,20 @@ namespace AutoTests.Framework.Core.Specflow
         {
             foreach(var methodInfo in GetGivenMethods(stepDefinitions))
             {
-                var stepDefinitionBaseAttribute = methodInfo.GetCustomAttributes<GivenAttribute>().Single();
-                RegisterStepBinding(StepDefinitionType.Given, stepDefinitionBaseAttribute.Regex, methodInfo);
+                var givenAttribute = methodInfo.GetCustomAttributes<GivenAttribute>().Single();
+                RegisterStepBinding(StepDefinitionType.Given, givenAttribute.Regex, methodInfo);
             }
 
             foreach (var methodInfo in GetWhenMethods(stepDefinitions))
             {
-                var stepDefinitionBaseAttribute = methodInfo.GetCustomAttributes<WhenAttribute>().Single();
-                RegisterStepBinding(StepDefinitionType.When, stepDefinitionBaseAttribute.Regex, methodInfo);
+                var whenAttribute = methodInfo.GetCustomAttributes<WhenAttribute>().Single();
+                RegisterStepBinding(StepDefinitionType.When, whenAttribute.Regex, methodInfo);
             }
 
             foreach (var methodInfo in GetThenMethods(stepDefinitions))
             {
-                var stepDefinitionBaseAttribute = methodInfo.GetCustomAttributes<ThenAttribute>().Single();
-                RegisterStepBinding(StepDefinitionType.Then, stepDefinitionBaseAttribute.Regex, methodInfo);
+                var thenAttribute = methodInfo.GetCustomAttributes<ThenAttribute>().Single();
+                RegisterStepBinding(StepDefinitionType.Then, thenAttribute.Regex, methodInfo);
             }
         }
 

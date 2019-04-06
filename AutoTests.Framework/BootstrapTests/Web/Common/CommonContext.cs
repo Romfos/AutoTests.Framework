@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace BootstrapTests.Web.Common
+﻿namespace BootstrapTests.Web.Common
 {
     public class CommonContext : Context
     {
