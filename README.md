@@ -25,7 +25,6 @@ Framework features:
 # How to use
 1) Create and configure basic specflow project
 2) Add nuget packages
-3) Run AutoTestsFrameworkBuilder (do clone and see example)
-4) Try to understand example in AutoTests.Framework.Tests
+3) Run AutoTestsFrameworkBuilder (You can review example in BootstrapTests)
 ...  
 Profit
