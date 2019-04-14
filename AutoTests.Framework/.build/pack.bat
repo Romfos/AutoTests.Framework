@@ -6,3 +6,4 @@ dotnet pack ..\AutoTests.Framework.PageObjects.Provider\AutoTests.Framework.Page
 dotnet pack ..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
 dotnet pack ..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
 dotnet pack ..\AutoTests.Framework.Models\AutoTests.Framework.Models.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
+dotnet pack ..\AutoTests.Framework.Configuration\AutoTests.Framework.Configuration.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build"
