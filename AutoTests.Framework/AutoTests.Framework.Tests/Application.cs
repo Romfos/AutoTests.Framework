@@ -1,4 +1,5 @@
-﻿using AutoTests.Framework.Core;
+﻿using AutoTests.Framework.Configuration;
+using AutoTests.Framework.Core;
 using AutoTests.Framework.PageObjects;
 using AutoTests.Framework.PageObjects.Provider;
 using AutoTests.Framework.PreProcessor;
@@ -20,5 +21,8 @@ namespace AutoTests.Framework.Tests
 
         public PageObjectProviderServiceProvider PageObjectProvider =>
             ObjectContainer.Resolve<PageObjectProviderServiceProvider>();
+
+        public ConfigurationServiceProvider Configuration =>
+            ObjectContainer.Resolve<ConfigurationServiceProvider>();
     }
 }
