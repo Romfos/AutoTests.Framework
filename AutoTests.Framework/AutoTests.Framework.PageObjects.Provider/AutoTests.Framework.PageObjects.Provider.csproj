@@ -12,10 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SpecFlow" Version="3.0.225" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PageObjects\AutoTests.Framework.PageObjects.csproj" />
   </ItemGroup>
