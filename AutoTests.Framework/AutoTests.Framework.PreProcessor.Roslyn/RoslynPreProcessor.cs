@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
+using System;
 using System.Threading.Tasks;
 
 namespace AutoTests.Framework.PreProcessor.Roslyn
@@ -15,14 +16,18 @@ namespace AutoTests.Framework.PreProcessor.Roslyn
             this.scriptOptions = scriptOptions ?? ScriptOptions.Default;
         }
 
-        public async Task ExecuteAsync(string code)
+        public async Task<T> ExecuteAsync<T>(string text)
         {
-            await CSharpScript.EvaluateAsync(code, scriptOptions, globals);
-        }
-
-        public async Task<T> ExecuteAsync<T>(string code)
-        {
-            return await CSharpScript.EvaluateAsync<T>(code, scriptOptions, globals);
+            var source = text.Trim();
+            if (source.Length > 1 && source[0] == '@')
+            {
+                var code = source.Substring(1);
+                return await CSharpScript.EvaluateAsync<T>(code, scriptOptions, globals);
+            }
+            else
+            {
+                return (T) Convert.ChangeType(text, typeof(T));
+            }
         }
     }
 }

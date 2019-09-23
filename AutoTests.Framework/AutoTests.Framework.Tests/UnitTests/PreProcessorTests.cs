@@ -8,13 +8,23 @@ namespace AutoTests.Framework.Tests.UnitTests
     public class PreProcessorTests : UnitTestsBase
     {
         [TestMethod]
-        public async Task RoslynPreProcessorTest()
+        public async Task RoslynExpressionTest()
         {
             var preProcessor = new RoslynPreProcessor();
 
-            var result = await preProcessor.ExecuteAsync<int>("1 + 2");
+            var result = await preProcessor.ExecuteAsync<int>("@1 + 2");
 
             Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public async Task ConstantStringTest()
+        {
+            var preProcessor = new RoslynPreProcessor();
+
+            var result = await preProcessor.ExecuteAsync<int>("1");
+
+            Assert.AreEqual(1, result);
         }
     }
 }
