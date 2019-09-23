@@ -9,7 +9,7 @@ namespace AutoTests.Framework.PreProcessor.Roslyn
         private readonly object globals;
         private readonly ScriptOptions scriptOptions;
 
-        public RoslynPreProcessor(object globals, ScriptOptions scriptOptions = null)
+        public RoslynPreProcessor(object globals = null, ScriptOptions scriptOptions = null)
         {
             this.globals = globals;
             this.scriptOptions = scriptOptions ?? ScriptOptions.Default;
