@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace AutoTests.Framework.Tests.UnitTests
 {
     [TestClass]
-    public class PreProcessorTests : UnitTestsBase
+    public class PreProcessorFramewrokTests : UnitTestsBase
     {
         [TestMethod]
         public async Task RoslynExpressionTest()
