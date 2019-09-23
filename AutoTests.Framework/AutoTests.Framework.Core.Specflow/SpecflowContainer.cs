@@ -9,9 +9,9 @@ namespace AutoTests.Framework.Core.Specflow
     public class SpecflowContainer : IContainer
     {
         private readonly IObjectContainer objectContainer;
-        private readonly List<Assembly> assemblies;
+        private readonly Assembly[] assemblies;
 
-        public SpecflowContainer(IObjectContainer objectContainer, List<Assembly> assemblies)
+        public SpecflowContainer(IObjectContainer objectContainer, params Assembly[] assemblies)
         {
             this.objectContainer = objectContainer;
             this.assemblies = assemblies;
@@ -40,8 +40,7 @@ namespace AutoTests.Framework.Core.Specflow
             objectContainer.RegisterTypeAs<TImplementation, TInterface>();
         }
 
-        public void Register<TInterface, TImplementation>(TImplementation implementation)
-            where TImplementation : class, TInterface
+        public void Register<TInterface>(object implementation)
         {
             objectContainer.RegisterInstanceAs(implementation, typeof(TInterface));
         }
