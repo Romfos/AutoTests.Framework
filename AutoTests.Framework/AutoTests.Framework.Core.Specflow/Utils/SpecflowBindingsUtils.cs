@@ -1,5 +1,4 @@
 ﻿using TechTalk.SpecFlow.Bindings;
-using AutoTests.Framework.Core.Extensions;
 using TechTalk.SpecFlow.Bindings.Reflection;
 using System.Linq;
 using TechTalk.SpecFlow;
@@ -13,10 +12,10 @@ namespace AutoTests.Framework.Core.Specflow.Utils
         private readonly IBindingRegistry bindingRegistry;
         private readonly IBindingFactory bindingFactory;
 
-        public SpecflowBindingsUtils(IContainer container)
+        public SpecflowBindingsUtils(IBindingRegistry bindingRegistry, IBindingFactory bindingFactory)
         {
-            bindingRegistry = container.Resolve<IBindingRegistry>();
-            bindingFactory = container.Resolve<IBindingFactory>();
+            this.bindingRegistry = bindingRegistry;
+            this.bindingFactory = bindingFactory;
         }
 
         public void RegisterStepArgumentTransformations(Type type)
