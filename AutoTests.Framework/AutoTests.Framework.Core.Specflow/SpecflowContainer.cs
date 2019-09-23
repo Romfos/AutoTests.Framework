@@ -1,19 +1,20 @@
-﻿using System;
+﻿using BoDi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using AutoTests.Framework.Core;
-using BoDi;
 
-namespace AutoTests.Framework.Tests
+namespace AutoTests.Framework.Core.Specflow
 {
-    public class BodiTestContainer : IContainer
+    public class SpecflowContainer : IContainer
     {
         private readonly IObjectContainer objectContainer;
+        private readonly List<Assembly> assemblies;
 
-        public BodiTestContainer(IObjectContainer objectContainer)
+        public SpecflowContainer(IObjectContainer objectContainer, List<Assembly> assemblies)
         {
             this.objectContainer = objectContainer;
+            this.assemblies = assemblies;
         }
 
         public object Create(Type type)
@@ -25,7 +26,7 @@ namespace AutoTests.Framework.Tests
 
         public IEnumerable<Type> GetSubTypes(Type parentType)
         {
-            return Assembly.GetExecutingAssembly().GetTypes().Where(x => x.IsSubclassOf(parentType));
+            return assemblies.SelectMany(x => x.GetTypes()).Where(x => x.IsSubclassOf(parentType));
         }
 
         public void Register(Type interfaceType, Type implementationType)
