@@ -7,6 +7,7 @@ namespace AutoTests.Framework.Tests.Web.Components.StaticResourcesTest
     {
         public string Value { get; set; }
         public StaticResourcesTestNestedComponent NestedComponent { get; set; }
+        public StaticResourcesTestPrimaryValueComponent PrimaryValueComponent { get; set; }
 
         public StaticResourcesTestTopComponent(ComponentService componentService) : base(componentService)
         {

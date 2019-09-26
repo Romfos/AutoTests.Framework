@@ -28,6 +28,7 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual("2", nestedComponentsTestTopComponent.Value);
             Assert.AreEqual("3", nestedComponentsTestTopComponent.NestedComponent.ValueFromTopResource);
             Assert.AreEqual(1, nestedComponentsTestTopComponent.NestedComponent.Value);
+            Assert.AreEqual("4", nestedComponentsTestTopComponent.PrimaryValueComponent.PrimaryValue);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Core.Utils;
+using AutoTests.Framework.Web.Attributes;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,8 +34,17 @@ namespace AutoTests.Framework.Web.Services
                 var property = properties.Single(x => x.Name == jProperty.Name);
                 if(property.PropertyType.IsSubclassOf(typeof(Component)))
                 {
-                    var nestedComponent = (Component) property.GetValue(component);
-                    SetResourceValuesToComponent(nestedComponent, jProperty.Value.ToObject<JObject>());
+                    var nestedComponent = (Component)property.GetValue(component);
+                    if (jProperty.Value.Type == JTokenType.Object)
+                    {                        
+                        SetResourceValuesToComponent(nestedComponent, jProperty.Value.ToObject<JObject>());
+                    }
+                    else
+                    {
+                        var primaryProperty = GetPrimaryProperty(nestedComponent);
+                        var value = jProperty.ToObject(primaryProperty.PropertyType);
+                        primaryProperty.SetValue(nestedComponent, value);
+                    }
                 }
                 else
                 {
@@ -42,6 +52,14 @@ namespace AutoTests.Framework.Web.Services
                     property.SetValue(component, value);
                 }
             }
+        }
+
+        private PropertyInfo GetPrimaryProperty(Component component)
+        {
+            return component.GetType().GetProperties()
+                .Where(x => x.CanWrite && x.CanRead)
+                .Where(x => x.GetCustomAttributes<PrimaryAttribute>().SingleOrDefault() != null)
+                .Single();
         }
 
         private List<PropertyInfo> GetComponentProperties(Component component)
