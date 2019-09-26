@@ -3,6 +3,8 @@ using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.Tests.Web.Components.NestedComponentsTest;
 using AutoTests.Framework.Tests.Web.Components.StaticResourcesTest;
 using AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
+using AutoTests.Framework.Web.Routes;
+using AutoTests.Framework.Tests.Web.Components.RoutesTest;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -40,6 +42,17 @@ namespace AutoTests.Framework.Tests.UnitTests
             var conentAttributeTestTopComponent = container.Resolve<ConentAttributeTestTopComponent>();
 
             Assert.AreEqual("1", conentAttributeTestTopComponent.NestedCompnent.Value);
+        }
+
+        [TestMethod]
+        public void RoutesTest()
+        {
+            var container = CreateEmptyContainer();
+            var componentRouter = container.Resolve<ComponentRouter>();
+
+            var component = componentRouter.Resolve("RoutesTestNestedComponent / NestedComponent");
+            Assert.IsNotNull(component);
+            Assert.IsInstanceOfType(component, typeof(RoutesTestNestedComponent));
         }
     }
 }
