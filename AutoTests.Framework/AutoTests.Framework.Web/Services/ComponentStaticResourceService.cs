@@ -31,27 +31,41 @@ namespace AutoTests.Framework.Web.Services
             var properties = GetComponentProperties(component);
             foreach(var jProperty in jObject.Properties())
             {
-                var property = properties.Single(x => x.Name == jProperty.Name);
-                if(property.PropertyType.IsSubclassOf(typeof(Component)))
+                var propertyInfo = properties.Single(x => x.Name == jProperty.Name);
+                SetResourceValueToComponent(component, propertyInfo, jProperty);
+            }
+        }
+
+        private void SetResourceValueToComponent(Component component, PropertyInfo propertyInfo, JProperty jProperty)
+        {
+            if (propertyInfo.PropertyType.IsSubclassOf(typeof(Component)))
+            {
+                var nestedComponent = GetNestedComponent(component, propertyInfo);
+                if (jProperty.Value.Type == JTokenType.Object)
                 {
-                    var nestedComponent = (Component)property.GetValue(component);
-                    if (jProperty.Value.Type == JTokenType.Object)
-                    {                        
-                        SetResourceValuesToComponent(nestedComponent, jProperty.Value.ToObject<JObject>());
-                    }
-                    else
-                    {
-                        var primaryProperty = GetPrimaryProperty(nestedComponent);
-                        var value = jProperty.ToObject(primaryProperty.PropertyType);
-                        primaryProperty.SetValue(nestedComponent, value);
-                    }
+                    SetResourceValuesToComponent(nestedComponent, jProperty.Value.ToObject<JObject>());
                 }
                 else
                 {
-                    var value = jProperty.ToObject(property.PropertyType);
-                    property.SetValue(component, value);
+                    var primaryProperty = GetPrimaryProperty(nestedComponent);
+                    SetPropertyValue(nestedComponent, primaryProperty, jProperty);
                 }
             }
+            else
+            {
+                SetPropertyValue(component, propertyInfo, jProperty);
+            }
+        }
+
+        private Component GetNestedComponent(Component component, PropertyInfo propertyInfo)
+        {
+            return (Component) propertyInfo.GetValue(component);
+        }
+
+        private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JProperty jProperty)
+        {
+            var value = jProperty.ToObject(propertyInfo.PropertyType);
+            propertyInfo.SetValue(component, value);
         }
 
         private PropertyInfo GetPrimaryProperty(Component component)
