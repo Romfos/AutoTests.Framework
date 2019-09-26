@@ -50,7 +50,7 @@ namespace AutoTests.Framework.Tests.UnitTests
             var container = CreateEmptyContainer();
             var componentRouter = container.Resolve<ComponentRouter>();
 
-            var component = componentRouter.Resolve("RoutesTestNestedComponent / NestedComponent");
+            var component = componentRouter.Resolve("RoutesTestNestedComponent > NestedComponent");
             Assert.IsNotNull(component);
             Assert.IsInstanceOfType(component, typeof(RoutesTestNestedComponent));
         }
