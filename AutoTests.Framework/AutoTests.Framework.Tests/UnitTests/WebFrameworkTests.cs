@@ -2,6 +2,7 @@
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.Tests.Web.Components.NestedComponentsTest;
 using AutoTests.Framework.Tests.Web.Components.StaticResourcesTest;
+using AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -29,6 +30,16 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual("3", nestedComponentsTestTopComponent.NestedComponent.ValueFromTopResource);
             Assert.AreEqual(1, nestedComponentsTestTopComponent.NestedComponent.Value);
             Assert.AreEqual("4", nestedComponentsTestTopComponent.PrimaryValueComponent.PrimaryValue);
+        }
+
+        [TestMethod]
+        public void ConentAttributeTest()
+        {
+            var container = CreateEmptyContainer();
+
+            var conentAttributeTestTopComponent = container.Resolve<ConentAttributeTestTopComponent>();
+
+            Assert.AreEqual("1", conentAttributeTestTopComponent.NestedCompnent.Value);
         }
     }
 }
