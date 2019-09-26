@@ -9,7 +9,7 @@ namespace AutoTests.Framework.Web.Routes
 
         public RouterQuery(string path)
         {
-            parts = path.Split('/').Select(x => x.Trim()).ToList();
+            parts = path.Split('>').Select(x => x.Trim()).ToList();
         }
 
         public string GetRootComponentRoute()
