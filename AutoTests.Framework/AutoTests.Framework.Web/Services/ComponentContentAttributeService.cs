@@ -20,7 +20,7 @@ namespace AutoTests.Framework.Web.Services
 
         private Component GetNestedComponent(Component component, PropertyInfo propertyInfo)
         {
-            return (Component)propertyInfo.GetValue(component);
+            return (Component)propertyInfo.GetValue(component)!;
         }
 
         private PropertyInfo GetPrimaryProperty(Component component)
@@ -41,7 +41,7 @@ namespace AutoTests.Framework.Web.Services
 
         private string GetConentAttributeData(PropertyInfo propertyInfo)
         {
-            return propertyInfo.GetCustomAttribute<ContentAttribute>().Data;
+            return propertyInfo.GetCustomAttribute<ContentAttribute>()!.Data;
         }
     }
 }

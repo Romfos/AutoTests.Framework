@@ -39,7 +39,7 @@ namespace AutoTests.Framework.Web.Routes
                 .Where(x => x.PropertyType.IsSubclassOf(typeof(Component)))
                 .Where(x => x.CanRead)
                 .Where(x => x.GetCustomAttributes<RouteAttribute>().SingleOrDefault()?.Route == route)
-                .Select(x => (Component)x.GetValue(component))
+                .Select(x => (Component)x.GetValue(component)!)
                 .Single();
         }
     }

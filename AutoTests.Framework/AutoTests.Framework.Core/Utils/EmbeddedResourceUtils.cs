@@ -15,7 +15,7 @@ namespace AutoTests.Framework.Core.Utils
         {
             using (var stream = assembly.GetManifestResourceStream(name))
             {
-                using (var reader = new StreamReader(stream))
+                using (var reader = new StreamReader(stream!))
                 {
                     return reader.ReadToEnd();
                 }

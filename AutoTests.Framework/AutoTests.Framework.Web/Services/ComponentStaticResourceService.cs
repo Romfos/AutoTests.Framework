@@ -59,7 +59,7 @@ namespace AutoTests.Framework.Web.Services
 
         private Component GetNestedComponent(Component component, PropertyInfo propertyInfo)
         {
-            return (Component) propertyInfo.GetValue(component);
+            return (Component) propertyInfo.GetValue(component)!;
         }
 
         private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JProperty jProperty)
@@ -81,7 +81,7 @@ namespace AutoTests.Framework.Web.Services
             return component.GetType().GetProperties().Where(x => x.CanWrite && x.CanRead).ToList();
         }
 
-        private string GetJsonResourceContent(Component component)
+        private string? GetJsonResourceContent(Component component)
         {
             var type = component.GetType();
             var assembly = type.Assembly;
