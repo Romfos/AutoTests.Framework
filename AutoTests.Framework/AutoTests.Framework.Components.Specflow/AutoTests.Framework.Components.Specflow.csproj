@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.0;netstandard2.0</TargetFrameworks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Core.Specflow\AutoTests.Framework.Core.Specflow.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
+  </ItemGroup>
+
+</Project>

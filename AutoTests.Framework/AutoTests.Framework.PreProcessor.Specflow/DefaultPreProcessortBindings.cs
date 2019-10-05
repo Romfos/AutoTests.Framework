@@ -3,19 +3,19 @@
 namespace AutoTests.Framework.PreProcessor.Specflow
 {
     [Binding]
-    public class PreProcessorStepTransformations
+    public class DefaultPreProcessortBindings
     {
         private readonly IPreProcessor preProcessor;
 
-        public PreProcessorStepTransformations(IPreProcessor preProcessor)
+        public DefaultPreProcessortBindings(IPreProcessor preProcessor)
         {
             this.preProcessor = preProcessor;
         }
 
         [StepArgumentTransformation]
-        public Calculated Calculated(string text)
+        public IExpression GetPreProcessorExpression(string text)
         {
-            return new Calculated(preProcessor, text);
+            return new PreProcessorExpression(preProcessor, text);
         }
     }
 }

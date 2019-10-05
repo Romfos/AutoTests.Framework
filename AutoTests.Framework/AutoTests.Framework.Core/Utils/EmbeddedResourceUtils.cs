@@ -6,7 +6,7 @@ namespace AutoTests.Framework.Core.Utils
 {
     public class EmbeddedResourceUtils
     {
-        public bool DoesLocalEmbeddedResourceContains(Assembly assembly, string name)
+        public bool DoesLocalEmbeddedResourceExist(Assembly assembly, string name)
         {
             return assembly.GetManifestResourceNames().Contains(name);
         }

@@ -87,7 +87,7 @@ namespace AutoTests.Framework.Components.Services
             var assembly = type.Assembly;
             var name = $"{type.FullName}.json";
 
-            return embeddedResourceUtils.DoesLocalEmbeddedResourceContains(assembly, name)
+            return embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
                 ? embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, name)
                 : null;
         }

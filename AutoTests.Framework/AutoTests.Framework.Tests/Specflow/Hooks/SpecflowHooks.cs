@@ -8,6 +8,7 @@ using System.Reflection;
 using TechTalk.SpecFlow;
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.PreProcessor.Specflow;
+using AutoTests.Framework.Components.Specflow;
 
 namespace AutoTests.Framework.Tests.Specflow.Hooks
 {
@@ -40,7 +41,8 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
             container.Register<IPreProcessor>(new RoslynPreProcessor());
 
             var specflowBindingsUtils = container.Resolve<SpecflowBindingsUtils>();
-            specflowBindingsUtils.RegisterStepArgumentTransformations(typeof(PreProcessorStepTransformations));
+            specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));
+            specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
         }
     }
 }

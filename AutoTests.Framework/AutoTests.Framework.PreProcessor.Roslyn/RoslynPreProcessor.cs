@@ -22,7 +22,8 @@ namespace AutoTests.Framework.PreProcessor.Roslyn
             if (source.Length > 1 && source[0] == '@')
             {
                 var code = source.Substring(1);
-                return await CSharpScript.EvaluateAsync<T>(code, scriptOptions, globals);
+                var result = await CSharpScript.EvaluateAsync(code, scriptOptions, globals);
+                return (T)Convert.ChangeType(result, typeof(T));
             }
             else
             {
