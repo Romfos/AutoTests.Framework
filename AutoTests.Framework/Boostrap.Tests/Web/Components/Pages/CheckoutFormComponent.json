@@ -1,0 +1,5 @@
+﻿{
+  "FirstName": "#firstName",
+  "LastName": "#lastName",
+  "ContinueToCheckout": ".btn-primary"
+}
