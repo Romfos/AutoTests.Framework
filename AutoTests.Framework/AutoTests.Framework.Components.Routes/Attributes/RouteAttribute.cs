@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoTests.Framework.Web.Routes.Attributes
+namespace AutoTests.Framework.Components.Routes.Attributes
 {
     public class RouteAttribute : Attribute
     {

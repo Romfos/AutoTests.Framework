@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PreProc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.PreProcessor.Specflow", "AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj", "{5F237DEF-727B-49BC-A470-EF75017FBE4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Web", "AutoTests.Framework.Web\AutoTests.Framework.Web.csproj", "{162E5187-ED94-495C-8FC5-BDBC2A1AF718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Components", "AutoTests.Framework.Components\AutoTests.Framework.Components.csproj", "{162E5187-ED94-495C-8FC5-BDBC2A1AF718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTests.Framework.Web.Routes", "AutoTests.Framework.Web.Routes\AutoTests.Framework.Web.Routes.csproj", "{FDFE4ACB-FA1D-4616-9E23-A34BDB67218A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Components.Routes", "AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj", "{FDFE4ACB-FA1D-4616-9E23-A34BDB67218A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

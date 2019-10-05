@@ -31,8 +31,8 @@
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
-    <ProjectReference Include="..\AutoTests.Framework.Web.Routes\AutoTests.Framework.Web.Routes.csproj" />
-    <ProjectReference Include="..\AutoTests.Framework.Web\AutoTests.Framework.Web.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
   </ItemGroup>
 
 </Project>

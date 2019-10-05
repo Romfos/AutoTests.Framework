@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AutoTests.Framework.Web.Routes
+namespace AutoTests.Framework.Components.Routes
 {
     public class RouterQuery
     {

@@ -1,11 +1,11 @@
 ﻿using AutoTests.Framework.Core.Utils;
-using AutoTests.Framework.Web.Attributes;
+using AutoTests.Framework.Components.Attributes;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Components.Services
 {
     public class ComponentStaticResourceService
     {

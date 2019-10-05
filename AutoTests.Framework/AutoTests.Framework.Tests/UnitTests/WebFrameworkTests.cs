@@ -3,7 +3,7 @@ using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.Tests.Web.Components.NestedComponentsTest;
 using AutoTests.Framework.Tests.Web.Components.StaticResourcesTest;
 using AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
-using AutoTests.Framework.Web.Routes;
+using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Tests.Web.Components.RoutesTest;
 
 namespace AutoTests.Framework.Tests.UnitTests

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Web.Services
+namespace AutoTests.Framework.Components.Services
 {
     public class NestedComponentsService
     {

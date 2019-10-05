@@ -1,5 +1,5 @@
-﻿using AutoTests.Framework.Web;
-using AutoTests.Framework.Web.Services;
+﻿using AutoTests.Framework.Components;
+using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.NestedComponentsTest
 {

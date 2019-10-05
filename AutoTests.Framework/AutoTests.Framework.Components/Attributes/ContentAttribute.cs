@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutoTests.Framework.Web.Attributes
+namespace AutoTests.Framework.Components.Attributes
 {
     public class ContentAttribute : Attribute
     {

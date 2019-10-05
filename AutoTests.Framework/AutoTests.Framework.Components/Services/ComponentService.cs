@@ -1,4 +1,4 @@
-﻿namespace AutoTests.Framework.Web.Services
+﻿namespace AutoTests.Framework.Components.Services
 {
     public class ComponentService
     {

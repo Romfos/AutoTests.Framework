@@ -1,6 +1,6 @@
-﻿using AutoTests.Framework.Web.Services;
+﻿using AutoTests.Framework.Components.Services;
 
-namespace AutoTests.Framework.Web
+namespace AutoTests.Framework.Components
 {
     public abstract class Component
     {

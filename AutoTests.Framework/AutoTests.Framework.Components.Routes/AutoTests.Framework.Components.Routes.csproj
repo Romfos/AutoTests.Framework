@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoTests.Framework.Web\AutoTests.Framework.Web.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
   </ItemGroup>
 
 </Project>

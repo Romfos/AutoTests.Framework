@@ -1,9 +1,9 @@
 ﻿using AutoTests.Framework.Core;
-using AutoTests.Framework.Web.Routes.Attributes;
+using AutoTests.Framework.Components.Routes.Attributes;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Web.Routes
+namespace AutoTests.Framework.Components.Routes
 {
     public class ComponentRouter
     {
