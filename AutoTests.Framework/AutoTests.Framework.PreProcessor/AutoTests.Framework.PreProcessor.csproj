@@ -7,4 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Authors>Romfos</Authors>
+    <Description>SpecFlow based autotest framework</Description>
+    <PackageTags>Specflow AutoTests</PackageTags>
+    <PackageProjectUrl>https://github.com/Romfos/AutoTests.Framework</PackageProjectUrl>
+  </PropertyGroup>
+
 </Project>
