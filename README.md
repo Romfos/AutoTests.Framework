@@ -1,20 +1,25 @@
 # Owerview
 
-AutoTest Framework based on specflow
+SpecFlow based autotest framework
 
-Framework features:
-- Pre Processor (you can use c# expressions for step arguments)
-- Page Objects framework (basically for selenium web driver usage)
-- Model transformations
-- Test configuration
+Main features:
+- Pre Processor framework (allow to use C# expressions in specflow scenarios)
+- Component framework (in primamry it is used for integration with other UI frameworks like Selenium WebDriver)
 
-# Requirements
+# Use requirements
 - .NET Standart 2.0
 - Visual Studio 2017, 2019
-- Specflow plugin for Visual Studio (for *.feature files highlighting)
+- Specflow plugin for Visual Studio
 
-# Links
+# Development requirements
+- .NET Core 3
+- Visual Studio 2019
+- Specflow plugin for Visual Studio
 
+# Nuget packages links
+Version 4:
+ // todo
+Version 3:
 - https://www.nuget.org/packages/AutoTests.Framework.Core
 - https://www.nuget.org/packages/AutoTests.Framework.Models
 - https://www.nuget.org/packages/AutoTests.Framework.PageObjects
@@ -26,7 +31,7 @@ Framework features:
 
 # How to use
 1) Create and configure basic specflow project
-2) Add nuget packages
-3) Run AutoTestsFrameworkBuilder (You can review example in BootstrapTests)
+2) Add AutoTests.Framework.* nuget packages
+3) Register container in specflow hooks (you can find example in test project)
 ...  
 Profit
