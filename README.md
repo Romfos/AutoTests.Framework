@@ -30,8 +30,12 @@ Version 3:
 - https://www.nuget.org/packages/AutoTests.Framework.Configuration
 
 # How to use
+You can find example in Boostrap.Tests project  
+
+Basic steps:
 1) Create and configure basic specflow project
 2) Add AutoTests.Framework.* nuget packages
 3) Register container in specflow hooks (you can find example in test project)
 ...  
 Profit
+
