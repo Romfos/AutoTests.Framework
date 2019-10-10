@@ -6,7 +6,6 @@ using AutoTests.Framework.PreProcessor.Roslyn;
 using BoDi;
 using System.Reflection;
 using TechTalk.SpecFlow;
-using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.PreProcessor.Specflow;
 using AutoTests.Framework.Components.Specflow;
 
@@ -25,22 +24,21 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var container = ConfigureContainer();
-            ConfigurePreProcessor(container);
+            ConfigureContainer();
+            ConfigurePreProcessor();
         }
 
-        private IContainer ConfigureContainer()
+        private void ConfigureContainer()
         {
             var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
-            container.Register<IContainer>(container);
-            return container;
+            objectContainer.RegisterInstanceAs<IContainer>(container);
         }
 
-        private void ConfigurePreProcessor(IContainer container)
+        private void ConfigurePreProcessor()
         {
-            container.Register<IPreProcessor>(new RoslynPreProcessor());
+            objectContainer.RegisterInstanceAs<IPreProcessor>(new RoslynPreProcessor());
 
-            var specflowBindingsUtils = container.Resolve<SpecflowBindingsUtils>();
+            var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
             specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));
             specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
         }

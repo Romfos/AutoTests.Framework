@@ -29,22 +29,6 @@ namespace AutoTests.Framework.Core.Specflow
             return assemblies.SelectMany(x => x.GetTypes()).Where(x => x.IsSubclassOf(parentType));
         }
 
-        public void Register(Type interfaceType, Type implementationType)
-        {
-            objectContainer.RegisterInstanceAs(objectContainer.Resolve(implementationType), interfaceType);
-        }
-
-        public void Register<TInterface, TImplementation>()
-            where TImplementation : class, TInterface
-        {
-            objectContainer.RegisterTypeAs<TImplementation, TInterface>();
-        }
-
-        public void Register<TInterface>(object implementation)
-        {
-            objectContainer.RegisterInstanceAs(implementation, typeof(TInterface));
-        }
-
         public object Resolve(Type type)
         {
             return objectContainer.Resolve(type);

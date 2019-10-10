@@ -8,7 +8,6 @@ using AutoTests.Framework.PreProcessor.Specflow;
 using BoDi;
 using System.Reflection;
 using TechTalk.SpecFlow;
-using AutoTests.Framework.Core.Extensions;
 using OpenQA.Selenium;
 using Boostrap.Tests.Web;
 
@@ -27,8 +26,8 @@ namespace Boostrap.Tests.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var container = ConfigureContainer();
-            ConfigurePreProcessor(container);
+            ConfigureContainer();
+            ConfigurePreProcessor();
         }
 
         [AfterTestRun]
@@ -37,22 +36,21 @@ namespace Boostrap.Tests.Hooks
             WebDriverFactory.Dispose();
         }
 
-        private IContainer ConfigureContainer()
+        private void ConfigureContainer()
         {
             var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
-            container.Register<IContainer>(container);
-            return container;
+            objectContainer.RegisterInstanceAs<IContainer>(container);
         }
 
-        private void ConfigurePreProcessor(IContainer container)
+        private void ConfigurePreProcessor()
         {
-            container.Register<IPreProcessor>(new RoslynPreProcessor());
+            objectContainer.RegisterInstanceAs<IPreProcessor>(new RoslynPreProcessor());
 
-            var specflowBindingsUtils = container.Resolve<SpecflowBindingsUtils>();
+            var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
             specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));
             specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
 
-            container.Register<IWebDriver>(WebDriverFactory.GetWebDriver());
+            objectContainer.RegisterInstanceAs<IWebDriver>(WebDriverFactory.GetWebDriver());
         }
     }
 }

@@ -11,7 +11,7 @@ namespace AutoTests.Framework.Tests.UnitTests
         {
             var container = new ObjectContainer();
             var specflowContainer = new SpecflowContainer(container, Assembly.GetExecutingAssembly());
-            specflowContainer.Register<IContainer>(specflowContainer);
+            container.RegisterInstanceAs<IContainer>(specflowContainer);
             return specflowContainer;
         }
     }
