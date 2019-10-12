@@ -1,7 +1,7 @@
 ﻿Feature: CheckoutForm
 
 Scenario: checkout form validation test
-	Given navigate to 'https://getbootstrap.com/docs/4.3/examples/checkout/'
+	Given navigate to '@Data.HomePageUrl'
 	When set value '#first_name' in 'Checkout form > First name' component
 		And set value '#last_name' in 'Checkout form > Last name' component
 		And click on 'Checkout form > Continue to checkout' component

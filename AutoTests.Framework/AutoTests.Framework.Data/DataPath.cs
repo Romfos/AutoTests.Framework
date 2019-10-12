@@ -6,7 +6,7 @@ namespace AutoTests.Framework.Data
     {
         public string[] Nodes { get; }
 
-        public DataPath(string[] nodes)
+        public DataPath(params string[] nodes)
         {
             Nodes = nodes;
         }

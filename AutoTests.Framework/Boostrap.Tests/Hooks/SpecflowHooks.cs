@@ -10,6 +10,9 @@ using System.Reflection;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using Boostrap.Tests.Web;
+using Boostrap.Tests.Web.Components;
+using AutoTests.Framework.Data;
+using Microsoft.CodeAnalysis.Scripting;
 
 namespace Boostrap.Tests.Hooks
 {
@@ -44,7 +47,13 @@ namespace Boostrap.Tests.Hooks
 
         private void ConfigurePreProcessor()
         {
-            objectContainer.RegisterInstanceAs<IPreProcessor>(new RoslynPreProcessor());
+            var dataHub = objectContainer.Resolve<DataHub>();
+            dataHub.Add(new DataPath("HomePageUrl"), "https://getbootstrap.com/docs/4.3/examples/checkout/");
+
+            var globals = new BoostrapGlobals(dataHub);
+            var scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");
+            var preProcessor = new RoslynPreProcessor(globals, scriptOptions);
+            objectContainer.RegisterInstanceAs<IPreProcessor>(preProcessor);
 
             var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
             specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));

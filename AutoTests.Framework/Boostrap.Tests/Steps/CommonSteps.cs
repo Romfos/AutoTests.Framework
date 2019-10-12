@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using AutoTests.Framework.PreProcessor;
+using OpenQA.Selenium;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Boostrap.Tests.Steps
@@ -14,8 +16,9 @@ namespace Boostrap.Tests.Steps
         }
 
         [Given(@"navigate to '(.*)'")]
-        public void GivenNavigateTo(string url)
+        public async Task GivenNavigateTo(IExpression expression)
         {
+            var url = await expression.ExecuteAsync<string>();
             webDriver.Navigate().GoToUrl(url);
         }
     }
