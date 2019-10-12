@@ -7,6 +7,7 @@ using AutoTests.Framework.Data.Loaders;
 using AutoTests.Framework.Core.Extensions;
 using System.Reflection;
 using AutoTests.Framework.Tests.Data;
+using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -58,6 +59,20 @@ namespace AutoTests.Framework.Tests.UnitTests
                 "AutoTests.Framework.Tests.Data.JsonDataHubLoaderTest.json");
 
             Assert.AreEqual("123", dataHub.Get(new DataPath("Value")));
+        }
+
+        [TestMethod]
+        public void BulkJsonDataHubLoaderTest()
+        {
+            var container = CreateEmptyContainer();
+            var jsonDataHubLoader = container.Resolve<JsonDataHubLoader>();
+            var dataHub = new DataHub();
+
+            jsonDataHubLoader.LoadJsonResources(dataHub,
+                Assembly.GetExecutingAssembly(),
+                new Regex("AutoTests.Framework.Tests.Data.(.*).json"));
+
+            Assert.AreEqual("456", dataHub.Get(new DataPath("Json", "BulkJsonDataHubLoaderTest", "Value")));
         }
     }
 }

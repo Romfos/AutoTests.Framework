@@ -11,6 +11,16 @@ namespace AutoTests.Framework.Data
             Nodes = nodes;
         }
 
+        public static DataPath Combine(params DataPath?[] dataPaths)
+        {
+            var nodes = dataPaths
+                .Where(x => x.HasValue)
+                .Select(x => x!.Value)
+                .SelectMany(x => x.Nodes)
+                .ToArray();
+            return new DataPath(nodes);
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is DataPath path && Enumerable.SequenceEqual(Nodes, path.Nodes);
