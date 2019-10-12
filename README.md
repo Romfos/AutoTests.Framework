@@ -18,8 +18,17 @@ Main features:
 - Specflow plugin for Visual Studio
 
 # Nuget packages links
-Version 4:  
- // todo  
+Version 4 (beta):
+- https://www.nuget.org/packages/AutoTests.Framework.Core
+- https://www.nuget.org/packages/AutoTests.Framework.Core.Specflow
+- https://www.nuget.org/packages/AutoTests.Framework.Components
+- https://www.nuget.org/packages/AutoTests.Framework.Components.Routes
+- https://www.nuget.org/packages/AutoTests.Framework.Components.Specflow
+- https://www.nuget.org/packages/AutoTests.Framework.Data
+- https://www.nuget.org/packages/AutoTests.Framework.PreProcessor
+- https://www.nuget.org/packages/AutoTests.Framework.PreProcessor.Roslyn
+- https://www.nuget.org/packages/AutoTests.Framework.PreProcessor.Specflow
+
 Version 3:
 - https://www.nuget.org/packages/AutoTests.Framework.Core
 - https://www.nuget.org/packages/AutoTests.Framework.Models
