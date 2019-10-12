@@ -10,9 +10,9 @@ using System.Reflection;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using Boostrap.Tests.Web;
-using Boostrap.Tests.Web.Components;
 using AutoTests.Framework.Data;
 using Microsoft.CodeAnalysis.Scripting;
+using AutoTests.Framework.Data.Loaders;
 
 namespace Boostrap.Tests.Hooks
 {
@@ -30,7 +30,10 @@ namespace Boostrap.Tests.Hooks
         public void BeforeScenario()
         {
             ConfigureContainer();
+            ConfigureTestDataHub();
             ConfigurePreProcessor();
+            ConfigureContracts();
+            ConfigureWebDriver();
         }
 
         [AfterTestRun]
@@ -48,8 +51,6 @@ namespace Boostrap.Tests.Hooks
         private void ConfigurePreProcessor()
         {
             var dataHub = objectContainer.Resolve<DataHub>();
-            dataHub.Add(new DataPath("HomePageUrl"), "https://getbootstrap.com/docs/4.3/examples/checkout/");
-
             var globals = new BoostrapGlobals(dataHub);
             var scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");
             var preProcessor = new RoslynPreProcessor(globals, scriptOptions);
@@ -57,8 +58,26 @@ namespace Boostrap.Tests.Hooks
 
             var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
             specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));
-            specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
+        }
 
+        private void ConfigureTestDataHub()
+        {
+            var dataHub = objectContainer.Resolve<DataHub>();
+            var jsonDataHubLoader = objectContainer.Resolve<JsonDataHubLoader>();
+
+            jsonDataHubLoader.LoadJsonResource(dataHub,
+                Assembly.GetExecutingAssembly(),
+                "Boostrap.Tests.Data.Common.json");
+        }
+
+        private void ConfigureContracts()
+        {
+            var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
+            specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
+        }
+
+        private void ConfigureWebDriver()
+        {
             objectContainer.RegisterInstanceAs<IWebDriver>(WebDriverFactory.GetWebDriver());
         }
     }

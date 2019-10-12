@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\JsonDataHubLoaderTest.json" />
     <None Remove="Web\Components\StaticResourcesTest\StaticResourcesTestNestedComponent.json" />
     <None Remove="Web\Components\StaticResourcesTest\StaticResourcesTestTopComponent.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\JsonDataHubLoaderTest.json" />
     <EmbeddedResource Include="Web\Components\StaticResourcesTest\StaticResourcesTestNestedComponent.json" />
     <EmbeddedResource Include="Web\Components\StaticResourcesTest\StaticResourcesTestTopComponent.json" />
   </ItemGroup>

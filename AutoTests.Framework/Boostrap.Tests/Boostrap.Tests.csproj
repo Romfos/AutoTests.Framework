@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\Common.json" />
     <None Remove="Web\Components\Pages\CheckoutFormComponent.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\Common.json" />
     <EmbeddedResource Include="Web\Components\Pages\CheckoutFormComponent.json" />
   </ItemGroup>
 
@@ -29,10 +31,6 @@
     <ProjectReference Include="..\AutoTests.Framework.Data\AutoTests.Framework.Data.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

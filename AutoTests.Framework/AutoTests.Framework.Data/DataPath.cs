@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 
 namespace AutoTests.Framework.Data
 {
@@ -13,13 +13,12 @@ namespace AutoTests.Framework.Data
 
         public override bool Equals(object? obj)
         {
-            return obj is DataPath path &&
-                   EqualityComparer<string[]>.Default.Equals(Nodes, path.Nodes);
+            return obj is DataPath path && Enumerable.SequenceEqual(Nodes, path.Nodes);
         }
 
         public override int GetHashCode()
         {
-            return 249714186 + EqualityComparer<string[]>.Default.GetHashCode(Nodes);
+            return Nodes.Sum(x => x.Length);
         }
     }
 }

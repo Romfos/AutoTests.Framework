@@ -3,7 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using AutoTests.Framework.PreProcessor.Roslyn;
 using Microsoft.CodeAnalysis.Scripting;
-using static AutoTests.Framework.Tests.PreProcessor.DataTests;
+using AutoTests.Framework.Data.Loaders;
+using AutoTests.Framework.Core.Extensions;
+using System.Reflection;
+using AutoTests.Framework.Tests.Data;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -41,6 +44,20 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual(123, await preProcessor.ExecuteAsync<int>("@Data.a.b.c"));
             Assert.AreEqual(456, await preProcessor.ExecuteAsync<int>("@Data.a.b.d"));
             Assert.AreEqual(789, await preProcessor.ExecuteAsync<int>("@Data.e.b.d"));
+        }
+
+        [TestMethod]
+        public void JsonDataHubLoaderTest()
+        {
+            var container = CreateEmptyContainer();            
+            var jsonDataHubLoader = container.Resolve<JsonDataHubLoader>();
+            var dataHub = new DataHub();
+
+            jsonDataHubLoader.LoadJsonResource(dataHub,
+                Assembly.GetExecutingAssembly(),
+                "AutoTests.Framework.Tests.Data.JsonDataHubLoaderTest.json");
+
+            Assert.AreEqual("123", dataHub.Get(new DataPath("Value")));
         }
     }
 }
