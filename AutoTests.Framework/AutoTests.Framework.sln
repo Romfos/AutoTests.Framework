@@ -31,7 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AD782D17-177
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PreProcessor", "PreProcessor", "{F1C203D8-1B9E-42C8-B97B-1C1E0C72A8B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boostrap.Tests", "Boostrap.Tests\Boostrap.Tests.csproj", "{E99E29C2-DBD1-4E2A-A5C6-5C6F74C90233}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boostrap.Tests", "Boostrap.Tests\Boostrap.Tests.csproj", "{E99E29C2-DBD1-4E2A-A5C6-5C6F74C90233}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D23020A3-BFE0-4EBC-9D39-AF6C2B7DFB38}"
+	ProjectSection(SolutionItems) = preProject
+		AutoTests.Framework.props = AutoTests.Framework.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +102,7 @@ Global
 		{AD782D17-1775-490D-B855-E439E47FE834} = {4E0E2870-CF04-4168-8D85-ECC38A4B426E}
 		{F1C203D8-1B9E-42C8-B97B-1C1E0C72A8B7} = {4E0E2870-CF04-4168-8D85-ECC38A4B426E}
 		{E99E29C2-DBD1-4E2A-A5C6-5C6F74C90233} = {62D0A9BF-AD9D-4AD2-8BED-6C0DD6CF655E}
+		{D23020A3-BFE0-4EBC-9D39-AF6C2B7DFB38} = {4E0E2870-CF04-4168-8D85-ECC38A4B426E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CC06E25-60A1-41E5-9BA3-4BCF6254BC1C}
