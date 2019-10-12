@@ -29,6 +29,7 @@
     <ProjectReference Include="..\AutoTests.Framework.Components.Specflow\AutoTests.Framework.Components.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.Core.Specflow\AutoTests.Framework.Core.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework.Data\AutoTests.Framework.Data.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Roslyn\AutoTests.Framework.PreProcessor.Roslyn.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
