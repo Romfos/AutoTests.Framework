@@ -18,7 +18,7 @@ namespace AutoTests.Framework.Tests.Specflow.Steps
         [Then(@"component '(.*)' should pass internal check")]
         public void ThenComponentShouldPassInternalCheck(string query)
         {
-            var component = componentRouter.Resolve(query) as IInternalComponentStatus;
+            var component = componentRouter.Resolve(RouterRequest.FromQuery(query)) as IInternalComponentStatus;
             Assert.IsTrue(component.InternalComponentStatus);
         }
     }

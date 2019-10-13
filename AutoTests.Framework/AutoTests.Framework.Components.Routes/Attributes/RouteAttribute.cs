@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Components.Routes.Attributes
 
         public RouteAttribute(string route)
         {
-            Route = route;
+            Route = route.Trim();
         }
     }
 }

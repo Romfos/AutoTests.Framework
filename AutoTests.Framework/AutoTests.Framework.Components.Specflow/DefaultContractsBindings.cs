@@ -103,7 +103,7 @@ namespace AutoTests.Framework.Components.Specflow
 
         private T Resolve<T>(string query) where T : class
         {
-            var component = componentRouter.Resolve(query) as T;
+            var component = componentRouter.Resolve(RouterRequest.FromQuery(query)) as T;
             if(component == null)
             {
                 throw new Exception($"Component must implement '{typeof(T).Name}' contract");
