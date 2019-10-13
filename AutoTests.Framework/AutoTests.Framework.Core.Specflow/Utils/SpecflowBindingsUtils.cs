@@ -22,12 +22,12 @@ namespace AutoTests.Framework.Core.Specflow.Utils
         public void RegisterBindings(Type type)
         {
             RegsiterStepTransformations(type);
-            RegisterStepbindings<GivenAttribute>(type, StepDefinitionType.Given);
-            RegisterStepbindings<WhenAttribute>(type, StepDefinitionType.When);
-            RegisterStepbindings<ThenAttribute>(type, StepDefinitionType.Then);
+            RegisterStepBindings<GivenAttribute>(type, StepDefinitionType.Given);
+            RegisterStepBindings<WhenAttribute>(type, StepDefinitionType.When);
+            RegisterStepBindings<ThenAttribute>(type, StepDefinitionType.Then);
         }
 
-        private void RegisterStepbindings<T>(Type type, StepDefinitionType stepDefinitionType) 
+        private void RegisterStepBindings<T>(Type type, StepDefinitionType stepDefinitionType) 
             where T: StepDefinitionBaseAttribute
         {
             foreach (var (method, attribute) in GetTypeMethods<T>(type))
