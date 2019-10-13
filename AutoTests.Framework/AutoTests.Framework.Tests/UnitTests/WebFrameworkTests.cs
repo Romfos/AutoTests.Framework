@@ -5,6 +5,7 @@ using AutoTests.Framework.Tests.Web.Components.StaticResourcesTest;
 using AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
 using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Tests.Web.Components.RoutesTest;
+using AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -16,9 +17,9 @@ namespace AutoTests.Framework.Tests.UnitTests
         {
             var container = CreateEmptyContainer();
 
-            var nestedComponentsTestTopComponent = container.Resolve<NestedComponentsTestTopComponent>();
+            var component = container.Resolve<NestedComponentsTestTopComponent>();
 
-            Assert.IsNotNull(nestedComponentsTestTopComponent.NestedCompnent);
+            Assert.IsNotNull(component.NestedCompnent);
         }
 
         [TestMethod]
@@ -26,12 +27,12 @@ namespace AutoTests.Framework.Tests.UnitTests
         {
             var container = CreateEmptyContainer();
 
-            var nestedComponentsTestTopComponent = container.Resolve<StaticResourcesTestTopComponent>();
+            var component = container.Resolve<StaticResourcesTestTopComponent>();
 
-            Assert.AreEqual("2", nestedComponentsTestTopComponent.Value);
-            Assert.AreEqual("3", nestedComponentsTestTopComponent.NestedComponent.ValueFromTopResource);
-            Assert.AreEqual(1, nestedComponentsTestTopComponent.NestedComponent.Value);
-            Assert.AreEqual("4", nestedComponentsTestTopComponent.PrimaryValueComponent.PrimaryValue);
+            Assert.AreEqual("2", component.Value);
+            Assert.AreEqual("3", component.NestedComponent.ValueFromTopResource);
+            Assert.AreEqual(1, component.NestedComponent.Value);
+            Assert.AreEqual("4", component.PrimaryValueComponent.PrimaryValue);
         }
 
         [TestMethod]
@@ -39,9 +40,9 @@ namespace AutoTests.Framework.Tests.UnitTests
         {
             var container = CreateEmptyContainer();
 
-            var conentAttributeTestTopComponent = container.Resolve<ConentAttributeTestTopComponent>();
+            var component = container.Resolve<ConentAttributeTestTopComponent>();
 
-            Assert.AreEqual("1", conentAttributeTestTopComponent.NestedCompnent.Value);
+            Assert.AreEqual("1", component.NestedCompnent.Value);
         }
 
         [TestMethod]
@@ -51,8 +52,19 @@ namespace AutoTests.Framework.Tests.UnitTests
             var componentRouter = container.Resolve<ComponentRouter>();
 
             var component = componentRouter.Resolve("RoutesTestNestedComponent > NestedComponent");
+
             Assert.IsNotNull(component);
             Assert.IsInstanceOfType(component, typeof(RoutesTestNestedComponent));
+        }
+
+        [TestMethod]
+        public void PrivateMemberTest()
+        {
+            var container = CreateEmptyContainer();
+            var component = container.Resolve<PrivateMemberTestTopComponent>();
+
+            Assert.AreEqual("abcd", component.GetFirstNestedComponent().GetPrivatePropertyValue());
+            Assert.AreEqual("123", component.GetSecondNestedComponent().GetPrivatePropertyValue());
         }
     }
 }

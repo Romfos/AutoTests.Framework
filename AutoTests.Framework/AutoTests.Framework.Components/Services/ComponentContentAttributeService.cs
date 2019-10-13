@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Components.Attributes;
+using AutoTests.Framework.Components.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,13 +8,20 @@ namespace AutoTests.Framework.Components.Services
 {
     public class ComponentContentAttributeService
     {
+        private readonly ComponentReflectionUtils componentReflectionUtils;
+
+        public ComponentContentAttributeService(ComponentReflectionUtils componentReflectionUtils)
+        {
+            this.componentReflectionUtils = componentReflectionUtils;
+        }
+
         public virtual void InitializeComponent(Component component)
         {
-            foreach(var propertyInfo in GetComponentProperties(component))
+            foreach(var propertyInfo in GetContentComponentProperties(component))
             {
                 var nestedComponent = GetNestedComponent(component, propertyInfo);
                 var contentData = GetConentAttributeData(propertyInfo);
-                var primaryProperty = GetPrimaryProperty(nestedComponent);
+                var primaryProperty = componentReflectionUtils.GetPrimaryProperty(nestedComponent);
                 primaryProperty.SetValue(nestedComponent, contentData);
             }
         }
@@ -23,19 +31,9 @@ namespace AutoTests.Framework.Components.Services
             return (Component)propertyInfo.GetValue(component)!;
         }
 
-        private PropertyInfo GetPrimaryProperty(Component component)
+        private IEnumerable<PropertyInfo> GetContentComponentProperties(Component component)
         {
-            return component.GetType().GetProperties()
-                .Where(x => x.CanWrite && x.CanRead)
-                .Where(x => x.GetCustomAttributes<PrimaryAttribute>().SingleOrDefault() != null)
-                .Single();
-        }
-
-        private IEnumerable<PropertyInfo> GetComponentProperties(Component component)
-        {
-            return component.GetType().GetProperties()
-                .Where(x => x.CanWrite && x.CanRead)
-                .Where(x => x.PropertyType.IsSubclassOf(typeof(Component)))
+            return componentReflectionUtils.GetComponentProperties(component)
                 .Where(x => x.GetCustomAttributes<ContentAttribute>().SingleOrDefault() != null);
         }
 

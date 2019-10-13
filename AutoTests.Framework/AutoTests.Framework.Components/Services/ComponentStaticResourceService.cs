@@ -1,19 +1,22 @@
 ﻿using AutoTests.Framework.Core.Utils;
-using AutoTests.Framework.Components.Attributes;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using AutoTests.Framework.Components.Utils;
 
 namespace AutoTests.Framework.Components.Services
 {
     public class ComponentStaticResourceService
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
+        private readonly ComponentReflectionUtils componentReflectionUtils;
 
-        public ComponentStaticResourceService(EmbeddedResourceUtils embeddedResourceUtils)
+        public ComponentStaticResourceService(
+            EmbeddedResourceUtils embeddedResourceUtils, 
+            ComponentReflectionUtils componentReflectionUtils)
         {
             this.embeddedResourceUtils = embeddedResourceUtils;
+            this.componentReflectionUtils = componentReflectionUtils;
         }
 
         public virtual void InitializeComponent(Component component)
@@ -28,10 +31,10 @@ namespace AutoTests.Framework.Components.Services
 
         private void SetResourceValuesToComponent(Component component, JObject jObject)
         {
-            var properties = GetComponentProperties(component);
+            var propertyInfos = componentReflectionUtils.GetPropertiesWithGetttersAndSetters(component).ToList();
             foreach(var jProperty in jObject.Properties())
             {
-                var propertyInfo = properties.Single(x => x.Name == jProperty.Name);
+                var propertyInfo = propertyInfos.Single(x => x.Name == jProperty.Name);
                 SetResourceValueToComponent(component, propertyInfo, jProperty);
             }
         }
@@ -47,7 +50,7 @@ namespace AutoTests.Framework.Components.Services
                 }
                 else
                 {
-                    var primaryProperty = GetPrimaryProperty(nestedComponent);
+                    var primaryProperty = componentReflectionUtils.GetPrimaryProperty(nestedComponent);
                     SetPropertyValue(nestedComponent, primaryProperty, jProperty);
                 }
             }
@@ -68,28 +71,17 @@ namespace AutoTests.Framework.Components.Services
             propertyInfo.SetValue(component, value);
         }
 
-        private PropertyInfo GetPrimaryProperty(Component component)
-        {
-            return component.GetType().GetProperties()
-                .Where(x => x.CanWrite && x.CanRead)
-                .Where(x => x.GetCustomAttributes<PrimaryAttribute>().SingleOrDefault() != null)
-                .Single();
-        }
-
-        private List<PropertyInfo> GetComponentProperties(Component component)
-        {
-            return component.GetType().GetProperties().Where(x => x.CanWrite && x.CanRead).ToList();
-        }
-
         private string? GetJsonResourceContent(Component component)
         {
             var type = component.GetType();
             var assembly = type.Assembly;
             var name = $"{type.FullName}.json";
 
-            return embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
+            var content = embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
                 ? embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, name)
                 : null;
+
+            return content;
         }
     }
 }

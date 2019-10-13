@@ -1,33 +1,26 @@
-﻿using AutoTests.Framework.Core;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using AutoTests.Framework.Components.Utils;
+using AutoTests.Framework.Core;
 
 namespace AutoTests.Framework.Components.Services
 {
     public class NestedComponentsService
     {
+        private readonly ComponentReflectionUtils componentReflectionUtils;
         private readonly IContainer container;
 
-        public NestedComponentsService(IContainer container)
+        public NestedComponentsService(IContainer container, ComponentReflectionUtils componentReflectionUtils)
         {
             this.container = container;
+            this.componentReflectionUtils = componentReflectionUtils;
         }
 
         public virtual void InitializeComponent(Component component)
         {
-            foreach (var property in GetSubComponentProperties(component))
+            foreach (var propertyInfo in componentReflectionUtils.GetComponentProperties(component))
             {
-                var nestedCompnent = container.Create(property.PropertyType);
-                property.SetValue(component, nestedCompnent);
+                var nestedCompnent = container.Create(propertyInfo.PropertyType);
+                propertyInfo.SetValue(component, nestedCompnent);
             }
-        }
-
-        private IEnumerable<PropertyInfo> GetSubComponentProperties(Component component)
-        {
-            return component.GetType().GetProperties()
-                .Where(x => x.PropertyType.IsSubclassOf(typeof(Component)))
-                .Where(x => x.CanWrite && x.CanRead);
         }
     }
 }
