@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Reflection;
 using AutoTests.Framework.Components.Utils;
+using AutoTests.Framework.Core.Exceptions;
 
 namespace AutoTests.Framework.Components.Services
 {
@@ -34,7 +35,12 @@ namespace AutoTests.Framework.Components.Services
             var propertyInfos = componentReflectionUtils.GetPropertiesWithGetttersAndSetters(component).ToList();
             foreach(var jProperty in jObject.Properties())
             {
-                var propertyInfo = propertyInfos.Single(x => x.Name == jProperty.Name);
+                var propertyInfo = propertyInfos.SingleOrDefault(x => x.Name == jProperty.Name);
+                if(propertyInfo == null)
+                {
+                    throw new AutoTestFrameworkException(
+                        $"Unable to find proeprty '{jProperty.Name}' in component '{component.GetType().FullName}'");
+                }
                 SetResourceValueToComponent(component, propertyInfo, jProperty);
             }
         }

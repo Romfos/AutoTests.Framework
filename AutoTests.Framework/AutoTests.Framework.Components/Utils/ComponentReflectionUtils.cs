@@ -1,4 +1,5 @@
 ﻿using AutoTests.Framework.Components.Attributes;
+using AutoTests.Framework.Core.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -20,9 +21,17 @@ namespace AutoTests.Framework.Components.Utils
 
         public PropertyInfo GetPrimaryProperty(Component component)
         {
-            return GetPropertiesWithGetttersAndSetters(component)
+            var propertyInfo = GetPropertiesWithGetttersAndSetters(component)
                 .Where(x => x.GetCustomAttributes<PrimaryAttribute>().SingleOrDefault() != null)
-                .Single();
+                .SingleOrDefault();
+
+            if(propertyInfo == null)
+            {
+                throw new AutoTestFrameworkException(
+                    $"Unable to find primary proeprty in type '{component.GetType().FullName}'");
+            }
+
+            return propertyInfo;
         }
     }
 }
