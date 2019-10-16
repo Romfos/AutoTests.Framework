@@ -8,3 +8,4 @@ dotnet pack ..\AutoTests.Framework.Components\AutoTests.Framework.Components.csp
 dotnet pack ..\AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build" -p:TargetFrameworks=netstandard2.0
 dotnet pack ..\AutoTests.Framework.Components.Specflow\AutoTests.Framework.Components.Specflow.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build" -p:TargetFrameworks=netstandard2.0
 dotnet pack ..\AutoTests.Framework.Data\AutoTests.Framework.Data.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build" -p:TargetFrameworks=netstandard2.0
+dotnet pack ..\AutoTests.Framework.All\AutoTests.Framework.All.csproj -p:Configuration=Release -p:PackageVersion=%Version% -p:version=%Version% -o "../.build" -p:TargetFrameworks=netstandard2.0
