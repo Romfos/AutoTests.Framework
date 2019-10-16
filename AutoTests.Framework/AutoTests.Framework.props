@@ -8,8 +8,16 @@
 
   <PropertyGroup>
     <Authors>Romfos</Authors>
-    <Description>SpecFlow based autotest framework</Description>
-    <PackageTags>Specflow AutoTests</PackageTags>
+    <Description>
+      Autotest framework with specflow integration
+      
+      Primary features:
+      1) Specflow integration from the box
+      2) PreProcessor for SpecFlow
+      3) Component framework for Selenium WebDriver integration
+      4) Test Data management framework
+    </Description>
+    <PackageTags>AutoTests Specflow WebDriver BDD Gherkin</PackageTags>
     <PackageProjectUrl>https://github.com/Romfos/AutoTests.Framework</PackageProjectUrl>
   </PropertyGroup>  
 </Project>
