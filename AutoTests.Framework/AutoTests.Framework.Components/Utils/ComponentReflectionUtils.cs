@@ -28,7 +28,7 @@ namespace AutoTests.Framework.Components.Utils
             if(propertyInfo == null)
             {
                 throw new AutoTestFrameworkException(
-                    $"Unable to find primary proeprty in type '{component.GetType().FullName}'");
+                    $"Unable to find primary property in type '{component.GetType().FullName}'");
             }
 
             return propertyInfo;

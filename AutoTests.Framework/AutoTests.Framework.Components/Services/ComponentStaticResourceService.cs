@@ -39,7 +39,7 @@ namespace AutoTests.Framework.Components.Services
                 if(propertyInfo == null)
                 {
                     throw new AutoTestFrameworkException(
-                        $"Unable to find proeprty '{jProperty.Name}' in component '{component.GetType().FullName}'");
+                        $"Unable to find property '{jProperty.Name}' in component '{component.GetType().FullName}'");
                 }
                 SetResourceValueToComponent(component, propertyInfo, jProperty);
             }
