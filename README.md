@@ -16,6 +16,7 @@ Main features:
 - .NET Core 3
 - Visual Studio 2019
 - Specflow plugin for Visual Studio
+- Google Chrome
 
 # Nuget packages links  
 You can reference required packages:  
