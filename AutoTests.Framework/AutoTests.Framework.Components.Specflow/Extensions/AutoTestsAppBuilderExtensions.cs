@@ -6,10 +6,10 @@ namespace AutoTests.Framework.Components.Specflow.Extensions
 {
     public static class AutoTestsAppBuilderExtensions
     {
-        public static AutoTestsAppBuilder UseDefaultContractsBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
+        public static AutoTestsAppBuilder UseDefaultComponentBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
         {
             var specflowBindingsUtils = autoTestsAppBuilder.Container.Resolve<SpecflowBindingsUtils>();
-            specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
+            specflowBindingsUtils.RegisterBindings(typeof(DefaultComponentBindings));
             return autoTestsAppBuilder;
         }
     }

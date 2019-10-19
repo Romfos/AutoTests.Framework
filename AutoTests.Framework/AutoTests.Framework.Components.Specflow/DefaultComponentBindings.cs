@@ -8,11 +8,11 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Components.Specflow
 {
     [Binding]
-    public class DefaultContractsBindings
+    public class DefaultComponentBindings
     {
         private readonly ComponentRouter componentRouter;
 
-        public DefaultContractsBindings(ComponentRouter componentRouter)
+        public DefaultComponentBindings(ComponentRouter componentRouter)
         {
             this.componentRouter = componentRouter;
         }

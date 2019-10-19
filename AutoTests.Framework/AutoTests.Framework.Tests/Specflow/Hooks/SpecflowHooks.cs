@@ -26,8 +26,8 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
             
             new AutoTestsAppBuilder(container)
                 .UseRoslynPreProcessor()
-                .UseDefaultPreProcessortBindings()
-                .UseDefaultContractsBindings();
+                .UseDefaultPreProcessorBindings()
+                .UseDefaultComponentBindings();
         }
     }
 }

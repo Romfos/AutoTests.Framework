@@ -3,11 +3,11 @@
 namespace AutoTests.Framework.PreProcessor.Specflow
 {
     [Binding]
-    public class DefaultPreProcessortBindings
+    public class DefaultPreProcessorBindings
     {
         private readonly IPreProcessor preProcessor;
 
-        public DefaultPreProcessortBindings(IPreProcessor preProcessor)
+        public DefaultPreProcessorBindings(IPreProcessor preProcessor)
         {
             this.preProcessor = preProcessor;
         }

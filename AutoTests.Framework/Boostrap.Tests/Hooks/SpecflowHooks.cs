@@ -29,8 +29,8 @@ namespace Boostrap.Tests.Hooks
 
             new AutoTestsAppBuilder(container)
                 .UseRoslynPreProcessor<BoostrapGlobals>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"))
-                .UseDefaultPreProcessortBindings()
-                .UseDefaultContractsBindings()
+                .UseDefaultPreProcessorBindings()
+                .UseDefaultComponentBindings()
                 .UseJsonResource(Assembly.GetExecutingAssembly(), "Boostrap.Tests.Data.Common.json");
 
             container.Register(WebDriverFactory.GetWebDriver());
