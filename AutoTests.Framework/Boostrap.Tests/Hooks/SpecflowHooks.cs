@@ -36,10 +36,16 @@ namespace Boostrap.Tests.Hooks
             container.Register(WebDriverFactory.GetWebDriver());
         }
 
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            WebDriverFactory.Start();
+        }
+
         [AfterTestRun]
         public static void AfterTestRun()
         {
-            WebDriverFactory.Dispose();
+            WebDriverFactory.Stop();
         }
     }
 }

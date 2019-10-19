@@ -9,21 +9,17 @@ namespace Boostrap.Tests.Web
 
         public static IWebDriver GetWebDriver()
         {
-            if(webDriver == null)
-            {
-                webDriver = CreateWebDriver();
-            }
             return webDriver;
         }
 
-        public static void Dispose()
+        public static void Start()
         {
-            webDriver?.Dispose();
+            webDriver = new ChromeDriver();
         }
 
-        private static IWebDriver CreateWebDriver()
+        public static void Stop()
         {
-            return new ChromeDriver();
+            webDriver?.Dispose();
         }
     }
 }
