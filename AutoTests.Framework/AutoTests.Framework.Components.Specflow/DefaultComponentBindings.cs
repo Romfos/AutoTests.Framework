@@ -1,6 +1,7 @@
 ﻿using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Components.Specflow.Contracts;
 using AutoTests.Framework.PreProcessor;
+using AutoTests.Framework.PreProcessor.Specflow.Primitives;
 using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
@@ -38,6 +39,16 @@ namespace AutoTests.Framework.Components.Specflow
             if(!isEqual)
             {
                 throw new Exception($"Component '{query}' doesn't contain expected value");
+            }
+        }
+
+        [Then(@"component '(.*)' shouldn't contain '(.*)'")]
+        public async Task ThenComponentShouldNotContain(string query, IExpression expression)
+        {
+            var isEqual = await Resolve<IEqualTo>(query).EqualTo(expression);
+            if (isEqual)
+            {
+                throw new Exception($"Component '{query}' contains expected value");
             }
         }
 
@@ -98,6 +109,26 @@ namespace AutoTests.Framework.Components.Specflow
             if (isVisiable)
             {
                 throw new Exception($"Component '{query}' should be invisible");
+            }
+        }
+
+        [Then(@"component '(.*)' should contain following values:")]
+        public async Task ThenComponentShouldContainFollowingValues(string query, ExpressionTable expressionTable)
+        {
+            var isMatch = await Resolve<IMatchWith>(query).MatchWith(expressionTable);
+            if (!isMatch)
+            {
+                throw new Exception($"Component '{query}' doesn't match with expected values");
+            }
+        }
+
+        [Then(@"component '(.*)' shouldn't contain following values:")]
+        public async Task ThenComponentShouldNotContainFollowingValues(string query, ExpressionTable expressionTable)
+        {
+            var isMatch = await Resolve<IMatchWith>(query).MatchWith(expressionTable);
+            if (isMatch)
+            {
+                throw new Exception($"Component '{query}' match with expected values");
             }
         }
 

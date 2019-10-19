@@ -7,19 +7,19 @@ using AutoTests.Framework.PreProcessor;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests
 {
-    [Route("equal to test component")]
-    public class EqualToTestComponent : Component, IEqualTo, IInternalComponentStatus
+    [Route("not equal to test component")]
+    public class NotEqualToTestComponent : Component, IEqualTo, IInternalComponentStatus
     {
         public bool InternalComponentStatus { get; set; }
 
-        public EqualToTestComponent(ComponentService componentService) : base(componentService)
+        public NotEqualToTestComponent(ComponentService componentService) : base(componentService)
         {
         }
 
         public async Task<bool> EqualTo(IExpression expression)
         {
-            InternalComponentStatus = await expression.ExecuteAsync<int>() == 123;
-            return true;
+            InternalComponentStatus = await expression.ExecuteAsync<int>() == 456;
+            return false;
         }
     }
 }

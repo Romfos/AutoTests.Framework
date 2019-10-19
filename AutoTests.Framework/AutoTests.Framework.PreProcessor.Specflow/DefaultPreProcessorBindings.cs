@@ -1,4 +1,6 @@
-﻿using TechTalk.SpecFlow;
+﻿using AutoTests.Framework.PreProcessor.Specflow.Primitives;
+using System.Linq;
+using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.PreProcessor.Specflow
 {
@@ -16,6 +18,15 @@ namespace AutoTests.Framework.PreProcessor.Specflow
         public IExpression GetPreProcessorExpression(string text)
         {
             return new PreProcessorExpression(preProcessor, text);
+        }
+
+        [StepArgumentTransformation]
+        public ExpressionTable GetExpressionTable(Table table)
+        {
+            var rows = table.Rows
+                .Select(x => x.ToDictionary(y => y.Key, y => (IExpression) new PreProcessorExpression(preProcessor, y.Value)))
+                .ToArray();
+            return new ExpressionTable(table.Header.ToArray(), rows);
         }
     }
 }

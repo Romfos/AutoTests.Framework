@@ -12,6 +12,10 @@ Scenario: equal to value test
 	Then component 'equal to test component' should contain '123'
 	Then component 'equal to test component' should pass internal check
 
+Scenario: not equal to value test
+	Then component 'not equal to test component' shouldn't contain '456'
+	Then component 'not equal to test component' should pass internal check
+
 Scenario: enabled component test
 	Then component 'enabled test component' should be enabled
 	Then component 'enabled test component' should pass internal check
@@ -35,3 +39,17 @@ Scenario: visible component test
 Scenario: invisible component test
 	Then component 'invisible test component' should be invisible
 	Then component 'invisible test component' should pass internal check
+
+Scenario: match with test
+	Then component 'match with test component' should contain following values:
+	| Name | Value |
+	| AA   | 123   |
+	| BB   | @456  | 
+	Then component 'match with test component' should pass internal check
+
+Scenario: mismatch test
+	Then component 'mismatch test component' shouldn't contain following values:
+	| Name | Value |
+	| AA   | 123   |
+	| BB   | @456  |
+	Then component 'mismatch test component' should pass internal check
