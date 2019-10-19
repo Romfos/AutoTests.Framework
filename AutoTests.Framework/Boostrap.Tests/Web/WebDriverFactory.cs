@@ -14,7 +14,9 @@ namespace Boostrap.Tests.Web
 
         public static void Start()
         {
-            webDriver = new ChromeDriver();
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--window-size=1280,720");
+            webDriver = new ChromeDriver(chromeOptions);
         }
 
         public static void Stop()
