@@ -1,13 +1,11 @@
 ﻿using AutoTests.Framework.Core;
 using AutoTests.Framework.Core.Specflow;
-using AutoTests.Framework.Core.Specflow.Utils;
-using AutoTests.Framework.PreProcessor;
-using AutoTests.Framework.PreProcessor.Roslyn;
 using BoDi;
 using System.Reflection;
 using TechTalk.SpecFlow;
-using AutoTests.Framework.PreProcessor.Specflow;
-using AutoTests.Framework.Components.Specflow;
+using AutoTests.Framework.PreProcessor.Roslyn.Extensions;
+using AutoTests.Framework.PreProcessor.Specflow.Extensions;
+using AutoTests.Framework.Components.Specflow.Extensions;
 
 namespace AutoTests.Framework.Tests.Specflow.Hooks
 {
@@ -24,23 +22,12 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            ConfigureContainer();
-            ConfigurePreProcessor();
-        }
-
-        private void ConfigureContainer()
-        {
             var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
-            objectContainer.RegisterInstanceAs<IContainer>(container);
-        }
-
-        private void ConfigurePreProcessor()
-        {
-            objectContainer.RegisterInstanceAs<IPreProcessor>(new RoslynPreProcessor());
-
-            var specflowBindingsUtils = objectContainer.Resolve<SpecflowBindingsUtils>();
-            specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessortBindings));
-            specflowBindingsUtils.RegisterBindings(typeof(DefaultContractsBindings));
+            
+            new AutoTestsAppBuilder(container)
+                .UseRoslynPreProcessor()
+                .UseDefaultPreProcessortBindings()
+                .UseDefaultContractsBindings();
         }
     }
 }

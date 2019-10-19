@@ -7,12 +7,9 @@ namespace AutoTests.Framework.Tests.UnitTests
 {
     public abstract class UnitTestsBase
     {
-        protected SpecflowContainer CreateEmptyContainer()
+        protected IContainer CreateEmptyContainer()
         {
-            var container = new ObjectContainer();
-            var specflowContainer = new SpecflowContainer(container, Assembly.GetExecutingAssembly());
-            container.RegisterInstanceAs<IContainer>(specflowContainer);
-            return specflowContainer;
+            return new SpecflowContainer(new ObjectContainer(), Assembly.GetExecutingAssembly());
         }
     }
 }

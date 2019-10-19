@@ -15,6 +15,8 @@ namespace AutoTests.Framework.Core.Specflow
         {
             this.objectContainer = objectContainer;
             this.assemblies = assemblies;
+
+            objectContainer.RegisterInstanceAs<IContainer>(this);
         }
 
         public object Create(Type type)
@@ -27,6 +29,16 @@ namespace AutoTests.Framework.Core.Specflow
         public IEnumerable<Type> GetSubTypes(Type parentType)
         {
             return assemblies.SelectMany(x => x.GetTypes()).Where(x => x.IsSubclassOf(parentType));
+        }
+
+        public void Register<TInterface, TImplementation>() where TImplementation : class, TInterface
+        {
+            objectContainer.RegisterTypeAs<TImplementation, TInterface>();
+        }
+
+        public void Register<TInterface>(TInterface implementation) where TInterface : class
+        {
+            objectContainer.RegisterInstanceAs(implementation);
         }
 
         public object Resolve(Type type)
