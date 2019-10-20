@@ -40,9 +40,10 @@ Or you can reference all of them:
 You can find example in Boostrap.Tests project  
 
 Basic steps:
-1) Create and configure basic specflow project
+1) Create unit test project
 2) Add AutoTests.Framework.All nuget package
-3) Register container in specflow hooks (you can find example in test project)
+3) Add additional specflow nuget packages for unit test provider (SpecFlow.MsTest and SpecFlow.Tools.MsBuild.Generation for mstest)
+4) Configure AutoTests app in specflwo hooks (you can find example in Boostrap.Tests)
 ...  
 Profit
 
