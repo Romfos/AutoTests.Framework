@@ -6,6 +6,7 @@ Main features:
 - Pre Processor framework (allow to use C# expressions in specflow scenarios)
 - Component framework (in primamry it is used for integration with other UI frameworks like Selenium WebDriver)
 - Test data management framework
+- Model transformation framework
 
 # Use requirements
 - .NET Standart 2.0
@@ -29,6 +30,8 @@ You can reference required packages:
 - https://www.nuget.org/packages/AutoTests.Framework.PreProcessor
 - https://www.nuget.org/packages/AutoTests.Framework.PreProcessor.Roslyn
 - https://www.nuget.org/packages/AutoTests.Framework.PreProcessor.Specflow
+- https://www.nuget.org/packages/AutoTests.Framework.Models
+- https://www.nuget.org/packages/AutoTests.Framework.Models.Specflow
 
 Or you can reference all of them:  
 - https://www.nuget.org/packages/AutoTests.Framework.All
