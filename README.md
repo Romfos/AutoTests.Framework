@@ -41,9 +41,13 @@ You can find example in Boostrap.Tests project
 
 Basic steps:
 1) Create unit test project
-2) Add AutoTests.Framework.All nuget package
-3) Add additional specflow nuget packages for unit test provider (SpecFlow.MsTest and SpecFlow.Tools.MsBuild.Generation for mstest)
-4) Configure AutoTests app in specflwo hooks (you can find example in Boostrap.Tests)
-...  
-Profit
+2) Add [AutoTests.Framework.All](https://www.nuget.org/packages/AutoTests.Framework.All) nuget package
+3) Add additional Specflow nuget packages for unit test provider:
 
+ - MSTest:  
+   [SpecFlow.MsTest](https://www.nuget.org/packages/SpecFlow.MsTest)  
+   [SpecFlow.Tools.MsBuild.Generation](https://www.nuget.org/packages/SpecFlow.Tools.MsBuild.Generation)
+
+ - NUnit:  
+   [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)
+4) Configure AutoTests app in Specflow hooks (you can find example in Boostrap.Tests)
