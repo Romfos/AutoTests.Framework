@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{B8C858
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Models", "AutoTests.Framework.Models\AutoTests.Framework.Models.csproj", "{DA1F7296-7E04-4C32-B2E0-E66CC1AF597F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Models.Specflow", "AutoTests.Framework.Models.Specflow\AutoTests.Framework.Models.Specflow.csproj", "{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{DA1F7296-7E04-4C32-B2E0-E66CC1AF597F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA1F7296-7E04-4C32-B2E0-E66CC1AF597F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA1F7296-7E04-4C32-B2E0-E66CC1AF597F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{B419EC40-AE8D-4DCE-97A8-62A46B34206A} = {4E0E2870-CF04-4168-8D85-ECC38A4B426E}
 		{B8C85888-3552-40DB-B073-F47F24400BBB} = {4E0E2870-CF04-4168-8D85-ECC38A4B426E}
 		{DA1F7296-7E04-4C32-B2E0-E66CC1AF597F} = {B8C85888-3552-40DB-B073-F47F24400BBB}
+		{6ABAAE9A-8C8A-42D8-AFF3-57A94A57CCA4} = {B8C85888-3552-40DB-B073-F47F24400BBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CC06E25-60A1-41E5-9BA3-4BCF6254BC1C}

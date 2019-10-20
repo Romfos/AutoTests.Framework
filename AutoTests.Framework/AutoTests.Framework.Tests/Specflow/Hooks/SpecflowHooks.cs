@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 using AutoTests.Framework.PreProcessor.Roslyn.Extensions;
 using AutoTests.Framework.PreProcessor.Specflow.Extensions;
 using AutoTests.Framework.Components.Specflow.Extensions;
+using AutoTests.Framework.Models.Specflow.Extensions;
 
 namespace AutoTests.Framework.Tests.Specflow.Hooks
 {
@@ -27,7 +28,8 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
             new AutoTestsAppBuilder(container)
                 .UseRoslynPreProcessor()
                 .UseDefaultPreProcessorBindings()
-                .UseDefaultComponentBindings();
+                .UseDefaultComponentBindings()
+                .UseModelTransformations();
         }
     }
 }
