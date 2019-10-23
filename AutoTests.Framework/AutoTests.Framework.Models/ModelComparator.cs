@@ -37,7 +37,7 @@ namespace AutoTests.Framework.Models
             if(actualPropertyLink == null)
             {
                 throw new AutoTestFrameworkException(
-                    $"Proprety '{expectedPropertyLink.Name}' doesn't exist in actual model");
+                    $"Property '{expectedPropertyLink.Name}' doesn't exist in actual model");
             }
             return actualPropertyLink;
         }
