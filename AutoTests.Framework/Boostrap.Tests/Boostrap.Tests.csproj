@@ -23,7 +23,7 @@
     <PackageReference Include="SpecFlow.MsTest" Version="3.1.44-beta" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.44-beta" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="77.0.3865.4000" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="78.0.3904.7000" />
   </ItemGroup>
 
   <ItemGroup>
