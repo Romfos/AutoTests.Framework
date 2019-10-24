@@ -2,7 +2,7 @@
   <Import Project="../AutoTests.Framework.props" />
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-    <PackageReference Include="SpecFlow" Version="3.1.44-beta" />
+    <PackageReference Include="SpecFlow" Version="3.1.48-beta" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
