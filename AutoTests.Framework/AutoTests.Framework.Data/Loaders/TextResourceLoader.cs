@@ -4,11 +4,11 @@ using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Data.Loaders
 {
-    public class TextDataHubLoader
+    public class TextResourceLoader
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
 
-        public TextDataHubLoader(EmbeddedResourceUtils embeddedResourceUtils)
+        public TextResourceLoader(EmbeddedResourceUtils embeddedResourceUtils)
         {
             this.embeddedResourceUtils = embeddedResourceUtils;
         }

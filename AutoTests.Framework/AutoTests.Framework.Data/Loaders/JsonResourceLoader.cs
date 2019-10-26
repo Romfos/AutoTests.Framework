@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Data.Loaders
 {
-    public class JsonDataHubLoader
+    public class JsonResourceLoader
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
 
-        public JsonDataHubLoader(EmbeddedResourceUtils embeddedResourceUtils)
+        public JsonResourceLoader(EmbeddedResourceUtils embeddedResourceUtils)
         {
             this.embeddedResourceUtils = embeddedResourceUtils;
         }

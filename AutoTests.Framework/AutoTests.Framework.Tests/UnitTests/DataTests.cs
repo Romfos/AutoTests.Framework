@@ -51,10 +51,10 @@ namespace AutoTests.Framework.Tests.UnitTests
         public void JsonDataHubLoaderTest()
         {
             var container = CreateEmptyContainer();            
-            var jsonDataHubLoader = container.Resolve<JsonDataHubLoader>();
+            var jsonResourceLoader = container.Resolve<JsonResourceLoader>();
             var dataHub = new DataHub();
 
-            jsonDataHubLoader.LoadJsonResource(dataHub,
+            jsonResourceLoader.LoadJsonResource(dataHub,
                 Assembly.GetExecutingAssembly(),
                 "AutoTests.Framework.Tests.Data.Json.JsonDataHubLoaderTest.json");
 
@@ -65,10 +65,10 @@ namespace AutoTests.Framework.Tests.UnitTests
         public void BulkJsonDataHubLoaderTest()
         {
             var container = CreateEmptyContainer();
-            var jsonDataHubLoader = container.Resolve<JsonDataHubLoader>();
+            var jsonResourceLoader = container.Resolve<JsonResourceLoader>();
             var dataHub = new DataHub();
 
-            jsonDataHubLoader.LoadJsonResources(dataHub,
+            jsonResourceLoader.LoadJsonResources(dataHub,
                 Assembly.GetExecutingAssembly(),
                 new Regex("AutoTests.Framework.Tests.Data.(.*).json"));
 
@@ -79,10 +79,10 @@ namespace AutoTests.Framework.Tests.UnitTests
         public void TextDataHubLoaderTest()
         {
             var container = CreateEmptyContainer();
-            var textDataHubLoader = container.Resolve<TextDataHubLoader>();
+            var textResourceLoader = container.Resolve<TextResourceLoader>();
             var dataHub = new DataHub();
 
-            textDataHubLoader.LoadTextResource(dataHub,
+            textResourceLoader.LoadTextResource(dataHub,
                 Assembly.GetExecutingAssembly(),
                 "AutoTests.Framework.Tests.Data.Text.TextDataHubLoaderTest.txt",
                 new DataPath("test"));
@@ -94,10 +94,10 @@ namespace AutoTests.Framework.Tests.UnitTests
         public void BulkTextDataHubLoaderTest()
         {
             var container = CreateEmptyContainer();
-            var textDataHubLoader = container.Resolve<TextDataHubLoader>();
+            var textResourceLoader = container.Resolve<TextResourceLoader>();
             var dataHub = new DataHub();
 
-            textDataHubLoader.LoadTextResources(dataHub,
+            textResourceLoader.LoadTextResources(dataHub,
                 Assembly.GetExecutingAssembly(),
                 new Regex("AutoTests.Framework.Tests.Data.(.*).txt"));
 
