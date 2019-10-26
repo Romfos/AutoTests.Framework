@@ -5,6 +5,6 @@ namespace AutoTests.Framework.Components.Specflow.Contracts
 {
     public interface IEqualTo
     {
-        Task<bool> EqualTo(IExpression expression);
+        Task<bool> EqualToAsync(IExpression expression);
     }
 }

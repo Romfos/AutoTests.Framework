@@ -23,7 +23,7 @@ namespace Boostrap.Tests.Web.Components.Shared
             WebDriver.FindElement(By.CssSelector(Locator)).SendKeys(text);
         }
 
-        public async Task<bool> EqualTo(IExpression expression)
+        public async Task<bool> EqualToAsync(IExpression expression)
         {
             var expected = await expression.ExecuteAsync<string>();
 

@@ -1,10 +1,10 @@
-﻿using AutoTests.Framework.PreProcessor.Specflow.Primitives;
+﻿using AutoTests.Framework.Models.Specflow;
 using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Components.Specflow.Contracts
 {
     public interface IMatchWith
     {
-        Task<bool> MatchWith(ExpressionTable expectedValues);
+        Task<bool> MatchWithAsync(ModelExpression expression);
     }
 }

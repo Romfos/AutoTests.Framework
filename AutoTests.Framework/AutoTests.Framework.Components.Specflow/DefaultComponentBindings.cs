@@ -1,7 +1,7 @@
 ﻿using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Components.Specflow.Contracts;
+using AutoTests.Framework.Models.Specflow;
 using AutoTests.Framework.PreProcessor;
-using AutoTests.Framework.PreProcessor.Specflow.Primitives;
 using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
@@ -35,7 +35,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"component '(.*)' should contain '(.*)'")]
         public async Task ThenComponentShouldContain(string query, IExpression expression)
         {
-            var isEqual = await Resolve<IEqualTo>(query).EqualTo(expression);
+            var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
             if(!isEqual)
             {
                 throw new Exception($"Component '{query}' doesn't contain expected value");
@@ -45,7 +45,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"component '(.*)' shouldn't contain '(.*)'")]
         public async Task ThenComponentShouldNotContain(string query, IExpression expression)
         {
-            var isEqual = await Resolve<IEqualTo>(query).EqualTo(expression);
+            var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
             if (isEqual)
             {
                 throw new Exception($"Component '{query}' contains expected value");
@@ -113,9 +113,9 @@ namespace AutoTests.Framework.Components.Specflow
         }
 
         [Then(@"component '(.*)' should contain following values:")]
-        public async Task ThenComponentShouldContainFollowingValues(string query, ExpressionTable expressionTable)
+        public async Task ThenComponentShouldContainFollowingValues(string query, ModelExpression modelExpression)
         {
-            var isMatch = await Resolve<IMatchWith>(query).MatchWith(expressionTable);
+            var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (!isMatch)
             {
                 throw new Exception($"Component '{query}' doesn't match with expected values");
@@ -123,9 +123,9 @@ namespace AutoTests.Framework.Components.Specflow
         }
 
         [Then(@"component '(.*)' shouldn't contain following values:")]
-        public async Task ThenComponentShouldNotContainFollowingValues(string query, ExpressionTable expressionTable)
+        public async Task ThenComponentShouldNotContainFollowingValues(string query, ModelExpression modelExpression)
         {
-            var isMatch = await Resolve<IMatchWith>(query).MatchWith(expressionTable);
+            var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (isMatch)
             {
                 throw new Exception($"Component '{query}' match with expected values");

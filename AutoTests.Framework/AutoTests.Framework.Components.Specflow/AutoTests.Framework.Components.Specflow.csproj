@@ -4,6 +4,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj" />    
     <ProjectReference Include="..\AutoTests.Framework.Core.Specflow\AutoTests.Framework.Core.Specflow.csproj" />    
+    <ProjectReference Include="..\AutoTests.Framework.Models.Specflow\AutoTests.Framework.Models.Specflow.csproj" />    
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
   </ItemGroup>

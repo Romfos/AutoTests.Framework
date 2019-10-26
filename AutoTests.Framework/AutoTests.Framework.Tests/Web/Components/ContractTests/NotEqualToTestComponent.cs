@@ -16,7 +16,7 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
         {
         }
 
-        public async Task<bool> EqualTo(IExpression expression)
+        public async Task<bool> EqualToAsync(IExpression expression)
         {
             InternalComponentStatus = await expression.ExecuteAsync<int>() == 456;
             return false;

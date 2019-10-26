@@ -3,27 +3,36 @@ using AutoTests.Framework.Components;
 using AutoTests.Framework.Components.Routes.Attributes;
 using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
-using AutoTests.Framework.PreProcessor.Specflow.Primitives;
+using AutoTests.Framework.Models;
+using AutoTests.Framework.Models.Specflow;
+using AutoTests.Framework.Tests.Models.MismatchTest;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests
 {
     [Route("mismatch test component")]
     public class MismatchTestComponent : Component, IMatchWith, IInternalComponentStatus
     {
+        private readonly ModelComparator comparator;
+
         public bool InternalComponentStatus { get; set; }
 
-        public MismatchTestComponent(ComponentService componentService) : base(componentService)
+        public MismatchTestComponent(ComponentService componentService, ModelComparator comparator) : base(componentService)
         {
+            this.comparator = comparator;
         }
 
-        public async Task<bool> MatchWith(ExpressionTable expectedValues)
+        public Task<bool> MatchWithAsync(ModelExpression expression)
         {
-            InternalComponentStatus = await expectedValues.Rows[0]["Name"].ExecuteAsync<string>() == "AA"
-                && await expectedValues.Rows[0]["Value"].ExecuteAsync<string>() == "123"
-                && await expectedValues.Rows[1]["Name"].ExecuteAsync<string>() == "BB"
-                && await expectedValues.Rows[1]["Value"].ExecuteAsync<string>() == "456";
+            var expected = new MismatchTestModel
+            {
+                AA = 123,
+                BB = 456
+            };
+            var actual = expression.GetModel<MismatchTestModel>();
 
-            return false;
+            InternalComponentStatus = comparator.Compare(expected, actual);
+
+            return Task.FromResult(false);
         }
     }
 }

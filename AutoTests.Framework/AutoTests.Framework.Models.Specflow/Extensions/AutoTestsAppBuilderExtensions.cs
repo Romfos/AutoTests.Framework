@@ -10,12 +10,13 @@ namespace AutoTests.Framework.Models.Specflow.Extensions
         public static AutoTestsAppBuilder UseModelTransformations(this AutoTestsAppBuilder autoTestsAppBuilder)
         {
             var specflowBindingsUtils = autoTestsAppBuilder.Container.Resolve<SpecflowBindingsUtils>();
+            specflowBindingsUtils.RegisterBindings(typeof(ModelTransformationBindings));
             var modelTypes = autoTestsAppBuilder.Container.GetSubTypes(typeof(Model));
-            var bindingClassTypes = modelTypes.Select(x => typeof(ModelTransformationBindings<>).MakeGenericType(x));
+            var bindingClassTypes = modelTypes.Select(x => typeof(ModelTransformationTypedBindings<>).MakeGenericType(x));
             foreach(var bindingClassType in bindingClassTypes)
             {
                 specflowBindingsUtils.RegisterBindings(bindingClassType);
-            }
+            }            
             return autoTestsAppBuilder;
         }
     }
