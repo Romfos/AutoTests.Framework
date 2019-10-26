@@ -8,6 +8,15 @@ namespace AutoTests.Framework.Data.Extensions
 {
     public static class AutoTestsAppBuilderExtensions
     {
+        public static AutoTestsAppBuilder UseJsonResource(this AutoTestsAppBuilder autoTestsAppBuilder,
+            Assembly assembly, string resourceName, DataPath? basePath = null)
+        {
+            var jsonDataHubLoader = autoTestsAppBuilder.Container.Resolve<JsonDataHubLoader>();
+            var dataHub = autoTestsAppBuilder.Container.Resolve<DataHub>();
+            jsonDataHubLoader.LoadJsonResource(dataHub, assembly, resourceName, basePath);
+            return autoTestsAppBuilder;
+        }
+
         public static AutoTestsAppBuilder UseJsonResources(this AutoTestsAppBuilder autoTestsAppBuilder,
             Assembly assembly, Regex regex, bool includeResourceName = true, DataPath? basePath = null)
         {
@@ -17,12 +26,21 @@ namespace AutoTests.Framework.Data.Extensions
             return autoTestsAppBuilder;
         }
 
-        public static AutoTestsAppBuilder UseJsonResource(this AutoTestsAppBuilder autoTestsAppBuilder,
-            Assembly assembly, string resourceName, DataPath? basePath = null)
+        public static AutoTestsAppBuilder UseTextResource(this AutoTestsAppBuilder autoTestsAppBuilder,
+            Assembly assembly, string resourceName, DataPath path)
         {
-            var jsonDataHubLoader = autoTestsAppBuilder.Container.Resolve<JsonDataHubLoader>();
+            var textDataHubLoader = autoTestsAppBuilder.Container.Resolve<TextDataHubLoader>();
             var dataHub = autoTestsAppBuilder.Container.Resolve<DataHub>();
-            jsonDataHubLoader.LoadJsonResource(dataHub, assembly, resourceName, basePath);
+            textDataHubLoader.LoadTextResource(dataHub, assembly, resourceName, path);
+            return autoTestsAppBuilder;
+        }
+
+        public static AutoTestsAppBuilder UseTextResources(this AutoTestsAppBuilder autoTestsAppBuilder,
+            Assembly assembly, Regex regex, DataPath? basePath = null)
+        {
+            var textDataHubLoader = autoTestsAppBuilder.Container.Resolve<TextDataHubLoader>();
+            var dataHub = autoTestsAppBuilder.Container.Resolve<DataHub>();
+            textDataHubLoader.LoadTextResources(dataHub, assembly, regex, basePath);
             return autoTestsAppBuilder;
         }
     }

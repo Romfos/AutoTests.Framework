@@ -56,7 +56,7 @@ namespace AutoTests.Framework.Tests.UnitTests
 
             jsonDataHubLoader.LoadJsonResource(dataHub,
                 Assembly.GetExecutingAssembly(),
-                "AutoTests.Framework.Tests.Data.JsonDataHubLoaderTest.json");
+                "AutoTests.Framework.Tests.Data.Json.JsonDataHubLoaderTest.json");
 
             Assert.AreEqual("123", dataHub.Get(new DataPath("Value")));
         }
@@ -73,6 +73,35 @@ namespace AutoTests.Framework.Tests.UnitTests
                 new Regex("AutoTests.Framework.Tests.Data.(.*).json"));
 
             Assert.AreEqual("456", dataHub.Get(new DataPath("Json", "BulkJsonDataHubLoaderTest", "Value")));
+        }
+
+        [TestMethod]
+        public void TextDataHubLoaderTest()
+        {
+            var container = CreateEmptyContainer();
+            var textDataHubLoader = container.Resolve<TextDataHubLoader>();
+            var dataHub = new DataHub();
+
+            textDataHubLoader.LoadTextResource(dataHub,
+                Assembly.GetExecutingAssembly(),
+                "AutoTests.Framework.Tests.Data.Text.TextDataHubLoaderTest.txt",
+                new DataPath("test"));
+
+            Assert.AreEqual("123", dataHub.Get(new DataPath("test")));
+        }
+
+        [TestMethod]
+        public void BulkTextDataHubLoaderTest()
+        {
+            var container = CreateEmptyContainer();
+            var textDataHubLoader = container.Resolve<TextDataHubLoader>();
+            var dataHub = new DataHub();
+
+            textDataHubLoader.LoadTextResources(dataHub,
+                Assembly.GetExecutingAssembly(),
+                new Regex("AutoTests.Framework.Tests.Data.(.*).txt"));
+
+            Assert.AreEqual("456", dataHub.Get(new DataPath("Text", "BulkTextDataHubLoaderTest")));
         }
     }
 }
