@@ -3,7 +3,6 @@ using AutoTests.Framework.Components;
 using AutoTests.Framework.Components.Routes.Attributes;
 using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
-using AutoTests.Framework.Models;
 using AutoTests.Framework.Models.Specflow;
 using AutoTests.Framework.Tests.Models.MatchWithTest;
 
@@ -12,13 +11,10 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
     [Route("match with test component")]
     public class MatchWithTestComponent : Component, IMatchWith, IInternalComponentStatus
     {
-        private readonly ModelComparator comparator;
-
         public bool InternalComponentStatus { get; set; }
 
-        public MatchWithTestComponent(ComponentService componentService, ModelComparator comparator) : base(componentService)
+        public MatchWithTestComponent(ComponentService componentService) : base(componentService)
         {
-            this.comparator = comparator;
         }
 
         public Task<bool> MatchWithAsync(ModelExpression expression)
@@ -28,9 +24,8 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
                 AA = 123,
                 BB = 456
             };
-            var actual = expression.GetModel<MatchWithTestModel>();
 
-            InternalComponentStatus = comparator.Compare(expected, actual);
+            InternalComponentStatus = expression.Compare(expected);
 
             return Task.FromResult(true);
         }

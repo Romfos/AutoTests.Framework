@@ -13,6 +13,12 @@ namespace AutoTests.Framework.Models
             return Compare(expectedProperties, actualProperties);
         }
 
+        public bool Compare(IEnumerable<Model> expectedModels, IEnumerable<Model> actualModels)
+        {
+            var modelEqualityComparer = new ModelEqualityComparer(this);
+            return !expectedModels.Except(actualModels, modelEqualityComparer).Any();
+        }
+
         private List<PropertyLink> GetPropertyLinks(Model model)
         {
             return model.GetModelInfo().GetPropertyLinks().Where(x => x.Enabled).ToList();
