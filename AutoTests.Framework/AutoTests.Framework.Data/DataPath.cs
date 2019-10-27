@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace AutoTests.Framework.Data
 {
@@ -10,6 +11,8 @@ namespace AutoTests.Framework.Data
         {
             Nodes = nodes;
         }
+
+        public static DataPath Empty { get; } = new DataPath(Array.Empty<string>());
 
         public static DataPath Combine(params DataPath?[] dataPaths)
         {

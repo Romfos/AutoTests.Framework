@@ -1,9 +1,9 @@
 ﻿using AutoTests.Framework.Core.Utils;
-using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Reflection;
 using AutoTests.Framework.Components.Utils;
 using AutoTests.Framework.Core.Exceptions;
+using System.Text.Json;
 
 namespace AutoTests.Framework.Components.Services
 {
@@ -25,44 +25,44 @@ namespace AutoTests.Framework.Components.Services
             var content = GetJsonResourceContent(component);
             if(content != null)
             {
-                var jObject = JObject.Parse(content);
-                SetResourceValuesToComponent(component, jObject);
+                using var jsonDocument = JsonDocument.Parse(content);
+                SetResourceValuesToComponent(component, jsonDocument.RootElement);
             }
         }
 
-        private void SetResourceValuesToComponent(Component component, JObject jObject)
+        private void SetResourceValuesToComponent(Component component, JsonElement jsonElement)
         {
             var propertyInfos = componentReflectionUtils.GetPropertiesWithGetttersAndSetters(component).ToList();
-            foreach(var jProperty in jObject.Properties())
+            foreach(var jsonProperty in jsonElement.EnumerateObject())
             {
-                var propertyInfo = propertyInfos.SingleOrDefault(x => x.Name == jProperty.Name);
+                var propertyInfo = propertyInfos.SingleOrDefault(x => x.Name == jsonProperty.Name);
                 if(propertyInfo == null)
                 {
                     throw new AutoTestFrameworkException(
-                        $"Unable to find property '{jProperty.Name}' in component '{component.GetType().FullName}'");
+                        $"Unable to find property '{jsonProperty.Name}' in component '{component.GetType().FullName}'");
                 }
-                SetResourceValueToComponent(component, propertyInfo, jProperty);
+                SetResourceValueToComponent(component, propertyInfo, jsonProperty.Value);
             }
         }
 
-        private void SetResourceValueToComponent(Component component, PropertyInfo propertyInfo, JProperty jProperty)
+        private void SetResourceValueToComponent(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
         {
             if (propertyInfo.PropertyType.IsSubclassOf(typeof(Component)))
             {
                 var nestedComponent = GetNestedComponent(component, propertyInfo);
-                if (jProperty.Value.Type == JTokenType.Object)
+                if (jsonElement.ValueKind == JsonValueKind.Object)
                 {
-                    SetResourceValuesToComponent(nestedComponent, jProperty.Value.ToObject<JObject>());
+                    SetResourceValuesToComponent(nestedComponent, jsonElement);
                 }
                 else
                 {
                     var primaryProperty = componentReflectionUtils.GetPrimaryProperty(nestedComponent);
-                    SetPropertyValue(nestedComponent, primaryProperty, jProperty);
+                    SetPropertyValue(nestedComponent, primaryProperty, jsonElement);
                 }
             }
             else
             {
-                SetPropertyValue(component, propertyInfo, jProperty);
+                SetPropertyValue(component, propertyInfo, jsonElement);
             }
         }
 
@@ -71,9 +71,9 @@ namespace AutoTests.Framework.Components.Services
             return (Component) propertyInfo.GetValue(component)!;
         }
 
-        private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JProperty jProperty)
+        private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
         {
-            var value = jProperty.ToObject(propertyInfo.PropertyType);
+            var value = JsonSerializer.Deserialize(jsonElement.GetRawText(), propertyInfo.PropertyType);
             propertyInfo.SetValue(component, value);
         }
 

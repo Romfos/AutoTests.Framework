@@ -1,7 +1,7 @@
 ﻿using AutoTests.Framework.Core.Utils;
-using Newtonsoft.Json.Linq;
-using System.Linq;
+using System;
 using System.Reflection;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Data.Loaders
@@ -18,8 +18,8 @@ namespace AutoTests.Framework.Data.Loaders
         public void LoadJsonResource(DataHub dataHub, Assembly assembly, string resourceName, DataPath? basePath = null)
         {
             var content = embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, resourceName);
-            var jobject = JObject.Parse(content);
-            AddJsonObjectToDataHub(dataHub, jobject, basePath);
+            using var jsonDocument = JsonDocument.Parse(content);
+            AddJsonElementValuesToDataHub(dataHub, basePath ?? DataPath.Empty, jsonDocument.RootElement);
         }
 
         public void LoadJsonResources(DataHub dataHub, Assembly assembly, 
@@ -30,21 +30,42 @@ namespace AutoTests.Framework.Data.Loaders
             {
                 var content = embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, resourceName);
                 var contentPath = new DataPath(regex.Match(resourceName).Groups[1].Value.Split('.'));
-                var jobject = JObject.Parse(content);
-                var fullBasePath = includeResourceName ? DataPath.Combine(basePath, contentPath) : basePath;
-                AddJsonObjectToDataHub(dataHub, jobject, fullBasePath);
+                
+                var fullBasePath = includeResourceName
+                        ? DataPath.Combine(basePath, contentPath)
+                        : basePath ?? DataPath.Empty;
+
+                using var jsonDocument = JsonDocument.Parse(content);
+                AddJsonElementValuesToDataHub(dataHub, fullBasePath, jsonDocument.RootElement);
             }
         }
 
-        private void AddJsonObjectToDataHub(DataHub dataHub, JObject jobject, DataPath? basePath = null)
+        private void AddJsonElementValuesToDataHub(DataHub dataHub, DataPath basePath, JsonElement jsonElement)
         {
-            var tokens = jobject.Descendants().OfType<JValue>();
-            foreach (var token in tokens)
+            if(jsonElement.ValueKind == JsonValueKind.Object)
             {
-                var nodes = token.Path.Split('.');
-                var dataPath = DataPath.Combine(basePath, new DataPath(nodes));
-                dataHub.Add(dataPath, token.ToObject<object>());
+                foreach(var jsonProperty in jsonElement.EnumerateObject())
+                {
+                    var path = DataPath.Combine(basePath, new DataPath(jsonProperty.Name));
+                    AddJsonElementValuesToDataHub(dataHub, path, jsonProperty.Value);
+                }
             }
+            else
+            {
+                dataHub.Add(basePath, GetJsonElementValue(jsonElement));
+            }            
+        }
+
+        private object GetJsonElementValue(JsonElement jsonElement)
+        {
+            return jsonElement.ValueKind switch
+            {
+                JsonValueKind.False => false,
+                JsonValueKind.True => true,
+                JsonValueKind.Number => jsonElement.GetDouble(),
+                JsonValueKind.String => jsonElement.GetString(),
+                _ => throw new NotImplementedException("Unsupported json token")
+            };
         }
     }
 }
