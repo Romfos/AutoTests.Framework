@@ -81,7 +81,12 @@ namespace AutoTests.Framework.Components.Services
         {
             var type = component.GetType();
             var assembly = type.Assembly;
-            var name = $"{type.FullName}.json";
+
+            var typeName = type.IsGenericType
+                ? type.FullName!.Substring(0, type.FullName.IndexOf('`'))
+                : type.FullName;
+
+            var name = $"{typeName}.json";
 
             var content = embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
                 ? embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, name)

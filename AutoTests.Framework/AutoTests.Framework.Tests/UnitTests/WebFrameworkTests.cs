@@ -6,6 +6,7 @@ using AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
 using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Tests.Web.Components.RoutesTest;
 using AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
+using AutoTests.Framework.Tests.Web.Components.GenericComponentTest;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -65,6 +66,16 @@ namespace AutoTests.Framework.Tests.UnitTests
 
             Assert.AreEqual("abcd", component.GetFirstNestedComponent().GetPrivatePropertyValue());
             Assert.AreEqual("123", component.GetSecondNestedComponent().GetPrivatePropertyValue());
+        }
+
+        [TestMethod]
+        public void GenericComponentTest()
+        {
+            var container = CreateEmptyContainer();
+
+            var component = container.Resolve<GenericComponentTestComponent<object>>();
+
+            Assert.AreEqual(123, component.Value);
         }
     }
 }
