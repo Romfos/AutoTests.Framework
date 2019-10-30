@@ -15,8 +15,14 @@ namespace AutoTests.Framework.Models
 
         public bool Compare(IEnumerable<Model> expectedModels, IEnumerable<Model> actualModels)
         {
-            var modelEqualityComparer = new ModelEqualityComparer(this);
-            return !expectedModels.Except(actualModels, modelEqualityComparer).Any();
+            foreach(var expectedModel in expectedModels)
+            {
+                if(!actualModels.Any(actualModel => Compare(expectedModel, actualModel)))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private List<PropertyLink> GetPropertyLinks(Model model)

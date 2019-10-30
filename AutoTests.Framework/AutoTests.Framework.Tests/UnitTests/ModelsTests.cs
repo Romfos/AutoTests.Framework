@@ -5,6 +5,7 @@ using AutoTests.Framework.Tests.Models.ModelComparatorTest;
 using AutoTests.Framework.Tests.Models.NameAttributeTest;
 using AutoTests.Framework.Tests.Models.NestedModelsTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace AutoTests.Framework.Tests.UnitTests
 {
@@ -99,6 +100,46 @@ namespace AutoTests.Framework.Tests.UnitTests
             PropertyLink.From(() => expected.Value1).Enabled = false;
 
             Assert.IsFalse(modelComparator.Compare(expected, actual));
+        }
+
+        [TestMethod]
+        public void ComparatorModelArrayPositiveTest()
+        {
+            var modelComparator = new ModelComparator();
+
+            var expected = new ModelComparatorTestModel()
+            {
+                Value1 = 1,
+                Value2 = "2"
+            };
+            var actual = new ModelComparatorTestModel()
+            {
+                Value1 = 1,
+                Value2 = "3"
+            };
+            PropertyLink.From(() => expected.Value2).Enabled = false;
+
+            Assert.IsTrue(modelComparator.Compare(new[] { expected }, new[] { actual }));
+        }
+
+        [TestMethod]
+        public void ComparatorModelArrayNegativeTest()
+        {
+            var modelComparator = new ModelComparator();
+
+            var expected = new ModelComparatorTestModel()
+            {
+                Value1 = 1,
+                Value2 = "2"
+            };
+            var actual = new ModelComparatorTestModel()
+            {
+                Value1 = 2,
+                Value2 = "3"
+            };
+            PropertyLink.From(() => expected.Value2).Enabled = false;
+
+            Assert.IsFalse(modelComparator.Compare(new[] { expected }, new[] { actual }));
         }
     }
 }
