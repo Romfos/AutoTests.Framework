@@ -18,16 +18,16 @@ namespace AutoTests.Framework.Models.Specflow
             this.table = table;
         }
 
-        public bool Compare<TModel>(TModel expected) where TModel : Model, new()
+        public bool Compare<TModel>(TModel actual) where TModel : Model, new()
         {
-            var actual = GetModel<TModel>();
-            return modelComparator.Compare(expected, actual);
+            var expected = GetModel<TModel>();
+            return modelComparator.Compare(actual, expected);
         }
 
-        public bool Compare<TModel>(IEnumerable<TModel> expectedModels) where TModel : Model, new()
+        public bool Compare<TModel>(IEnumerable<TModel> actualModels) where TModel : Model, new()
         {
-            var actualModels = GetModels<TModel>();
-            return modelComparator.Compare(expectedModels, actualModels);
+            var expectedModels = GetModels<TModel>();
+            return modelComparator.Compare(actualModels, expectedModels);
         }
 
         public TModel GetModel<TModel>() where TModel : Model, new()
