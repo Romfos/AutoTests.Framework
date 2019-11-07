@@ -27,7 +27,7 @@ namespace AutoTests.Framework.Models.Specflow
         public bool Compare<TModel>(IEnumerable<TModel> actualModels) where TModel : Model, new()
         {
             var expectedModels = GetModels<TModel>();
-            return modelComparator.Compare(actualModels, expectedModels);
+            return modelComparator.Compare(expectedModels, actualModels);
         }
 
         public TModel GetModel<TModel>() where TModel : Model, new()
