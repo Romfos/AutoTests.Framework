@@ -1,12 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../AutoTests.Framework.props" />
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
-    <PackageReference Include="SpecFlow" Version="3.1.52-beta" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="SpecFlow" Version="3.0.225" />
+  <ItemGroup>
+    <PackageReference Include="SpecFlow" Version="3.1.62" />
   </ItemGroup>
 
   <ItemGroup>
