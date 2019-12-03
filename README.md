@@ -14,7 +14,7 @@ Main features:
 - Specflow plugin for Visual Studio
 
 # Development requirements
-- .NET Core 3
+- .NET Core 3.1
 - Visual Studio 2019
 - Specflow plugin for Visual Studio
 - Google Chrome
