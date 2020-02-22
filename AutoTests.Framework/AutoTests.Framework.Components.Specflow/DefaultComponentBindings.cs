@@ -18,22 +18,22 @@ namespace AutoTests.Framework.Components.Specflow
             this.componentRouter = componentRouter;
         }
 
-        [When(@"click on '(.*)' component")]
-        [Given(@"click on '(.*)' component")]
+        [When(@"click on '(.*)'")]
+        [Given(@"click on '(.*)'")]
         public async Task ClickOn(string query)
         {
             await Resolve<IClick>(query).ClickAsync();
         }
 
-        [When(@"set value '(.*)' in '(.*)' component")]
-        [Given(@"set value '(.*)' in '(.*)' component")]
+        [When(@"set value '(.*)' in '(.*)'")]
+        [Given(@"set value '(.*)' in '(.*)'")]
         public async Task SetValueIn(IExpression expression, string query)
         {
             await Resolve<ISetValue>(query).SetValue(expression);
         }
 
-        [Then(@"component '(.*)' should contain '(.*)'")]
-        public async Task ThenComponentShouldContain(string query, IExpression expression)
+        [Then(@"'(.*)' should contain '(.*)'")]
+        public async Task ThenShouldContain(string query, IExpression expression)
         {
             var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
             if(!isEqual)
@@ -42,8 +42,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' shouldn't contain '(.*)'")]
-        public async Task ThenComponentShouldNotContain(string query, IExpression expression)
+        [Then(@"'(.*)' shouldn't contain '(.*)'")]
+        public async Task ThenShouldNotContain(string query, IExpression expression)
         {
             var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
             if (isEqual)
@@ -52,8 +52,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should be enabled")]
-        public async Task ThenComponentShouldBeEnabled(string query)
+        [Then(@"'(.*)' should be enabled")]
+        public async Task ThenShouldBeEnabled(string query)
         {
             var isEnabled = await Resolve<IEnabled>(query).IsEnabledAsync();
             if (!isEnabled)
@@ -62,8 +62,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should be disabled")]
-        public async Task ThenComponentShouldBeDisabled(string query)
+        [Then(@"'(.*)' should be disabled")]
+        public async Task ThenShouldBeDisabled(string query)
         {
             var isEnabled = await Resolve<IEnabled>(query).IsEnabledAsync();
             if (isEnabled)
@@ -72,8 +72,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should be selected")]
-        public async Task ThenComponentShouldBeSelected(string query)
+        [Then(@"'(.*)' should be selected")]
+        public async Task ThenShouldBeSelected(string query)
         {
             var isSelected = await Resolve<ISelected>(query).IsSelectedAsync();
             if (!isSelected)
@@ -82,8 +82,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' shouldn't be selected")]
-        public async Task ThenComponentShouldntBeSelected(string query)
+        [Then(@"'(.*)' shouldn't be selected")]
+        public async Task ThenShouldntBeSelected(string query)
         {
             var isSelected = await Resolve<ISelected>(query).IsSelectedAsync();
             if (isSelected)
@@ -92,8 +92,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should be visible")]
-        public async Task ThenComponentShouldBeVisible(string query)
+        [Then(@"'(.*)' should be visible")]
+        public async Task ThenShouldBeVisible(string query)
         {
             var isVisiable = await Resolve<IVisible>(query).IsVisibleAsync();
             if (!isVisiable)
@@ -102,8 +102,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should be invisible")]
-        public async Task ThenComponentShouldBeInvisible(string query)
+        [Then(@"'(.*)' should be invisible")]
+        public async Task ThenShouldBeInvisible(string query)
         {
             var isVisiable = await Resolve<IVisible>(query).IsVisibleAsync();
             if (isVisiable)
@@ -112,8 +112,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' should contain following values:")]
-        public async Task ThenComponentShouldContainFollowingValues(string query, ModelExpression modelExpression)
+        [Then(@"'(.*)' should contain following values:")]
+        public async Task ThenShouldContainFollowingValues(string query, ModelExpression modelExpression)
         {
             var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (!isMatch)
@@ -122,8 +122,8 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
 
-        [Then(@"component '(.*)' shouldn't contain following values:")]
-        public async Task ThenComponentShouldNotContainFollowingValues(string query, ModelExpression modelExpression)
+        [Then(@"'(.*)' shouldn't contain following values:")]
+        public async Task ThenShouldNotContainFollowingValues(string query, ModelExpression modelExpression)
         {
             var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (isMatch)
