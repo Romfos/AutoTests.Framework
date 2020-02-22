@@ -1,5 +1,6 @@
 ﻿using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Components.Specflow.Contracts;
+using AutoTests.Framework.Components.Specflow.Extensions;
 using AutoTests.Framework.Models.Specflow;
 using AutoTests.Framework.PreProcessor;
 using System;
@@ -22,20 +23,20 @@ namespace AutoTests.Framework.Components.Specflow
         [Given(@"click on '(.*)'")]
         public async Task ClickOn(string query)
         {
-            await Resolve<IClick>(query).ClickAsync();
+            await componentRouter.ResolveContract<IClick>(query).ClickAsync();
         }
 
         [When(@"set value '(.*)' in '(.*)'")]
         [Given(@"set value '(.*)' in '(.*)'")]
         public async Task SetValueIn(IExpression expression, string query)
         {
-            await Resolve<ISetValue>(query).SetValueAsync(expression);
+            await componentRouter.ResolveContract<ISetValue>(query).SetValueAsync(expression);
         }
 
         [Then(@"'(.*)' should contain '(.*)'")]
         public async Task ThenShouldContain(string query, IExpression expression)
         {
-            var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
+            var isEqual = await componentRouter.ResolveContract<IEqualTo>(query).EqualToAsync(expression);
             if(!isEqual)
             {
                 throw new Exception($"Component '{query}' doesn't contain expected value");
@@ -45,7 +46,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' shouldn't contain '(.*)'")]
         public async Task ThenShouldNotContain(string query, IExpression expression)
         {
-            var isEqual = await Resolve<IEqualTo>(query).EqualToAsync(expression);
+            var isEqual = await componentRouter.ResolveContract<IEqualTo>(query).EqualToAsync(expression);
             if (isEqual)
             {
                 throw new Exception($"Component '{query}' contains expected value");
@@ -55,7 +56,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should be enabled")]
         public async Task ThenShouldBeEnabled(string query)
         {
-            var isEnabled = await Resolve<IEnabled>(query).IsEnabledAsync();
+            var isEnabled = await componentRouter.ResolveContract<IEnabled>(query).IsEnabledAsync();
             if (!isEnabled)
             {
                 throw new Exception($"Component '{query}' should be enabled");
@@ -65,7 +66,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should be disabled")]
         public async Task ThenShouldBeDisabled(string query)
         {
-            var isEnabled = await Resolve<IEnabled>(query).IsEnabledAsync();
+            var isEnabled = await componentRouter.ResolveContract<IEnabled>(query).IsEnabledAsync();
             if (isEnabled)
             {
                 throw new Exception($"Component '{query}' should be disabled");
@@ -75,7 +76,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should be selected")]
         public async Task ThenShouldBeSelected(string query)
         {
-            var isSelected = await Resolve<ISelected>(query).IsSelectedAsync();
+            var isSelected = await componentRouter.ResolveContract<ISelected>(query).IsSelectedAsync();
             if (!isSelected)
             {
                 throw new Exception($"Component '{query}' should be selected");
@@ -85,7 +86,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' shouldn't be selected")]
         public async Task ThenShouldntBeSelected(string query)
         {
-            var isSelected = await Resolve<ISelected>(query).IsSelectedAsync();
+            var isSelected = await componentRouter.ResolveContract<ISelected>(query).IsSelectedAsync();
             if (isSelected)
             {
                 throw new Exception($"Component '{query}' shouldn't be selected");
@@ -95,7 +96,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should be visible")]
         public async Task ThenShouldBeVisible(string query)
         {
-            var isVisiable = await Resolve<IVisible>(query).IsVisibleAsync();
+            var isVisiable = await componentRouter.ResolveContract<IVisible>(query).IsVisibleAsync();
             if (!isVisiable)
             {
                 throw new Exception($"Component '{query}' should be visible");
@@ -105,7 +106,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should be invisible")]
         public async Task ThenShouldBeInvisible(string query)
         {
-            var isVisiable = await Resolve<IVisible>(query).IsVisibleAsync();
+            var isVisiable = await componentRouter.ResolveContract<IVisible>(query).IsVisibleAsync();
             if (isVisiable)
             {
                 throw new Exception($"Component '{query}' should be invisible");
@@ -115,7 +116,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' should contain following values:")]
         public async Task ThenShouldContainFollowingValues(string query, ModelExpression modelExpression)
         {
-            var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
+            var isMatch = await componentRouter.ResolveContract<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (!isMatch)
             {
                 throw new Exception($"Component '{query}' doesn't match with expected values");
@@ -125,21 +126,11 @@ namespace AutoTests.Framework.Components.Specflow
         [Then(@"'(.*)' shouldn't contain following values:")]
         public async Task ThenShouldNotContainFollowingValues(string query, ModelExpression modelExpression)
         {
-            var isMatch = await Resolve<IMatchWith>(query).MatchWithAsync(modelExpression);
+            var isMatch = await componentRouter.ResolveContract<IMatchWith>(query).MatchWithAsync(modelExpression);
             if (isMatch)
             {
                 throw new Exception($"Component '{query}' match with expected values");
             }
-        }
-
-        private T Resolve<T>(string query) where T : class
-        {
-            var component = componentRouter.Resolve(RouterRequest.FromQuery(query)) as T;
-            if(component == null)
-            {
-                throw new Exception($"Component must implement '{typeof(T).Name}' contract");
-            }
-            return component;
         }
     }
 }
