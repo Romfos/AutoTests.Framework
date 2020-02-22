@@ -17,7 +17,7 @@ namespace Boostrap.Tests.Web.Components.Shared
         {
         }
 
-        public async Task SetValue(IExpression expression)
+        public async Task SetValueAsync(IExpression expression)
         {
             var text = await expression.ExecuteAsync<string>();
             WebDriver.FindElement(By.CssSelector(Locator)).SendKeys(text);

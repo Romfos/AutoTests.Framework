@@ -16,7 +16,7 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
         {
         }
 
-        public async Task SetValue(IExpression expression)
+        public async Task SetValueAsync(IExpression expression)
         {
             InternalComponentStatus = await expression.ExecuteAsync<int>() == 123;
         }

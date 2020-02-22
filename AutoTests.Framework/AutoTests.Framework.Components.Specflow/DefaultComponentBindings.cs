@@ -29,7 +29,7 @@ namespace AutoTests.Framework.Components.Specflow
         [Given(@"set value '(.*)' in '(.*)'")]
         public async Task SetValueIn(IExpression expression, string query)
         {
-            await Resolve<ISetValue>(query).SetValue(expression);
+            await Resolve<ISetValue>(query).SetValueAsync(expression);
         }
 
         [Then(@"'(.*)' should contain '(.*)'")]

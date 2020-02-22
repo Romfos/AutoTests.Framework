@@ -5,6 +5,6 @@ namespace AutoTests.Framework.Components.Specflow.Contracts
 {
     public interface ISetValue
     {
-        Task SetValue(IExpression expression);
+        Task SetValueAsync(IExpression expression);
     }
 }
