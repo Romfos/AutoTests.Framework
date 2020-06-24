@@ -8,7 +8,7 @@ Main features:
 - Test data management framework
 - Model transformation framework
 
-# Use requirements
+# Framework runtime requirements
 - .NET Standart 2.0
 - Visual Studio 2017, 2019
 - Specflow plugin for Visual Studio
