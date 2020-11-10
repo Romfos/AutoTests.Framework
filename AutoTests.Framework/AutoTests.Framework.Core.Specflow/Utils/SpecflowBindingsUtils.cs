@@ -54,7 +54,7 @@ namespace AutoTests.Framework.Core.Specflow.Utils
         {
             return type.GetMethods()
                 .Select(x => (method: x, attribute: x.GetCustomAttributes().OfType<T>().SingleOrDefault()))
-                .Where(x => x.attribute != null);
+                .Where(x => x.attribute != null)!;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AutoTests.Framework.Data
                 {
                     var next = new ExpandoObject();
                     current.Add(node, next);
-                    current = next;
+                    current = next as IDictionary<string, object>;
                 }
             }
             return current;

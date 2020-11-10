@@ -63,7 +63,7 @@ namespace AutoTests.Framework.Data.Loaders
                 JsonValueKind.False => false,
                 JsonValueKind.True => true,
                 JsonValueKind.Number => jsonElement.GetDouble(),
-                JsonValueKind.String => jsonElement.GetString(),
+                JsonValueKind.String => jsonElement.GetString()!,
                 _ => throw new NotImplementedException("Unsupported json token")
             };
         }
