@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../AutoTests.Framework.props" />
+  
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Components.Routes\AutoTests.Framework.Components.Routes.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.Components.Specflow\AutoTests.Framework.Components.Specflow.csproj" />
@@ -13,4 +14,5 @@
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor.Specflow\AutoTests.Framework.PreProcessor.Specflow.csproj" />
     <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
   </ItemGroup>
+  
 </Project>
