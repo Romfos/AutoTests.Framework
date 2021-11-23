@@ -2,7 +2,7 @@
   <Import Project="../AutoTests.Framework.props" />
 
   <ItemGroup>
-    <PackageReference Include="SpecFlow" Version="3.9.22" />
+    <PackageReference Include="SpecFlow" Version="3.9.40" />
   </ItemGroup>
 
   <ItemGroup>
