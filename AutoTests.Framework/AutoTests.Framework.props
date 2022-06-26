@@ -4,7 +4,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>4.8.3</Version>
+    <Version>4.8.4</Version>
   </PropertyGroup>
 
   <PropertyGroup>
