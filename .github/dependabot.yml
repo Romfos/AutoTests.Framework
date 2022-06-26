@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/AutoTests.Framework/AutoTests.Framework.sln" # Location of package manifests
+    directory: "/AutoTests.Framework/" # Location of package manifests
     schedule:
       interval: "daily"
     open-pull-requests-limit: 1
