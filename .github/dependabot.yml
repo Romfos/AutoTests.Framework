@@ -1,4 +1,3 @@
-/AutoTests.Framework.sln
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/AutoTests.Framework/AutoTests.Framework.sln" # Location of package manifests
