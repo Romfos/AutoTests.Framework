@@ -2,13 +2,9 @@
   <Import Project="../AutoTests.Framework.props" />
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Text.Json" Version="6.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="6.0.4" />
   </ItemGroup>
-  
+	
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework.Core\AutoTests.Framework.Core.csproj" />
   </ItemGroup>
