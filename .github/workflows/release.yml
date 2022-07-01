@@ -1,5 +1,10 @@
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Nuget package version"
+        required: true
+        type: string
 
 jobs:
   release:
@@ -14,7 +19,7 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: pack
-        run: dotnet pack ./AutoTests.Framework/AutoTests.Framework.sln -p:Configuration=Release -o "./build"
+        run: dotnet pack ./AutoTests.Framework/AutoTests.Framework.sln -p:Configuration=Release -p:Version=${{ inputs.Version }} -o "./build"
 
       - name: push to nuget
         run: dotnet nuget push ./build/*.nupkg -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json
