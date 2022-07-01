@@ -2,6 +2,8 @@
 
 SpecFlow based autotest framework
 
+[![.github/workflows/test.yml](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml/badge.svg)](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml)
+
 Main features:
 - Pre Processor framework (allow to use C# expressions in specflow scenarios)
 - Component framework (in primamry it is used for integration with other UI frameworks like Selenium WebDriver)
