@@ -16,4 +16,4 @@ jobs:
         run: dotnet build ./AutoTests.Framework/AutoTests.Framework.sln
 
       - name: Test
-        run: dotnet test --no-build --no-restore ./AutoTests.Framework/AutoTests.Framework.Tests/AutoTests.Framework.Tests.csproj
+        run: dotnet test --no-build --no-restore ./AutoTests.Framework/AutoTests.Framework.sln
