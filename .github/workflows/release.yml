@@ -5,16 +5,16 @@ on:
         description: "Nuget package version"
         required: true
         type: string
-        default: '4.8.x'
+        default: '4.9.x'
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 7.0.x
     
       - name: Check out repository
         uses: actions/checkout@v3
