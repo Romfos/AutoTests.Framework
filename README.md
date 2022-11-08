@@ -11,7 +11,7 @@ Main features:
 - Model transformation framework
 
 # Requirements
-- .NET 6 or .NET Standart 2.0  for older runtimes
+- .NET 6+ (or .NET Standart 2.0  for older runtimes)
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
 
