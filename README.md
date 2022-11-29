@@ -10,12 +10,12 @@ Main features:
 - Test data management framework
 - Model transformation framework
 
-# Requirements
+# Framework requirements
 - .NET 6+ (or .NET Standart 2.0  for older runtimes)
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
 
-# Repository dev requirements
+# This repository dev requirements
 - .NET 7 SDK
 - Visual Studio 2022
 - Specflow plugin for Visual Studio
