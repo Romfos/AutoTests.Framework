@@ -1,17 +1,17 @@
 ﻿using AutoTests.Framework.Components;
 using AutoTests.Framework.Components.Services;
-using OpenQA.Selenium;
+using Microsoft.Playwright;
 
 namespace Boostrap.Tests.Web.Components
 {
-    public abstract class BootstrapComponent : Component
-    {
-        protected IWebDriver WebDriver { get; }
+	public abstract class BootstrapComponent : Component
+	{
+		protected IPage Page { get; }
 
-        protected BootstrapComponent(ComponentService componentService, IWebDriver webDriver) 
-            : base(componentService)
-        {
-            WebDriver  = webDriver;
-        }
-    }
+		protected BootstrapComponent(ComponentService componentService, IPage page)
+			: base(componentService)
+		{
+			Page = page;
+		}
+	}
 }
