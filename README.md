@@ -15,8 +15,8 @@ Main features:
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
 
-# Development requirements
-- .NET 6 SDK
+# Repository dev requirements
+- .NET 7 SDK
 - Visual Studio 2022
 - Specflow plugin for Visual Studio
 - Google Chrome
