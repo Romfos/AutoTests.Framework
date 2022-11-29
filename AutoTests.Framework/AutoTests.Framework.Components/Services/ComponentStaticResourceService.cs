@@ -7,91 +7,91 @@ using System.Text.Json;
 
 namespace AutoTests.Framework.Components.Services;
 
-    public class ComponentStaticResourceService
+public class ComponentStaticResourceService
+{
+    private readonly EmbeddedResourceUtils embeddedResourceUtils;
+    private readonly ComponentReflectionUtils componentReflectionUtils;
+
+    public ComponentStaticResourceService(
+        EmbeddedResourceUtils embeddedResourceUtils,
+        ComponentReflectionUtils componentReflectionUtils)
     {
-        private readonly EmbeddedResourceUtils embeddedResourceUtils;
-        private readonly ComponentReflectionUtils componentReflectionUtils;
+        this.embeddedResourceUtils = embeddedResourceUtils;
+        this.componentReflectionUtils = componentReflectionUtils;
+    }
 
-        public ComponentStaticResourceService(
-            EmbeddedResourceUtils embeddedResourceUtils, 
-            ComponentReflectionUtils componentReflectionUtils)
+    public virtual void InitializeComponent(Component component)
+    {
+        var content = GetJsonResourceContent(component);
+        if (content != null)
         {
-            this.embeddedResourceUtils = embeddedResourceUtils;
-            this.componentReflectionUtils = componentReflectionUtils;
+            using var jsonDocument = JsonDocument.Parse(content);
+            SetResourceValuesToComponent(component, jsonDocument.RootElement);
         }
+    }
 
-        public virtual void InitializeComponent(Component component)
+    private void SetResourceValuesToComponent(Component component, JsonElement jsonElement)
+    {
+        var propertyInfos = componentReflectionUtils.GetPropertiesWithGetttersAndSetters(component).ToList();
+        foreach (var jsonProperty in jsonElement.EnumerateObject())
         {
-            var content = GetJsonResourceContent(component);
-            if(content != null)
+            var propertyInfo = propertyInfos.SingleOrDefault(x => x.Name == jsonProperty.Name);
+            if (propertyInfo == null)
             {
-                using var jsonDocument = JsonDocument.Parse(content);
-                SetResourceValuesToComponent(component, jsonDocument.RootElement);
+                throw new AutoTestFrameworkException(
+                    $"Unable to find property '{jsonProperty.Name}' in component '{component.GetType().FullName}'");
             }
+            SetResourceValueToComponent(component, propertyInfo, jsonProperty.Value);
         }
+    }
 
-        private void SetResourceValuesToComponent(Component component, JsonElement jsonElement)
+    private void SetResourceValueToComponent(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
+    {
+        if (propertyInfo.PropertyType.IsSubclassOf(typeof(Component)))
         {
-            var propertyInfos = componentReflectionUtils.GetPropertiesWithGetttersAndSetters(component).ToList();
-            foreach(var jsonProperty in jsonElement.EnumerateObject())
+            var nestedComponent = GetNestedComponent(component, propertyInfo);
+            if (jsonElement.ValueKind == JsonValueKind.Object)
             {
-                var propertyInfo = propertyInfos.SingleOrDefault(x => x.Name == jsonProperty.Name);
-                if(propertyInfo == null)
-                {
-                    throw new AutoTestFrameworkException(
-                        $"Unable to find property '{jsonProperty.Name}' in component '{component.GetType().FullName}'");
-                }
-                SetResourceValueToComponent(component, propertyInfo, jsonProperty.Value);
-            }
-        }
-
-        private void SetResourceValueToComponent(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
-        {
-            if (propertyInfo.PropertyType.IsSubclassOf(typeof(Component)))
-            {
-                var nestedComponent = GetNestedComponent(component, propertyInfo);
-                if (jsonElement.ValueKind == JsonValueKind.Object)
-                {
-                    SetResourceValuesToComponent(nestedComponent, jsonElement);
-                }
-                else
-                {
-                    var primaryProperty = componentReflectionUtils.GetPrimaryProperty(nestedComponent);
-                    SetPropertyValue(nestedComponent, primaryProperty, jsonElement);
-                }
+                SetResourceValuesToComponent(nestedComponent, jsonElement);
             }
             else
             {
-                SetPropertyValue(component, propertyInfo, jsonElement);
+                var primaryProperty = componentReflectionUtils.GetPrimaryProperty(nestedComponent);
+                SetPropertyValue(nestedComponent, primaryProperty, jsonElement);
             }
         }
-
-        private Component GetNestedComponent(Component component, PropertyInfo propertyInfo)
+        else
         {
-            return (Component) propertyInfo.GetValue(component)!;
-        }
-
-        private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
-        {
-            var value = JsonSerializer.Deserialize(jsonElement.GetRawText(), propertyInfo.PropertyType);
-            propertyInfo.SetValue(component, value);
-        }
-
-        private string? GetJsonResourceContent(Component component)
-        {
-            var type = component.GetType();
-            var assembly = type.Assembly;
-
-            var typeName = type.IsGenericType
-                ? type.FullName!.Substring(0, type.FullName.IndexOf('`'))
-                : type.FullName;
-
-            var name = $"{typeName}.json";
-
-            var content = embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
-                ? embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, name)
-                : null;
-
-            return content;
+            SetPropertyValue(component, propertyInfo, jsonElement);
         }
     }
+
+    private Component GetNestedComponent(Component component, PropertyInfo propertyInfo)
+    {
+        return (Component)propertyInfo.GetValue(component)!;
+    }
+
+    private void SetPropertyValue(Component component, PropertyInfo propertyInfo, JsonElement jsonElement)
+    {
+        var value = JsonSerializer.Deserialize(jsonElement.GetRawText(), propertyInfo.PropertyType);
+        propertyInfo.SetValue(component, value);
+    }
+
+    private string? GetJsonResourceContent(Component component)
+    {
+        var type = component.GetType();
+        var assembly = type.Assembly;
+
+        var typeName = type.IsGenericType
+            ? type.FullName!.Substring(0, type.FullName.IndexOf('`'))
+            : type.FullName;
+
+        var name = $"{typeName}.json";
+
+        var content = embeddedResourceUtils.DoesLocalEmbeddedResourceExist(assembly, name)
+            ? embeddedResourceUtils.GetLocalEmbeddedResourceText(assembly, name)
+            : null;
+
+        return content;
+    }
+}

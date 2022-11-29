@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Components.Specflow.Contracts;
 
-    public interface ISelected
-    {
-        Task<bool> IsSelectedAsync();
-    }
+public interface ISelected
+{
+    Task<bool> IsSelectedAsync();
+}

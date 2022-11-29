@@ -2,14 +2,14 @@
 
 namespace Boostrap.Tests;
 
-    public class BoostrapGlobals
+public class BoostrapGlobals
+{
+    private readonly DataHub dataHub;
+
+    public dynamic Data => dataHub.CreateDynamicObject();
+
+    public BoostrapGlobals(DataHub dataHub)
     {
-        private readonly DataHub dataHub;
-
-        public dynamic Data => dataHub.CreateDynamicObject();
-
-        public BoostrapGlobals(DataHub dataHub)
-        {
-            this.dataHub = dataHub;
-        }
+        this.dataHub = dataHub;
     }
+}

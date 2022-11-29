@@ -5,10 +5,10 @@ using System.Reflection;
 
 namespace AutoTests.Framework.Tests.UnitTests;
 
-    public abstract class UnitTestsBase
+public abstract class UnitTestsBase
+{
+    protected IContainer CreateEmptyContainer()
     {
-        protected IContainer CreateEmptyContainer()
-        {
-            return new SpecflowContainer(new ObjectContainer(), Assembly.GetExecutingAssembly());
-        }
+        return new SpecflowContainer(new ObjectContainer(), Assembly.GetExecutingAssembly());
     }
+}

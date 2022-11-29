@@ -5,14 +5,14 @@ using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Tests.Specflow.Steps;
 
-    [Binding]
-    public class PreProcessorSteps
+[Binding]
+public class PreProcessorSteps
+{
+    [Then(@"PreProcessor expression '(.*)' should be equal '(.*)'")]
+    public async Task ThenPreProcessorExpressionShouldBeEqual(IExpression expression, int expected)
     {
-        [Then(@"PreProcessor expression '(.*)' should be equal '(.*)'")]
-        public async Task ThenPreProcessorExpressionShouldBeEqual(IExpression expression, int expected)
-        {
-            var actual = await expression.ExecuteAsync<int>();
+        var actual = await expression.ExecuteAsync<int>();
 
-            Assert.AreEqual(expected, actual);
-        }
+        Assert.AreEqual(expected, actual);
     }
+}

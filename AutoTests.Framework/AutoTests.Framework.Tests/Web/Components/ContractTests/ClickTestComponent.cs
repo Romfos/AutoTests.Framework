@@ -6,18 +6,18 @@ using AutoTests.Framework.Components.Specflow.Contracts;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
 
-    [Route("click test component")]
-    public class ClickTestComponent : Component, IClick, IInternalComponentStatus
+[Route("click test component")]
+public class ClickTestComponent : Component, IClick, IInternalComponentStatus
+{
+    public bool InternalComponentStatus { get; set; }
+
+    public ClickTestComponent(ComponentService componentService) : base(componentService)
     {
-        public bool InternalComponentStatus { get; set; }
-
-        public ClickTestComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public Task ClickAsync()
-        {
-            InternalComponentStatus = true;
-            return Task.CompletedTask;
-        }
     }
+
+    public Task ClickAsync()
+    {
+        InternalComponentStatus = true;
+        return Task.CompletedTask;
+    }
+}

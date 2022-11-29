@@ -9,25 +9,25 @@ namespace Boostrap.Tests.Web.Components.Shared;
 
 public class InputComponent : BootstrapComponent, ISetValue, IEqualTo
 {
-	[Primary]
-	public string Locator { get; set; }
+    [Primary]
+    public string Locator { get; set; }
 
-	public InputComponent(ComponentService componentService, IPage page)
-		: base(componentService, page)
-	{
-	}
+    public InputComponent(ComponentService componentService, IPage page)
+        : base(componentService, page)
+    {
+    }
 
-	public async Task SetValueAsync(IExpression expression)
-	{
-		var text = await expression.ExecuteAsync<string>();
+    public async Task SetValueAsync(IExpression expression)
+    {
+        var text = await expression.ExecuteAsync<string>();
 
-		await Page.Locator(Locator).FillAsync(text);
-	}
+        await Page.Locator(Locator).FillAsync(text);
+    }
 
-	public async Task<bool> EqualToAsync(IExpression expression)
-	{
-		var expected = await expression.ExecuteAsync<string>();
-		var actual = await Page.Locator(Locator).InputValueAsync();
-		return expected == actual;
-	}
+    public async Task<bool> EqualToAsync(IExpression expression)
+    {
+        var expected = await expression.ExecuteAsync<string>();
+        var actual = await Page.Locator(Locator).InputValueAsync();
+        return expected == actual;
+    }
 }

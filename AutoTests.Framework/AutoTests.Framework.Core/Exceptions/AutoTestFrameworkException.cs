@@ -2,9 +2,9 @@
 
 namespace AutoTests.Framework.Core.Exceptions;
 
-    public class AutoTestFrameworkException : Exception
+public class AutoTestFrameworkException : Exception
+{
+    public AutoTestFrameworkException(string message) : base(message)
     {
-        public AutoTestFrameworkException(string message) : base(message)
-        {
-        }
     }
+}

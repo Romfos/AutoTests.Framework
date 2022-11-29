@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Tests.Models.NestedModelsTest;
 
-    public class NestedModelsTestNestedModel : Model
-    {
-        public int Value2 { get; } = 2;
-    }
+public class NestedModelsTestNestedModel : Model
+{
+    public int Value2 { get; } = 2;
+}

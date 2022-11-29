@@ -4,24 +4,24 @@ using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
 
-    public class PrivateMemberTestTopComponent : Component
+public class PrivateMemberTestTopComponent : Component
+{
+    private PrivateMemberTestNestedComponent FirstNestedComponent { set; get; }
+
+    [Content("123")]
+    private PrivateMemberTestNestedComponent SecondNestedComponent { get; set; }
+
+    public PrivateMemberTestTopComponent(ComponentService componentService) : base(componentService)
     {
-        private PrivateMemberTestNestedComponent FirstNestedComponent { set; get; }
-        
-        [Content("123")]
-        private PrivateMemberTestNestedComponent SecondNestedComponent { get; set; }
-
-        public PrivateMemberTestTopComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public PrivateMemberTestNestedComponent GetFirstNestedComponent()
-        {
-            return FirstNestedComponent;
-        }
-
-        public PrivateMemberTestNestedComponent GetSecondNestedComponent()
-        {
-            return SecondNestedComponent;
-        }
     }
+
+    public PrivateMemberTestNestedComponent GetFirstNestedComponent()
+    {
+        return FirstNestedComponent;
+    }
+
+    public PrivateMemberTestNestedComponent GetSecondNestedComponent()
+    {
+        return SecondNestedComponent;
+    }
+}

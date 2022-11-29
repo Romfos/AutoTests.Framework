@@ -2,14 +2,14 @@
 
 namespace AutoTests.Framework.Tests.Data;
 
-    public class DataOverPreProcessorTestGlobals
+public class DataOverPreProcessorTestGlobals
+{
+    private readonly DataHub dataHub;
+
+    public dynamic Data => dataHub.CreateDynamicObject();
+
+    public DataOverPreProcessorTestGlobals(DataHub dataHub)
     {
-        private readonly DataHub dataHub;
-
-        public dynamic Data => dataHub.CreateDynamicObject();
-
-        public DataOverPreProcessorTestGlobals(DataHub dataHub)
-        {
-            this.dataHub = dataHub;
-        }
+        this.dataHub = dataHub;
     }
+}

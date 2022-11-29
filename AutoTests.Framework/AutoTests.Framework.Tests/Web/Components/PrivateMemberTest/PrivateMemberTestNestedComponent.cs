@@ -4,17 +4,17 @@ using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
 
-    public class PrivateMemberTestNestedComponent : Component
+public class PrivateMemberTestNestedComponent : Component
+{
+    [Primary]
+    private string Value { get; set; }
+
+    public PrivateMemberTestNestedComponent(ComponentService componentService) : base(componentService)
     {
-        [Primary]
-        private string Value { get; set; }
-
-        public PrivateMemberTestNestedComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public string GetPrivatePropertyValue()
-        {
-            return Value;
-        }
     }
+
+    public string GetPrivatePropertyValue()
+    {
+        return Value;
+    }
+}

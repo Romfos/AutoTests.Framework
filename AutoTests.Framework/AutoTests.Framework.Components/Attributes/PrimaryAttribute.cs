@@ -2,6 +2,6 @@
 
 namespace AutoTests.Framework.Components.Attributes;
 
-    public class PrimaryAttribute : Attribute
-    {
-    }
+public class PrimaryAttribute : Attribute
+{
+}

@@ -7,17 +7,17 @@ using AutoTests.Framework.PreProcessor;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
 
-    [Route("set value test component")]
-    public class SetValueTestComponent : Component, ISetValue, IInternalComponentStatus
+[Route("set value test component")]
+public class SetValueTestComponent : Component, ISetValue, IInternalComponentStatus
+{
+    public bool InternalComponentStatus { get; set; }
+
+    public SetValueTestComponent(ComponentService componentService) : base(componentService)
     {
-        public bool InternalComponentStatus { get; set; }
-
-        public SetValueTestComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public async Task SetValueAsync(IExpression expression)
-        {
-            InternalComponentStatus = await expression.ExecuteAsync<int>() == 123;
-        }
     }
+
+    public async Task SetValueAsync(IExpression expression)
+    {
+        InternalComponentStatus = await expression.ExecuteAsync<int>() == 123;
+    }
+}

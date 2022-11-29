@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
 
-    [Route("disabled test component")]
-    public class DisabledTestComponent : Component, IEnabled, IInternalComponentStatus
+[Route("disabled test component")]
+public class DisabledTestComponent : Component, IEnabled, IInternalComponentStatus
+{
+    public bool InternalComponentStatus { get; set; }
+
+    public DisabledTestComponent(ComponentService componentService) : base(componentService)
     {
-        public bool InternalComponentStatus { get; set; }
-
-        public DisabledTestComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public Task<bool> IsEnabledAsync()
-        {
-            InternalComponentStatus = true;
-            return Task.FromResult(false);
-        }
     }
+
+    public Task<bool> IsEnabledAsync()
+    {
+        InternalComponentStatus = true;
+        return Task.FromResult(false);
+    }
+}

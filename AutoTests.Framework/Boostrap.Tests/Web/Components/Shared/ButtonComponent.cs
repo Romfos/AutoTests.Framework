@@ -8,16 +8,16 @@ namespace Boostrap.Tests.Web.Components.Shared;
 
 public class ButtonComponent : BootstrapComponent, IClick
 {
-	[Primary]
-	public string Locator { get; set; }
+    [Primary]
+    public string Locator { get; set; }
 
-	public ButtonComponent(ComponentService componentService, IPage page)
-		: base(componentService, page)
-	{
-	}
+    public ButtonComponent(ComponentService componentService, IPage page)
+        : base(componentService, page)
+    {
+    }
 
-	public async Task ClickAsync()
-	{
-		await Page.ClickAsync(Locator);
-	}
+    public async Task ClickAsync()
+    {
+        await Page.ClickAsync(Locator);
+    }
 }

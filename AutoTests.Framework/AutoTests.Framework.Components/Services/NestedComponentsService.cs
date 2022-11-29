@@ -3,23 +3,23 @@ using AutoTests.Framework.Core;
 
 namespace AutoTests.Framework.Components.Services;
 
-    public class NestedComponentsService
+public class NestedComponentsService
+{
+    private readonly ComponentReflectionUtils componentReflectionUtils;
+    private readonly IContainer container;
+
+    public NestedComponentsService(IContainer container, ComponentReflectionUtils componentReflectionUtils)
     {
-        private readonly ComponentReflectionUtils componentReflectionUtils;
-        private readonly IContainer container;
+        this.container = container;
+        this.componentReflectionUtils = componentReflectionUtils;
+    }
 
-        public NestedComponentsService(IContainer container, ComponentReflectionUtils componentReflectionUtils)
+    public virtual void InitializeComponent(Component component)
+    {
+        foreach (var propertyInfo in componentReflectionUtils.GetComponentProperties(component))
         {
-            this.container = container;
-            this.componentReflectionUtils = componentReflectionUtils;
-        }
-
-        public virtual void InitializeComponent(Component component)
-        {
-            foreach (var propertyInfo in componentReflectionUtils.GetComponentProperties(component))
-            {
-                var nestedCompnent = container.Create(propertyInfo.PropertyType);
-                propertyInfo.SetValue(component, nestedCompnent);
-            }
+            var nestedCompnent = container.Create(propertyInfo.PropertyType);
+            propertyInfo.SetValue(component, nestedCompnent);
         }
     }
+}

@@ -2,12 +2,12 @@
 
 namespace AutoTests.Framework.Components.Attributes;
 
-    public class ContentAttribute : Attribute
-    {
-        public string Data { get; }
+public class ContentAttribute : Attribute
+{
+    public string Data { get; }
 
-        public ContentAttribute(string data)
-        {
-            Data = data;
-        }
+    public ContentAttribute(string data)
+    {
+        Data = data;
     }
+}

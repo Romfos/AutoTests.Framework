@@ -6,18 +6,18 @@ using AutoTests.Framework.Components.Specflow.Contracts;
 
 namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
 
-    [Route("visible test component")]
-    public class VisibleTestComponent : Component, IVisible, IInternalComponentStatus
+[Route("visible test component")]
+public class VisibleTestComponent : Component, IVisible, IInternalComponentStatus
+{
+    public bool InternalComponentStatus { get; set; }
+
+    public VisibleTestComponent(ComponentService componentService) : base(componentService)
     {
-        public bool InternalComponentStatus { get; set; }
-
-        public VisibleTestComponent(ComponentService componentService) : base(componentService)
-        {
-        }
-
-        public Task<bool> IsVisibleAsync()
-        {
-            InternalComponentStatus = true;
-            return Task.FromResult(true);
-        }
     }
+
+    public Task<bool> IsVisibleAsync()
+    {
+        InternalComponentStatus = true;
+        return Task.FromResult(true);
+    }
+}

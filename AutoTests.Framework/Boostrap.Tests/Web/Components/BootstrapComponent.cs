@@ -6,11 +6,11 @@ namespace Boostrap.Tests.Web.Components;
 
 public abstract class BootstrapComponent : Component
 {
-	protected IPage Page { get; }
+    protected IPage Page { get; }
 
-	protected BootstrapComponent(ComponentService componentService, IPage page)
-		: base(componentService)
-	{
-		Page = page;
-	}
+    protected BootstrapComponent(ComponentService componentService, IPage page)
+        : base(componentService)
+    {
+        Page = page;
+    }
 }

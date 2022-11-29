@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Components.Specflow.Contracts;
 
-    public interface IEqualTo
-    {
-        Task<bool> EqualToAsync(IExpression expression);
-    }
+public interface IEqualTo
+{
+    Task<bool> EqualToAsync(IExpression expression);
+}

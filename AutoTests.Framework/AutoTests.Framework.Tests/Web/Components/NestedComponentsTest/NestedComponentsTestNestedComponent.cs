@@ -3,9 +3,9 @@ using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.NestedComponentsTest;
 
-    public class NestedComponentsTestNestedComponent : Component
+public class NestedComponentsTestNestedComponent : Component
+{
+    public NestedComponentsTestNestedComponent(ComponentService componentService) : base(componentService)
     {
-        public NestedComponentsTestNestedComponent(ComponentService componentService) : base(componentService)
-        {
-        }
     }
+}

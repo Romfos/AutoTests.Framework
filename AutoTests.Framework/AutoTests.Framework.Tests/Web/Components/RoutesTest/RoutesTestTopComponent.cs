@@ -4,13 +4,13 @@ using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.RoutesTest;
 
-    [Route("RoutesTestNestedComponent")]
-    public class RoutesTestTopComponent : Component
-    {
-        [Route("NestedComponent")]
-        public RoutesTestNestedComponent NestedComponent { get; set; }
+[Route("RoutesTestNestedComponent")]
+public class RoutesTestTopComponent : Component
+{
+    [Route("NestedComponent")]
+    public RoutesTestNestedComponent NestedComponent { get; set; }
 
-        public RoutesTestTopComponent(ComponentService componentService) : base(componentService)
-        {
-        }
+    public RoutesTestTopComponent(ComponentService componentService) : base(componentService)
+    {
     }
+}

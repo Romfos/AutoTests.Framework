@@ -4,12 +4,12 @@ using AutoTests.Framework.Components.Services;
 
 namespace AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
 
-    public class ConentAttributeTestNestedComponent : Component
-    {
-        [Primary]
-        public string Value { get; set; }
+public class ConentAttributeTestNestedComponent : Component
+{
+    [Primary]
+    public string Value { get; set; }
 
-        public ConentAttributeTestNestedComponent(ComponentService componentService) : base(componentService)
-        {
-        }
+    public ConentAttributeTestNestedComponent(ComponentService componentService) : base(componentService)
+    {
     }
+}

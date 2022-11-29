@@ -10,25 +10,25 @@ using AutoTests.Framework.Models.Specflow.Extensions;
 
 namespace AutoTests.Framework.Tests.Specflow.Hooks;
 
-    [Binding]
-    public class SpecflowHooks
+[Binding]
+public class SpecflowHooks
+{
+    private readonly IObjectContainer objectContainer;
+
+    public SpecflowHooks(IObjectContainer objectContainer)
     {
-        private readonly IObjectContainer objectContainer;
-
-        public SpecflowHooks(IObjectContainer objectContainer)
-        {
-            this.objectContainer = objectContainer;
-        }
-
-        [BeforeScenario]
-        public void BeforeScenario()
-        {
-            var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
-            
-            new AutoTestsAppBuilder(container)
-                .UseRoslynPreProcessor()
-                .UseDefaultPreProcessorBindings()
-                .UseDefaultComponentBindings()
-                .UseModelTransformations();
-        }
+        this.objectContainer = objectContainer;
     }
+
+    [BeforeScenario]
+    public void BeforeScenario()
+    {
+        var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
+
+        new AutoTestsAppBuilder(container)
+            .UseRoslynPreProcessor()
+            .UseDefaultPreProcessorBindings()
+            .UseDefaultComponentBindings()
+            .UseModelTransformations();
+    }
+}

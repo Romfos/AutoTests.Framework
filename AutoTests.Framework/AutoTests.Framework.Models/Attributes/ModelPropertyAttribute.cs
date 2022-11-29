@@ -2,6 +2,6 @@
 
 namespace AutoTests.Framework.Models.Attributes;
 
-    public abstract class ModelPropertyAttribute : Attribute
-    {
-    }
+public abstract class ModelPropertyAttribute : Attribute
+{
+}

@@ -2,10 +2,10 @@
 
 namespace AutoTests.Framework.Components;
 
-    public abstract class Component
+public abstract class Component
+{
+    protected Component(ComponentService componentService)
     {
-        protected Component(ComponentService componentService)
-        {
-            componentService.InitializeComponent(this);
-        }
+        componentService.InitializeComponent(this);
     }
+}

@@ -1,9 +1,9 @@
 ﻿namespace AutoTests.Framework.Core.Extensions;
 
-    public static class ContainerExtensions
+public static class ContainerExtensions
+{
+    public static T Resolve<T>(this IContainer container)
     {
-        public static T Resolve<T>(this IContainer container)
-        {
-            return (T) container.Resolve(typeof(T));
-        }
+        return (T)container.Resolve(typeof(T));
     }
+}

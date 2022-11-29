@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Components.Specflow.Contracts;
 
-    public interface IClick
-    {
-        Task ClickAsync();
-    }
+public interface IClick
+{
+    Task ClickAsync();
+}

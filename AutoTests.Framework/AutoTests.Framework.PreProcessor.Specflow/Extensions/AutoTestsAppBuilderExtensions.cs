@@ -4,12 +4,12 @@ using AutoTests.Framework.Core.Extensions;
 
 namespace AutoTests.Framework.PreProcessor.Specflow.Extensions;
 
-    public static class AutoTestsAppBuilderExtensions
+public static class AutoTestsAppBuilderExtensions
+{
+    public static AutoTestsAppBuilder UseDefaultPreProcessorBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
     {
-        public static AutoTestsAppBuilder UseDefaultPreProcessorBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
-        {
-            var specflowBindingsUtils = autoTestsAppBuilder.Container.Resolve<SpecflowBindingsUtils>();
-            specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessorBindings));
-            return autoTestsAppBuilder;
-        }
+        var specflowBindingsUtils = autoTestsAppBuilder.Container.Resolve<SpecflowBindingsUtils>();
+        specflowBindingsUtils.RegisterBindings(typeof(DefaultPreProcessorBindings));
+        return autoTestsAppBuilder;
     }
+}

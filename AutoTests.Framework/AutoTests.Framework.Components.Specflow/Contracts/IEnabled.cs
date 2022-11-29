@@ -2,7 +2,7 @@
 
 namespace AutoTests.Framework.Components.Specflow.Contracts;
 
-    public interface IEnabled
-    {
-        Task<bool> IsEnabledAsync();
-    }
+public interface IEnabled
+{
+    Task<bool> IsEnabledAsync();
+}
