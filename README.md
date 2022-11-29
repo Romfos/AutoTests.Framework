@@ -6,7 +6,7 @@ SpecFlow based autotest framework
 
 Main features:
 - Pre Processor framework (allow to use C# expressions in specflow scenarios)
-- Component framework (in primamry it is used for integration with other UI frameworks like Selenium WebDriver)
+- Component framework (in primamry it is used for integration with other UI frameworks like Playwright\Selenium WebDriver)
 - Test data management framework
 - Model transformation framework
 
