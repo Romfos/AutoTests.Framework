@@ -3,8 +3,8 @@ using AutoTests.Framework.Core.Specflow.Utils;
 using AutoTests.Framework.Core.Extensions;
 using System.Linq;
 
-namespace AutoTests.Framework.Models.Specflow.Extensions
-{
+namespace AutoTests.Framework.Models.Specflow.Extensions;
+
     public static class AutoTestsAppBuilderExtensions
     {
         public static AutoTestsAppBuilder UseModelTransformations(this AutoTestsAppBuilder autoTestsAppBuilder)
@@ -20,4 +20,3 @@ namespace AutoTests.Framework.Models.Specflow.Extensions
             return autoTestsAppBuilder;
         }
     }
-}

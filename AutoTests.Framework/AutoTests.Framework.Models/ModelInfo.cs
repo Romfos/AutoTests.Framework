@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Models
-{
+namespace AutoTests.Framework.Models;
+
     public class ModelInfo
     {
         private readonly List<Model> nestedModels;
@@ -98,4 +98,3 @@ namespace AutoTests.Framework.Models
             return model.GetType().GetProperties(bindingFlags);
         }
     }
-}

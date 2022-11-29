@@ -6,8 +6,8 @@ using AutoTests.Framework.Components.Specflow.Contracts;
 using AutoTests.Framework.Models.Specflow;
 using AutoTests.Framework.Tests.Models.MismatchTest;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("mismatch test component")]
     public class MismatchTestComponent : Component, IMatchWith, IInternalComponentStatus
     {
@@ -30,4 +30,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return Task.FromResult(false);
         }
     }
-}

@@ -4,8 +4,8 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace AutoTests.Framework.Data.Loaders
-{
+namespace AutoTests.Framework.Data.Loaders;
+
     public class JsonResourceLoader
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
@@ -68,4 +68,3 @@ namespace AutoTests.Framework.Data.Loaders
             };
         }
     }
-}

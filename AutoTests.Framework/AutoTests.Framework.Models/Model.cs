@@ -1,5 +1,5 @@
-﻿namespace AutoTests.Framework.Models
-{
+﻿namespace AutoTests.Framework.Models;
+
     public abstract class Model
     {
         private readonly ModelInfo modelInfo;
@@ -14,4 +14,3 @@
             return modelInfo;
         }
     }
-}

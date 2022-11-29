@@ -3,8 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoTests.Framework.Components.Routes;
 using AutoTests.Framework.Tests.Web;
 
-namespace AutoTests.Framework.Tests.Specflow.Steps
-{
+namespace AutoTests.Framework.Tests.Specflow.Steps;
+
     [Binding]
     public class ComponentsSteps
     {
@@ -22,4 +22,3 @@ namespace AutoTests.Framework.Tests.Specflow.Steps
             Assert.IsTrue(component.InternalComponentStatus);
         }
     }
-}

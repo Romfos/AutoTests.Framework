@@ -2,8 +2,8 @@
 using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Services;
 
-namespace AutoTests.Framework.Tests.Web.Components.StaticResourcesTest
-{
+namespace AutoTests.Framework.Tests.Web.Components.StaticResourcesTest;
+
     public class StaticResourcesTestPrimaryValueComponent : Component
     {
         [Primary]
@@ -13,4 +13,3 @@ namespace AutoTests.Framework.Tests.Web.Components.StaticResourcesTest
         {
         }
     }
-}

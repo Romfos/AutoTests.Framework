@@ -1,5 +1,5 @@
-﻿namespace AutoTests.Framework.Core
-{
+﻿namespace AutoTests.Framework.Core;
+
     public class AutoTestsAppBuilder
     {
         public IContainer Container { get; }
@@ -9,4 +9,3 @@
             Container = container;
         }
     }
-}

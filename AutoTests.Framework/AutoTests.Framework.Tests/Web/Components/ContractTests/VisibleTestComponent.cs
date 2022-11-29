@@ -4,8 +4,8 @@ using AutoTests.Framework.Components.Routes.Attributes;
 using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("visible test component")]
     public class VisibleTestComponent : Component, IVisible, IInternalComponentStatus
     {
@@ -21,4 +21,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return Task.FromResult(true);
         }
     }
-}

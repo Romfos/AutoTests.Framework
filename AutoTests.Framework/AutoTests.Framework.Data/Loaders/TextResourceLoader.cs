@@ -2,8 +2,8 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace AutoTests.Framework.Data.Loaders
-{
+namespace AutoTests.Framework.Data.Loaders;
+
     public class TextResourceLoader
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
@@ -31,4 +31,3 @@ namespace AutoTests.Framework.Data.Loaders
             }
         }
     }
-}

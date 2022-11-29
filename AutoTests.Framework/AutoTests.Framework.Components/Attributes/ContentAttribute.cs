@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace AutoTests.Framework.Components.Attributes
-{
+namespace AutoTests.Framework.Components.Attributes;
+
     public class ContentAttribute : Attribute
     {
         public string Data { get; }
@@ -11,4 +11,3 @@ namespace AutoTests.Framework.Components.Attributes
             Data = data;
         }
     }
-}

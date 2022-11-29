@@ -1,7 +1,7 @@
 ﻿using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.PreProcessor.Specflow
-{
+namespace AutoTests.Framework.PreProcessor.Specflow;
+
     [Binding]
     public class DefaultPreProcessorBindings
     {
@@ -18,4 +18,3 @@ namespace AutoTests.Framework.PreProcessor.Specflow
             return new PreProcessorExpression(preProcessor, text);
         }
     }
-}

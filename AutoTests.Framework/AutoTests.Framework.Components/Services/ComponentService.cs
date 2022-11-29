@@ -1,5 +1,5 @@
-﻿namespace AutoTests.Framework.Components.Services
-{
+﻿namespace AutoTests.Framework.Components.Services;
+
     public class ComponentService
     {
         private readonly NestedComponentsService nestedComponentsService;
@@ -23,4 +23,3 @@
             componentContentAttributeService.InitializeComponent(component);
         }
     }
-}

@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Core;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.Models.Specflow
-{
+namespace AutoTests.Framework.Models.Specflow;
+
     public class ModelTransformationBindings
     {
         private readonly IContainer container;
@@ -20,4 +20,3 @@ namespace AutoTests.Framework.Models.Specflow
             return new ModelExpression(container, comparator, table);
         }
     }
-}

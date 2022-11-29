@@ -2,8 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace AutoTests.Framework.Tests.UnitTests
-{
+namespace AutoTests.Framework.Tests.UnitTests;
+
     [TestClass]
     public class PreProcessorFramewrokTests : UnitTestsBase
     {
@@ -27,4 +27,3 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual(1, result);
         }
     }
-}

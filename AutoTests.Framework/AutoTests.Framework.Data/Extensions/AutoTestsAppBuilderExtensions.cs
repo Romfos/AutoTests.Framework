@@ -4,8 +4,8 @@ using System.Text.RegularExpressions;
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.Data.Loaders;
 
-namespace AutoTests.Framework.Data.Extensions
-{
+namespace AutoTests.Framework.Data.Extensions;
+
     public static class AutoTestsAppBuilderExtensions
     {
         public static AutoTestsAppBuilder UseJsonResource(this AutoTestsAppBuilder autoTestsAppBuilder,
@@ -44,4 +44,3 @@ namespace AutoTests.Framework.Data.Extensions
             return autoTestsAppBuilder;
         }
     }
-}

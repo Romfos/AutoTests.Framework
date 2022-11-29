@@ -1,7 +1,7 @@
 ﻿using AutoTests.Framework.Data;
 
-namespace AutoTests.Framework.Tests.Data
-{
+namespace AutoTests.Framework.Tests.Data;
+
     public class DataOverPreProcessorTestGlobals
     {
         private readonly DataHub dataHub;
@@ -13,4 +13,3 @@ namespace AutoTests.Framework.Tests.Data
             this.dataHub = dataHub;
         }
     }
-}

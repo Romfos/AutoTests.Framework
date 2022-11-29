@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Models;
 using AutoTests.Framework.Models.Attributes;
 
-namespace AutoTests.Framework.Tests.Models.NameAttributeTest
-{
+namespace AutoTests.Framework.Tests.Models.NameAttributeTest;
+
     public class NameAttributeTestModel : Model
     {
         [Name("value")]
@@ -10,4 +10,3 @@ namespace AutoTests.Framework.Tests.Models.NameAttributeTest
 
         public int Value2 { get; set; }
     }
-}

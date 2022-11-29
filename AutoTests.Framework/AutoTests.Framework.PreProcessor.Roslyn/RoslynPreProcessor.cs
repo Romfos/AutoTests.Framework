@@ -3,8 +3,8 @@ using Microsoft.CodeAnalysis.Scripting;
 using System;
 using System.Threading.Tasks;
 
-namespace AutoTests.Framework.PreProcessor.Roslyn
-{
+namespace AutoTests.Framework.PreProcessor.Roslyn;
+
     public class RoslynPreProcessor : IPreProcessor
     {
         private readonly object? globals;
@@ -31,4 +31,3 @@ namespace AutoTests.Framework.PreProcessor.Roslyn
             }
         }
     }
-}

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 
-namespace AutoTests.Framework.Data
-{
+namespace AutoTests.Framework.Data;
+
     public struct DataPath
     {
         public string[] Nodes { get; }
@@ -34,4 +34,3 @@ namespace AutoTests.Framework.Data
             return Nodes.Sum(x => x.Length);
         }
     }
-}

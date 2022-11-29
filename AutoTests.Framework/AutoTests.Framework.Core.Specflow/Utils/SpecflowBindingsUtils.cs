@@ -6,8 +6,8 @@ using System.Reflection;
 using System;
 using System.Collections.Generic;
 
-namespace AutoTests.Framework.Core.Specflow.Utils
-{
+namespace AutoTests.Framework.Core.Specflow.Utils;
+
     public class SpecflowBindingsUtils
     {
         private readonly IBindingRegistry bindingRegistry;
@@ -57,4 +57,3 @@ namespace AutoTests.Framework.Core.Specflow.Utils
                 .Where(x => x.attribute != null)!;
         }
     }
-}

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Components.Utils
-{
+namespace AutoTests.Framework.Components.Utils;
+
     public class ComponentReflectionUtils
     {
         public IEnumerable<PropertyInfo> GetPropertiesWithGetttersAndSetters(Component component)
@@ -34,4 +34,3 @@ namespace AutoTests.Framework.Components.Utils
             return propertyInfo;
         }
     }
-}

@@ -3,8 +3,8 @@ using TechTalk.SpecFlow;
 using AutoTests.Framework.Core.Extensions;
 using System.Collections.Generic;
 
-namespace AutoTests.Framework.Models.Specflow
-{
+namespace AutoTests.Framework.Models.Specflow;
+
     public class ModelExpression
     {
         private readonly IContainer container;
@@ -58,4 +58,3 @@ namespace AutoTests.Framework.Models.Specflow
             return models;
         }
     }
-}

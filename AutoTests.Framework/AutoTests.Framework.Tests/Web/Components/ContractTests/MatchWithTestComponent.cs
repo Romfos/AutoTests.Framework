@@ -6,8 +6,8 @@ using AutoTests.Framework.Components.Specflow.Contracts;
 using AutoTests.Framework.Models.Specflow;
 using AutoTests.Framework.Tests.Models.MatchWithTest;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("match with test component")]
     public class MatchWithTestComponent : Component, IMatchWith, IInternalComponentStatus
     {
@@ -30,4 +30,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return Task.FromResult(true);
         }
     }
-}

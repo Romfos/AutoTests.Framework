@@ -5,8 +5,8 @@ using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
 using AutoTests.Framework.PreProcessor;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("set value test component")]
     public class SetValueTestComponent : Component, ISetValue, IInternalComponentStatus
     {
@@ -21,4 +21,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             InternalComponentStatus = await expression.ExecuteAsync<int>() == 123;
         }
     }
-}

@@ -5,8 +5,8 @@ using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
 using AutoTests.Framework.PreProcessor;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("not equal to test component")]
     public class NotEqualToTestComponent : Component, IEqualTo, IInternalComponentStatus
     {
@@ -22,4 +22,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return false;
         }
     }
-}

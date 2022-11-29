@@ -3,8 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.Tests.Specflow.Steps
-{
+namespace AutoTests.Framework.Tests.Specflow.Steps;
+
     [Binding]
     public class PreProcessorSteps
     {
@@ -16,4 +16,3 @@ namespace AutoTests.Framework.Tests.Specflow.Steps
             Assert.AreEqual(expected, actual);
         }
     }
-}

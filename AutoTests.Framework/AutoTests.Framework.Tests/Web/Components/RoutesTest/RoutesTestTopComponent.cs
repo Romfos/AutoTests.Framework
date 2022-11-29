@@ -2,8 +2,8 @@
 using AutoTests.Framework.Components.Routes.Attributes;
 using AutoTests.Framework.Components.Services;
 
-namespace AutoTests.Framework.Tests.Web.Components.RoutesTest
-{
+namespace AutoTests.Framework.Tests.Web.Components.RoutesTest;
+
     [Route("RoutesTestNestedComponent")]
     public class RoutesTestTopComponent : Component
     {
@@ -14,4 +14,3 @@ namespace AutoTests.Framework.Tests.Web.Components.RoutesTest
         {
         }
     }
-}

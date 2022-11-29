@@ -5,8 +5,8 @@ using System.Reflection;
 using AutoTests.Framework.Core.Exceptions;
 using AutoTests.Framework.Components.Utils;
 
-namespace AutoTests.Framework.Components.Routes
-{
+namespace AutoTests.Framework.Components.Routes;
+
     public class ComponentRouter
     {
         private readonly IContainer container;
@@ -60,4 +60,3 @@ namespace AutoTests.Framework.Components.Routes
             return nestedComponent;
         }
     }
-}

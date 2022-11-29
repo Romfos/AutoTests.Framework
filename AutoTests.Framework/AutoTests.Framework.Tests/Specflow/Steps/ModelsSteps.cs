@@ -4,8 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.Tests.Specflow.Steps
-{
+namespace AutoTests.Framework.Tests.Specflow.Steps;
+
     [Binding]
     public class ModelsSteps
     {
@@ -27,4 +27,3 @@ namespace AutoTests.Framework.Tests.Specflow.Steps
             Assert.AreEqual(4, models[1].Value2);
         }
     }
-}

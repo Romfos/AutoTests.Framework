@@ -5,8 +5,8 @@ using AutoTests.Framework.Components.Utils;
 using AutoTests.Framework.Core.Exceptions;
 using System.Text.Json;
 
-namespace AutoTests.Framework.Components.Services
-{
+namespace AutoTests.Framework.Components.Services;
+
     public class ComponentStaticResourceService
     {
         private readonly EmbeddedResourceUtils embeddedResourceUtils;
@@ -95,4 +95,3 @@ namespace AutoTests.Framework.Components.Services
             return content;
         }
     }
-}

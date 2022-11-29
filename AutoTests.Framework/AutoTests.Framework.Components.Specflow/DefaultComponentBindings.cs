@@ -7,8 +7,8 @@ using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.Components.Specflow
-{
+namespace AutoTests.Framework.Components.Specflow;
+
     [Binding]
     public class DefaultComponentBindings
     {
@@ -133,4 +133,3 @@ namespace AutoTests.Framework.Components.Specflow
             }
         }
     }
-}

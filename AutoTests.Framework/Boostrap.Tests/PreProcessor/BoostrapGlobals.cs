@@ -1,7 +1,7 @@
 ﻿using AutoTests.Framework.Data;
 
-namespace Boostrap.Tests
-{
+namespace Boostrap.Tests;
+
     public class BoostrapGlobals
     {
         private readonly DataHub dataHub;
@@ -13,4 +13,3 @@ namespace Boostrap.Tests
             this.dataHub = dataHub;
         }
     }
-}

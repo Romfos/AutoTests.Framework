@@ -11,42 +11,41 @@ using System.Reflection;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace Boostrap.Tests.Hooks
+namespace Boostrap.Tests.Hooks;
+
+[Binding]
+public class SpecflowHooks
 {
-	[Binding]
-	public class SpecflowHooks
+	private readonly IObjectContainer objectContainer;
+
+	public SpecflowHooks(IObjectContainer objectContainer)
 	{
-		private readonly IObjectContainer objectContainer;
+		this.objectContainer = objectContainer;
+	}
 
-		public SpecflowHooks(IObjectContainer objectContainer)
-		{
-			this.objectContainer = objectContainer;
-		}
+	[BeforeScenario]
+	public void BeforeScenario()
+	{
+		var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
 
-		[BeforeScenario]
-		public void BeforeScenario()
-		{
-			var container = new SpecflowContainer(objectContainer, Assembly.GetExecutingAssembly());
+		new AutoTestsAppBuilder(container)
+			.UseRoslynPreProcessor<BoostrapGlobals>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"))
+			.UseDefaultPreProcessorBindings()
+			.UseDefaultComponentBindings()
+			.UseJsonResource(Assembly.GetExecutingAssembly(), "Boostrap.Tests.Data.Common.json");
 
-			new AutoTestsAppBuilder(container)
-				.UseRoslynPreProcessor<BoostrapGlobals>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"))
-				.UseDefaultPreProcessorBindings()
-				.UseDefaultComponentBindings()
-				.UseJsonResource(Assembly.GetExecutingAssembly(), "Boostrap.Tests.Data.Common.json");
+		container.Register(PlaywrightFactory.GetPage());
+	}
 
-			container.Register(PlaywrightFactory.GetPage());
-		}
+	[BeforeTestRun]
+	public static async Task BeforeTestRun()
+	{
+		await PlaywrightFactory.StartAsync();
+	}
 
-		[BeforeTestRun]
-		public static async Task BeforeTestRun()
-		{
-			await PlaywrightFactory.StartAsync();
-		}
-
-		[AfterTestRun]
-		public static async Task AfterTestRun()
-		{
-			await PlaywrightFactory.StopAsync();
-		}
+	[AfterTestRun]
+	public static async Task AfterTestRun()
+	{
+		await PlaywrightFactory.StopAsync();
 	}
 }

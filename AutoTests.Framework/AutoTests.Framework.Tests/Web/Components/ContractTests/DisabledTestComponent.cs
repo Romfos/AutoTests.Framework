@@ -4,8 +4,8 @@ using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
 using System.Threading.Tasks;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("disabled test component")]
     public class DisabledTestComponent : Component, IEnabled, IInternalComponentStatus
     {
@@ -21,4 +21,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return Task.FromResult(false);
         }
     }
-}

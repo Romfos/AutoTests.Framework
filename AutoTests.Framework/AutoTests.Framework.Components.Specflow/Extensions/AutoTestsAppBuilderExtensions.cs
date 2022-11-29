@@ -2,8 +2,8 @@
 using AutoTests.Framework.Core.Extensions;
 using AutoTests.Framework.Core.Specflow.Utils;
 
-namespace AutoTests.Framework.Components.Specflow.Extensions
-{
+namespace AutoTests.Framework.Components.Specflow.Extensions;
+
     public static class AutoTestsAppBuilderExtensions
     {
         public static AutoTestsAppBuilder UseDefaultComponentBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
@@ -13,4 +13,3 @@ namespace AutoTests.Framework.Components.Specflow.Extensions
             return autoTestsAppBuilder;
         }
     }
-}

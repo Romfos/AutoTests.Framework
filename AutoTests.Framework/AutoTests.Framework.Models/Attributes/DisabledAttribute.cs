@@ -1,6 +1,5 @@
-﻿namespace AutoTests.Framework.Models.Attributes
-{
+﻿namespace AutoTests.Framework.Models.Attributes;
+
     public class DisabledAttribute : ModelPropertyAttribute
     {
     }
-}

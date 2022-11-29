@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Core.Specflow
-{
+namespace AutoTests.Framework.Core.Specflow;
+
     public class SpecflowContainer : IContainer
     {
         private readonly IObjectContainer objectContainer;
@@ -46,4 +46,3 @@ namespace AutoTests.Framework.Core.Specflow
             return objectContainer.Resolve(type);
         }
     }
-}

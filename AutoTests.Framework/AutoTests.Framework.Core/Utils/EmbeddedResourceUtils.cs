@@ -4,8 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace AutoTests.Framework.Core.Utils
-{
+namespace AutoTests.Framework.Core.Utils;
+
     public class EmbeddedResourceUtils
     {
         public IEnumerable<string> GetLocalEmbeddedResourceNames(Assembly assembly, Regex regex)
@@ -29,4 +29,3 @@ namespace AutoTests.Framework.Core.Utils
             }
         }
     }
-}

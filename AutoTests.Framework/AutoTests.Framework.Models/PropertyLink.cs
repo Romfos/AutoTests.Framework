@@ -5,8 +5,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace AutoTests.Framework.Models
-{
+namespace AutoTests.Framework.Models;
+
     public class PropertyLink
     {
         public Model Model { get; set; }
@@ -63,4 +63,3 @@ namespace AutoTests.Framework.Models
             return propertyInfo.GetCustomAttributes().OfType<ModelPropertyAttribute>().ToList();
         }
     }
-}

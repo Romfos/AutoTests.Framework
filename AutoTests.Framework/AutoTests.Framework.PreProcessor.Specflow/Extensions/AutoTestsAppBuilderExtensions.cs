@@ -2,8 +2,8 @@
 using AutoTests.Framework.Core.Specflow.Utils;
 using AutoTests.Framework.Core.Extensions;
 
-namespace AutoTests.Framework.PreProcessor.Specflow.Extensions
-{
+namespace AutoTests.Framework.PreProcessor.Specflow.Extensions;
+
     public static class AutoTestsAppBuilderExtensions
     {
         public static AutoTestsAppBuilder UseDefaultPreProcessorBindings(this AutoTestsAppBuilder autoTestsAppBuilder)
@@ -13,4 +13,3 @@ namespace AutoTests.Framework.PreProcessor.Specflow.Extensions
             return autoTestsAppBuilder;
         }
     }
-}

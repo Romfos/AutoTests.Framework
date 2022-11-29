@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AutoTests.Framework.Components.Services
-{
+namespace AutoTests.Framework.Components.Services;
+
     public class ComponentContentAttributeService
     {
         private readonly ComponentReflectionUtils componentReflectionUtils;
@@ -42,4 +42,3 @@ namespace AutoTests.Framework.Components.Services
             return propertyInfo.GetCustomAttribute<ContentAttribute>()!.Data;
         }
     }
-}

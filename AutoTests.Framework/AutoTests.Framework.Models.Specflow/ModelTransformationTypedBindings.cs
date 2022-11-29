@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 
-namespace AutoTests.Framework.Models.Specflow
-{
+namespace AutoTests.Framework.Models.Specflow;
+
     public class ModelTransformationTypedBindings<TModel>
         where TModel: Model, new()
     {
@@ -89,4 +89,3 @@ namespace AutoTests.Framework.Models.Specflow
             return propertyLink;
         }
     }
-}

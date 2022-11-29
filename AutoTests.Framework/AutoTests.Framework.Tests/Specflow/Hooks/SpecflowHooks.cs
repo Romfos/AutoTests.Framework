@@ -8,8 +8,8 @@ using AutoTests.Framework.PreProcessor.Specflow.Extensions;
 using AutoTests.Framework.Components.Specflow.Extensions;
 using AutoTests.Framework.Models.Specflow.Extensions;
 
-namespace AutoTests.Framework.Tests.Specflow.Hooks
-{
+namespace AutoTests.Framework.Tests.Specflow.Hooks;
+
     [Binding]
     public class SpecflowHooks
     {
@@ -32,4 +32,3 @@ namespace AutoTests.Framework.Tests.Specflow.Hooks
                 .UseModelTransformations();
         }
     }
-}

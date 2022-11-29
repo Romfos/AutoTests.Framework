@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AutoTests.Framework.Models
-{
+namespace AutoTests.Framework.Models;
+
     public class ModelComparator
     {
         public virtual bool Compare(Model expected, Model actual)
@@ -54,4 +54,3 @@ namespace AutoTests.Framework.Models
             return actualPropertyLink;
         }
     }
-}

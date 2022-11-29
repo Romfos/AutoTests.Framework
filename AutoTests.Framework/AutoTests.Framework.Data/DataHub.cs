@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AutoTests.Framework.Data
-{
+namespace AutoTests.Framework.Data;
+
     public class DataHub
     {
         private readonly Dictionary<DataPath, object> dictionary;
@@ -31,4 +31,3 @@ namespace AutoTests.Framework.Data
             return dynamicObject;
         }
     }
-}

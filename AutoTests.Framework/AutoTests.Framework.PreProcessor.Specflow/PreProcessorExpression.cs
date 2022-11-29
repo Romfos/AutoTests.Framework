@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 
-namespace AutoTests.Framework.PreProcessor.Specflow
-{
+namespace AutoTests.Framework.PreProcessor.Specflow;
+
     public class PreProcessorExpression : IExpression
     {
         private readonly IPreProcessor preProcessor;
@@ -18,4 +18,3 @@ namespace AutoTests.Framework.PreProcessor.Specflow
             return await preProcessor.ExecuteAsync<T>(text);
         }
     }
-}

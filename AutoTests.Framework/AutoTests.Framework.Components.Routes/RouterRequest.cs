@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AutoTests.Framework.Components.Routes
-{
+namespace AutoTests.Framework.Components.Routes;
+
     public class RouterRequest
     {
         private readonly string[] routes;
@@ -28,4 +28,3 @@ namespace AutoTests.Framework.Components.Routes
             return routes.Skip(1);
         }
     }
-}

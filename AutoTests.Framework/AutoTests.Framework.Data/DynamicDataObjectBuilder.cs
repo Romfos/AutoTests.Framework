@@ -2,8 +2,8 @@
 using System.Dynamic;
 using System.Linq;
 
-namespace AutoTests.Framework.Data
-{
+namespace AutoTests.Framework.Data;
+
     public class DynamicDataObjectBuilder
     { 
         private readonly ExpandoObject root;
@@ -45,4 +45,3 @@ namespace AutoTests.Framework.Data
             return root;
         }
     }
-}

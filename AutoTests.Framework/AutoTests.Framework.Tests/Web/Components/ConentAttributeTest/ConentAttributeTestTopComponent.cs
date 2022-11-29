@@ -2,8 +2,8 @@
 using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Services;
 
-namespace AutoTests.Framework.Tests.Web.Components.ConentAttributeTest
-{
+namespace AutoTests.Framework.Tests.Web.Components.ConentAttributeTest;
+
     public class ConentAttributeTestTopComponent : Component
     {
         [Content("1")]
@@ -13,4 +13,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ConentAttributeTest
         {
         }
     }
-}

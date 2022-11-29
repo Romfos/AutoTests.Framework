@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AutoTests.Framework.Core
-{
+namespace AutoTests.Framework.Core;
+
     public interface IContainer
     {
         object Resolve(Type type);
@@ -11,4 +11,3 @@ namespace AutoTests.Framework.Core
         void Register<TInterface>(TInterface implementation) where TInterface : class;
         IEnumerable<Type> GetSubTypes(Type parentType);
     }
-}

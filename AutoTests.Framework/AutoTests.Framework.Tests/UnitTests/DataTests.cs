@@ -9,8 +9,8 @@ using System.Reflection;
 using AutoTests.Framework.Tests.Data;
 using System.Text.RegularExpressions;
 
-namespace AutoTests.Framework.Tests.UnitTests
-{
+namespace AutoTests.Framework.Tests.UnitTests;
+
     [TestClass]
     public partial class DataTests : UnitTestsBase
     {
@@ -104,4 +104,3 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual("456", dataHub.Get(new DataPath("Text", "BulkTextDataHubLoaderTest")));
         }
     }
-}

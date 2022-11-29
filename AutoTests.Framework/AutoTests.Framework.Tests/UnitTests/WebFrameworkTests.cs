@@ -8,8 +8,8 @@ using AutoTests.Framework.Tests.Web.Components.RoutesTest;
 using AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
 using AutoTests.Framework.Tests.Web.Components.GenericComponentTest;
 
-namespace AutoTests.Framework.Tests.UnitTests
-{
+namespace AutoTests.Framework.Tests.UnitTests;
+
     [TestClass]
     public class WebFrameworkTests : UnitTestsBase
     {
@@ -78,4 +78,3 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.AreEqual(123, component.Value);
         }
     }
-}

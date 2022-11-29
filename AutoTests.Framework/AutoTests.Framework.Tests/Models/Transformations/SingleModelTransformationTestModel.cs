@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Models;
 using AutoTests.Framework.Models.Attributes;
 
-namespace AutoTests.Framework.Tests.Models.Transformations
-{
+namespace AutoTests.Framework.Tests.Models.Transformations;
+
     public class SingleModelTransformationTestModel : Model
     {
         [Name("Value1")]
@@ -12,4 +12,3 @@ namespace AutoTests.Framework.Tests.Models.Transformations
 
         public int Value3 { get; set; }
     }
-}

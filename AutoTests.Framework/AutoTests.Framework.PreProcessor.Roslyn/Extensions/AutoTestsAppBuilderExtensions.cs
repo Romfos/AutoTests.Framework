@@ -2,8 +2,8 @@
 using Microsoft.CodeAnalysis.Scripting;
 using AutoTests.Framework.Core.Extensions;
 
-namespace AutoTests.Framework.PreProcessor.Roslyn.Extensions
-{
+namespace AutoTests.Framework.PreProcessor.Roslyn.Extensions;
+
     public static class AutoTestsAppBuilderExtensions
     {
         public static AutoTestsAppBuilder UseRoslynPreProcessor(this AutoTestsAppBuilder autoTestsAppBuilder)
@@ -20,4 +20,3 @@ namespace AutoTests.Framework.PreProcessor.Roslyn.Extensions
             return autoTestsAppBuilder;
         }
     }
-}

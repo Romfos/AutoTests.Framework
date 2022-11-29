@@ -4,8 +4,8 @@ using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Components.Specflow.Contracts;
 using System.Threading.Tasks;
 
-namespace AutoTests.Framework.Tests.Web.Components.ContractTests
-{
+namespace AutoTests.Framework.Tests.Web.Components.ContractTests;
+
     [Route("selected test component")]
     public class SelectedTestComponent : Component, ISelected, IInternalComponentStatus
     {
@@ -21,4 +21,3 @@ namespace AutoTests.Framework.Tests.Web.Components.ContractTests
             return Task.FromResult(true);
         }
     }
-}

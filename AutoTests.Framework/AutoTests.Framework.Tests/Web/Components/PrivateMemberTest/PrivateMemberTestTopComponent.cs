@@ -2,8 +2,8 @@
 using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Services;
 
-namespace AutoTests.Framework.Tests.Web.Components.PrivateMemberTest
-{
+namespace AutoTests.Framework.Tests.Web.Components.PrivateMemberTest;
+
     public class PrivateMemberTestTopComponent : Component
     {
         private PrivateMemberTestNestedComponent FirstNestedComponent { set; get; }
@@ -25,4 +25,3 @@ namespace AutoTests.Framework.Tests.Web.Components.PrivateMemberTest
             return SecondNestedComponent;
         }
     }
-}

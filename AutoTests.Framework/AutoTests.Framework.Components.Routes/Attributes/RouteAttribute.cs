@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace AutoTests.Framework.Components.Routes.Attributes
-{
+namespace AutoTests.Framework.Components.Routes.Attributes;
+
     public class RouteAttribute : Attribute
     {
         public string Route { get; set; }
@@ -11,4 +11,3 @@ namespace AutoTests.Framework.Components.Routes.Attributes
             Route = route.Trim();
         }
     }
-}

@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Components.Routes;
 using System;
 
-namespace AutoTests.Framework.Components.Specflow.Extensions
-{
+namespace AutoTests.Framework.Components.Specflow.Extensions;
+
     public static class ComponentRouterExtensions
     {
         public static T ResolveContract<T>(this ComponentRouter componentRouter, string query)
@@ -16,4 +16,3 @@ namespace AutoTests.Framework.Components.Specflow.Extensions
             return component;
         }
     }
-}

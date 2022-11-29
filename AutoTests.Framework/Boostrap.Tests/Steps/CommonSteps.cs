@@ -3,23 +3,22 @@ using Microsoft.Playwright;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-namespace Boostrap.Tests.Steps
+namespace Boostrap.Tests.Steps;
+
+[Binding]
+public class CommonSteps
 {
-	[Binding]
-	public class CommonSteps
+	private readonly IPage page;
+
+	public CommonSteps(IPage page)
 	{
-		private readonly IPage page;
+		this.page = page;
+	}
 
-		public CommonSteps(IPage page)
-		{
-			this.page = page;
-		}
-
-		[Given(@"navigate to '(.*)'")]
-		public async Task GivenNavigateTo(IExpression expression)
-		{
-			var url = await expression.ExecuteAsync<string>();
-			await page.GotoAsync(url);
-		}
+	[Given(@"navigate to '(.*)'")]
+	public async Task GivenNavigateTo(IExpression expression)
+	{
+		var url = await expression.ExecuteAsync<string>();
+		await page.GotoAsync(url);
 	}
 }

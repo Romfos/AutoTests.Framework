@@ -7,8 +7,8 @@ using AutoTests.Framework.Tests.Models.NestedModelsTest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace AutoTests.Framework.Tests.UnitTests
-{
+namespace AutoTests.Framework.Tests.UnitTests;
+
     [TestClass]
     public class ModelsTests : UnitTestsBase
     {
@@ -142,4 +142,3 @@ namespace AutoTests.Framework.Tests.UnitTests
             Assert.IsFalse(modelComparator.Compare(new[] { expected }, new[] { actual }));
         }
     }
-}

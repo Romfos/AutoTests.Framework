@@ -1,8 +1,8 @@
 ﻿using AutoTests.Framework.Components.Utils;
 using AutoTests.Framework.Core;
 
-namespace AutoTests.Framework.Components.Services
-{
+namespace AutoTests.Framework.Components.Services;
+
     public class NestedComponentsService
     {
         private readonly ComponentReflectionUtils componentReflectionUtils;
@@ -23,4 +23,3 @@ namespace AutoTests.Framework.Components.Services
             }
         }
     }
-}
