@@ -5,7 +5,7 @@ on:
         description: "Nuget package version"
         required: true
         type: string
-        default: '4.9.x'
+        default: "5.0.x"
 
 jobs:
   release:
@@ -15,12 +15,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
-    
+
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: pack
-        run: dotnet pack ./AutoTests.Framework/AutoTests.Framework.sln -p:Configuration=Release -p:Version=${{ inputs.Version }} -o "./build"
+      - name: Pack
+        run: dotnet pack -c Release -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.sln
 
-      - name: push to nuget
+      - name: Push to Nuget
         run: dotnet nuget push ./build/*.nupkg -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json
