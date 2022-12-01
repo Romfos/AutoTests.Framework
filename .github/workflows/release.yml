@@ -5,7 +5,7 @@ on:
         description: "Nuget package version"
         required: true
         type: string
-        default: "5.0.x"
+        default: "4.8.x"
 
 jobs:
   release:
