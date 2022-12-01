@@ -1,43 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net462</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\BulkJsonDataHubLoaderTest.json" />
-    <None Remove="Data\JsonDataHubLoaderTest.json" />
-    <None Remove="Data\Text\BulkTextDataHubLoaderTest.txt" />
-    <None Remove="Data\Text\TextDataHubLoaderTest.txt" />
-    <None Remove="Web\Components\GenericComponentTest\GenericComponentTestComponent.json" />
-    <None Remove="Web\Components\PrivateMemberTest\PrivateMemberTestTopComponent.json" />
-    <None Remove="Web\Components\StaticResourcesTest\StaticResourcesTestNestedComponent.json" />
-    <None Remove="Web\Components\StaticResourcesTest\StaticResourcesTestTopComponent.json" />
+    <EmbeddedResource Include="Data\*.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\Json\BulkJsonDataHubLoaderTest.json" />
-    <EmbeddedResource Include="Data\Json\JsonDataHubLoaderTest.json" />
-    <EmbeddedResource Include="Data\Text\BulkTextDataHubLoaderTest.txt" />
-    <EmbeddedResource Include="Data\Text\TextDataHubLoaderTest.txt" />
-    <EmbeddedResource Include="Web\Components\GenericComponentTest\GenericComponentTestComponent.json" />
-    <EmbeddedResource Include="Web\Components\PrivateMemberTest\PrivateMemberTestTopComponent.json" />
-    <EmbeddedResource Include="Web\Components\StaticResourcesTest\StaticResourcesTestNestedComponent.json" />
-    <EmbeddedResource Include="Web\Components\StaticResourcesTest\StaticResourcesTestTopComponent.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.0.0-preview-20221122-01" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.0.0-preview-20221122-01" />
+    <PackageReference Include="MSTest" Version="3.0.0-preview-20221122-01" />
     <PackageReference Include="SpecFlow.MsTest" Version="3.9.74" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoTests.Framework.All\AutoTests.Framework.All.csproj" />
+    <ProjectReference Include="..\AutoTests.Framework\AutoTests.Framework.csproj" />
   </ItemGroup>
 
 </Project>

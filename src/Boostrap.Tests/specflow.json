@@ -1,5 +1,0 @@
-﻿{
-  "stepAssemblies": [
-    { "assembly": "AutoTests.Framework.Components.Specflow" }
-  ]
-}

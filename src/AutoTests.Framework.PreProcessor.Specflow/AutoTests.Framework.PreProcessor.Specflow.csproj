@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../AutoTests.Framework.props" />
-
-  <ItemGroup>
-    <ProjectReference Include="..\AutoTests.Framework.Core.Specflow\AutoTests.Framework.Core.Specflow.csproj" />
-    <ProjectReference Include="..\AutoTests.Framework.PreProcessor\AutoTests.Framework.PreProcessor.csproj" />
-  </ItemGroup>
-
-</Project>

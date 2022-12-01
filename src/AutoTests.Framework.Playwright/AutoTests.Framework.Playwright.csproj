@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../AutoTests.Framework.props" />
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Playwright" Version="1.28.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
+  </ItemGroup>
+
+</Project>

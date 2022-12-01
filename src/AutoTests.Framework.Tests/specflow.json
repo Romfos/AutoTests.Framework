@@ -1,5 +1,6 @@
-﻿{
+{
+  "$schema": "https://specflow.org/specflow-config.json",
   "stepAssemblies": [
-    { "assembly": "AutoTests.Framework.Components.Specflow" }
+    { "assembly": "AutoTests.Framework" }
   ]
 }
