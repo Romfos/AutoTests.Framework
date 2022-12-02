@@ -5,21 +5,15 @@ SpecFlow based autotest framework
 [![.github/workflows/test.yml](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml/badge.svg)](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml)
 
 Main features:
-- Pre Processor framework (allow to use C# expressions in specflow scenarios)
-- Component framework (in primamry it is used for integration with other UI frameworks like Playwright\Selenium WebDriver)
+- C# expression support inside features
 - Test data management framework
 - Model transformation framework
+- Component framework (at the most cases with integration other UI frameworks like Playwright\Selenium WebDriver, see example)
 
 # Framework requirements
-- .NET 6+ (or .NET Standart 2.0  for older runtimes)
+- .NET 6, .NET 4.6.2 or .NET Standart 2.0 for other runtimes
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
-
-# This repository dev requirements
-- .NET 7 SDK
-- Visual Studio 2022
-- Specflow plugin for Visual Studio
-- Google Chrome
 
 # Nuget packages links  
 - https://www.nuget.org/packages/AutoTests.Framework.All
