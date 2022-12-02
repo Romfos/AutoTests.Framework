@@ -37,4 +37,10 @@ internal sealed class Steps
     {
         Assert.IsTrue(application!.MainPage!.FirstName!.getted);
     }
+
+    [Then(@"check component data 4")]
+    public void ThenCheckComponentData()
+    {
+        Assert.AreEqual("abcd", application!.MainPage!.DataComponent!.Locator);
+    }
 }

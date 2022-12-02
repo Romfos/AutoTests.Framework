@@ -9,4 +9,7 @@ internal sealed class MainPage
 
     [Route("first name")]
     public Input? FirstName { get; set; }
+
+    [Route("data")]
+    public DataComponent? DataComponent { get; set; }
 }
