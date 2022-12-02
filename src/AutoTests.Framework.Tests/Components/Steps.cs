@@ -15,8 +15,14 @@ internal sealed class Steps
     }
 
     [Then(@"check component test 1")]
-    public void ThenCheckComponentTest()
+    public void ThenCheckComponentTest1()
     {
-        Assert.IsTrue(application!.MainPage!.Button!.Clicked);
+        Assert.IsTrue(application!.MainPage!.Login!.Clicked);
+    }
+
+    [Then(@"check component test 2")]
+    public void ThenCheckComponentTest2()
+    {
+        Assert.AreEqual("Hello World!", application!.MainPage!.FirstName!.value);
     }
 }

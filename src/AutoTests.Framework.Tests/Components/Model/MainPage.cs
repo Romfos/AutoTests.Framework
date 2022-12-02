@@ -5,5 +5,8 @@ namespace AutoTests.Framework.Tests.Components.Model;
 internal sealed class MainPage
 {
     [Route("login")]
-    public Button? Button { get; set; }
+    public Button? Login { get; set; }
+
+    [Route("first name")]
+    public Input? FirstName { get; set; }
 }
