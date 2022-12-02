@@ -1,0 +1,11 @@
+{
+  "ContinueToCheckout": {
+    "Locator": ".btn-primary"
+  },
+  "FirstName": {
+    "Locator": "#firstName"
+  },
+  "LastName": {
+    "Locator": "#lastName"
+  }
+}

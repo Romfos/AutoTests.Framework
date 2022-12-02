@@ -13,16 +13,28 @@ public sealed class PlaywrightHooks
     {
         var browserTypeLaunchOptions = objectContainer.IsRegistered<BrowserTypeLaunchOptions>()
             ? objectContainer.Resolve<BrowserTypeLaunchOptions>()
-            : new BrowserTypeLaunchOptions { Headless = false };
+            : new BrowserTypeLaunchOptions { Headless = true };
 
         Program.Main(new[] { "install" });
         var playwright = await Microsoft.Playwright.Playwright.CreateAsync();
         var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
-        var page = await browser.NewPageAsync();
 
         objectContainer.RegisterInstanceAs(playwright);
         objectContainer.RegisterInstanceAs(browser);
+    }
+
+    [BeforeScenario(Order = 1000)]
+    public static async Task BeforeScenario(IObjectContainer objectContainer)
+    {
+        var browser = objectContainer.Resolve<IBrowser>();
+        var page = await browser.NewPageAsync();
         objectContainer.RegisterInstanceAs(page);
+    }
+
+    [AfterScenario(Order = 1000)]
+    public static async Task AfterScenario(IObjectContainer objectContainer)
+    {
+        await objectContainer.Resolve<IPage>().CloseAsync();
     }
 
     [AfterTestRun(Order = 1200)]
