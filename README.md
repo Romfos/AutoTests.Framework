@@ -8,7 +8,7 @@ Main features:
 - C# expression support inside features
 - Test data management framework
 - Model transformation framework
-- Component framework (at the most cases with integration other UI frameworks like Playwright\Selenium WebDriver, see example)
+- Component framework for UI testing
 
 # Framework requirements
 - .NET 6, .NET 4.6.2 or .NET Standart 2.0 for other runtimes
