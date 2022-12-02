@@ -16,20 +16,30 @@ Main features:
 - Specflow plugin for Visual Studio
 
 # Nuget packages links  
-- https://www.nuget.org/packages/AutoTests.Framework.All
+- https://www.nuget.org/packages/AutoTests.Framework
+- https://www.nuget.org/packages/AutoTests.Framework.Components
+- https://www.nuget.org/packages/AutoTests.Framework.Playwright
 
 # How to use
-You can find example in Boostrap.Tests project  
+You can find example in Boostrap.Tests project for UI application testing
 
 Basic steps:
 1) Create unit test project
-2) Add [AutoTests.Framework.All](https://www.nuget.org/packages/AutoTests.Framework.All) nuget package
-3) Add additional Specflow nuget packages for unit test provider:
+2) Add additional Specflow nuget packages for unit test provider:
 
  - MSTest:  
    [SpecFlow.MsTest](https://www.nuget.org/packages/SpecFlow.MsTest)  
-   [SpecFlow.Tools.MsBuild.Generation](https://www.nuget.org/packages/SpecFlow.Tools.MsBuild.Generation)
 
  - NUnit:  
    [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)
-4) Configure AutoTests app in Specflow hooks (you can find example in Boostrap.Tests)
+3) Add required nuget packages 
+
+     - UI applciation with Playwright:
+     [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)  
+   
+     - UI applciation with any other UI framework: 
+     [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)  
+   
+     - Non UI applciation: 
+     [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework)  
+4) Create Application class for UI application
