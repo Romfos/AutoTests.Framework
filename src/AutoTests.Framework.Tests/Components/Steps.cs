@@ -25,4 +25,16 @@ internal sealed class Steps
     {
         Assert.AreEqual("Hello World!", application!.MainPage!.FirstName!.value);
     }
+
+    [Given(@"prepare component test 3")]
+    public void GivenPrepareComponentTest3()
+    {
+        application!.MainPage!.FirstName!.value = "123";
+    }
+
+    [Then(@"check component test 3")]
+    public void ThenCheckComponentTest()
+    {
+        Assert.IsTrue(application!.MainPage!.FirstName!.getted);
+    }
 }
