@@ -20,6 +20,10 @@ Main features:
 - https://www.nuget.org/packages/AutoTests.Framework.Components
 - https://www.nuget.org/packages/AutoTests.Framework.Playwright
 
+# Legacy 4.8.x version
+- Source code: [AutoTests.Framework/tree/4.8.x](https://github.com/Romfos/AutoTests.Framework/tree/4.8.x)
+- Readme: https://github.com/Romfos/AutoTests.Framework/blob/4.8.x/README.md
+
 # How to use
 You can find example in Boostrap.Tests project for UI application testing
 
