@@ -14,7 +14,7 @@ public sealed class ModelsSpecflowHooks
     }
 
     [StepArgumentTransformation]
-    public IModel TransformExpression(Table table)
+    public IModel TransformModel(Table table)
     {
         return new Model(expressionService, table);
     }

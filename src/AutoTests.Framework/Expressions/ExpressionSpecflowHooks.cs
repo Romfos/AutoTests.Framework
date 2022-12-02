@@ -20,7 +20,7 @@ public sealed class ExpressionSpecflowHooks
     }
 
     [BeforeTestRun(Order = int.MinValue)]
-    public static void RegisterDefaultServices(IObjectContainer objectContainer)
+    public static void BeforeTestRun(IObjectContainer objectContainer)
     {
         objectContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
     }
