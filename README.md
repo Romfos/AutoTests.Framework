@@ -10,7 +10,7 @@ Main features:
 - Model transformation framework
 - Component framework for UI testing
 
-# Framework requirements
+# Requirements
 - .NET 6 (recomended), .NET Framework 4.6.2 or .NET Standart 2.0 for other runtimes
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
