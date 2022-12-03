@@ -32,6 +32,10 @@ Basic steps:
 
  - NUnit:  
    [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)
+   
+  - xUnit:  
+   [SpecFlow.xUnit](https://www.nuget.org/profiles/specflow)
+   
 3) Add required nuget packages 
 
      - [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) - c# expressions in features, model transformations, test data management
