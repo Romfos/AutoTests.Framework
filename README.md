@@ -41,8 +41,19 @@ Basic steps:
      [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)  
    
      - Non UI applciation: 
-     [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework)  
-4) Create Application class for UI application
+     [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) 
+4) Register framework packages in specflow.json. Example:
+```
+{
+  "$schema": "https://specflow.org/specflow-config.json",
+  "stepAssemblies": [
+    { "assembly": "AutoTests.Framework" },
+    { "assembly": "AutoTests.Framework.Components" },
+    { "assembly": "AutoTests.Framework.Playwright" }
+  ]
+}
+```
+5) Create Application class for UI application
 
 # Legacy 4.8.x version
 - Source code: [AutoTests.Framework/tree/4.8.x](https://github.com/Romfos/AutoTests.Framework/tree/4.8.x)
