@@ -1,3 +1,4 @@
+using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Contracts;
 using AutoTests.Framework.Expressions;
 using Microsoft.Playwright;
@@ -10,6 +11,7 @@ public sealed class TrivialInput : ISetValue, IGetValue
 {
     private readonly IPage page;
 
+    [FromSelector]
     public string? Locator { get; set; }
 
     public TrivialInput(IPage page)

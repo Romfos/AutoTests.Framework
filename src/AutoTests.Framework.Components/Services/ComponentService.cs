@@ -1,8 +1,8 @@
+using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 using System;
 using System.Linq;
 using System.Reflection;
-using AutoTests.Framework.Components.Application;
-using AutoTests.Framework.Components.Attributes;
 
 namespace AutoTests.Framework.Components.Services;
 
@@ -37,7 +37,7 @@ public sealed class ComponentService
 
         var properties = type
             .GetProperties()
-            .Where(x => string.Equals(x.GetCustomAttribute<Route>()?.Name, routeName, StringComparison.InvariantCultureIgnoreCase))
+            .Where(x => string.Equals(x.GetCustomAttribute<RouteAttribute>()?.Name, routeName, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
 
         if (properties.Count == 0)

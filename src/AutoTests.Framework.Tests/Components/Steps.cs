@@ -43,4 +43,10 @@ internal sealed class Steps
     {
         Assert.AreEqual("abcd", application!.MainPage!.DataComponent!.Locator);
     }
+
+    [Then(@"check component data 5")]
+    public void ThenCheckComponentData5()
+    {
+        Assert.AreEqual("12345", application!.MainPage!.Locator!.Selector);
+    }
 }

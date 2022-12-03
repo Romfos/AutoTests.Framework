@@ -15,3 +15,6 @@ Scenario: get value component test
 
 Scenario: component data test
     Then check component data 4
+
+Scenario: component selector data test
+    Then check component data 5

@@ -12,4 +12,8 @@ internal sealed class MainPage
 
     [Route("data")]
     public DataComponent? DataComponent { get; set; }
+
+    [Route("locator")]
+    [Selector("12345")]
+    public LocatorComponent? Locator { get; set; }
 }

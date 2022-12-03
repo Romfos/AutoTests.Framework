@@ -1,3 +1,4 @@
+using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Contracts;
 using Microsoft.Playwright;
 using System;
@@ -9,6 +10,7 @@ public sealed class TrivialButton : IClick
 {
     private readonly IPage page;
 
+    [FromSelector]
     public string? Locator { get; set; }
 
     public TrivialButton(IPage page)

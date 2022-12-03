@@ -55,8 +55,8 @@ internal sealed class ApplicationFactory
             throw new Exception($"Unable to create {componentType.FullName}");
         }
 
-        var properties = componentType.GetProperties().Where(x => x.GetCustomAttribute<Route>() != null);
-        foreach (var property in properties)
+        var propertiesWithRouteAttribute = componentType.GetProperties().Where(x => x.GetCustomAttribute<RouteAttribute>() != null);
+        foreach (var property in propertiesWithRouteAttribute)
         {
             property.SetValue(component, CreateComponent(property.PropertyType, objectContainer));
         }
@@ -64,6 +64,12 @@ internal sealed class ApplicationFactory
         if (GetComponentJson(componentType) is JsonElement jsonElement)
         {
             PatchComponent(componentType, component, jsonElement);
+        }
+
+        var propertiesWithSelectorAttribute = componentType.GetProperties().Where(x => x.GetCustomAttribute<SelectorAttribute>() != null);
+        foreach (var property in propertiesWithSelectorAttribute)
+        {
+            SetSelectorPropertyValue(property, component);
         }
 
         return component;
@@ -103,6 +109,33 @@ internal sealed class ApplicationFactory
         {
             property.SetValue(component, jsonElement.Deserialize(property.PropertyType));
         }
+    }
+
+    private void SetSelectorPropertyValue(PropertyInfo property, object component)
+    {
+        var selectorValue = property.GetCustomAttribute<SelectorAttribute>()!.Value;
+
+        var childComponent = property.GetValue(component);
+        if (childComponent == null)
+        {
+            throw new Exception($"Unable to setup selector because of null {property.DeclaringType!.FullName}.{property.Name}");
+        }
+
+        var childComponentType = childComponent.GetType();
+        var fromSelectorProperties = childComponentType
+            .GetProperties()
+            .Where(x => x.GetCustomAttribute<FromSelectorAttribute>() != null).ToList();
+
+        if (fromSelectorProperties.Count == 0)
+        {
+            throw new Exception($"One property must have {nameof(FromSelectorAttribute)} attribute on property in type {childComponentType.FullName}");
+        }
+        if (fromSelectorProperties.Count > 1)
+        {
+            throw new Exception($"Only one property should have {nameof(FromSelectorAttribute)} attribute on property in type {childComponentType.FullName}");
+        }
+
+        fromSelectorProperties.Single().SetValue(childComponent, selectorValue);
     }
 
     private JsonElement? GetComponentJson(Type componentType)
