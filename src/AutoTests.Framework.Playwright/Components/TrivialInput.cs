@@ -27,7 +27,7 @@ public sealed class TrivialInput : ISetValue, IGetValue
         return await page.InputValueAsync(Locator);
     }
 
-    public async Task SetValueAsync(IExpression expression)
+    public async Task SetValueAsync(ArgumentExpression expression)
     {
         if (Locator == null)
         {

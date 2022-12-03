@@ -1,6 +1,6 @@
 namespace AutoTests.Framework.Expressions;
 
-public sealed class RoslynGlobals
+public class RoslynGlobals
 {
     public dynamic Data { get; }
 

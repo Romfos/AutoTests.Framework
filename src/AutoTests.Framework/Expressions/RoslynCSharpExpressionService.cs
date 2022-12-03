@@ -11,7 +11,7 @@ internal sealed class RoslynCSharpExpressionService : IExpressionService
     private readonly RoslynGlobals globals;
     private readonly ScriptOptions scriptOptions;
 
-    public RoslynCSharpExpressionService(IDataService dataService)
+    public RoslynCSharpExpressionService(DataService dataService)
     {
         globals = new RoslynGlobals(dataService.Data);
         scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");

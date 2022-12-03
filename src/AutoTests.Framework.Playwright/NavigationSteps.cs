@@ -16,7 +16,7 @@ public sealed class NavigationSteps
     }
 
     [Given(@"navigate to '([^']*)'")]
-    public async Task GivenNavigateTo(IExpression expression)
+    public async Task GivenNavigateTo(ArgumentExpression expression)
     {
         var url = await expression.ExecuteAsync<string>();
         await page.GotoAsync(url);

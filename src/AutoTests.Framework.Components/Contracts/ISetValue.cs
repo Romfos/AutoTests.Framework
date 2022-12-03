@@ -5,5 +5,5 @@ namespace AutoTests.Framework.Components.Contracts;
 
 public interface ISetValue
 {
-    Task SetValueAsync(IExpression expression);
+    Task SetValueAsync(ArgumentExpression expression);
 }

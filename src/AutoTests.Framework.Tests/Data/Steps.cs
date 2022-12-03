@@ -7,9 +7,9 @@ namespace AutoTests.Framework.Tests.Data;
 [Binding]
 public sealed class Steps
 {
-    private readonly IDataService service;
+    private readonly DataService service;
 
-    public Steps(IDataService service)
+    public Steps(DataService service)
     {
         this.service = service;
     }

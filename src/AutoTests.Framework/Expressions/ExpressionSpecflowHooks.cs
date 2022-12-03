@@ -14,9 +14,9 @@ public sealed class ExpressionSpecflowHooks
     }
 
     [StepArgumentTransformation]
-    public IExpression TransformExpression(string text)
+    public ArgumentExpression TransformExpression(string text)
     {
-        return new RoslynCSharpExpression(expressionService, text);
+        return new ArgumentExpression(expressionService, text);
     }
 
     [BeforeTestRun(Order = int.MinValue)]

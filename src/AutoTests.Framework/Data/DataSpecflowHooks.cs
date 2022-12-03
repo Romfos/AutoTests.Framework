@@ -12,6 +12,6 @@ public sealed class DataSpecflowHooks
         var dataLoader = objectContainer.Resolve<DataLoader>();
         var data = dataLoader.Load(testRunnerManager.BindingAssemblies);
         var dataService = new DataService(data);
-        objectContainer.RegisterInstanceAs<IDataService>(dataService);
+        objectContainer.RegisterInstanceAs(dataService);
     }
 }

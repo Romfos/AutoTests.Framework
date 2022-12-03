@@ -15,7 +15,7 @@ internal sealed class Input : ISetValue, IGetValue
         return Task.FromResult<object?>(value);
     }
 
-    public async Task SetValueAsync(IExpression expression)
+    public async Task SetValueAsync(ArgumentExpression expression)
     {
         value = await expression.ExecuteAsync<string>();
     }
