@@ -1,4 +1,6 @@
 using AutoTests.Framework.Expressions;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Models;
@@ -17,5 +19,13 @@ public sealed class ModelsSpecflowHooks
     public IModel TransformModel(Table table)
     {
         return new Model(expressionService, table);
+    }
+
+    [StepArgumentTransformation()]
+    public Dictionary<ArgumentExpression, ArgumentExpression> TransformArgumentDictionary(Table table)
+    {
+        return table.Rows.ToDictionary(
+            x => new ArgumentExpression(expressionService, x["Name"]),
+            x => new ArgumentExpression(expressionService, x["Value"]));
     }
 }
