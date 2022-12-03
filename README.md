@@ -11,7 +11,7 @@ Main features:
 - Component framework for UI testing
 
 # Requirements
-- .NET 6 (recomended), .NET Framework 4.6.2 or .NET Standart 2.0 for other runtimes
+- .NET 6 (recomended) or .NET Framework 4.6.2+ or .NET Standart 2.0 for other runtimes
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
 
