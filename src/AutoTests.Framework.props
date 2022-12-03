@@ -19,7 +19,7 @@
       4) Component framework for Playwright\Selenium WebDriver\any other UI framewrok integration
     </Description>
     <PackageTags>AutoTests Specflow WebDriver BDD Gherkin Playwright</PackageTags>
-    <PackageProjectUrl>https://github.com/Romfos/AutoTests.Framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
