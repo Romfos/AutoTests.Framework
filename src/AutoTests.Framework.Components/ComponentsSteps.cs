@@ -16,14 +16,14 @@ public sealed class ComponentsSteps
         await componentReference.GetComponent<IClick>().ClickAsync();
     }
 
-    [When(@"set value '([^']*)' in  '([^']*)'")]
+    [When(@"set value '([^']*)' in '([^']*)' field")]
     public async Task WhenSetValueIn(IExpression expression, IComponentReference componentReference)
     {
         await componentReference.GetComponent<ISetValue>().SetValueAsync(expression);
     }
 
-    [Then(@"value '([^']*)' should be in '([^']*)'")]
-    public async Task WhenValueShouldHave(IExpression expression, IComponentReference componentReference)
+    [Then(@"field '([^']*)' should have '([^']*)' value")]
+    public async Task WhenValueShouldHave(IComponentReference componentReference, IExpression expression)
     {
         var expected = await expression.ExecuteAsync<object?>();
         var actual = await componentReference.GetComponent<IGetValue>().GetValueAsync();

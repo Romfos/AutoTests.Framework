@@ -5,12 +5,12 @@ Scenario: click component test
     Then check component test 1
 
 Scenario: set value component test
-    When set value 'Hello World!' in  'main page > first name'
+    When set value 'Hello World!' in 'main page > first name' field
     Then check component test 2
 
 Scenario: get value component test
     Given prepare component test 3
-    Then value '123' should be in 'main page > first name'
+    Then field 'main page > first name' should have '123' value
     Then check component test 3
 
 Scenario: component data test
