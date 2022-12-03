@@ -21,7 +21,7 @@ public sealed class TrivialInput : ISetValue, IGetValue
     {
         if (Locator == null)
         {
-            throw new Exception($"Locator is required");
+            throw new Exception("Locator is required");
         }
 
         return await page.InputValueAsync(Locator);
@@ -31,7 +31,7 @@ public sealed class TrivialInput : ISetValue, IGetValue
     {
         if (Locator == null)
         {
-            throw new Exception($"Locator is required");
+            throw new Exception("Locator is required");
         }
 
         var value = await expression.ExecuteAsync<string>();

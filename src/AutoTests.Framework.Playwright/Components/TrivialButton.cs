@@ -20,7 +20,7 @@ public sealed class TrivialButton : IClick
     {
         if (Locator == null)
         {
-            throw new Exception($"Locator is required");
+            throw new Exception("Locator is required");
         }
 
         await page.ClickAsync(Locator);
