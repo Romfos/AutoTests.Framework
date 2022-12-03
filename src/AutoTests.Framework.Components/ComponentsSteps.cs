@@ -1,5 +1,6 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Contracts;
+using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Expressions;
 using System;
 using System.Collections.Generic;
@@ -19,19 +20,19 @@ public sealed class ComponentsSteps
     }
 
     [When(@"click on '([^']*)'")]
-    public async Task WhenClickOn(IComponentReference componentReference)
+    public async Task WhenClickOn(ComponentReference componentReference)
     {
         await componentReference.GetComponent<IClick>().ClickAsync();
     }
 
     [When(@"set value '([^']*)' in '([^']*)' field")]
-    public async Task WhenSetValueIn(ArgumentExpression expression, IComponentReference componentReference)
+    public async Task WhenSetValueIn(ArgumentExpression expression, ComponentReference componentReference)
     {
         await componentReference.GetComponent<ISetValue>().SetValueAsync(expression);
     }
 
     [Then(@"field '([^']*)' should have '([^']*)' value")]
-    public async Task WhenValueShouldHave(IComponentReference componentReference, ArgumentExpression expression)
+    public async Task WhenValueShouldHave(ComponentReference componentReference, ArgumentExpression expression)
     {
         var expected = await expression.ExecuteAsync<object?>();
         var actual = await componentReference.GetComponent<IGetValue>().GetValueAsync();

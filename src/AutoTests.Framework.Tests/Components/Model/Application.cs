@@ -1,4 +1,5 @@
 using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 
 namespace AutoTests.Framework.Tests.Components.Model;
 

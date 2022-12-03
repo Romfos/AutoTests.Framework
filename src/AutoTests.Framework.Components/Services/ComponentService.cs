@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 
-namespace AutoTests.Framework.Components.Application;
+namespace AutoTests.Framework.Components.Services;
 
 public sealed class ComponentService
 {

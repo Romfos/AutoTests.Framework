@@ -1,4 +1,5 @@
 using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Services;
 using BoDi;
 using TechTalk.SpecFlow;
 
@@ -15,7 +16,7 @@ public sealed class ComponentsSpecflowHooks
     }
 
     [StepArgumentTransformation]
-    public IComponentReference ComponentReference(string path)
+    public ComponentReference TransformComponentReference(string path)
     {
         return new ComponentReference(componentService, path);
     }

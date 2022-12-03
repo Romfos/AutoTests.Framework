@@ -1,4 +1,5 @@
 using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 using Boostrap.Tests.Application.Pages;
 
 namespace Boostrap.Tests.Application;

@@ -1,3 +1,5 @@
+using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 using BoDi;
 using System;
 using System.Collections.Concurrent;
@@ -6,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 
-namespace AutoTests.Framework.Components.Application;
+namespace AutoTests.Framework.Components.Services;
 
 internal sealed class ApplicationFactory
 {

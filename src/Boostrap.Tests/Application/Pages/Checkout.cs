@@ -1,4 +1,4 @@
-using AutoTests.Framework.Components.Application;
+using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Playwright.Components;
 
 namespace Boostrap.Tests.Application.Pages;

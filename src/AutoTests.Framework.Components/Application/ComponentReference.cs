@@ -1,6 +1,8 @@
+using AutoTests.Framework.Components.Services;
+
 namespace AutoTests.Framework.Components.Application;
 
-internal sealed class ComponentReference : IComponentReference
+public sealed class ComponentReference
 {
     private readonly ComponentService componentService;
     private readonly string path;

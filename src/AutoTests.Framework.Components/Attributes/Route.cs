@@ -1,6 +1,6 @@
 using System;
 
-namespace AutoTests.Framework.Components.Application;
+namespace AutoTests.Framework.Components.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public sealed class Route : Attribute
