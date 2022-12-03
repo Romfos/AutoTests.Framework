@@ -19,8 +19,8 @@ public sealed class ExpressionSpecflowHooks
         return new ArgumentExpression(expressionService, text);
     }
 
-    [BeforeTestRun(Order = int.MinValue)]
-    public static void BeforeTestRun(IObjectContainer objectContainer)
+    [BeforeScenario(Order = int.MinValue)]
+    public static void BeforeScenario(IObjectContainer objectContainer)
     {
         objectContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
     }
