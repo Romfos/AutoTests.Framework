@@ -1,4 +1,3 @@
-using AutoTests.Framework.Data;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using System;
@@ -8,12 +7,12 @@ namespace AutoTests.Framework.Expressions;
 
 internal sealed class RoslynCSharpExpressionService : IExpressionService
 {
-    private readonly RoslynGlobals globals;
+    private readonly ExpressionEnvironment expressionEnvironment;
     private readonly ScriptOptions scriptOptions;
 
-    public RoslynCSharpExpressionService(DataService dataService)
+    public RoslynCSharpExpressionService(ExpressionEnvironment expressionEnvironment)
     {
-        globals = new RoslynGlobals(dataService.Data);
+        this.expressionEnvironment = expressionEnvironment;
         scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");
     }
 
@@ -22,7 +21,7 @@ internal sealed class RoslynCSharpExpressionService : IExpressionService
         if (text.AsSpan().TrimStart().StartsWith("@".AsSpan()))
         {
             var code = text.AsSpan().Trim().Slice(1).ToString();
-            var result = await CSharpScript.EvaluateAsync(code, scriptOptions, globals);
+            var result = await CSharpScript.EvaluateAsync(code, scriptOptions, expressionEnvironment);
             return (T)Convert.ChangeType(result, typeof(T));
         }
         else
