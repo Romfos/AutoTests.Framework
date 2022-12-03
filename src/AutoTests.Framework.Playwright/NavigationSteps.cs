@@ -21,4 +21,11 @@ public sealed class NavigationSteps
         var url = await expression.ExecuteAsync<string>();
         await page.GotoAsync(url);
     }
+
+    [Then(@"page url should be '([^']*)'")]
+    public async Task PageUrlShouldBe(ArgumentExpression expression)
+    {
+        var expected = await expression.ExecuteAsync<string>();
+        await page.WaitForURLAsync(expected);
+    }
 }
