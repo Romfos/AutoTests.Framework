@@ -27,22 +27,24 @@ Basic steps:
 1) Create unit test project
 2) Add additional Specflow nuget packages for unit test provider:
 
- - MSTest:  
-   [SpecFlow.MsTest](https://www.nuget.org/packages/SpecFlow.MsTest)  
-
- - NUnit:  
-   [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)
-   
-  - xUnit:  
-   [SpecFlow.xUnit](https://www.nuget.org/profiles/specflow)
+| Unit test framework | Nuget package                                                     |
+| ------------------- | ----------------------------------------------------------------- |
+| MSTest              | [SpecFlow.MsTest](https://www.nuget.org/packages/SpecFlow.MsTest) |
+| NUnit               | [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)   |
+| xUnit               | [SpecFlow.xUnit](https://www.nuget.org/profiles/specflow)         |
    
 3) Add required nuget packages 
 
-     - [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) - c# expressions in features, model transformations, test data management
+[AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) 
+- [x] C# expressions in features support
+- [x] Model transformationss
+- [x] Test data management
      
-     - [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)  - Component framework for UI testing like Playwright\Selenium\e.t.c
+[AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)
+- [x] Component framework for UI testing with Playwright\Selenium\e.t.c
      
-     - [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright) - Playwright integration for UI testing with some basic components
+[AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
+- [x] Playwright integration for UI testing with some basic components
      
 4) Register framework packages in specflow.json. Example:
 ```
