@@ -37,7 +37,7 @@ Basic steps:
 
 [AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) 
 - [x] C# expressions in features support
-- [x] Model transformationss
+- [x] Model transformations
 - [x] Test data management
      
 [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)
