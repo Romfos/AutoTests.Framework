@@ -16,4 +16,8 @@ internal sealed class Checkout
     [Route("last name")]
     [Selector("#lastName")]
     public TrivialInput? LastName { get; set; }
+
+    [Route("username error message")]
+    [Selector("#username ~ .invalid-feedback")]
+    public TrivialLabel? UsernameErrorMessage { get; set; }
 }

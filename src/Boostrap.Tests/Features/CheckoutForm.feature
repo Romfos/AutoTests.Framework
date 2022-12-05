@@ -8,6 +8,5 @@ Scenario: checkout form validation test
     | checkout > last name  | last_name  |
     And click on 'checkout > continue to checkout'
     Then should have following values:
-    | Name                  | Value      |
-    | checkout > first name | first_name |
-    | checkout > last name  | last_name  |
+    | Name                              | Value                      |
+    | checkout > username error message | Your username is required. |
