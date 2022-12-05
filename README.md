@@ -10,6 +10,23 @@ Main features:
 - Model transformation framework
 - Component framework for UI testing
 
+Test Example
+```gherkin
+Feature: CheckoutForm
+
+Scenario: checkout form validation test
+    Given navigate to '@Data.Common.HomePageUrl'
+    When set following values:
+    | Name                  | Value      |
+    | checkout > first name | first_name |
+    | checkout > last name  | last_name  |
+    And click on 'checkout > continue to checkout'
+    Then should have following values:
+    | Name                              | Value                      |
+    | checkout > username error message | Your username is required. |
+
+```
+
 # Requirements
 - .NET 6 (recomended) or .NET Framework 4.6.2+ or .NET Standart 2.0 for other runtimes
 - Visual Studio 2019, 2022
