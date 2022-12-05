@@ -9,15 +9,7 @@
 
   <PropertyGroup>
     <Authors>Romfos</Authors>
-    <Description>
-      Specflow-based autotest framework
-
-      Features:
-      1) Expression support in features
-      2) Test Data management framework
-      3) Model transformmation framework
-      4) Component framework for Playwright\Selenium WebDriver\any other UI framewrok integration
-    </Description>
+    <Description>SpecFlow based BDD framework with focus on automation testing. More info in github repo</Description>
     <PackageTags>AutoTests Specflow WebDriver BDD Gherkin Playwright</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
   </PropertyGroup>
