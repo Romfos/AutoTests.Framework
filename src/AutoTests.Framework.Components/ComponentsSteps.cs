@@ -25,25 +25,7 @@ public sealed class ComponentsSteps
         await componentReference.GetComponent<IClick>().ClickAsync();
     }
 
-    [When(@"set value '([^']*)' in '([^']*)' field")]
-    public async Task WhenSetValueIn(ArgumentExpression expression, ComponentReference componentReference)
-    {
-        await componentReference.GetComponent<ISetValue>().SetValueAsync(expression);
-    }
-
-    [Then(@"field '([^']*)' should have '([^']*)' value")]
-    public async Task WhenValueShouldHave(ComponentReference componentReference, ArgumentExpression expression)
-    {
-        var expected = await expression.ExecuteAsync<object?>();
-        var actual = await componentReference.GetComponent<IGetValue>().GetValueAsync();
-
-        if ((expected == null && actual != null) || !expected!.Equals(actual))
-        {
-            throw new Exception($"Unexpected value in component. Actual {actual}. Expected: {expected}");
-        }
-    }
-
-    [When(@"set following values to fields:")]
+    [When(@"set following values:")]
     public async Task WhenSetFollowingValuesToFields(Dictionary<ArgumentExpression, ArgumentExpression> values)
     {
         foreach (var keyValuePair in values)
@@ -54,7 +36,7 @@ public sealed class ComponentsSteps
         }
     }
 
-    [Then(@"fields should have following values:")]
+    [Then(@"should have following values:")]
     public async Task ThenFieldsShouldHaveFollowingValues(Dictionary<ArgumentExpression, ArgumentExpression> values)
     {
         foreach (var keyValuePair in values)
