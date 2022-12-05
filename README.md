@@ -63,7 +63,7 @@ Basic steps:
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 - [x] Playwright integration for UI testing with some basic components
      
-4) Register framework packages in specflow.json. Example:
+4) Register framework packages in `specflow.json`. Example:
 ```
 {
   "$schema": "https://specflow.org/specflow-config.json",
