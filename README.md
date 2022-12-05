@@ -77,17 +77,18 @@ Basic steps:
 5) Create Application class for UI application
 
 # How to make browser window visible
+By default browser will run in headless mode.
 
-Just add BeforeTestRun hook inside your test app and ovveride BrowserTypeLaunchOptions like this:
+If you need to change this behaviour just add BeforeTestRun hook inside your test app and ovveride BrowserTypeLaunchOptions like this:
 ```csharp
 [Binding]
 internal sealed class SpecflowHooks
 {
-	[BeforeTestRun(Order = 0)]
-	public static void BeforeTestRun(IObjectContainer objectContainer)
-	{
-		objectContainer.RegisterInstanceAs(new BrowserTypeLaunchOptions { Headless = false });
-	}
+    [BeforeTestRun(Order = 0)]
+    public static void BeforeTestRun(IObjectContainer objectContainer)
+    {
+        objectContainer.RegisterInstanceAs(new BrowserTypeLaunchOptions { Headless = false });
+    }
 }
 ```
 
