@@ -29,6 +29,6 @@ Scenario: visible component test
     | main page > first name |
 
 Scenario: invisible component test
-    Then should be visible:
+    Then should be invisible:
     | Name              |
     | main page > login |
