@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Playwright.Components;
 
-public sealed class TrivialInput : ISetValue, IGetValue
+public sealed class TrivialInput : ISetValue, IGetValue, IVisible
 {
     private readonly IPage page;
 
@@ -38,5 +38,15 @@ public sealed class TrivialInput : ISetValue, IGetValue
 
         var value = await expression.ExecuteAsync<string>();
         await page.FillAsync(Locator, value);
+    }
+
+    public async Task<bool> IsVisibleAsync()
+    {
+        if (Locator == null)
+        {
+            throw new Exception("Locator is required");
+        }
+
+        return await page.Locator(Locator).IsVisibleAsync();
     }
 }

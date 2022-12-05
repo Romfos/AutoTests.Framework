@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Playwright.Components;
 
-public sealed class TrivialButton : IClick
+public sealed class TrivialButton : IClick, IVisible
 {
     private readonly IPage page;
 
@@ -26,5 +26,15 @@ public sealed class TrivialButton : IClick
         }
 
         await page.ClickAsync(Locator);
+    }
+
+    public async Task<bool> IsVisibleAsync()
+    {
+        if (Locator == null)
+        {
+            throw new Exception("Locator is required");
+        }
+
+        return await page.Locator(Locator).IsVisibleAsync();
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Tests.Components.Model;
 
-internal sealed class Input : ISetValue, IGetValue
+internal sealed class Input : ISetValue, IGetValue, IVisible
 {
     public string? value;
     public bool getted = false;
@@ -13,6 +13,11 @@ internal sealed class Input : ISetValue, IGetValue
     {
         getted = true;
         return Task.FromResult<object?>(value);
+    }
+
+    public Task<bool> IsVisibleAsync()
+    {
+        return Task.FromResult(true);
     }
 
     public async Task SetValueAsync(ArgumentExpression expression)

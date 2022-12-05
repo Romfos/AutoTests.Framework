@@ -51,4 +51,30 @@ public sealed class ComponentsSteps
             }
         }
     }
+
+    [Then(@"should be visible:")]
+    public async Task ThenShouldBeVisible(IEnumerable<ArgumentExpression> argumentExpressions)
+    {
+        foreach (var argumentExpression in argumentExpressions)
+        {
+            var path = await argumentExpression.ExecuteAsync<string>();
+            if (!await componentService.GetComponent<IVisible>(path).IsVisibleAsync())
+            {
+                throw new Exception($"{path} is invisible");
+            }
+        }
+    }
+
+    [Then(@"should be invisible:")]
+    public async Task ThenShouldBeInvisible(IEnumerable<ArgumentExpression> argumentExpressions)
+    {
+        foreach (var argumentExpression in argumentExpressions)
+        {
+            var path = await argumentExpression.ExecuteAsync<string>();
+            if (await componentService.GetComponent<IVisible>(path).IsVisibleAsync())
+            {
+                throw new Exception($"{path} is visible");
+            }
+        }
+    }
 }
