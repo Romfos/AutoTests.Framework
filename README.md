@@ -76,7 +76,7 @@ Basic steps:
 ```
 5) Create Application class for UI application
 
-# How to run test not in headless mode (make browser visible)
+# How to make browser window visible
 
 Just add BeforeTestRun hook inside your test app and ovveride BrowserTypeLaunchOptions like this:
 ```csharp
