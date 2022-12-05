@@ -63,7 +63,7 @@ Basic steps:
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 - [x] Playwright integration for UI testing with some basic components
      
-4) Register framework packages in specflow.json. Example:
+4) Register framework packages in `specflow.json`. Example:
 ```
 {
   "$schema": "https://specflow.org/specflow-config.json",
@@ -75,6 +75,21 @@ Basic steps:
 }
 ```
 5) Create Application class for UI application
+
+# How to make browser window visible
+
+Just add BeforeTestRun hook inside your test app and ovveride BrowserTypeLaunchOptions like this:
+```csharp
+[Binding]
+internal sealed class SpecflowHooks
+{
+	[BeforeTestRun(Order = 0)]
+	public static void BeforeTestRun(IObjectContainer objectContainer)
+	{
+		objectContainer.RegisterInstanceAs(new BrowserTypeLaunchOptions { Headless = false });
+	}
+}
+```
 
 # Legacy 4.8.x version
 - Source code: [AutoTests.Framework/tree/4.8.x](https://github.com/Romfos/AutoTests.Framework/tree/4.8.x)
