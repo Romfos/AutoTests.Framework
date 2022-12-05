@@ -81,7 +81,7 @@ Basic steps:
 # How to make browser window visible
 By default browser will run in headless mode.
 
-If you need to change this behaviour just add BeforeTestRun hook inside your test app and ovveride BrowserTypeLaunchOptions like this:
+If you need to change this behaviour just add BeforeTestRun hook inside your test app and override BrowserTypeLaunchOptions like this:
 ```csharp
 [Binding]
 internal sealed class SpecflowHooks
