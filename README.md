@@ -10,7 +10,7 @@ Main features:
 - Model transformation framework
 - Component framework for UI testing
 
-Test Example
+# Test example
 ```gherkin
 Feature: CheckoutForm
 
