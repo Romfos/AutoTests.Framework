@@ -10,14 +10,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\*.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Components\Model\MainPage.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Components\Model\MainPage.json" />
+    <EmbeddedResource Include="Components\**\*.json" />
   </ItemGroup>
 
   <ItemGroup>
