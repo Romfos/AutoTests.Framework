@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSTest" Version="3.0.0-preview-20221122-01" />
+    <PackageReference Include="MSTest" Version="3.0.0" />
     <PackageReference Include="SpecFlow.MsTest" Version="3.9.74" />
   </ItemGroup>
 
