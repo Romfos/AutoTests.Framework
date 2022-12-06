@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D23020
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		AutoTests.Framework.props = AutoTests.Framework.props
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{96B031DB-0483-40AD-B39B-2876542AF4E7}"
@@ -21,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Playwri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoTests.Framework.Tests", "AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj", "{1D1996DC-E249-4BA5-9AA0-779E9CB24F1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boostrap.Tests", "Boostrap.Tests\Boostrap.Tests.csproj", "{1FF31BF4-8F61-4B11-AFB8-A93931B5B670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boostrap.Tests", "Boostrap.Tests\Boostrap.Tests.csproj", "{1FF31BF4-8F61-4B11-AFB8-A93931B5B670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
