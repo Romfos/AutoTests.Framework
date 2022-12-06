@@ -99,4 +99,44 @@ public sealed class ComponentsSteps
             throw new Exception($"Some components are visible: {string.Join(",", errors)}");
         }
     }
+
+    [Then(@"should be enabled:")]
+    public async Task ThenShouldBeEnabled(IEnumerable<ArgumentExpression> argumentExpressions)
+    {
+        var errors = new List<string>();
+
+        foreach (var argumentExpression in argumentExpressions)
+        {
+            var path = await argumentExpression.ExecuteAsync<string>();
+            if (!await componentService.GetComponent<IEnabled>(path).IsEnabledAsync())
+            {
+                errors.Add(path);
+            }
+        }
+
+        if (errors.Any())
+        {
+            throw new Exception($"Some components are diabled: {string.Join(",", errors)}");
+        }
+    }
+
+    [Then(@"should be disabled:")]
+    public async Task ThenShouldBeDisabled(IEnumerable<ArgumentExpression> argumentExpressions)
+    {
+        var errors = new List<string>();
+
+        foreach (var argumentExpression in argumentExpressions)
+        {
+            var path = await argumentExpression.ExecuteAsync<string>();
+            if (await componentService.GetComponent<IEnabled>(path).IsEnabledAsync())
+            {
+                errors.Add(path);
+            }
+        }
+
+        if (errors.Any())
+        {
+            throw new Exception($"Some components are enabled: {string.Join(",", errors)}");
+        }
+    }
 }

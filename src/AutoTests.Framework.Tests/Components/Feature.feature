@@ -32,3 +32,14 @@ Scenario: invisible component test
     Then should be invisible:
     | Name              |
     | main page > login |
+
+Scenario: enabled component test
+    Then should be enabled:
+    | Name                   |
+    | main page > first name |
+
+Scenario: disabled component test
+    Then should be disabled:
+    | Name              |
+    | main page > login |
+

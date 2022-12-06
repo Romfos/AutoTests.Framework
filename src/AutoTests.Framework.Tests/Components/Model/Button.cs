@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Tests.Components.Model;
 
-internal sealed class Button : IClick, IVisible
+internal sealed class Button : IClick, IVisible, IEnabled
 {
     public bool Clicked = false;
 
@@ -11,6 +11,11 @@ internal sealed class Button : IClick, IVisible
     {
         Clicked = true;
         return Task.CompletedTask;
+    }
+
+    public Task<bool> IsEnabledAsync()
+    {
+        return Task.FromResult(false);
     }
 
     public Task<bool> IsVisibleAsync()
