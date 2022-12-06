@@ -93,7 +93,3 @@ internal sealed class SpecflowHooks
     }
 }
 ```
-
-# Legacy 4.8.x version
-- Source code: [AutoTests.Framework/tree/4.8.x](https://github.com/Romfos/AutoTests.Framework/tree/4.8.x)
-- Readme: https://github.com/Romfos/AutoTests.Framework/blob/4.8.x/README.md
