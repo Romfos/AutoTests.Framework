@@ -3,11 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{D23020A3-BFE0-4EBC-9D39-AF6C2B7DFB38}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{D23020A3-BFE0-4EBC-9D39-AF6C2B7DFB38}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		AutoTests.Framework.props = AutoTests.Framework.props
 		README.md = README.md
+		Common.props = Common.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{96B031DB-0483-40AD-B39B-2876542AF4E7}"

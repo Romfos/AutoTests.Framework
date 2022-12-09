@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../AutoTests.Framework.props" />
 
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0;net462</TargetFrameworks>
@@ -7,11 +8,6 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Data\*.json" />
-    <EmbeddedResource Include="Components\**\*.json" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MSTest" Version="3.0.0" />

@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../AutoTests.Framework.props" />
+  <Import Project="../Common.props" />
   
   <ItemGroup>
     <ProjectReference Include="..\AutoTests.Framework\AutoTests.Framework.csproj" />

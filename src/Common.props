@@ -1,0 +1,24 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Romfos</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>SpecFlow based BDD framework with focus on automation testing</Description>
+    <PackageTags>AutoTests Specflow WebDriver BDD Gherkin Playwright</PackageTags>
+    <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\">
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+
+</Project>
