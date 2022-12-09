@@ -93,3 +93,16 @@ internal sealed class SpecflowHooks
     }
 }
 ```
+
+# How to work with test data
+
+You can create json file in Data subfolder and get access to content in feature to it like:
+```gherkin
+Feature: CheckoutForm
+
+Scenario: checkout form validation test
+    Given navigate to '@Data.Common.HomePageUrl' #return value HomePageUrl from Data\Common.json
+```
+You can find example in 'Boostrap.Tests'
+
+
