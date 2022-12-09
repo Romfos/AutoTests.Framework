@@ -30,7 +30,7 @@ Scenario: checkout form validation test
 ```
 
 # Requirements
-- .NET 6 (recomended) or .NET Framework 4.6.2+ or .NET Standard 2.0 for other runtimes
+- .NET 6 (recomended) or .NET Standard 2.0 for other runtimes
 - Visual Studio 2019, 2022
 - Specflow plugin for Visual Studio
 
