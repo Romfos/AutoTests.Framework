@@ -1,7 +1,24 @@
 on: push
 
 jobs:
-  tests:
+  ubuntu-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: dotnet build ./src/AutoTests.Framework.sln
+
+      - name: Test
+        run: dotnet test --no-build --no-restore ./src/AutoTests.Framework.sln
+
+  windows-tests:
     runs-on: windows-latest
     steps:
       - name: Setup .NET
