@@ -10,8 +10,4 @@
     <PackageReference Include="System.Text.Json" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
-    <PackageReference Include="System.Text.Json" Version="7.0.0" />
-  </ItemGroup>
-
 </Project>
