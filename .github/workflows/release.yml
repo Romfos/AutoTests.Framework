@@ -14,16 +14,13 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 7.0.201
 
       - name: Check out repository
         uses: actions/checkout@v3
-        
-      - name: Build
-        run: dotnet build -c Release -p:Version=${{ inputs.Version }} ./src/AutoTests.Framework.sln
 
       - name: Pack
-        run: dotnet pack --no-build -c Release -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.sln
+        run: dotnet pack -c Release -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.sln
 
       - name: Push to Nuget
         run: dotnet nuget push ./build/*.nupkg -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json
