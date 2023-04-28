@@ -31,7 +31,7 @@ Scenario: checkout form validation test
 
 # Requirements
 - .NET 6+ (recommended) or .NET Standard 2.0 for older runtimes
-- Visual Studio 2019, 2022
+- Visual Studio 2019, 2022 (recommended)
 - Specflow plugin for Visual Studio
 
 # Nuget packages links  
