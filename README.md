@@ -54,17 +54,15 @@ Basic steps:
    
 3) Add required nuget packages 
 
-[AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework) 
-- [x] C# expressions in features support
-- [x] Model transformations
-- [x] Test data management
-     
+- Option 1. For non UI autotests:
+[AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework)
+
+- Option 2. For UI tests with custom steps:
 [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)
-- [x] Component framework for UI testing with Playwright\Selenium\e.t.c
-     
+
+- Option 3. For UI tests with Playwright
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
-- [x] Playwright integration for UI testing with some basic components
-     
+ 
 4) Register framework packages in `specflow.json`. Example:
 ```
 {
