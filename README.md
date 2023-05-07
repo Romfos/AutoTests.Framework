@@ -57,7 +57,7 @@ Basic steps:
 - Option 1. For UI tests with Playwright
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 
-- Option 2. For UI tests with custom steps:
+- Option 2. For non-Playwright UI tests:
 [AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)
 
 - Option 3. For non UI autotests:
