@@ -3,7 +3,7 @@
   
   <ItemGroup>
     <PackageReference Include="SpecFlow" Version="3.9.74" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.5.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
