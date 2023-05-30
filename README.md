@@ -76,6 +76,14 @@ Basic steps:
 ```
 5) Create Application class for UI application
 
+```csharp
+internal sealed class BootstrapApplication : IApplication
+{
+    [Route("checkout")]
+    public Checkout? Checkout { get; set; }
+}
+```
+
 # How to make browser window visible
 By default browser will run in headless mode.
 
