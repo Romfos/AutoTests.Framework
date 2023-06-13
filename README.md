@@ -52,18 +52,11 @@ Basic steps:
 | NUnit               | [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)   |
 | xUnit               | [SpecFlow.xUnit](https://www.nuget.org/profiles/specflow)         |
    
-3) Add required nuget packages 
+3) Add nuget package
 
-- Option 1. For UI tests with Playwright
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 
-- Option 2. For non-Playwright UI tests:
-[AutoTests.Framework.Components](https://www.nuget.org/packages/AutoTests.Framework.Components)
-
-- Option 3. For non UI autotests:
-[AutoTests.Framework](https://www.nuget.org/packages/AutoTests.Framework)
-
-4) Register framework packages in `specflow.json`. Example:
+4) Create `specflow.json` and register framework assemblies. Example:
 ```
 {
   "$schema": "https://specflow.org/specflow-config.json",
