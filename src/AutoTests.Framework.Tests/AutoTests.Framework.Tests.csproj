@@ -3,9 +3,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0;net462</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <LangVersion>11</LangVersion>
-    <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

@@ -7,8 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{D230
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		AutoTests.Framework.props = AutoTests.Framework.props
+		Directory.Build.props = Directory.Build.props
 		README.md = README.md
-		Common.props = Common.props
+		Package.props = Package.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{96B031DB-0483-40AD-B39B-2876542AF4E7}"

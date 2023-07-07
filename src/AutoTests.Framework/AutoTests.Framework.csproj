@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../Common.props" />
+  <Import Project="../Package.props" />
   
   <ItemGroup>
     <PackageReference Include="SpecFlow" Version="3.9.74" />
