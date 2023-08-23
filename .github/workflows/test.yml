@@ -7,7 +7,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.307
+          dotnet-version: 7.0.x
 
       - name: Check out repository
         uses: actions/checkout@v3
@@ -15,8 +15,11 @@ jobs:
       - name: Build
         run: dotnet build ./src/AutoTests.Framework.sln
 
-      - name: Test
-        run: dotnet test --no-build --no-restore ./src/AutoTests.Framework.sln
+      - name: Test on .net 6
+        run: dotnet test --no-build --no-restore --framework net6.0 ./src/AutoTests.Framework.sln
+
+      - name: Test on .net 7
+        run: dotnet test --no-build --no-restore --framework net7.0 ./src/AutoTests.Framework.sln
 
   windows-tests:
     runs-on: windows-latest
