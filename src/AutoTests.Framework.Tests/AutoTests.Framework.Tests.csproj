@@ -2,7 +2,7 @@
   <Import Project="../AutoTests.Framework.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net6.0;net462</TargetFrameworks>
+    <TargetFrameworks>net8.0;net7.0;net6.0;net462</TargetFrameworks>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
