@@ -5,15 +5,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Tests.Components;
 
 [Binding]
-internal sealed class Steps
+internal sealed class Steps(Application application)
 {
-    private readonly Application application;
-
-    public Steps(Application application)
-    {
-        this.application = application;
-    }
-
     [Then(@"check component test 1")]
     public void ThenCheckComponentTest1()
     {

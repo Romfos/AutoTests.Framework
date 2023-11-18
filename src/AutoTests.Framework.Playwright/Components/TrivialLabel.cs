@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Playwright.Components;
 
-public sealed class TrivialLabel : IGetValue, IVisible
+public sealed class TrivialLabel(IPage page) : IGetValue, IVisible
 {
-    private readonly IPage page;
-
     [FromSelector]
     public string? Locator { get; set; }
-
-    public TrivialLabel(IPage page)
-    {
-        this.page = page;
-    }
 
     public async Task<object?> GetValueAsync()
     {

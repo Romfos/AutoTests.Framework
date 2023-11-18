@@ -6,14 +6,9 @@ using System.Reflection;
 
 namespace AutoTests.Framework.Components.Services;
 
-public sealed class ComponentService
+public sealed class ComponentService(IApplication application)
 {
-    private readonly IApplication application;
-
-    public ComponentService(IApplication application)
-    {
-        this.application = application;
-    }
+    private readonly IApplication application = application;
 
     public T GetComponent<T>(string path)
         where T : class

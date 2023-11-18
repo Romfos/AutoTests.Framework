@@ -6,15 +6,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Models;
 
 [Binding]
-public sealed class ModelsSpecflowHooks
+public sealed class ModelsSpecflowHooks(IExpressionService expressionService)
 {
-    private readonly IExpressionService expressionService;
-
-    public ModelsSpecflowHooks(IExpressionService expressionService)
-    {
-        this.expressionService = expressionService;
-    }
-
     [StepArgumentTransformation]
     public IModel TransformModel(Table table)
     {

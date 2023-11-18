@@ -11,15 +11,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Components;
 
 [Binding]
-public sealed class ComponentsSteps
+public sealed class ComponentsSteps(ComponentService componentService)
 {
-    private readonly ComponentService componentService;
-
-    public ComponentsSteps(ComponentService componentService)
-    {
-        this.componentService = componentService;
-    }
-
     [When(@"click on '([^']*)'")]
     public async Task WhenClickOn(ComponentReference componentReference)
     {

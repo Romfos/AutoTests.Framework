@@ -1,13 +1,7 @@
 namespace AutoTests.Framework.Tests.Models;
 
-internal sealed class TestModel1
+internal sealed class TestModel1(int x, string y)
 {
-    public int X { get; }
-    public string Y { get; }
-
-    public TestModel1(int x, string y)
-    {
-        X = x;
-        Y = y;
-    }
+    public int X { get; } = x;
+    public string Y { get; } = y;
 }

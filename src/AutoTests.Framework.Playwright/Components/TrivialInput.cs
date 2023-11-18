@@ -7,17 +7,10 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Playwright.Components;
 
-public sealed class TrivialInput : ISetValue, IGetValue, IVisible, IEnabled
+public sealed class TrivialInput(IPage page) : ISetValue, IGetValue, IVisible, IEnabled
 {
-    private readonly IPage page;
-
     [FromSelector]
     public string? Locator { get; set; }
-
-    public TrivialInput(IPage page)
-    {
-        this.page = page;
-    }
 
     public async Task<object?> GetValueAsync()
     {

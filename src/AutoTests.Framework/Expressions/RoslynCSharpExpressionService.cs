@@ -5,16 +5,9 @@ using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Expressions;
 
-internal sealed class RoslynCSharpExpressionService : IExpressionService
+internal sealed class RoslynCSharpExpressionService(ExpressionEnvironment expressionEnvironment) : IExpressionService
 {
-    private readonly ExpressionEnvironment expressionEnvironment;
-    private readonly ScriptOptions scriptOptions;
-
-    public RoslynCSharpExpressionService(ExpressionEnvironment expressionEnvironment)
-    {
-        this.expressionEnvironment = expressionEnvironment;
-        scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");
-    }
+    private readonly ScriptOptions scriptOptions = ScriptOptions.Default.AddReferences("Microsoft.CSharp");
 
     public async Task<T> ExecuteAsync<T>(string text)
     {

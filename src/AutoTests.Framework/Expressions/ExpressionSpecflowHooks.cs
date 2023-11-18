@@ -4,15 +4,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Expressions;
 
 [Binding]
-public sealed class ExpressionSpecflowHooks
+public sealed class ExpressionSpecflowHooks(IExpressionService expressionService)
 {
-    private readonly IExpressionService expressionService;
-
-    public ExpressionSpecflowHooks(IExpressionService expressionService)
-    {
-        this.expressionService = expressionService;
-    }
-
     [StepArgumentTransformation]
     public ArgumentExpression TransformExpression(string text)
     {

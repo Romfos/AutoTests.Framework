@@ -1,11 +1,6 @@
 namespace AutoTests.Framework.Data;
 
-public sealed class DataService
+public sealed class DataService(dynamic data)
 {
-    public dynamic Data { get; }
-
-    public DataService(dynamic data)
-    {
-        Data = data;
-    }
+    public dynamic Data { get; } = data;
 }

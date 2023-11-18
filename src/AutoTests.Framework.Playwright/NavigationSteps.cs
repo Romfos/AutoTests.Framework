@@ -6,15 +6,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Playwright;
 
 [Binding]
-public sealed class NavigationSteps
+public sealed class NavigationSteps(IPage page)
 {
-    private readonly IPage page;
-
-    public NavigationSteps(IPage page)
-    {
-        this.page = page;
-    }
-
     [Given(@"navigate to '([^']*)'")]
     public async Task GivenNavigateTo(ArgumentExpression expression)
     {

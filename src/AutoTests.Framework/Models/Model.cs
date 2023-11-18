@@ -9,21 +9,12 @@ using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Models;
 
-internal sealed class Model : IModel
+internal sealed class Model(IExpressionService expressionService, Table table) : IModel
 {
     private static readonly JsonSerializerOptions jsonSerializerOptions = new()
     {
         NumberHandling = JsonNumberHandling.AllowReadingFromString
     };
-
-    private readonly IExpressionService expressionService;
-    private readonly Table table;
-
-    public Model(IExpressionService expressionService, Table table)
-    {
-        this.expressionService = expressionService;
-        this.table = table;
-    }
 
     public async Task<T> GetValueAsync<T>()
     {
@@ -58,11 +49,7 @@ internal sealed class Model : IModel
     private T ConvertToObject<T>(Dictionary<string, object?> properties)
     {
         var jsonModel = JsonSerializer.Serialize(properties);
-        var result = JsonSerializer.Deserialize<T>(jsonModel, jsonSerializerOptions);
-        if (result == null)
-        {
-            throw new Exception($"Unable to serialize {typeof(T).FullName}");
-        }
+        var result = JsonSerializer.Deserialize<T>(jsonModel, jsonSerializerOptions) ?? throw new Exception($"Unable to serialize {typeof(T).FullName}");
         return result;
     }
 }

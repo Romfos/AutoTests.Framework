@@ -6,15 +6,8 @@ using TechTalk.SpecFlow;
 namespace AutoTests.Framework.Components;
 
 [Binding]
-public sealed class ComponentsSpecflowHooks
+public sealed class ComponentsSpecflowHooks(ComponentService componentService)
 {
-    private readonly ComponentService componentService;
-
-    public ComponentsSpecflowHooks(ComponentService componentService)
-    {
-        this.componentService = componentService;
-    }
-
     [StepArgumentTransformation]
     public ComponentReference TransformComponentReference(string path)
     {
