@@ -30,7 +30,7 @@ internal sealed class ApplicationFactory
         }
         if (applicationTypes.Count > 1)
         {
-            throw new Exception("Only one applciation is alloweed in test applciation");
+            throw new Exception("Only one application is allowed in test application");
         }
 
         return (IApplication)CreateComponent(applicationTypes.Single(), objectContainer);
@@ -79,7 +79,7 @@ internal sealed class ApplicationFactory
     {
         if (jsonElement.ValueKind != JsonValueKind.Object)
         {
-            throw new Exception($"Inavlid json data for component {componentType.FullName}: {jsonElement}");
+            throw new Exception($"Invalid json data for component {componentType.FullName}: {jsonElement}");
         }
 
         foreach (var jsonProperty in jsonElement.EnumerateObject())
@@ -101,7 +101,7 @@ internal sealed class ApplicationFactory
             var propertyValue = property.GetValue(component);
             if (propertyValue == null)
             {
-                throw new Exception($"Unable to get sub compoent {name}");
+                throw new Exception($"Unable to get sub component {name}");
             }
             PatchComponent(property.PropertyType, propertyValue, jsonElement);
         }

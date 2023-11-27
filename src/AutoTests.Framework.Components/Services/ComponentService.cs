@@ -42,7 +42,7 @@ public sealed class ComponentService(IApplication application)
 
         if (properties.Count > 1)
         {
-            throw new Exception($"Type '{type.FullName}' has several properties wthi the same route '{routeName}'");
+            throw new Exception($"Type '{type.FullName}' has several properties with the same route '{routeName}'");
         }
 
         var property = properties.Single();

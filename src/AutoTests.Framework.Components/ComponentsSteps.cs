@@ -109,7 +109,7 @@ public sealed class ComponentsSteps(ComponentService componentService)
 
         if (errors.Any())
         {
-            throw new Exception($"Some components are diabled: {string.Join(",", errors)}");
+            throw new Exception($"Some components are disabled: {string.Join(",", errors)}");
         }
     }
 
