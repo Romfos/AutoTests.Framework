@@ -38,9 +38,9 @@ internal sealed class Model(IExpressionService expressionService, Table table) :
         {
             var name = keyValuePair.Key;
             var value = keyValuePair.Value;
-            var properyName = await expressionService.ExecuteAsync<string>(name);
+            var propertyName = await expressionService.ExecuteAsync<string>(name);
             var propertyValue = await expressionService.ExecuteAsync<object?>(value);
-            properties[properyName] = propertyValue;
+            properties[propertyName] = propertyValue;
         }
 
         return ConvertToObject<T>(properties);
