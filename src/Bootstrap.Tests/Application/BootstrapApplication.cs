@@ -1,8 +1,8 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Attributes;
-using Boostrap.Tests.Application.Pages;
+using Bootstrap.Tests.Application.Pages;
 
-namespace Boostrap.Tests.Application;
+namespace Bootstrap.Tests.Application;
 
 internal sealed class BootstrapApplication : IApplication
 {
