@@ -5,6 +5,7 @@ on:
         description: "Nuget package version"
         required: true
         type: string
+run-name: Release ${{ inputs.Version }}
 
 jobs:
   release:
