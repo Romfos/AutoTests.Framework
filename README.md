@@ -103,6 +103,6 @@ Feature: CheckoutForm
 Scenario: checkout form validation test
     Given navigate to '@Data.Common.HomePageUrl' #return value HomePageUrl from Data\Common.json
 ```
-You can find example in 'Boostrap.Tests'
+You can find example in 'Bootstrap.Tests'
 
 
