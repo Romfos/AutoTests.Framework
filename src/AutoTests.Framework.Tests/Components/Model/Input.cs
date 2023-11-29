@@ -6,13 +6,13 @@ namespace AutoTests.Framework.Tests.Components.Model;
 
 internal sealed class Input : ISetValue, IGetValue, IVisible, IEnabled
 {
-    public string? value;
-    public bool getted = false;
+    public string? setValueContent;
+    public bool isGetMethodCalled = false;
 
     public Task<object?> GetValueAsync()
     {
-        getted = true;
-        return Task.FromResult<object?>(value);
+        isGetMethodCalled = true;
+        return Task.FromResult<object?>(setValueContent);
     }
 
     public Task<bool> IsEnabledAsync()
@@ -27,6 +27,6 @@ internal sealed class Input : ISetValue, IGetValue, IVisible, IEnabled
 
     public async Task SetValueAsync(ArgumentExpression expression)
     {
-        value = await expression.ExecuteAsync<string>();
+        setValueContent = await expression.ExecuteAsync<string>();
     }
 }
