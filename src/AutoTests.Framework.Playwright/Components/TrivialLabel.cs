@@ -1,8 +1,6 @@
 using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Contracts;
 using Microsoft.Playwright;
-using System;
-using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Playwright.Components;
 

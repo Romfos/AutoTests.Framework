@@ -1,5 +1,3 @@
-using System;
-
 namespace AutoTests.Framework.Components.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]

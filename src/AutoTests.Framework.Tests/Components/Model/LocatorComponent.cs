@@ -1,6 +1,5 @@
 using AutoTests.Framework.Components.Attributes;
 using AutoTests.Framework.Components.Contracts;
-using System.Threading.Tasks;
 
 namespace AutoTests.Framework.Tests.Components.Model;
 

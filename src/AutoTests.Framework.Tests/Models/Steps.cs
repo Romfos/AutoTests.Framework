@@ -1,7 +1,5 @@
 using AutoTests.Framework.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Tests.Models;

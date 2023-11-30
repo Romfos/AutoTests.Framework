@@ -1,6 +1,5 @@
 using AutoTests.Framework.Expressions;
 using Microsoft.Playwright;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Playwright;

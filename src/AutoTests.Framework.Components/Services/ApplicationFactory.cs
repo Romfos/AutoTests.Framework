@@ -1,10 +1,7 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Attributes;
 using BoDi;
-using System;
 using System.Collections.Concurrent;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 

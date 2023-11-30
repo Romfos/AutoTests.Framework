@@ -1,10 +1,6 @@
 using AutoTests.Framework.Expressions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace AutoTests.Framework.Models;

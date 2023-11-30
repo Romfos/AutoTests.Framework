@@ -1,7 +1,5 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Attributes;
-using System;
-using System.Linq;
 using System.Reflection;
 
 namespace AutoTests.Framework.Components.Services;
