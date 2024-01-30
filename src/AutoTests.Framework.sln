@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{D230
 		.editorconfig = .editorconfig
 		AutoTests.Framework.props = AutoTests.Framework.props
 		Directory.Build.props = Directory.Build.props
+		icon.ico = icon.ico
 		Package.props = Package.props
 		README.md = README.md
 	EndProjectSection

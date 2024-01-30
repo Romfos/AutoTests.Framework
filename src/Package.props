@@ -10,12 +10,12 @@
     <Description>SpecFlow based BDD framework with focus on automation testing</Description>
     <PackageTags>AutoTests Specflow WebDriver BDD Gherkin Playwright</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
+    <PackageIcon>icon.jpg</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\">
-      <Visible>false</Visible>
-    </None>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\icon.jpg" Pack="true" PackagePath="icon.jpg" Visible="false" />
   </ItemGroup>
 
 </Project>
