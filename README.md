@@ -34,7 +34,7 @@ Scenario: checkout form validation test
 # Requirements
 - .NET 6+ (recommended) or .NET Framework 4.6.2+
 - Visual Studio 2022 or Visual Studio Code
-- Specflow plugin for Visual Studio 2022 or Cucumber plugin for Visual Studio Code
+- [Reqnroll plugin](https://marketplace.visualstudio.com/items?itemName=Reqnroll.ReqnrollForVisualStudio2022) for Visual Studio 2022 or [Cucumber plugin](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official) for Visual Studio Code
 
 # Nuget packages links  
 - https://www.nuget.org/packages/AutoTests.Framework
