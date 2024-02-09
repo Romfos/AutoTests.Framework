@@ -1,6 +1,6 @@
 using AutoTests.Framework.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace AutoTests.Framework.Tests.Models;
 

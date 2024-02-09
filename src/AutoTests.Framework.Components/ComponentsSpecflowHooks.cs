@@ -1,7 +1,7 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Services;
 using BoDi;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace AutoTests.Framework.Components;
 

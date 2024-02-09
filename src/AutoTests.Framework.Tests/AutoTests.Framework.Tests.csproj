@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest" Version="3.2.0" />
-    <PackageReference Include="SpecFlow.MsTest" Version="3.9.74" />
+    <PackageReference Include="Reqnroll.MsTest" Version="1.0.0" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>
 

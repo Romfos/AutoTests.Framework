@@ -2,7 +2,7 @@ using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Contracts;
 using AutoTests.Framework.Components.Services;
 using AutoTests.Framework.Expressions;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace AutoTests.Framework.Components;
 

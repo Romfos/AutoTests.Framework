@@ -1,6 +1,6 @@
 using BoDi;
 using Microsoft.Playwright;
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace AutoTests.Framework.Playwright;
 
