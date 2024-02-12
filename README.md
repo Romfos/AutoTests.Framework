@@ -1,6 +1,6 @@
 # Overview
 
-Reqnroll (SpecFlow in the past) based autotest framework
+Reqnroll (next version of SpecFlow) based autotest framework
 
 [![.github/workflows/test.yml](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml/badge.svg)](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml)
 
