@@ -12,11 +12,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Restore
-        run: dotnet restore ./src/AutoTests.Framework.sln
-
       - name: Build
-        run: dotnet build --no-restore ./src/AutoTests.Framework.sln
+        run: dotnet build ./src/AutoTests.Framework.sln
 
       - name: Test
         run: dotnet test --no-build --no-restore ./src/AutoTests.Framework.sln
@@ -32,11 +29,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Restore
-        run: dotnet restore ./src/AutoTests.Framework.sln
-
       - name: Build
-        run: dotnet build --no-restore ./src/AutoTests.Framework.sln
+        run: dotnet build ./src/AutoTests.Framework.sln
 
       - name: Test
         run: dotnet test --no-build --no-restore ./src/AutoTests.Framework.sln
