@@ -4,7 +4,7 @@ using Reqnroll;
 namespace AutoTests.Framework.Expressions;
 
 [Binding]
-public sealed class ExpressionSpecflowHooks(IExpressionService expressionService)
+public sealed class ExpressionReqnrollHooks(IExpressionService expressionService)
 {
     [StepArgumentTransformation]
     public ArgumentExpression TransformExpression(string text)

@@ -6,7 +6,7 @@ using Reqnroll;
 namespace AutoTests.Framework.Components;
 
 [Binding]
-public sealed class ComponentsSpecflowHooks(ComponentService componentService)
+public sealed class ComponentsReqnrollHooks(ComponentService componentService)
 {
     [StepArgumentTransformation]
     public ComponentReference TransformComponentReference(string path)

@@ -4,7 +4,7 @@ using Reqnroll;
 namespace AutoTests.Framework.Data;
 
 [Binding]
-public sealed class DataSpecflowHooks(ITestRunnerManager testRunnerManager, IObjectContainer objectContainer)
+public sealed class DataReqnrollHooks(ITestRunnerManager testRunnerManager, IObjectContainer objectContainer)
 {
     [BeforeScenario]
     public void BeforeTestRun()

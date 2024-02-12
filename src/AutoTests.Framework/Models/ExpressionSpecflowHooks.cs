@@ -4,7 +4,7 @@ using Reqnroll;
 namespace AutoTests.Framework.Models;
 
 [Binding]
-public sealed class ModelsSpecflowHooks(IExpressionService expressionService)
+public sealed class ModelsReqnrollHooks(IExpressionService expressionService)
 {
     [StepArgumentTransformation]
     public IModel TransformModel(Table table)
