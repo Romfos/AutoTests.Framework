@@ -12,9 +12,9 @@ public sealed class ExpressionReqnrollHooks(IExpressionService expressionService
         return new ArgumentExpression(expressionService, text);
     }
 
-    [BeforeScenario(Order = int.MinValue)]
-    public static void BeforeScenario(IObjectContainer objectContainer)
+    [BeforeTestRun(Order = int.MinValue)]
+    public static void BeforeTestRun(ObjectContainer objectContainer)
     {
-        objectContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
+        objectContainer.BaseContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
     }
 }

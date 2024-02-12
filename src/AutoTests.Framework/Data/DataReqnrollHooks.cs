@@ -4,14 +4,14 @@ using Reqnroll;
 namespace AutoTests.Framework.Data;
 
 [Binding]
-public sealed class DataReqnrollHooks(ITestRunnerManager testRunnerManager, IObjectContainer objectContainer)
+public sealed class DataReqnrollHooks
 {
-    [BeforeScenario]
-    public void BeforeTestRun()
+    [BeforeTestRun]
+    public static void BeforeTestRun(ITestRunnerManager testRunnerManager, ObjectContainer objectContainer)
     {
         var dataLoader = objectContainer.Resolve<DataLoader>();
         var data = dataLoader.Load(testRunnerManager.BindingAssemblies);
         var dataService = new DataService(data);
-        objectContainer.RegisterInstanceAs(dataService);
+        objectContainer.BaseContainer.RegisterInstanceAs(dataService);
     }
 }

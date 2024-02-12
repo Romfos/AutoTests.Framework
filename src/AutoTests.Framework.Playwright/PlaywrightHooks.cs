@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Playwright;
 public sealed class PlaywrightHooks
 {
     [BeforeTestRun(Order = 1200)]
-    public static async Task BeforeTestRun(IObjectContainer objectContainer)
+    public static async Task BeforeTestRun(ObjectContainer objectContainer)
     {
         var browserTypeLaunchOptions = objectContainer.IsRegistered<BrowserTypeLaunchOptions>()
             ? objectContainer.Resolve<BrowserTypeLaunchOptions>()
@@ -18,8 +18,8 @@ public sealed class PlaywrightHooks
         var playwright = await Microsoft.Playwright.Playwright.CreateAsync();
         var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
 
-        objectContainer.RegisterInstanceAs(playwright);
-        objectContainer.RegisterInstanceAs(browser);
+        objectContainer.BaseContainer.RegisterInstanceAs(playwright);
+        objectContainer.BaseContainer.RegisterInstanceAs(browser);
     }
 
     [BeforeScenario(Order = 1000)]
