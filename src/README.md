@@ -1,6 +1,6 @@
 # Overview
 
-SpecFlow based autotest framework
+Reqnroll (SpecFlow in the past) based autotest framework
 
 Main features:
 - C# expression support inside features

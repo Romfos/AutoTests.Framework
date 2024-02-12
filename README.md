@@ -1,6 +1,6 @@
 # Overview
 
-SpecFlow based autotest framework
+Reqnroll (SpecFlow in the past) based autotest framework
 
 [![.github/workflows/test.yml](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml/badge.svg)](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml)
 
@@ -46,22 +46,22 @@ You can find example in Boostrap.Tests project for UI testing
 
 Basic steps:
 1) Create unit test project
-2) Add additional Specflow nuget packages for unit test provider:
+2) Add additional Reqnroll nuget packages for unit test provider:
 
 | Unit test framework | Nuget package                                                     |
-| ------------------- | ----------------------------------------------------------------- |
-| MSTest              | [SpecFlow.MsTest](https://www.nuget.org/packages/SpecFlow.MsTest) |
-| NUnit               | [SpecFlow.NUnit](https://www.nuget.org/packages/SpecFlow.NUnit)   |
-| xUnit               | [SpecFlow.xUnit](https://www.nuget.org/profiles/specflow)         |
+|---------------------|-------------------------------------------------------------------|
+| MSTest              | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) |
+| NUnit               | [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit)   |
+| xUnit               | [Reqnroll.xUnit](https://www.nuget.org/profiles/Reqnroll.xUnit)   |
    
 3) Add nuget package
 
 [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 
-4) Create `specflow.json` and register framework assemblies. Example:
+4) Create `reqnroll.json` and register framework assemblies. Example:
 ```
 {
-  "$schema": "https://specflow.org/specflow-config.json",
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
   "stepAssemblies": [
     { "assembly": "AutoTests.Framework" },
     { "assembly": "AutoTests.Framework.Components" },
@@ -85,7 +85,7 @@ By default browser will run in headless mode.
 If you need to change this behaviour just add BeforeTestRun hook inside your test app and override BrowserTypeLaunchOptions like this:
 ```csharp
 [Binding]
-internal sealed class SpecflowHooks
+internal sealed class ReqnrollHooks
 {
     [BeforeTestRun(Order = 0)]
     public static void BeforeTestRun(IObjectContainer objectContainer)
