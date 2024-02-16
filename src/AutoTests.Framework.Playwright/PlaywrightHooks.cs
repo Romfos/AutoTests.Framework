@@ -14,7 +14,7 @@ public sealed class PlaywrightHooks
             ? objectContainer.Resolve<BrowserTypeLaunchOptions>()
             : new BrowserTypeLaunchOptions { Headless = true };
 
-        Program.Main(new[] { "install" });
+        Program.Main(["install"]);
         var playwright = await Microsoft.Playwright.Playwright.CreateAsync();
         var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
 
