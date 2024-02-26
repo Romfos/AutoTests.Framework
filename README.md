@@ -52,7 +52,7 @@ Basic steps:
 |---------------------|-------------------------------------------------------------------|
 | MSTest              | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) |
 | NUnit               | [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit)   |
-| xUnit               | [Reqnroll.xUnit](https://www.nuget.org/profiles/Reqnroll.xUnit)   |
+| xUnit               | [Reqnroll.xUnit](https://www.nuget.org/packages/Reqnroll.xUnit)   |
    
 3) Add nuget package
 
