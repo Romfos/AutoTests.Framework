@@ -15,11 +15,23 @@ public sealed class PlaywrightHooks
             : new BrowserTypeLaunchOptions { Headless = true };
 
         Program.Main(["install"]);
-        var playwright = await Microsoft.Playwright.Playwright.CreateAsync();
-        var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
 
-        objectContainer.BaseContainer.RegisterInstanceAs(playwright);
-        objectContainer.BaseContainer.RegisterInstanceAs(browser);
+        IPlaywright playwright;
+        if (objectContainer.IsRegistered<IPlaywright>())
+        {
+            playwright = objectContainer.Resolve<IPlaywright>();
+        }
+        else
+        {
+            playwright = await Microsoft.Playwright.Playwright.CreateAsync();
+            objectContainer.BaseContainer.RegisterInstanceAs(playwright);
+        }
+
+        if (!objectContainer.IsRegistered<IBrowser>())
+        {
+            var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
+            objectContainer.BaseContainer.RegisterInstanceAs(browser);
+        }
     }
 
     [BeforeScenario(Order = 1000)]
