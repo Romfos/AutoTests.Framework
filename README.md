@@ -42,7 +42,7 @@ Scenario: checkout form validation test
 - https://www.nuget.org/packages/AutoTests.Framework.Playwright
 
 # How to use
-You can find example in Boostrap.Tests project for UI testing
+You can find example in Bootstrap.Tests project for UI testing
 
 Basic steps:
 1) Create unit test project
@@ -82,7 +82,7 @@ internal sealed class BootstrapApplication : IApplication
 # How to make browser window visible
 By default browser will run in headless mode.
 
-If you need to change this behaviour just add BeforeTestRun hook inside your test app and override BrowserTypeLaunchOptions like this:
+If you need to change this behavior just add BeforeTestRun hook inside your test app and override BrowserTypeLaunchOptions like this:
 ```csharp
 [Binding]
 internal sealed class ReqnrollHooks
