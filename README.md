@@ -11,6 +11,7 @@ Main features:
 - Test data management framework
 - Model transformation framework
 - Component framework for UI testing
+- Playwright integration
 
 # Test example
 ```gherkin
