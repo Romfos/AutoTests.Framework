@@ -37,13 +37,14 @@ public sealed class ComponentsSteps(ComponentService componentService)
             var expected = await keyValuePair.Value.ExecuteAsync<object?>();
             var actual = await componentService.GetComponent<IGetValue>(path).GetValueAsync();
 
-            if ((expected == null && actual != null) || !expected!.Equals(actual))
+            if ((expected, actual) is (null, not null) or (not null, null)
+                || (expected != null && !expected.Equals(actual)))
             {
                 errors.Add($"Path '{path}'. Actual '{actual}'. Expected: '{expected}'");
             }
         }
 
-        if (errors.Any())
+        if (errors is not [])
         {
             throw new Exception($"Some components have unexpected values: {string.Join(Environment.NewLine, errors)}");
         }
@@ -63,7 +64,7 @@ public sealed class ComponentsSteps(ComponentService componentService)
             }
         }
 
-        if (errors.Any())
+        if (errors is not [])
         {
             throw new Exception($"Some components are invisible: {string.Join(",", errors)}");
         }
@@ -83,7 +84,7 @@ public sealed class ComponentsSteps(ComponentService componentService)
             }
         }
 
-        if (errors.Any())
+        if (errors is not [])
         {
             throw new Exception($"Some components are visible: {string.Join(",", errors)}");
         }
@@ -103,7 +104,7 @@ public sealed class ComponentsSteps(ComponentService componentService)
             }
         }
 
-        if (errors.Any())
+        if (errors is not [])
         {
             throw new Exception($"Some components are disabled: {string.Join(",", errors)}");
         }
@@ -123,7 +124,7 @@ public sealed class ComponentsSteps(ComponentService componentService)
             }
         }
 
-        if (errors.Any())
+        if (errors is not [])
         {
             throw new Exception($"Some components are enabled: {string.Join(",", errors)}");
         }

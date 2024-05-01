@@ -20,9 +20,6 @@ public sealed class Steps
     {
         var actual = await model.GetValuesAsync<TestModel1>().ToListAsync();
 
-        Assert.IsNotNull(actual);
-        Assert.AreEqual(2, actual.Count);
-        Assert.IsTrue(actual[0] is { X: 3, Y: "Hello World!" });
-        Assert.IsTrue(actual[1] is { X: 3, Y: "xy" });
+        Assert.IsTrue(actual is [{ X: 3, Y: "Hello World!" }, { X: 3, Y: "xy" }]);
     }
 }

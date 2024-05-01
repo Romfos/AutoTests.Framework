@@ -6,10 +6,6 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.9.2" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-    <PackageReference Include="System.Text.Json" Version="8.0.3" />
-  </ItemGroup>
-
   <ItemGroup>
     <None Include="../AutoTests.Framework.props" Pack="true" PackagePath="build" />
   </ItemGroup>

@@ -21,33 +21,32 @@ internal sealed class ApplicationFactory
             .Where(applicationInterface.IsAssignableFrom)
             .ToList();
 
-        if (applicationTypes.Count == 0)
+        if (applicationTypes is [])
         {
             throw new Exception("Unable to get application");
         }
-        if (applicationTypes.Count > 1)
+        if (applicationTypes is not [var applicationType])
         {
             throw new Exception("Only one application is allowed in test application");
         }
 
-        return (IApplication)CreateComponent(applicationTypes.Single(), objectContainer);
+        return (IApplication)CreateComponent(applicationType, objectContainer);
     }
 
     private object CreateComponent(Type componentType, IObjectContainer objectContainer)
     {
         var constructors = componentType.GetConstructors();
-        if (constructors.Length != 1)
+        if (constructors is not [var constructor])
         {
-            throw new Exception($"type {componentType.FullName} should have single constructor");
+            throw new Exception($"Type {componentType.FullName} should have single constructor");
         }
 
-        var arguments = constructors.Single()
+        var arguments = constructor
             .GetParameters()
             .Select(x => objectContainer.Resolve(x.ParameterType))
             .ToArray();
 
-        var component = Activator.CreateInstance(componentType, arguments);
-        if (component == null)
+        if (Activator.CreateInstance(componentType, arguments) is not object component)
         {
             throw new Exception($"Unable to create {componentType.FullName}");
         }
@@ -87,8 +86,7 @@ internal sealed class ApplicationFactory
 
     private void PatchComponentProperty(Type componentType, object component, string name, JsonElement jsonElement)
     {
-        var property = componentType.GetProperty(name);
-        if (property == null)
+        if (componentType.GetProperty(name) is not PropertyInfo property)
         {
             throw new Exception($"Unable to find property {name} in {componentType.FullName}");
         }
@@ -112,8 +110,7 @@ internal sealed class ApplicationFactory
     {
         var selectorValue = property.GetCustomAttribute<SelectorAttribute>()!.Value;
 
-        var childComponent = property.GetValue(component);
-        if (childComponent == null)
+        if (property.GetValue(component) is not object childComponent)
         {
             throw new Exception($"Unable to setup selector because of null {property.DeclaringType!.FullName}.{property.Name}");
         }
@@ -142,7 +139,7 @@ internal sealed class ApplicationFactory
 
     private JsonDocument? LoadComponentJson(Type componentType)
     {
-        using var stream = componentType.Assembly.GetManifestResourceStream(componentType.FullName + ".json");
+        using var stream = componentType.Assembly.GetManifestResourceStream($"{componentType.FullName}.json");
         if (stream == null)
         {
             return null;

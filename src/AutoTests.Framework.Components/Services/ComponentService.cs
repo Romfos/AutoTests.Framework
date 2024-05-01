@@ -12,7 +12,7 @@ public sealed class ComponentService(IApplication application)
         where T : class
     {
         var component = path
-            .Split(new[] { ">" }, StringSplitOptions.RemoveEmptyEntries)
+            .Split([">"], StringSplitOptions.RemoveEmptyEntries)
             .Select(x => x.Trim())
             .Aggregate((object)application, GetRouteComponent);
 
@@ -33,17 +33,16 @@ public sealed class ComponentService(IApplication application)
             .Where(x => string.Equals(x.GetCustomAttribute<RouteAttribute>()?.Name, routeName, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
 
-        if (properties.Count == 0)
+        if (properties is [])
         {
             throw new Exception($"Unable to get route '{routeName}' from type '{type.FullName}'");
         }
 
-        if (properties.Count > 1)
+        if (properties is not [var property])
         {
             throw new Exception($"Type '{type.FullName}' has several properties with the same route '{routeName}'");
         }
 
-        var property = properties.Single();
         var routeComponent = property.GetValue(component);
 
         return routeComponent ?? throw new Exception($"Property '{property.Name}' in '{type.FullName}' is null");
