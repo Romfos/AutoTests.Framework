@@ -7,7 +7,7 @@ namespace AutoTests.Framework.Playwright.Components;
 public sealed class TrivialLabel(IPage page) : IGetValue, IVisible
 {
     [FromSelector]
-    public required string Locator { get; set; }
+    public required string Locator { get; init; }
 
     public async Task<object?> GetValueAsync()
     {

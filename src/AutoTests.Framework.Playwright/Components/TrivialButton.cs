@@ -7,7 +7,7 @@ namespace AutoTests.Framework.Playwright.Components;
 public sealed class TrivialButton(IPage page) : IClick, IVisible, IEnabled
 {
     [FromSelector]
-    public required string Locator { get; set; }
+    public required string Locator { get; init; }
 
     public async Task ClickAsync()
     {

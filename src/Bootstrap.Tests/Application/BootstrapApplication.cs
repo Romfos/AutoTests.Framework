@@ -7,5 +7,5 @@ namespace Bootstrap.Tests.Application;
 internal sealed class BootstrapApplication : IApplication
 {
     [Route("checkout")]
-    public required Checkout Checkout { get; set; }
+    public required Checkout Checkout { get; init; }
 }

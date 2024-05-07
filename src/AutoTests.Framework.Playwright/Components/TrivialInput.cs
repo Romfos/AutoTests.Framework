@@ -8,7 +8,7 @@ namespace AutoTests.Framework.Playwright.Components;
 public sealed class TrivialInput(IPage page) : ISetValue, IGetValue, IVisible, IEnabled
 {
     [FromSelector]
-    public required string Locator { get; set; }
+    public required string Locator { get; init; }
 
     public async Task<object?> GetValueAsync()
     {
