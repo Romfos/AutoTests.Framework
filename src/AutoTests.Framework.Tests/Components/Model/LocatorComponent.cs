@@ -6,7 +6,7 @@ namespace AutoTests.Framework.Tests.Components.Model;
 internal sealed class LocatorComponent : IGetValue
 {
     [FromSelector]
-    public string? Selector { get; set; }
+    public required string Selector { get; set; }
 
     public Task<object?> GetValueAsync()
     {

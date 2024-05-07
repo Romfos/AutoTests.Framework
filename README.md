@@ -33,7 +33,7 @@ Scenario: checkout form validation test
 ```
 
 # Requirements
-- .NET 6+ (.NET 8 is recommended)
+- .NET 8+
 - Visual Studio 2022 or Visual Studio Code
 - [Reqnroll plugin](https://marketplace.visualstudio.com/items?itemName=Reqnroll.ReqnrollForVisualStudio2022) for Visual Studio 2022 or [Cucumber plugin](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official) for Visual Studio Code
 
