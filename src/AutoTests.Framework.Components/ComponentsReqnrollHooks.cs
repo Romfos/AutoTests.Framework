@@ -1,7 +1,7 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Services;
-using BoDi;
 using Reqnroll;
+using Reqnroll.BoDi;
 
 namespace AutoTests.Framework.Components;
 

@@ -1,5 +1,5 @@
-using BoDi;
 using Reqnroll;
+using Reqnroll.BoDi;
 
 namespace AutoTests.Framework.Data;
 
@@ -12,6 +12,6 @@ public sealed class DataReqnrollHooks
         var dataLoader = objectContainer.Resolve<DataLoader>();
         var data = dataLoader.Load(testRunnerManager.BindingAssemblies);
         var dataService = new DataService(data);
-        objectContainer.BaseContainer.RegisterInstanceAs(dataService);
+        objectContainer.RegisterInstanceAs(dataService);
     }
 }

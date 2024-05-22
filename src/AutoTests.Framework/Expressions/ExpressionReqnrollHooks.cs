@@ -1,5 +1,5 @@
-using BoDi;
 using Reqnroll;
+using Reqnroll.BoDi;
 
 namespace AutoTests.Framework.Expressions;
 
@@ -15,6 +15,6 @@ public sealed class ExpressionReqnrollHooks(IExpressionService expressionService
     [BeforeTestRun(Order = int.MinValue)]
     public static void BeforeTestRun(ObjectContainer objectContainer)
     {
-        objectContainer.BaseContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
+        objectContainer.RegisterTypeAs<RoslynCSharpExpressionService, IExpressionService>();
     }
 }

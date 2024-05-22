@@ -1,6 +1,6 @@
-using BoDi;
 using Microsoft.Playwright;
 using Reqnroll;
+using Reqnroll.BoDi;
 
 namespace AutoTests.Framework.Playwright;
 
@@ -24,13 +24,13 @@ public sealed class PlaywrightHooks
         else
         {
             playwright = await Microsoft.Playwright.Playwright.CreateAsync();
-            objectContainer.BaseContainer.RegisterInstanceAs(playwright);
+            objectContainer.RegisterInstanceAs(playwright);
         }
 
         if (!objectContainer.IsRegistered<IBrowser>())
         {
             var browser = await playwright.Chromium.LaunchAsync(browserTypeLaunchOptions);
-            objectContainer.BaseContainer.RegisterInstanceAs(browser);
+            objectContainer.RegisterInstanceAs(browser);
         }
     }
 

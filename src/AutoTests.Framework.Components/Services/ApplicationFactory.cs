@@ -1,6 +1,6 @@
 using AutoTests.Framework.Components.Application;
 using AutoTests.Framework.Components.Attributes;
-using BoDi;
+using Reqnroll.BoDi;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text.Json;
