@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Tests/">
+    <Project Path="AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj" />
+    <Project Path="Bootstrap.Tests\Bootstrap.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Framework/">
+    <Project Path="AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
+    <Project Path="AutoTests.Framework.Playwright\AutoTests.Framework.Playwright.csproj" />
+    <Project Path="AutoTests.Framework\AutoTests.Framework.csproj" />
+  </Folder>
+  <Folder Name="/.global/">
+    <File Path=".editorconfig" />
+    <File Path="AutoTests.Framework.props" />
+    <File Path="Directory.Build.props" />
+    <File Path="icon.ico" />
+    <File Path="Package.props" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>
