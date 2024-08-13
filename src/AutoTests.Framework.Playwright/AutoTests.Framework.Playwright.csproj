@@ -2,7 +2,7 @@
   <Import Project="../Package.props" />
   
   <ItemGroup>
-    <PackageReference Include="Microsoft.Playwright" Version="1.45.1" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.46.0" />
   </ItemGroup>
   
   <ItemGroup>
