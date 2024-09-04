@@ -17,7 +17,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build
         run: dotnet build ./src/AutoTests.Framework.sln
@@ -34,7 +34,7 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build
         run: dotnet build ./src/AutoTests.Framework.sln
