@@ -14,7 +14,7 @@ public sealed class PlaywrightHooks
             ? objectContainer.Resolve<BrowserTypeLaunchOptions>()
             : new BrowserTypeLaunchOptions { Headless = true };
 
-        Program.Main(["install"]);
+        Program.Main(["install", "chromium"]);
 
         IPlaywright playwright;
         if (objectContainer.IsRegistered<IPlaywright>())
