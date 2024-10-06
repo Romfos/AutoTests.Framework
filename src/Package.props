@@ -7,8 +7,8 @@
   <PropertyGroup>
     <Authors>Romfos</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>Reqnroll (SpecFlow is the past) based BDD framework with focus on automation testing</Description>
-    <PackageTags>AutoTests Reqnroll Specflow WebDriver BDD Gherkin Playwright</PackageTags>
+    <Description>Reqnroll (Gherkin) based BDD framework with focus on automation testing</Description>
+    <PackageTags>AutoTests Reqnroll WebDriver BDD Gherkin Playwright</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
     <PackageIcon>icon.jpg</PackageIcon>
   </PropertyGroup>
