@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <LangVersion>12</LangVersion>
+    <LangVersion>13</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <BuildInParallel>false</BuildInParallel>
