@@ -2,9 +2,8 @@
   <Import Project="../Package.props" />
   
   <ItemGroup>
-    <PackageReference Include="Reqnroll" Version="2.1.1" />
+    <PackageReference Include="Reqnroll" Version="2.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.11.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
