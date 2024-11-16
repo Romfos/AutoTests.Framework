@@ -5,8 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Data;
 
-internal sealed class DataLoader
+internal sealed partial class DataLoader
 {
+    [GeneratedRegex("(.*).Data.(.*).json", RegexOptions.IgnoreCase, "en-US")]
+    private static partial Regex JsonDataResourceRegex();
+
     public dynamic Load(Assembly[] assemblies)
     {
         var expandoObject = new ExpandoObject() as IDictionary<string, object?>;
@@ -46,15 +49,15 @@ internal sealed class DataLoader
     private IEnumerable<(string Name, JsonDocument JsonDocument)> GetJsonResources(Assembly assembly)
     {
         return assembly.GetManifestResourceNames()
-            .Where(x => x.EndsWith(".json"))
+            .Select(x => JsonDataResourceRegex().Match(x))
+            .Where(x => x.Success)
             .Select(x => GetJsonResource(assembly, x));
     }
 
-    private (string, JsonDocument) GetJsonResource(Assembly assembly, string resource)
+    private (string, JsonDocument) GetJsonResource(Assembly assembly, Match match)
     {
-        var pattern = $"{assembly.GetName().Name}.Data.(.*).json";
-        var regex = new Regex(pattern);
-        var name = regex.Match(resource).Groups[1].Value;
+        var resource = match.Groups[0].Value;
+        var name = match.Groups[2].Value;
 
         using var stream = assembly.GetManifestResourceStream(resource)!;
         using var streamReader = new StreamReader(stream);
