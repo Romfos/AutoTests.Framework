@@ -7,7 +7,7 @@ namespace AutoTests.Framework.Data;
 
 internal sealed partial class DataLoader
 {
-    [GeneratedRegex("(.*).Data.(.*).json", RegexOptions.IgnoreCase, "en-US")]
+    [GeneratedRegex("(.*).Data.(.*).json")]
     private static partial Regex JsonDataResourceRegex();
 
     public dynamic Load(Assembly[] assemblies)
