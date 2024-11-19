@@ -11,6 +11,7 @@
     <PackageTags>AutoTests Reqnroll WebDriver BDD Gherkin Playwright</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
     <PackageIcon>icon.jpg</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
