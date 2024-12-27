@@ -9,7 +9,7 @@ internal sealed class RoslynCSharpExpressionService(ExpressionEnvironment expres
 
     public async Task<T> ExecuteAsync<T>(string text)
     {
-        if (text.AsSpan().TrimStart().StartsWith("@".AsSpan()))
+        if (text.AsSpan().TrimStart().StartsWith("@"))
         {
             var code = text.AsSpan().Trim().Slice(1).ToString();
             var result = await CSharpScript.EvaluateAsync(code, scriptOptions, expressionEnvironment);
