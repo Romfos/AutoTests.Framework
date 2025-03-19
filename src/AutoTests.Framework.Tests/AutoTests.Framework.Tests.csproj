@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../AutoTests.Framework.props" />
 
   <PropertyGroup>
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'net10.0'">
-    <PackageReference Include="System.Linq.AsyncEnumerable" Version="10.0.0-preview.1.25080.5" />
+    <PackageReference Include="System.Linq.AsyncEnumerable" Version="10.0.0-preview.2.25163.2" />
   </ItemGroup>
 
   <ItemGroup>
