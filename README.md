@@ -46,23 +46,19 @@ Scenario: checkout form validation test
 You can find example in Bootstrap.Tests project for UI testing
 
 Basic steps:
-1) Create unit test project
-2) Add additional Reqnroll nuget packages for unit test provider:
+1) Create basic unit test project is visual studio
+2) Add additional Reqnroll nuget packages:
 
-| Unit test framework | Nuget package                                                     |
-|---------------------|-------------------------------------------------------------------|
-| MSTest              | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) |
-| NUnit               | [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit)   |
-| xUnit               | [Reqnroll.xUnit](https://www.nuget.org/packages/Reqnroll.xUnit)   |
+| Nuget package                              | Link                                                                                                                                                                                                     |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AutoTests.Framework.Playwright             | [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                                                                                                          |
+| Microsoft.Playwright                       | [Microsoft.Playwright](https://www.nuget.org/packages/Microsoft.Playwright)                                                                                                                              |
+| Unit Tests framework adapter nuget package | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) or  [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit) or [Reqnroll.xUnit](https://www.nuget.org/packages/Reqnroll.xUnit) |
 
 > [!WARNING]  
 > Version of test adapter nuget package should match to Reqnroll package version
-   
-3) Add nuget package
 
-[AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
-
-4) Create `reqnroll.json` and register framework assemblies. Example:
+3) Create `reqnroll.json` and register framework assemblies. Example:
 ```
 {
   "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
@@ -73,7 +69,7 @@ Basic steps:
   ]
 }
 ```
-5) Create Application class for UI application
+4) Create Application class for UI application
 
 ```csharp
 internal sealed class BootstrapApplication : IApplication
