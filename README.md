@@ -53,6 +53,7 @@ Basic steps:
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AutoTests.Framework.Playwright             | [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                                                                                                          |
 | Microsoft.Playwright                       | [Microsoft.Playwright](https://www.nuget.org/packages/Microsoft.Playwright)                                                                                                                              |
+| Reqnroll                                   | [Reqnroll](https://www.nuget.org/packages/Reqnroll/)                                                                                                                                                     |
 | Unit Tests framework adapter nuget package | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) or  [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit) or [Reqnroll.xUnit](https://www.nuget.org/packages/Reqnroll.xUnit) |
 
 > [!WARNING]  
