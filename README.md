@@ -47,7 +47,7 @@ You can find example in Bootstrap.Tests project for UI testing
 
 Basic steps:
 1) Create basic unit test project is visual studio
-2) Add additional Reqnroll nuget packages:
+2) Install nuget packages:
 
 | Nuget package                              | Link                                                                                                                                                                                                     |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
