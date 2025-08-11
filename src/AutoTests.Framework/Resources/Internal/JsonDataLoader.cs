@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 
 namespace AutoTests.Framework.Resources.Internal;
 
-[RequiresUnreferencedCode("This class is reflection based and not Trimmng\\AOT firendly")]
-[RequiresDynamicCode("This class is reflection based and not Trimmng\\AOT firendly")]
+[RequiresUnreferencedCode("This class is reflection based and not Trimmng and AOT firendly")]
+[RequiresDynamicCode("This class is reflection based and not Trimmng and AOT firendly")]
 internal sealed partial class JsonDataLoader
 {
     private static readonly Regex jsonDataResourceRegex = new("(.*).Data.(.*).json");

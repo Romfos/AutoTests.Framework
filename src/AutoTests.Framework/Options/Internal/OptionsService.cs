@@ -1,4 +1,3 @@
-using AutoTests.Framework.Options;
 using AutoTests.Framework.Routing.Internal.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 

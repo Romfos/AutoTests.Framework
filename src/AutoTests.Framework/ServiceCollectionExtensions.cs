@@ -17,7 +17,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AutoTestsFramework(this IServiceCollection services)
     {
-        services.TryAddScoped<IOptionsService, OptionsService>();
+        services.TryAddSingleton<IOptionsService, OptionsService>();
         services.TryAddScoped<IRoutingService, RoutingService>();
 
         services.SourceGeneratedGherkinSteps();
@@ -25,8 +25,8 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    [RequiresUnreferencedCode("This method is reflection based and not Trimmng\\AOT firendly")]
-    [RequiresDynamicCode("This method is reflection based and not Trimmng\\AOT firendly")]
+    [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
+    [RequiresDynamicCode("This method is reflection based and not Trimmng and AOT firendly")]
     public static IServiceCollection DynamicResourcesData(this IServiceCollection services, Assembly[] assemblies)
     {
         services.TryAddSingleton<IDynamicDataService>(_ => new DynamicDataService(new JsonDataLoader().Load(assemblies)));
@@ -55,7 +55,7 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    [RequiresUnreferencedCode("This method is reflection based and not Trimmng\\AOT firendly")]
+    [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
     public static IServiceCollection Page<T>(this IServiceCollection services, string? prefix = null) where T : class
     {
         CollectComponentsAndOptions(services, prefix, typeof(T));
@@ -63,7 +63,7 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    [RequiresUnreferencedCode("This method is reflection based and not Trimmng\\AOT firendly")]
+    [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
     private static void CollectComponentsAndOptions(IServiceCollection services, string? prefix, Type type)
     {
         foreach (var property in type.GetProperties())
