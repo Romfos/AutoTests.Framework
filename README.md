@@ -111,6 +111,24 @@ internal sealed class Checkout
     public required Label UsernameErrorMessage { get; init; }
 }
 ```
+4) Done. You can add gherkin feature files with test scenarios. Example `CheckoutForm.feature`:
+```gherkin
+Feature: CheckoutForm
+
+Scenario: checkout form validation test
+    Given navigate to 'https://getbootstrap.com/docs/4.3/examples/checkout/'
+    When set following values:
+    | Name                  | Value      |
+    | checkout > first name | first_name |
+    | checkout > last name  | last_name  |
+    And click on 'checkout > continue to checkout'
+    Then should be visible:
+    | Name                              |
+    | checkout > username error message |
+    And should have following values:
+    | Name                              | Value                      |
+    | checkout > username error message | Your username is required. |
+```
 
 # How to make C# expressions and json data from resources avaiable in gherkin feature files
 
