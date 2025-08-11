@@ -6,7 +6,7 @@ Reqnroll based autotest framework
 
 [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 
-BddDotNet based autotest framework
+BddDotNet based autotest framework with Playwright integration
 
 Key features:
 - Gherkin syntax support
