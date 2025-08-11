@@ -4,7 +4,6 @@
     <Project Path="Bootstrap.Tests\Bootstrap.Tests.csproj" />
   </Folder>
   <Folder Name="/Framework/">
-    <Project Path="AutoTests.Framework.Components\AutoTests.Framework.Components.csproj" />
     <Project Path="AutoTests.Framework.Playwright\AutoTests.Framework.Playwright.csproj" />
     <Project Path="AutoTests.Framework\AutoTests.Framework.csproj" />
   </Folder>

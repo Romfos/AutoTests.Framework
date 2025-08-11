@@ -3,12 +3,20 @@
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
   </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(CI)' == 'True'">
+    <!--Deterministic Build and Source Link settings -->
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 
   <PropertyGroup>
     <Authors>Romfos</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>Reqnroll (Gherkin) based BDD framework with focus on automation testing</Description>
-    <PackageTags>AutoTests Reqnroll WebDriver BDD Gherkin Playwright</PackageTags>
+    <Description>BddDotNet based autotest framework</Description>
+    <PackageTags>AutoTests BddDotNet WebDriver BDD Gherkin Playwright</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

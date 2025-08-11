@@ -1,12 +1,14 @@
 # Overview
 
-Reqnroll based autotest framework
+BddDotNet based autotest framework
 
-Main features:
-- C# expression support inside features
-- Test data management framework
-- Model transformation framework
+Key features:
+- Gherkin syntax support
+- C# expressions support for Gherkin syntax
 - Component framework for UI testing
+- Page object pattern support
+- Playwright integration
+- Test data management framework
 
 # Test example
 ```gherkin

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
-  "stepAssemblies": [
-    { "assembly": "AutoTests.Framework" },
-    { "assembly": "AutoTests.Framework.Components" },
-    { "assembly": "AutoTests.Framework.Playwright" }
-  ]
-}

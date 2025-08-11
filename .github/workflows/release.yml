@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Pack
-        run: dotnet pack -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.slnx
+        run: dotnet pack -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.slnx -p:CI=true
 
       - name: Push to Nuget
         run: dotnet nuget push ./build/*.nupkg -k ${{ secrets.NUGET }} -s https://api.nuget.org/v3/index.json

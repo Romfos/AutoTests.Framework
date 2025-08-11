@@ -1,18 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../AutoTests.Framework.props" />
 
   <PropertyGroup>
     <TargetFrameworks>net9.0</TargetFrameworks>
+    <OutputType>exe</OutputType>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="MSTest" Version="3.10.1" />
-    <PackageReference Include="Reqnroll.MsTest" Version="2.4.1" />
+    <ProjectReference Include="..\AutoTests.Framework.Playwright\AutoTests.Framework.Playwright.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoTests.Framework.Playwright\AutoTests.Framework.Playwright.csproj" />
+    <PackageReference Include="BddDotNet.Gherkin.CSharpExpressions" Version="1.0.0" />
+    <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

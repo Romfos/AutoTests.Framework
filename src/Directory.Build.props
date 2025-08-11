@@ -1,11 +1,10 @@
 <Project>
 
   <PropertyGroup>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <LangVersion>13</LangVersion>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <Nullable>enable</Nullable>
+    <LangVersion>13.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
-    <BuildInParallel>false</BuildInParallel>
     <PrunePackageReference>true</PrunePackageReference>
   </PropertyGroup>
 
