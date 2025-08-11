@@ -6,12 +6,15 @@ Reqnroll based autotest framework
 
 [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
 
-Main features:
-- C# expression support inside features
-- Test data management framework
-- Model transformation framework
+BddDotNet based autotest framework
+
+Key features:
+- Gherkin syntax support
+- C# expressions support for Gherkin syntax
 - Component framework for UI testing
+- Page object pattern support
 - Playwright integration
+- Test data management framework
 
 # Test example
 ```gherkin
@@ -33,70 +36,101 @@ Scenario: checkout form validation test
 ```
 
 # Requirements
-- .NET 8+ (.NET 9 is recommended)
+- .NET 8+ (We recommend .NET 9 as best option)
 - Visual Studio 2022 or Visual Studio Code
 - [Reqnroll plugin](https://marketplace.visualstudio.com/items?itemName=Reqnroll.ReqnrollForVisualStudio2022) for Visual Studio 2022 or [Cucumber plugin](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official) for Visual Studio Code
 
 # Nuget packages links  
 - https://www.nuget.org/packages/AutoTests.Framework
-- https://www.nuget.org/packages/AutoTests.Framework.Components
 - https://www.nuget.org/packages/AutoTests.Framework.Playwright
 
 # How to use
 You can find example in Bootstrap.Tests project for UI testing
 
-Basic steps:
-1) Create basic unit test project is visual studio
+Guide:
+1) Create new console application for .NET 9
 2) Install nuget packages:
 
 | Nuget package                              | Link                                                                                                                                                                                                     |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AutoTests.Framework.Playwright             | [AutoTests.Framework.Playwright](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                                                                                                          |
+| BddDotNet.Gherkin.SourceGenerator          | [BddDotNet.Gherkin.SourceGenerator](https://www.nuget.org/packages/BddDotNet.Gherkin.SourceGenerator)                                                                                                    |
 | Microsoft.Playwright                       | [Microsoft.Playwright](https://www.nuget.org/packages/Microsoft.Playwright)                                                                                                                              |
-| Reqnroll                                   | [Reqnroll](https://www.nuget.org/packages/Reqnroll/)                                                                                                                                                     |
-| Unit Tests framework adapter nuget package | [Reqnroll.MsTest](https://www.nuget.org/packages/Reqnroll.MsTest) or  [Reqnroll.NUnit](https://www.nuget.org/packages/Reqnroll.NUnit) or [Reqnroll.xUnit](https://www.nuget.org/packages/Reqnroll.xUnit) |
 
-> [!WARNING]  
-> Version of test adapter nuget package should match to Reqnroll package version
+3) Configure application in `Program.cs`. Example:
+```csharp
+using AutoTests.Framework;
+using AutoTests.Framework.Playwright;
+using BddDotNet;
+using Bootstrap.Tests.Pages;
+using Microsoft.Testing.Platform.Builder;
 
-3) Create `reqnroll.json` and register framework assemblies. Example:
+var builder = await TestApplication.CreateBuilderAsync(args);
+
+var services = builder.AddBddDotNet();
+
+services.SinglePageChromiumPlaywright(new() { Headless = false });
+services.Page<BootstrapApplication>();
+
+services.SourceGeneratedGherkinScenarios();
+services.SourceGeneratedGherkinSteps();
+
+using var testApp = await builder.BuildAsync();
+return await testApp.RunAsync();
 ```
-{
-  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
-  "stepAssemblies": [
-    { "assembly": "AutoTests.Framework" },
-    { "assembly": "AutoTests.Framework.Components" },
-    { "assembly": "AutoTests.Framework.Playwright" }
-  ]
-}
-```
-4) Create Application class for UI application
+
+4) Add page objects. Example:
 
 ```csharp
-internal sealed class BootstrapApplication : IApplication
+using AutoTests.Framework.Pages;
+
+namespace Bootstrap.Tests.Pages;
+
+internal sealed class BootstrapApplication
 {
     [Route("checkout")]
-    public Checkout? Checkout { get; set; }
+    public required Checkout Checkout { get; init; }
 }
-```
 
-# How to make browser window visible
-By default browser will run in headless mode.
-
-If you need to change this behavior just add BeforeTestRun hook inside your test app and override BrowserTypeLaunchOptions like this:
-```csharp
-[Binding]
-internal sealed class ReqnrollHooks
+internal sealed class Checkout
 {
-    [BeforeTestRun(Order = 0)]
-    public static void BeforeTestRun(IObjectContainer objectContainer)
-    {
-        objectContainer.RegisterInstanceAs(new BrowserTypeLaunchOptions { Headless = false });
-    }
+    [Route("continue to checkout")]
+    [Options(".btn-primary")]
+    public required Button ContinueToCheckout { get; init; }
+
+    [Route("first name")]
+    [Options("#firstName")]
+    public required Input FirstName { get; init; }
+
+    [Route("last name")]
+    [Options("#lastName")]
+    public required Input LastName { get; init; }
+
+    [Route("username error message")]
+    [Options("#username ~ .invalid-feedback")]
+    public required Label UsernameErrorMessage { get; init; }
 }
 ```
 
-# How to work with test data
+# How to make C# expressions and json data from resources avaiable in gherkin feature files
+
+1) Install `BddDotNet.Gherkin.CSharpExpressions` nuget package
+2) Add service with C# expressions
+```csharp
+using AutoTests.Framework.Resources;
+
+namespace Bootstrap.Tests;
+
+public sealed class CSharpExpressions(IDynamicDataService dynamicDataService)
+{
+    public dynamic Data { get; } = dynamicDataService.Data;
+}
+```
+4) Configure `BddDotNet.Gherkin.CSharpExpressions` in `Program.cs`
+```csharp
+services.CSharpExpressions<CSharpExpressions>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"));
+services.DynamicResourcesData([Assembly.GetExecutingAssembly()]);
+```
 
 You can create json file in Data subfolder and get access to content in feature to it like:
 ```gherkin
