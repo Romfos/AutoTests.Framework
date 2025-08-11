@@ -130,7 +130,7 @@ Scenario: checkout form validation test
     | checkout > username error message | Your username is required. |
 ```
 
-# How to make C# expressions and json data from resources avaiable in gherkin feature files
+# How to make C# expressions and json data from resources available in gherkin feature files
 
 1) Install `BddDotNet.Gherkin.CSharpExpressions` nuget package
 2) Add service with C# expressions
