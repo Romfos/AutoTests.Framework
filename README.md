@@ -133,7 +133,7 @@ Scenario: checkout form validation test
 # How to make C# expressions and json data from resources available in gherkin feature files
 
 1) Install `BddDotNet.Gherkin.CSharpExpressions` nuget package
-2) Add service with C# expressions
+2) Add service for avaiable C# expressions
 ```csharp
 using AutoTests.Framework.Resources;
 
@@ -144,13 +144,13 @@ public sealed class CSharpExpressions(IDynamicDataService dynamicDataService)
     public dynamic Data { get; } = dynamicDataService.Data;
 }
 ```
-4) Configure `BddDotNet.Gherkin.CSharpExpressions` in `Program.cs`
+3) Configure `BddDotNet.Gherkin.CSharpExpressions` in `Program.cs`
 ```csharp
 services.CSharpExpressions<CSharpExpressions>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"));
 services.DynamicResourcesData([Assembly.GetExecutingAssembly()]);
 ```
 
-You can create json file in Data subfolder and get access to content in feature to it like:
+4) Now You can create json file in `Data` subfolder and get access to content in feature to it like:
 ```gherkin
 Feature: CheckoutForm
 
