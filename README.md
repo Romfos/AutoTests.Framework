@@ -159,4 +159,55 @@ Scenario: checkout form validation test
 ```
 You can find example in 'Bootstrap.Tests'
 
+# How to make custom component
+
+You can create custom components with any custom logic. Example of button component:
+
+```csharp
+using AutoTests.Framework.Contracts;
+using AutoTests.Framework.Options;
+using AutoTests.Framework.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Playwright;
+
+namespace AutoTests.Framework.Playwright;
+
+public sealed class Button([ServiceKey] string path, IOptionsService optionsService, IPage page) : IComponent, IClick
+{
+    private readonly string locator = optionsService.GetOptions<string>(path);
+
+    public async Task ClickAsync()
+    {
+        await page.ClickAsync(locator);
+    }
+}
+```
+
+Example of step with components:
+```csharp
+using AutoTests.Framework.Routing;
+
+namespace Demo;
+
+internal sealed class Steps(IRoutingService routingService)
+{
+    [When("click on '(.*)'")]
+    public async Task ClickStep(string path)
+    {
+        await routingService.GetComponent<IClick>(path).ClickAsync();
+    }
+}
+```
+
+Components:
+1) [required] Should implement IComponent interface
+2) [required] Should implement contract interfaces like IClick, IVisible, e.t.c
+3) [optional] Could reqeust options from `IOptionsService` using `[ServiceKey] string path` as a path for current component. Use can use it for example for locators
+4) [optional Could inject any other custom services. In this example `IPage` is a Playwright service for browser control.
+
+
+
+You can find example in 'AutoTests.Framework.Playwright' for default components like button, input, e.t.c
+
+
 
