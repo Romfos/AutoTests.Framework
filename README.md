@@ -1,12 +1,10 @@
 # Overview
 
-Reqnroll based autotest framework
+[BddDotNet](https://github.com/Romfos/BddDotNet) based autotest framework with Playwright integration
 
 [![.github/workflows/test.yml](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml/badge.svg)](https://github.com/Romfos/AutoTests.Framework/actions/workflows/test.yml)
 
 [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)
-
-[BddDotNet](https://github.com/Romfos/BddDotNet) based autotest framework with Playwright integration
 
 Key features:
 - Gherkin syntax support
