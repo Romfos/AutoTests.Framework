@@ -43,7 +43,9 @@ Scenario: checkout form validation test
 - https://www.nuget.org/packages/AutoTests.Framework.Playwright
 
 # How to use
-You can find example in Bootstrap.Tests project for UI testing
+[BddDotNet wiki](https://github.com/Romfos/BddDotNet/wiki)
+
+You can also find example in Bootstrap.Tests project for UI testing
 
 Guide:
 1) Create new console application for .NET 9
