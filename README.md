@@ -49,13 +49,13 @@ Guide:
 1) Create new console application for .NET 9
 2) Install nuget packages:
 
-| Package                                                                                                                                                                                                                    | Description                                                               |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                     | Add AutoTests.Framework with Playwright integration                       |
-| [![BddDotNet.Gherkin.SourceGenerator](https://img.shields.io/nuget/v/BddDotNet.Gherkin.SourceGenerator?label=BddDotNet.Gherkin.SourceGenerator)](https://www.nuget.org/packages/BddDotNet.Gherkin.SourceGenerator)         | Add Gherkin language support                                              |
-| [![Microsoft.Playwright](https://img.shields.io/nuget/v/Microsoft.Playwright?label=Microsoft.Playwright)](https://www.nuget.org/packages/Microsoft.Playwright)                                                             | Official Playwright package                                               |
-| [![BddDotNet.Gherkin.Models](https://img.shields.io/nuget/v/BddDotNet.Gherkin.Models?label=BddDotNet.Gherkin.Models)](https://www.nuget.org/packages/BddDotNet.Gherkin.Models)                                             | (Optional) Add argument transformations for Gherkin tables into C# models |
-| [![BddDotNet.Gherkin.CSharpExpressions](https://img.shields.io/nuget/v/BddDotNet.Gherkin.CSharpExpressions?label=BddDotNet.Gherkin.CSharpExpressions)](https://www.nuget.org/packages/BddDotNet.Gherkin.CSharpExpressions) | (Optional) Adding support for C# expressions for arguments                |
+| Description                                                               | Package                                                                                                                                                                                                                    |
+|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Add AutoTests.Framework with Playwright integration                       | [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                     |
+| Add Gherkin language support                                              | [![BddDotNet.Gherkin.SourceGenerator](https://img.shields.io/nuget/v/BddDotNet.Gherkin.SourceGenerator?label=BddDotNet.Gherkin.SourceGenerator)](https://www.nuget.org/packages/BddDotNet.Gherkin.SourceGenerator)         |
+| Official Playwright package                                               | [![Microsoft.Playwright](https://img.shields.io/nuget/v/Microsoft.Playwright?label=Microsoft.Playwright)](https://www.nuget.org/packages/Microsoft.Playwright)                                                             |
+| (Optional) Add argument transformations for Gherkin tables into C# models | [![BddDotNet.Gherkin.Models](https://img.shields.io/nuget/v/BddDotNet.Gherkin.Models?label=BddDotNet.Gherkin.Models)](https://www.nuget.org/packages/BddDotNet.Gherkin.Models)                                             |
+| (Optional) Adding support for C# expressions for arguments                | [![BddDotNet.Gherkin.CSharpExpressions](https://img.shields.io/nuget/v/BddDotNet.Gherkin.CSharpExpressions?label=BddDotNet.Gherkin.CSharpExpressions)](https://www.nuget.org/packages/BddDotNet.Gherkin.CSharpExpressions) |
 
 3) Configure application in `Program.cs`. Example:
 ```csharp
@@ -208,6 +208,8 @@ Components:
 
 
 You can find example in 'AutoTests.Framework.Playwright' for default components like button, input, e.t.c
+
+
 
 
 
