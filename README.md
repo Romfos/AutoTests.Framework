@@ -55,9 +55,7 @@ Guide:
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Add AutoTests.Framework with Playwright integration                       | [![AutoTests.Framework.Playwright](https://img.shields.io/nuget/v/AutoTests.Framework.Playwright?label=AutoTests.Framework.Playwright)](https://www.nuget.org/packages/AutoTests.Framework.Playwright)                     |
 | Add Gherkin language support                                              | [![BddDotNet.Gherkin.SourceGenerator](https://img.shields.io/nuget/v/BddDotNet.Gherkin.SourceGenerator?label=BddDotNet.Gherkin.SourceGenerator)](https://www.nuget.org/packages/BddDotNet.Gherkin.SourceGenerator)         |
-| Official Playwright package                                               | [![Microsoft.Playwright](https://img.shields.io/nuget/v/Microsoft.Playwright?label=Microsoft.Playwright)](https://www.nuget.org/packages/Microsoft.Playwright)                                                             |
-| (Optional) Add argument transformations for Gherkin tables into C# models | [![BddDotNet.Gherkin.Models](https://img.shields.io/nuget/v/BddDotNet.Gherkin.Models?label=BddDotNet.Gherkin.Models)](https://www.nuget.org/packages/BddDotNet.Gherkin.Models)                                             |
-| (Optional) Adding support for C# expressions for arguments                | [![BddDotNet.Gherkin.CSharpExpressions](https://img.shields.io/nuget/v/BddDotNet.Gherkin.CSharpExpressions?label=BddDotNet.Gherkin.CSharpExpressions)](https://www.nuget.org/packages/BddDotNet.Gherkin.CSharpExpressions) |
+| Official Microsoft Playwright package                                     | [![Microsoft.Playwright](https://img.shields.io/nuget/v/Microsoft.Playwright?label=Microsoft.Playwright)](https://www.nuget.org/packages/Microsoft.Playwright)                                                             |
 
 3) Configure application in `Program.cs`. Example:
 ```csharp
