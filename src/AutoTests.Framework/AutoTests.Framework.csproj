@@ -6,8 +6,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="BddDotNet" Version="1.1.0" />
-    <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="1.1.0">
+    <PackageReference Include="BddDotNet" Version="1.2.0" />
+    <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="1.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
