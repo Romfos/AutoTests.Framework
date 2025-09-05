@@ -2,7 +2,7 @@
   <Import Project="../Package.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Playwright" Version="1.54.0" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.55.0" />
     <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="1.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
