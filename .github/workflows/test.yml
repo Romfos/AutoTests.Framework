@@ -17,6 +17,7 @@ jobs:
           dotnet-version: |
             9.0.x
             8.0.x
+            10.0.x
 
       - name: Build
         run: dotnet build ./src/AutoTests.Framework.slnx
@@ -33,7 +34,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 9.0.x
+          dotnet-version: 10.0.x
 
       - name: Format
         run: dotnet format --verify-no-changes ./src/AutoTests.Framework.slnx
