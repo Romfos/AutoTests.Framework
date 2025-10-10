@@ -15,7 +15,7 @@ var services = builder.AddBddDotNet();
 services.CSharpExpressions<CSharpExpressions>(ScriptOptions.Default.AddReferences("Microsoft.CSharp"));
 services.DynamicResourcesData([Assembly.GetExecutingAssembly()]);
 
-services.SinglePageChromiumPlaywright(new() { Headless = false });
+services.SinglePageChromiumPlaywright(new() { Headless = true }); // make Headless = false to see the browser during debug
 services.Page<BootstrapApplication>();
 
 services.SourceGeneratedGherkinScenarios();
