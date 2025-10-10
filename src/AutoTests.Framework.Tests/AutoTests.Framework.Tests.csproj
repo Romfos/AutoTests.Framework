@@ -3,6 +3,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
+    <OutputType>exe</OutputType>
+    <EnableMSTestRunner>true</EnableMSTestRunner>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
