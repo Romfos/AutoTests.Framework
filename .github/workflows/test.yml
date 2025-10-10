@@ -22,9 +22,12 @@ jobs:
       - name: Build
         run: dotnet build ./src/AutoTests.Framework.slnx
 
-      - name: Test
-        run: dotnet test --no-build --no-restore ./src/AutoTests.Framework.slnx
-        
+      - name: Run AutoTests.Framework.Tests
+        run: dotnet test --no-build --no-restore --project ./src/AutoTests.Framework.Tests/AutoTests.Framework.Tests.csproj --no-progress
+
+      - name: Run Bootstrap.Tests
+        run: dotnet test --no-build --no-restore --project ./src/Bootstrap.Tests/Bootstrap.Tests.csproj --no-progress
+
   format-verify:
     runs-on: windows-latest
     steps:
