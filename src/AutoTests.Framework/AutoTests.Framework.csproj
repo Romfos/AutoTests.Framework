@@ -3,6 +3,7 @@
 
   <PropertyGroup>
     <IsAotCompatible>true</IsAotCompatible>
+    <IsTestingPlatformApplication>false</IsTestingPlatformApplication>
   </PropertyGroup>
   
   <ItemGroup>
