@@ -17,7 +17,7 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Pack
         run: dotnet pack -p:Version=${{ inputs.Version }} -o "./build" ./src/AutoTests.Framework.slnx -p:CI=true
