@@ -216,7 +216,7 @@ internal sealed class Steps(IRoutingService routingService)
 Components:
 1) [required] Should implement IComponent interface
 2) [required] Should implement contract interfaces like IClick, IVisible, e.t.c
-3) [optional] Could reqeust options from `IOptionsService` using `[ServiceKey] string path` as a path for current component. Use can use it for example for locators
+3) [optional] Could reqeust options via `[FromKeyedServices] IComponentOptions options` for .NET 10+ or via `IOptionsService` using `[ServiceKey] string path` as a path for current component for older versions. Use can use it for example for locators
 4) [optional Could inject any other custom services. In this example `IPage` is a Playwright service for browser control.
 
 
