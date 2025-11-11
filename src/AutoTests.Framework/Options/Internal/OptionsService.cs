@@ -8,11 +8,11 @@ internal sealed class OptionsService(IServiceProvider serviceProvider) : IOption
     public T GetOptions<T>(string path)
     {
         path = path.GetPathKey();
-        if (serviceProvider.GetKeyedService<ComponentOptions>(path)?.Value is not T value)
+        if (serviceProvider.GetKeyedService<IComponentOptions>(path) is not { } options)
         {
             throw new Exception($"Invalid options for '{path}'");
         }
 
-        return value;
+        return options.Get<T>();
     }
 }
