@@ -183,6 +183,20 @@ public sealed class Button([ServiceKey] string path, IOptionsService optionsServ
 }
 ```
 
+For .NET 10+ exist new syntax based on `[FromKeyedServices]`. We recommend to use it. Example:
+
+```csharp
+public sealed class Button([FromKeyedServices] IComponentOptions options, IPage page) : IComponent, IClick
+{
+    private readonly string locator = options.Get<string>();
+
+    public async Task ClickAsync()
+    {
+        await page.ClickAsync(locator);
+    }
+}
+```
+
 Example of step with components:
 ```csharp
 using AutoTests.Framework.Routing;
