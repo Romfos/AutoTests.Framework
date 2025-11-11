@@ -48,7 +48,7 @@ Scenario: checkout form validation test
 You can also find example in Bootstrap.Tests project for UI testing
 
 Guide:
-1) Create new console application for .NET 9
+1) Create new console application for .NET 10
 2) Install nuget packages:
 
 | Description                                                               | Package                                                                                                                                                                                                                    |
