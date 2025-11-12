@@ -172,20 +172,6 @@ using Microsoft.Playwright;
 
 namespace AutoTests.Framework.Playwright;
 
-public sealed class Button([ServiceKey] string path, IOptionsService optionsService, IPage page) : IComponent, IClick
-{
-    private readonly string locator = optionsService.GetOptions<string>(path);
-
-    public async Task ClickAsync()
-    {
-        await page.ClickAsync(locator);
-    }
-}
-```
-
-For .NET 10+ exist new syntax based on `[FromKeyedServices]`. We recommend to use it. Example:
-
-```csharp
 public sealed class Button([FromKeyedServices] IComponentOptions options, IPage page) : IComponent, IClick
 {
     private readonly string locator = options.Get<string>();
@@ -216,7 +202,7 @@ internal sealed class Steps(IRoutingService routingService)
 Components:
 1) [required] Should implement IComponent interface
 2) [required] Should implement contract interfaces like IClick, IVisible, e.t.c
-3) [optional] Could reqeust options via `[FromKeyedServices] IComponentOptions options` for .NET 10+ or via `IOptionsService` using `[ServiceKey] string path` as a path for current component for older versions. Use can use it for example for locators
+3) [optional] Could reqeust options via `[FromKeyedServices] IComponentOptions options`. Use can use it for locators as example
 4) [optional Could inject any other custom services. In this example `IPage` is a Playwright service for browser control.
 
 
