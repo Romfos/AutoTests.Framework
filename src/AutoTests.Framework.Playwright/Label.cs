@@ -6,9 +6,9 @@ using Microsoft.Playwright;
 
 namespace AutoTests.Framework.Playwright;
 
-public sealed class Label([ServiceKey] string path, IOptionsService optionsService, IPage page) : IComponent, IGetValue<string?>, IVisible
+public sealed class Label([FromKeyedServices] IComponentOptions options, IPage page) : IComponent, IGetValue<string?>, IVisible
 {
-    private readonly string locator = optionsService.GetOptions<string>(path);
+    private readonly string locator = options.Get<string>();
 
     public async Task<string?> GetValueAsync()
     {

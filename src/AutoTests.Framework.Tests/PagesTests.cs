@@ -48,8 +48,6 @@ file sealed class PagesClass
     public required TestComponent2 TestComponent2 { get; init; }
 }
 
-#if NET10_0_OR_GREATER
-
 file sealed class TestComponent1([FromKeyedServices] IComponentOptions options) : IComponent
 {
     public string Options => options.Get<string>();
@@ -59,17 +57,3 @@ file sealed class TestComponent2([FromKeyedServices] IComponentOptions options) 
 {
     public int Options => options.Get<int>();
 }
-
-#else
-
-file sealed class TestComponent1([ServiceKey] string path, IOptionsService optionsService) : IComponent
-{
-    public string Options => optionsService.GetOptions<string>(path);
-}
-
-file sealed class TestComponent2([ServiceKey] string path, IOptionsService optionsService) : IComponent
-{
-    public int Options => optionsService.GetOptions<int>(path);
-}
-
-#endif

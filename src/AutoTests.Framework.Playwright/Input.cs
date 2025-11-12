@@ -6,10 +6,10 @@ using Microsoft.Playwright;
 
 namespace AutoTests.Framework.Playwright;
 
-public sealed class Input([ServiceKey] string path, IOptionsService optionsService, IPage page)
+public sealed class Input([FromKeyedServices] IComponentOptions options, IPage page)
     : IComponent, ISetValue<string>, IGetValue<string>, IVisible, IEnabled
 {
-    private readonly string locator = optionsService.GetOptions<string>(path);
+    private readonly string locator = options.Get<string>();
 
     public async Task<string> GetValueAsync()
     {

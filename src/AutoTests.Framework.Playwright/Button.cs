@@ -6,9 +6,9 @@ using Microsoft.Playwright;
 
 namespace AutoTests.Framework.Playwright;
 
-public sealed class Button([ServiceKey] string path, IOptionsService optionsService, IPage page) : IComponent, IClick, IVisible, IEnabled
+public sealed class Button([FromKeyedServices] IComponentOptions options, IPage page) : IComponent, IClick, IVisible, IEnabled
 {
-    private readonly string locator = optionsService.GetOptions<string>(path);
+    private readonly string locator = options.Get<string>();
 
     public async Task ClickAsync()
     {
