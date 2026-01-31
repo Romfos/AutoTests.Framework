@@ -1,14 +1,17 @@
 <Solution>
   <Folder Name="/Tests/">
     <Project Path="AutoTests.Framework.Tests\AutoTests.Framework.Tests.csproj" />
+    <Project Path="Bootstrap.Tests.AI/Bootstrap.Tests.AI.csproj" Id="09105462-f0c7-4827-9487-e992e0c8b343" />
     <Project Path="Bootstrap.Tests\Bootstrap.Tests.csproj" />
   </Folder>
   <Folder Name="/Framework/">
+    <Project Path="AutoTests.Framework.Playwright.AI/AutoTests.Framework.Playwright.AI.csproj" Id="630451b2-89f3-4c43-a83c-6bf137b923f0" />
     <Project Path="AutoTests.Framework.Playwright\AutoTests.Framework.Playwright.csproj" />
     <Project Path="AutoTests.Framework\AutoTests.Framework.csproj" />
   </Folder>
   <Folder Name="/.global/">
     <File Path=".editorconfig" />
+    <File Path="AutoTests.Framework.Playwright.AI.props" />
     <File Path="AutoTests.Framework.props" />
     <File Path="Directory.Build.props" />
     <File Path="icon.ico" />

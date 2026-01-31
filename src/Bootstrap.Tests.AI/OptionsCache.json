@@ -1,0 +1,6 @@
+{
+  "checkout \u003E first name": "//input[@id=\u0027firstName\u0027]",
+  "checkout \u003E last name": "//input[@id=\u0027lastName\u0027]",
+  "checkout \u003E continue to checkout": "//button[@type=\u0027submit\u0027 and contains(text(), \u0027Continue to checkout\u0027)]",
+  "checkout \u003E username error message": "//div[@class=\u0027col-12\u0027]//following-sibling::div[contains(@class, \u0027invalid-feedback\u0027) and contains(., \u0027Your username\u0027)]\n"
+}

@@ -1,0 +1,9 @@
+<Project>
+
+  <ItemGroup>
+    <None Update="OptionsCache.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
