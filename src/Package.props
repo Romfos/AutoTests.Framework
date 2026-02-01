@@ -16,7 +16,7 @@
     <Authors>Romfos</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>BddDotNet based autotest framework</Description>
-    <PackageTags>AutoTests BddDotNet WebDriver BDD Gherkin Playwright</PackageTags>
+    <PackageTags>AutoTests BddDotNet WebDriver BDD Gherkin Playwright AI Ollama</PackageTags>
     <RepositoryUrl>https://github.com/Romfos/AutoTests.Framework</RepositoryUrl>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
