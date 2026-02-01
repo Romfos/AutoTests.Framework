@@ -15,9 +15,10 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection SinglePageChromiumPlaywrightWithAILearning(
         this IServiceCollection services,
         BrowserTypeLaunchOptions browserTypeLaunchOptions,
-        string locatorsCacheFile)
+        string optionsCacheFile)
     {
-        services.AddScoped(_ => OptionsCache.Create(new FileInfo(locatorsCacheFile)));
+        var optionsCacheFileInfo = new FileInfo(Path.Combine(new FileInfo(Environment.ProcessPath!).Directory!.FullName, optionsCacheFile));
+        services.AddScoped(_ => OptionsCache.Create(optionsCacheFileInfo));
 
         services.AddScoped<IOptionsService, OptionsService>();
 

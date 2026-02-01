@@ -4,10 +4,10 @@
     <EmbeddedResource Include="**\*.json" />
     <EmbeddedResource Remove="bin\**\*.json" />
     <EmbeddedResource Remove="obj\**\*.json" />
-    
-    <None Update="OptionsCache.json">
+
+    <EmbeddedResource Update="OptionsCache.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
