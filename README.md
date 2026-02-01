@@ -13,6 +13,7 @@ Key features:
 - Page object pattern support
 - Playwright integration
 - Test data management framework
+- AI integration for automatic locators collection (in preview)
 
 # Test example
 ```gherkin
