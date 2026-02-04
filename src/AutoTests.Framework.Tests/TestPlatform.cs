@@ -8,7 +8,7 @@ internal static class TestPlatform
 {
     public static async Task<int> RunTestAsync(Action<IServiceCollection> configure)
     {
-        var builder = await TestApplication.CreateBuilderAsync(["--results-directory ./TestResults"]);
+        var builder = await TestApplication.CreateBuilderAsync([]);
         var services = builder.AddBddDotNet();
         services.AutoTestsFramework();
         configure(services);
