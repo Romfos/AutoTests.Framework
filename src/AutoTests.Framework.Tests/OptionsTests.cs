@@ -1,5 +1,6 @@
 using AutoTests.Framework.Options;
-using BddDotNet;
+using BddDotNet.Scenarios;
+using BddDotNet.Steps;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AutoTests.Framework.Tests;

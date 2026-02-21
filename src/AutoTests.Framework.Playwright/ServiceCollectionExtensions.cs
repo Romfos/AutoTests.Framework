@@ -6,33 +6,36 @@ namespace AutoTests.Framework.Playwright;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection SinglePageChromiumPlaywright(this IServiceCollection services, BrowserTypeLaunchOptions browserTypeLaunchOptions)
+    extension(IServiceCollection services)
     {
-        services.AutoTestsFramework();
-
-        services.TryAddSingleton(_ =>
+        public IServiceCollection SinglePageChromiumPlaywright(BrowserTypeLaunchOptions browserTypeLaunchOptions)
         {
-            Program.Main(["install", "chromium"]);
-            return Microsoft.Playwright.Playwright.CreateAsync().Result;
-        });
+            services.AutoTestsFramework();
 
-        services.TryAddSingleton(browserTypeLaunchOptions);
+            services.TryAddSingleton(_ =>
+            {
+                Program.Main(["install", "chromium"]);
+                return Microsoft.Playwright.Playwright.CreateAsync().Result;
+            });
 
-        services.TryAddSingleton(services =>
-        {
-            var playwright = services.GetRequiredService<IPlaywright>();
-            var browserTypeLaunchOptions = services.GetRequiredService<BrowserTypeLaunchOptions>();
-            return playwright.Chromium.LaunchAsync(browserTypeLaunchOptions).Result;
-        });
+            services.TryAddSingleton(browserTypeLaunchOptions);
 
-        services.TryAddSingleton(services =>
-        {
-            var browser = services.GetRequiredService<IBrowser>();
-            return browser.NewPageAsync().Result;
-        });
+            services.TryAddSingleton(services =>
+            {
+                var playwright = services.GetRequiredService<IPlaywright>();
+                var browserTypeLaunchOptions = services.GetRequiredService<BrowserTypeLaunchOptions>();
+                return playwright.Chromium.LaunchAsync(browserTypeLaunchOptions).Result;
+            });
 
-        services.SourceGeneratedGherkinSteps();
+            services.TryAddSingleton(services =>
+            {
+                var browser = services.GetRequiredService<IBrowser>();
+                return browser.NewPageAsync().Result;
+            });
 
-        return services;
+            services.SourceGeneratedGherkinSteps();
+
+            return services;
+        }
     }
 }

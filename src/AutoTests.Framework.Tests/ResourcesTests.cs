@@ -1,5 +1,6 @@
 using AutoTests.Framework.Resources;
-using BddDotNet;
+using BddDotNet.Scenarios;
+using BddDotNet.Steps;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

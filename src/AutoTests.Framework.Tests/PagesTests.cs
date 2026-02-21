@@ -1,7 +1,8 @@
 using AutoTests.Framework.Options;
 using AutoTests.Framework.Pages;
 using AutoTests.Framework.Routing;
-using BddDotNet;
+using BddDotNet.Scenarios;
+using BddDotNet.Steps;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AutoTests.Framework.Tests;

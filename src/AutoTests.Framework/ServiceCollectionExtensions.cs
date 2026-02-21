@@ -15,52 +15,55 @@ namespace AutoTests.Framework;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AutoTestsFramework(this IServiceCollection services)
+    extension(IServiceCollection services)
     {
-        services.TryAddSingleton<IOptionsService, OptionsService>();
-        services.TryAddScoped<IRoutingService, RoutingService>();
+        public IServiceCollection AutoTestsFramework()
+        {
+            services.TryAddSingleton<IOptionsService, OptionsService>();
+            services.TryAddScoped<IRoutingService, RoutingService>();
 
-        services.SourceGeneratedGherkinSteps();
+            services.SourceGeneratedGherkinSteps();
 
-        return services;
-    }
+            return services;
+        }
 
-    [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
-    [RequiresDynamicCode("This method is reflection based and not Trimmng and AOT firendly")]
-    public static IServiceCollection DynamicResourcesData(this IServiceCollection services, Assembly[] assemblies)
-    {
-        services.TryAddSingleton<IDynamicDataService>(_ => new DynamicDataService(new JsonDataLoader().Load(assemblies)));
+        [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
+        [RequiresDynamicCode("This method is reflection based and not Trimmng and AOT firendly")]
+        public IServiceCollection DynamicResourcesData(Assembly[] assemblies)
+        {
+            services.TryAddSingleton<IDynamicDataService>(_ => new DynamicDataService(new JsonDataLoader().Load(assemblies)));
 
-        return services;
-    }
+            return services;
+        }
 
-    public static ComponentRoutingBuilder Component<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TComponent>(
-        this IServiceCollection services, string path) where TComponent : class, IComponent
-    {
-        return services.Component(path, typeof(TComponent));
-    }
+        public ComponentRoutingBuilder Component<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TComponent>(
+            string path) where TComponent : class, IComponent
+        {
+            return services.Component(path, typeof(TComponent));
+        }
 
-    public static ComponentRoutingBuilder Component(this IServiceCollection services, string path,
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type componentType)
-    {
-        path = path.GetPathKey();
-        services.AddKeyedTransient(typeof(IComponent), path, componentType);
-        return new(services, path);
-    }
+        public ComponentRoutingBuilder Component(string path,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type componentType)
+        {
+            path = path.GetPathKey();
+            services.AddKeyedTransient(typeof(IComponent), path, componentType);
+            return new(services, path);
+        }
 
-    public static IServiceCollection ComponentOptions(this IServiceCollection services, string path, object value)
-    {
-        path = path.GetPathKey();
-        services.AddKeyedSingleton<IComponentOptions>(path, (_, _) => new ComponentOptions(value));
-        return services;
-    }
+        public IServiceCollection ComponentOptions(string path, object value)
+        {
+            path = path.GetPathKey();
+            services.AddKeyedSingleton<IComponentOptions>(path, (_, _) => new ComponentOptions(value));
+            return services;
+        }
 
-    [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
-    public static IServiceCollection Page<T>(this IServiceCollection services, string? prefix = null) where T : class
-    {
-        CollectComponentsAndOptions(services, prefix, typeof(T));
+        [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
+        public IServiceCollection Page<T>(string? prefix = null) where T : class
+        {
+            CollectComponentsAndOptions(services, prefix, typeof(T));
 
-        return services;
+            return services;
+        }
     }
 
     [RequiresUnreferencedCode("This method is reflection based and not Trimmng and AOT firendly")]
