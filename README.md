@@ -63,7 +63,6 @@ Guide:
 using AutoTests.Framework;
 using AutoTests.Framework.Playwright;
 using BddDotNet;
-using Bootstrap.Tests.Pages;
 using Microsoft.Testing.Platform.Builder;
 
 var builder = await TestApplication.CreateBuilderAsync(args);
