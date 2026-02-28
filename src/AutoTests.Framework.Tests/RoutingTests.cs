@@ -20,7 +20,7 @@ public sealed class RoutingTests
             services.Component<TestComponent1>("page1 > component1");
             services.Component<TestComponent2>("page1 > component2");
 
-            services.Scenario<RoutingTests>("feature1", "scenario1", context => context.When("step1"));
+            services.Scenario("feature1", "scenario1", context => context.When("step1"));
 
             services.When(new("step1"), (IRoutingService routingService) =>
             {

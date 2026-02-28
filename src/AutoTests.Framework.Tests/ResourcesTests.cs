@@ -20,7 +20,7 @@ public sealed class ResourcesTests
 
             services.DynamicResourcesData([Assembly.GetExecutingAssembly()]);
 
-            services.Scenario<RoutingTests>("feature1", "scenario1", context => context.When("step1"));
+            services.Scenario("feature1", "scenario1", context => context.When("step1"));
             services.When(new("step1"), Step1);
 
             void Step1(IDynamicDataService dynamicDataService)

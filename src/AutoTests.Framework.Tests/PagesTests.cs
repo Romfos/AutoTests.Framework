@@ -21,7 +21,7 @@ public sealed class PagesTests
 
             services.Page<PagesClass>("page1");
 
-            services.Scenario<RoutingTests>("feature1", "scenario1", async context =>
+            services.Scenario("feature1", "scenario1", async context =>
             {
                 await context.When("step1");
                 await context.When("step2");

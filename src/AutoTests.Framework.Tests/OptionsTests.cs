@@ -20,7 +20,7 @@ public sealed class OptionsTests
             services.ComponentOptions("page1 > component1", "abc");
             services.ComponentOptions("page1 > component2", 123);
 
-            services.Scenario<RoutingTests>("feature1", "scenario1", context => context.When("step1"));
+            services.Scenario("feature1", "scenario1", context => context.When("step1"));
 
             services.When(new("step1"), (IOptionsService optionsService) =>
             {
