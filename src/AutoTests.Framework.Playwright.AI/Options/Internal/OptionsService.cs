@@ -1,4 +1,3 @@
-using AutoTests.Framework.Playwright.AI.Options;
 using Microsoft.Extensions.AI;
 using Microsoft.Playwright;
 

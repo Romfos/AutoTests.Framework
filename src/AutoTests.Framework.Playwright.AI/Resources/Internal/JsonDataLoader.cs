@@ -15,9 +15,9 @@ internal sealed partial class JsonDataLoader
     public dynamic Load(Assembly[] assemblies)
     {
         var expandoObject = new ExpandoObject() as IDictionary<string, object?>;
-        foreach (var jsonResource in assemblies.SelectMany(GetJsonResources))
+        foreach (var (Name, JsonDocument) in assemblies.SelectMany(GetJsonResources))
         {
-            expandoObject[jsonResource.Name] = ConvertToDynamicObject(jsonResource.JsonDocument.RootElement);
+            expandoObject[Name] = ConvertToDynamicObject(JsonDocument.RootElement);
         }
         return expandoObject;
     }
@@ -48,7 +48,7 @@ internal sealed partial class JsonDataLoader
         return expandoObject;
     }
 
-    private IEnumerable<(string Name, JsonDocument JsonDocument)> GetJsonResources(Assembly assembly)
+    private IEnumerable<(string, JsonDocument)> GetJsonResources(Assembly assembly)
     {
         return assembly.GetManifestResourceNames()
             .Select(x => jsonDataResourceRegex.Match(x))

@@ -2,8 +2,11 @@ namespace AutoTests.Framework.Routing.Internal.Extensions;
 
 internal static class PathExtensions
 {
-    public static string GetPathKey(this string path)
+    extension(string path)
     {
-        return new string(path.Where(x => !char.IsWhiteSpace(x)).ToArray());
+        public string GetPathKey()
+        {
+            return new string(path.Where(x => !char.IsWhiteSpace(x)).ToArray());
+        }
     }
 }
