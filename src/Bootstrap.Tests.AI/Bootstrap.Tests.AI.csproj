@@ -13,7 +13,7 @@
   
   <ItemGroup>
     <PackageReference Include="BddDotNet.Gherkin.CSharpExpressions" Version="2.2.0" />
-    <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="2.2.0">
+    <PackageReference Include="BddDotNet.Gherkin.SourceGenerator" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
