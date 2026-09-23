@@ -2,10 +2,15 @@
   <Import Project="../AutoTests.Framework.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0</TargetFrameworks>
+    <TargetFrameworks>net11.0;net10.0</TargetFrameworks>
+    <Features>$(Features);runtime-async=on</Features>
     <OutputType>exe</OutputType>
     <EnableMSTestRunner>true</EnableMSTestRunner>
     <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net11.0' ">
+    <Features>$(Features);runtime-async=on</Features>
   </PropertyGroup>
 
   <ItemGroup>

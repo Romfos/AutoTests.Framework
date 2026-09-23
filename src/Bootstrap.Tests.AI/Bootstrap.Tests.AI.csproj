@@ -2,7 +2,8 @@
   <Import Project="../AutoTests.Framework.Playwright.AI.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0</TargetFrameworks>
+    <TargetFrameworks>net11.0</TargetFrameworks>
+    <Features>$(Features);runtime-async=on</Features>
     <OutputType>exe</OutputType>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
