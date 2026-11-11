@@ -3,7 +3,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net11.0</TargetFrameworks>
-    <Features>$(Features);runtime-async=on</Features>
     <OutputType>exe</OutputType>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
