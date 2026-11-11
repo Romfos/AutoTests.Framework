@@ -35,7 +35,7 @@ Scenario: checkout form validation test
 ```
 
 # Requirements
-- .NET 10+
+- .NET 10+ (.NET 11 is recommended as best option)
 - Visual Studio 2026 or Visual Studio Code
 - [Reqnroll plugin](https://marketplace.visualstudio.com/items?itemName=Reqnroll.ReqnrollForVisualStudio2022) for Visual Studio or [Cucumber plugin](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official) for Visual Studio Code
 
@@ -49,7 +49,7 @@ Scenario: checkout form validation test
 You can also find example in Bootstrap.Tests project for UI testing
 
 Guide:
-1) Create new console application for .NET 10
+1) Create new console application for .NET 11
 2) Install nuget packages:
 
 | Description                                                               | Package                                                                                                                                                                                                                    |
